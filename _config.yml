@@ -4,7 +4,7 @@ title: MortalreminderPT
 # logo: '/images/logos/avatar128.png' # You can add own logo. For example '/images/logo.png'.
 description: ☐☐☐☐☐，☐☐☐☐☐☐。
 baseurl: "" # The subpath of your site, e.g. /blog
-# url: "https://MortalreminderPT.netlify.app/" # The base hostname & protocol for your site, e.g. http://example.com
+url: "https://mortalreminderpt.github.io/" # The base hostname & protocol for your site, e.g. http://example.com
 
 
 #-------------------------------
@@ -17,7 +17,7 @@ author:
 # Hero Settings
 hero:
   title: Mortalreminder PT
-  description: Un blog para aprender, juntos, sobre tecnología
+  description: ☐☐☐☐☐，☐☐☐☐☐☐。
   image: '/images/pages/2.webp'
 
 
@@ -65,7 +65,6 @@ permalink: pretty
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-t4j
   - jekyll/tagging
 
 paginate: 8
