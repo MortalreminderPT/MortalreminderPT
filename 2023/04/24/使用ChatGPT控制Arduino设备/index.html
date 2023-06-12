@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>No encontramos lo que buscabas!</title>
-  <meta name='description' content='☐☐☐☐☐，☐☐☐☐☐☐。'>
+  <title>使用ChatGPT控制Arduino设备</title>
+  <meta name='description' content='aa'>
 
-  <link rel="canonical" href="http://localhost:5001/404.html">
+  <link rel="canonical" href="http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">
   <link rel="alternate" type="application/rss+xml" title="MortalreminderPT" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -55,7 +55,7 @@
   
 
 <!-- begin header -->
-<header class="header header--top">
+<header class="header ">
   <div class="container">
     <div class="row">
       <div class="header__inner col col-12">
@@ -245,40 +245,543 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin hero -->
+    <div class="post-head">
 
-<section class="hero">
-  <div class="hero__inner">
-    <div class="hero__image">
-      <img class="lazy" data-src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="No encontramos lo que buscabas!">
-    </div>
-    <div class="hero__content">
-      <h1 class="hero__title">No encontramos lo que buscabas!</h1>
-    </div>
-  </div>
-</section>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-<!-- begin hero -->
 
-<!-- begin page -->
-<div class="container">
-  <article class="page animate">
-    <div class="page__content">
-      <div class="container">
-  <div class="row">
-    <div class="col col-12" style="text-align: center">
-      <h2 style="font-size: 48px">404</h2>
-      <p>Lo siento, no pude encontrar lo que estabas buscando!</p>
-      <p><a href="/" class="button button--middle" style="text-decoration: none; border: none">Volver al blog</a></p>
-      <hr>
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-6 col-t-12">
+        <div class="image-box">
+          <img class="post-image lazy" data-src="/images/covers/acclerator1.jpg" alt="使用ChatGPT控制Arduino设备">
+        </div>
+      </div>
+      
+
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                10 min read
+              
+              <time class="post__date"
+                datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">使用ChatGPT控制Arduino设备</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Mortalreminder PT"><img class="post__author-image"
+                  src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Mortalreminder PT</a>
+              
+              <span>in</span>
+              <span class="post-tags">
+                
+                <a href="/tag/ChatGPT" class="post__tag">ChatGPT</a>
+                
+                <a href="/tag/Arduino" class="post__tag">Arduino</a>
+                
+                <a href="/tag/智能家庭" class="post__tag">智能家庭</a>
+                
+              </span>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <p>这篇博客中将介绍如何使用ChatGPT来控制Arduino设备。ChatGPT是由OpenAI开发的一种自然语言处理模型，其强大的功能引发了很大的讨论。本文介绍了ChatGPT与外部系统集成的一种方法，通过ChatGPT作为控制器实现对Arduino设备的控制，以探索自然语言命令控制家庭设备的可能性及智能家庭设备的发展方向。</p>
+
+<p>这篇博客的代码公开在我的github仓库，<a href="https://github.com/MortalreminderPT/HomeGPT-Intelligent-Home-Assistant">点此链接</a>传送至该项目。</p>
+
+<h2 id="chatgpt接入">ChatGPT接入</h2>
+
+<h3 id="prompt编写与测试">Prompt编写与测试</h3>
+
+<p>我们期望ChatGPT以json格式输出命令实现对设备的控制，因此首先需要编写一个合适的提示（prompt），用于告诉ChatGPT我们的需求。在这个提示中，我们应该明确表达我们希望ChatGPT理解并回答的问题，如打开/关闭LED灯、控制电机转速等。经过数次测试之后，我们使用python代码整合了我们的全部需求，</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">possible_device</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">'light'</span><span class="p">:</span><span class="s">'0 close,1 open'</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">'air-conditioner'</span><span class="p">:</span><span class="s">'0 close,1 open'</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">'curtain'</span><span class="p">:</span> <span class="s">'0 close,1 open'</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'As an Intelligent Assistant you need to rely on my words to determine what to do with some of devices.</span><span class="se">\n</span><span class="s">'</span> \
+             <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="s">'</span> \
+             <span class="sa">f</span><span class="s">'your reply contain a list with json [device] only from these devices: </span><span class="si">{</span><span class="n">possible_device</span><span class="si">}</span><span class="s">'</span> \
+             <span class="sa">f</span><span class="s">' and only write json list without any discourse.'</span>
+    <span class="k">return</span> <span class="n">prompt</span>
+</code></pre></div></div>
+
+<p>在ChatGPT官网测试该提示词，发现ChatGPT可以正确理解我们的需求并做出回应。</p>
+
+<p><img src="\images\posts\gpt1.jpg" style="   display: block;   margin-left: auto;   margin-right: auto;    zoom:50%;" /></p>
+
+<p>此时，我们相信ChatGPT可以集成到我们的项目中。</p>
+
+<h3 id="openai-api接入">OpenAI API接入</h3>
+
+<p>OpenAI提供了官方API，以实现通过发送请求与ChatGPT进行实时交互。</p>
+
+<p>首先，我们需要获得OpenAI API的访问密钥。在OpenAI的开发者门户网站上可以注册一个账户并获取API密钥。将API密钥保存在安全的地方，因为它将用于与OpenAI API进行通信。</p>
+
+<p>接下来，我们可以通过引入OpenAI API包来实现与ChatGPT的交互，这个过程仍然被放在了一个函数中：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_reply</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">mask_reply</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mask</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">mask_reply</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'OPENAI_API_KEY'</span><span class="p">)</span> <span class="k">as</span> <span class="n">key</span><span class="p">:</span>
+        <span class="n">openai</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="n">completions</span> <span class="o">=</span> <span class="n">openai</span><span class="p">.</span><span class="n">ChatCompletion</span><span class="p">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="s">"gpt-3.5-turbo"</span><span class="p">,</span>
+            <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}</span>
+            <span class="p">],</span>
+            <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span>
+        <span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">completions</span><span class="p">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">message</span><span class="p">.</span><span class="n">content</span>
+        <span class="k">return</span> <span class="n">message</span>
+</code></pre></div></div>
+
+<p>执行代码并观察输出结果，发现我们成功与ChatGPT完成交互。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In: As an Intelligent Assistant you need to rely on my words to determine what to <span class="k">do </span>with some of devices.
+我很冷，你可以帮我些什么吗
+your reply contain a list with json <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">"device_1"</span>,<span class="s2">"param"</span>:0<span class="o">}]</span> only from these devices: <span class="o">[{</span><span class="s1">'light'</span>: <span class="s1">'0 close,1 open'</span><span class="o">}</span>, <span class="o">{</span><span class="s1">'air-conditioner'</span>: <span class="s1">'0 close,1 open'</span><span class="o">}</span>, <span class="o">{</span><span class="s1">'curtain'</span>: <span class="s1">'0 close,1 open'</span><span class="o">}]</span> and only wr
+ite json list without any discourse.
+
+Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">"air-conditioner"</span>,<span class="s2">"param"</span>:1<span class="o">}]</span>
+</code></pre></div></div>
+
+<h2 id="基于flask搭建服务器">基于Flask搭建服务器</h2>
+<p>在上一部分中，我们完成了与ChatGPT的对话和集成。为了便于用户的使用及与Arduino的交互，我们将使用Flask框架搭建一个服务器，以通过网络实现交互。</p>
+
+<h3 id="flask框架搭建">Flask框架搭建</h3>
+<p>Flask是一个轻量级的Python Web框架，非常适合用于构建简单的Web应用程序。我们将使用Flask来搭建一个简单的服务器，以接收用户或Arduino的请求。</p>
+
+<p>首先，我们需要安装Flask。可以使用pip命令来安装Flask：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>flask
+</code></pre></div></div>
+
+<p>随后创建Flask主文件：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">import</span> <span class="nn">flask_restful</span> <span class="k">as</span> <span class="n">restful</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">restful</span><span class="p">.</span><span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">default_mediatype</span><span class="o">=</span><span class="s">"application/json"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>此时RESTful风格Flask框架已经搭建完成，我们需要为其添加用户及Arduino交互接口。</p>
+<h3 id="添加用户api">添加用户API</h3>
+<p>定义一个用户API文件order.py，用于向服务器发送请求并获取响应。核心代码如下所示：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">OrderApi</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">text_dict</span> <span class="o">=</span> <span class="n">RequestParser</span><span class="p">()</span>\
+            <span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'text'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s">'json'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> \
+            <span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'device'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s">'json'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
+            <span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'param'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s">'json'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
+            <span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+            
+        <span class="n">mask_reply</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">text_dict</span><span class="p">[</span><span class="s">'device'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">text_dict</span><span class="p">[</span><span class="s">'param'</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">mask_reply</span><span class="p">.</span><span class="n">append</span><span class="p">({</span><span class="s">'device'</span><span class="p">:</span><span class="n">text_dict</span><span class="p">[</span><span class="s">'device'</span><span class="p">],</span> <span class="s">'param'</span><span class="p">:</span><span class="n">text_dict</span><span class="p">[</span><span class="s">'param'</span><span class="p">]})</span>
+
+        <span class="n">prompt</span><span class="o">=</span><span class="n">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text_dict</span><span class="p">[</span><span class="s">'text'</span><span class="p">])</span>
+        <span class="n">reply</span><span class="o">=</span><span class="n">get_reply</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+                        <span class="n">mask</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">mask_reply</span><span class="o">=</span><span class="n">mask_reply</span><span class="p">)</span>
+        <span class="n">update_state</span><span class="o">=</span><span class="n">match_json</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">reply</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">device_states</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">update_state</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>随后我们需要在主文件中注册API文件：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">OrderApi</span><span class="p">,</span> <span class="s">'/'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>此时用户可以通过POST请求实现对Arduino设备状态的控制。</p>
+<h3 id="arduino-api">Arduino API</h3>
+
+<p>Arduino设备主要工作内容为读取当前设备工作状态并做出对应调整，因此只需编写简单GET请求响应：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ArduinoApi</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">device_states</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>同样在主文件中注册API文件：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">ArduinoApi</span><span class="p">,</span> <span class="s">'/arduino'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>通过Postman测试，发现可以服务器已经可以正常工作。</p>
+
+<p><img src="\images\posts\gpt2.jpg" style="   display: block;   margin-left: auto;   margin-right: auto;    zoom:50%;" /></p>
+
+<h2 id="使用mongodb存储设备状态">使用MongoDB存储设备状态</h2>
+
+<p>为了防止停电等因素对设备开关记忆的影响，我们使用数据库对设备状态进行持久化。MongoDB作为一种基于键值对的通用NoSQL数据库，非常适合实现这个需求。</p>
+
+<h3 id="mongodb数据库结构">MongoDB数据库结构</h3>
+<p>在我们开始之前，我们需要定义设备状态的数据结构。在这个例子中，我们假设我们的设备有一个LED灯，可以打开或关闭。我们可以使用以下JSON格式来表示设备状态：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"light"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"param"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>在上面的示例中，device是设备的唯一标识符，param表示LED灯的状态。</p>
+
+<h3 id="flask接入mongodb">Flask接入MongoDB</h3>
+<p>为了与MongoDB进行交互，我们将使用MongoDB的官方Python驱动程序pymongo。我们需要先安装它：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>pymongo
+</code></pre></div></div>
+<p>接下来，我们需要在Flask应用程序中添加与MongoDB的连接和数据访问逻辑。</p>
+
+<p>在app.py文件中添加pymongo库：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_pymongo</span> <span class="kn">import</span> <span class="n">PyMongo</span>
+<span class="n">mongo</span> <span class="o">=</span> <span class="n">PyMongo</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="n">config</span><span class="p">.</span><span class="n">MONGO_URI</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="与数据库的交互及数据缓存">与数据库的交互及数据缓存</h3>
+
+<p>我们编写一个DeviceStates类与数据库进行交互，为了提升设备响应的即时性，我们还可以给数据库添加缓存。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DeviceStates</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_flash</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">_flash</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">_flash</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">for</span> <span class="n">device_state</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="p">{</span><span class="s">'_id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})):</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">state</span><span class="p">[</span><span class="n">device_state</span><span class="p">[</span><span class="s">'device'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">device_state</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">state</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update_dict</span><span class="p">:</span><span class="n">DeviceState</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">update_device</span><span class="p">,</span> <span class="n">update_state</span> <span class="ow">in</span> <span class="n">update_dict</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">devices</span><span class="p">.</span><span class="n">update_one</span><span class="p">({</span><span class="sa">f</span><span class="s">'_id'</span><span class="p">:</span><span class="n">update_device</span><span class="p">},</span> <span class="p">{</span><span class="s">'$set'</span><span class="p">:{</span><span class="o">**</span><span class="n">update_state</span><span class="p">}},</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">state</span><span class="p">[</span><span class="n">update_device</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_state</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">all</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">devices</span><span class="p">.</span><span class="n">delete_many</span><span class="p">({}).</span><span class="n">deleted_count</span>
+</code></pre></div></div>
+
+<h2 id="编写qqbot实现qq平台控制">编写QQbot实现QQ平台控制</h2>
+<p>本节编写了一个简单的QQbot，用户可以在QQ平台与QQbot简单对话，完成对Arduino设备状态的控制。</p>
+
+<p>安装botpy包：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>botpy
+</code></pre></div></div>
+
+<p>为QQbot编写交互代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">botpy</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">botpy</span> <span class="kn">import</span> <span class="n">logging</span>
+<span class="kn">from</span> <span class="nn">botpy.ext.cog_yaml</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span> <span class="nn">botpy.message</span> <span class="kn">import</span> <span class="n">Message</span>
+
+<span class="n">test_config</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s">"config.yaml"</span><span class="p">))</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">get_logger</span><span class="p">()</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'accept-language'</span><span class="p">:</span> <span class="s">'zh-CN,zh;q=0.9,en;q=0.8'</span><span class="p">,</span>
+    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">MyClient</span><span class="p">(</span><span class="n">botpy</span><span class="p">.</span><span class="n">Client</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_ready</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"robot 「</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">robot</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">」 on_ready!"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_at_message_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+        <span class="n">_log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">author</span><span class="p">.</span><span class="n">avatar</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">"sleep"</span> <span class="ow">in</span> <span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">_log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">author</span><span class="p">.</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">test_config</span><span class="p">[</span><span class="s">'server'</span><span class="p">]</span>
+        <span class="kn">import</span> <span class="nn">re</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'&lt;.*?&gt;'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'text'</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span>
+            <span class="s">'device'</span><span class="p">:</span> <span class="s">'light'</span><span class="p">,</span>
+            <span class="s">'param'</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">message</span><span class="p">.</span><span class="n">reply</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'unicode_escape'</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">intents</span> <span class="o">=</span> <span class="n">botpy</span><span class="p">.</span><span class="n">Intents</span><span class="p">(</span><span class="n">public_guild_messages</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">MyClient</span><span class="p">(</span><span class="n">intents</span><span class="o">=</span><span class="n">intents</span><span class="p">)</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="n">test_config</span><span class="p">[</span><span class="s">"appid"</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="n">test_config</span><span class="p">[</span><span class="s">"token"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>此时，我们可以在QQ频道与QQbot对话，以实现对Arduino设备的控制</p>
+
+<p><img src="\images\posts\gpt3.jpg" style="   display: block;   margin-left: auto;   margin-right: auto;    zoom:50%;" /></p>
+
+<h2 id="arduino状态控制">Arduino状态控制</h2>
+<p>在服务器及交互平台搭建完成后，本部分展示了Arduino设备代码实现，其原理主要为发出GET请求获取设备状态，随后通过字符串匹配控制设备的状态。</p>
+
+<h3 id="arduino设备代码实现">Arduino设备代码实现</h3>
+
+<p><strong>这部分代码是由我的队友编写的，他速成了Arduino代码编写并实现了设备状态控制，感谢他在该项目的贡献。</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;ESP8266WiFi.h&gt;
+#include &lt;SoftwareSerial.h&gt;
+#include &lt;ESP8266HTTPClient.h&gt;
+#include &lt;ArduinoJson.h&gt;
+</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">ssid</span><span class="p">;</span> <span class="c1">//Enter your Wi-Fi SSID</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">password</span><span class="p">;</span> <span class="c1">//Enter you Wi-Fi Password</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">check</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">ledpin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">Payload</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="n">define</span> <span class="n">URL</span> <span class="s">"http://localhost:5000/arduino"</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_STA</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">ledpin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledpin</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"开始连接"</span><span class="p">);</span>
+    <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"正在连接到"</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">ssid</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"waiting for "</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"s..."</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"WiFi connected!"</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"IP address: "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">WiFiClient</span> <span class="n">tcpClient</span><span class="p">;</span>
+    <span class="n">HTTPClient</span> <span class="n">httpClient</span><span class="p">;</span>
+    <span class="n">httpClient</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">tcpClient</span><span class="p">,</span> <span class="n">URL</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"URL: "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">URL</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">httpCode</span> <span class="o">=</span> <span class="n">httpClient</span><span class="p">.</span><span class="n">GET</span><span class="p">();</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Send GET request to URL: "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">URL</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">httpCode</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Payload</span> <span class="o">=</span> <span class="n">httpClient</span><span class="p">.</span><span class="n">getString</span><span class="p">();</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\r\n</span><span class="s">Server Respose Code: "</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">httpCode</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Server Response Payload: "</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Payload</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\r\n</span><span class="s">Server Respose Code: "</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">httpCode</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">httpClient</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+    <span class="n">StaticJsonDocument</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&gt;</span> <span class="n">doc</span><span class="p">;</span>
+    <span class="n">DeserializationError</span> <span class="n">error</span> <span class="o">=</span> <span class="n">deserializeJson</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">Payload</span><span class="p">);</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s">"light"</span><span class="p">][</span><span class="s">"param"</span><span class="p">];</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">check</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">check</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">check</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">Payload</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="结果展示">结果展示</h2>
+
+<p>如图所示，在向QQbot提出需求后，ChatGPT成功接收并理解了我们的需求并将其转化为指令，Arduino设备状态也随之发生改变。</p>
+
+<p><img src="\images\posts\gpt4.jpg" style="   display: block;   margin-left: auto;   margin-right: auto;    zoom:50%;" /></p>
+
+<p>ChatGPT在此次实验中的强大作用向我们展示了大语言模型在智能家庭的重大潜力。包括但不限于识别并发掘深度需求，多模态智能家居控制，个性化用户体验等多种潜在方向。</p>
+
+<p>同样，该项应用也存在隐私保护，数据安全等问题，需要人们的进一步思考和解决。</p>
+
     </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87&url=http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/&amp;media=http://localhost:5001/images/covers/acclerator1.jpg&amp;description=%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      <a class="prev" href="/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/">
+        <img class="post__nav-image lazy" data-src="/images/covers/acclerator1.jpg" alt="动态规划（三）股票问题系列">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> Publicación Anterior</div>
+          <h4 class="post__nav__title">动态规划（三）股票问题系列</h4>
+        </div>
+      </a>
+      
+      
+    </div>
+
   </article>
 </div>
-<!-- end page -->
+<!-- end post -->
 
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts ">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">Esto podría gustarte!</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- begin comments -->
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="disqus-inner">
+        <div id="disqus_thread" class="post-comments">
+          <div id="disqus_empty"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function load_disqus() {
+    var disqus_shortname = 'n00b2h4ck3r',
+      is_disqus_empty = document.getElementById('disqus_empty'),
+      disqus_target = document.getElementById('disqus_thread'),
+      disqus_embed = document.createElement('script'),
+      disqus_hook = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
+
+    if (disqus_target && is_disqus_empty) {
+      disqus_embed.type = 'text/javascript';
+      disqus_embed.async = true;
+      disqus_embed.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      disqus_hook.appendChild(disqus_embed);
+      is_disqus_empty.remove();
+    }
+  }
+
+  window.addEventListener('scroll', function (e) {
+    var currentScroll = document.scrollingElement.scrollTop;
+    var disqus_target = document.getElementById('disqus_thread');
+
+    if (disqus_target && (currentScroll > disqus_target.getBoundingClientRect().top - 150)) {
+      load_disqus('disqus_shortname');
+    }
+  }, false);
+
+</script>
+<noscript>Por favor, activa javascript para poder ver los
+  <a href="https://disqus.com/?ref_noscript">comentarios de Disqus.</a>
+</noscript>
+<!-- end comments -->
+ 
 
 
   </main> 
