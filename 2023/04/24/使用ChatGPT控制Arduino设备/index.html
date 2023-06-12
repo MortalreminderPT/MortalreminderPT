@@ -144,6 +144,14 @@
       
     
   
+    
+      
+    
+  
+    
+      
+    
+  
 <!--  <li class="nav__item">-->
 <!--    <a href="/2021/12/27/queres-que-tu-arch-se-vea-hermoso-aca-te-dejo-mis-dotfiles/" class="nav__link">DOTFILES</a>-->
 <!--  </li>-->
@@ -194,6 +202,14 @@
       <li class="nav__item">
         <a href="/styleguide/" class="nav__link">Style Guide</a>
       </li>
+      
+    
+  
+    
+      
+    
+  
+    
       
     
   
@@ -277,18 +293,6 @@
   <!-- begin content -->
   <main class="content" aria-label="Content">
     <div class="post-head">
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-        inlineMath: [['$','$']]
-        }
-    });
-  </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
-
   <div class="container">
     <div class="row">
       
@@ -306,7 +310,7 @@
             <span class="post__minutes">
               
               
-                10 min read
+                11 min read
               
               <time class="post__date"
                 datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
@@ -363,19 +367,19 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">possible_device</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s">'light'</span><span class="p">:</span><span class="s">'0 close,1 open'</span>
+            <span class="sh">'</span><span class="s">light</span><span class="sh">'</span><span class="p">:</span><span class="sh">'</span><span class="s">0 close,1 open</span><span class="sh">'</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="s">'air-conditioner'</span><span class="p">:</span><span class="s">'0 close,1 open'</span>
+            <span class="sh">'</span><span class="s">air-conditioner</span><span class="sh">'</span><span class="p">:</span><span class="sh">'</span><span class="s">0 close,1 open</span><span class="sh">'</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="s">'curtain'</span><span class="p">:</span> <span class="s">'0 close,1 open'</span>
+            <span class="sh">'</span><span class="s">curtain</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">0 close,1 open</span><span class="sh">'</span>
         <span class="p">}</span>
     <span class="p">]</span>
-    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'As an Intelligent Assistant you need to rely on my words to determine what to do with some of devices.</span><span class="se">\n</span><span class="s">'</span> \
-             <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="s">'</span> \
-             <span class="sa">f</span><span class="s">'your reply contain a list with json [device] only from these devices: </span><span class="si">{</span><span class="n">possible_device</span><span class="si">}</span><span class="s">'</span> \
-             <span class="sa">f</span><span class="s">' and only write json list without any discourse.'</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">'</span><span class="s">As an Intelligent Assistant you need to rely on my words to determine what to do with some of devices.</span><span class="se">\n</span><span class="sh">'</span> \
+             <span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="sh">'</span> \
+             <span class="sa">f</span><span class="sh">'</span><span class="s">your reply contain a list with json [device] only from these devices: </span><span class="si">{</span><span class="n">possible_device</span><span class="si">}</span><span class="sh">'</span> \
+             <span class="sa">f</span><span class="sh">'</span><span class="s"> and only write json list without any discourse.</span><span class="sh">'</span>
     <span class="k">return</span> <span class="n">prompt</span>
 </code></pre></div></div>
 
@@ -395,13 +399,13 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_reply</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">mask_reply</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mask</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">mask_reply</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'OPENAI_API_KEY'</span><span class="p">)</span> <span class="k">as</span> <span class="n">key</span><span class="p">:</span>
-        <span class="n">openai</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-        <span class="n">completions</span> <span class="o">=</span> <span class="n">openai</span><span class="p">.</span><span class="n">ChatCompletion</span><span class="p">.</span><span class="n">create</span><span class="p">(</span>
-            <span class="n">model</span><span class="o">=</span><span class="s">"gpt-3.5-turbo"</span><span class="p">,</span>
+        <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">mask_reply</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">OPENAI_API_KEY</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">key</span><span class="p">:</span>
+        <span class="n">openai</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="nf">read</span><span class="p">().</span><span class="nf">rstrip</span><span class="p">(</span><span class="sh">'</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">completions</span> <span class="o">=</span> <span class="n">openai</span><span class="p">.</span><span class="n">ChatCompletion</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">gpt-3.5-turbo</span><span class="sh">"</span><span class="p">,</span>
             <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-                <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}</span>
+                <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}</span>
             <span class="p">],</span>
             <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -433,40 +437,40 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 
 <p>随后创建Flask主文件：</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
-<span class="kn">import</span> <span class="nn">flask_restful</span> <span class="k">as</span> <span class="n">restful</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">restful</span><span class="p">.</span><span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">default_mediatype</span><span class="o">=</span><span class="s">"application/json"</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">import</span> <span class="n">flask_restful</span> <span class="k">as</span> <span class="n">restful</span>
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">restful</span><span class="p">.</span><span class="nc">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">default_mediatype</span><span class="o">=</span><span class="sh">"</span><span class="s">application/json</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>此时RESTful风格Flask框架已经搭建完成，我们需要为其添加用户及Arduino交互接口。</p>
 <h3 id="添加用户api">添加用户API</h3>
 <p>定义一个用户API文件order.py，用于向服务器发送请求并获取响应。核心代码如下所示：</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">OrderApi</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">text_dict</span> <span class="o">=</span> <span class="n">RequestParser</span><span class="p">()</span>\
-            <span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'text'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s">'json'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> \
-            <span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'device'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s">'json'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
-            <span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'param'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s">'json'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
-            <span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">text_dict</span> <span class="o">=</span> <span class="nc">RequestParser</span><span class="p">()</span>\
+            <span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">'</span><span class="s">text</span><span class="sh">'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="sh">'</span><span class="s">json</span><span class="sh">'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> \
+            <span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">'</span><span class="s">device</span><span class="sh">'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="sh">'</span><span class="s">json</span><span class="sh">'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
+            <span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">'</span><span class="s">param</span><span class="sh">'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="sh">'</span><span class="s">json</span><span class="sh">'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
+            <span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
             
         <span class="n">mask_reply</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">text_dict</span><span class="p">[</span><span class="s">'device'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">text_dict</span><span class="p">[</span><span class="s">'param'</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">mask_reply</span><span class="p">.</span><span class="n">append</span><span class="p">({</span><span class="s">'device'</span><span class="p">:</span><span class="n">text_dict</span><span class="p">[</span><span class="s">'device'</span><span class="p">],</span> <span class="s">'param'</span><span class="p">:</span><span class="n">text_dict</span><span class="p">[</span><span class="s">'param'</span><span class="p">]})</span>
+        <span class="k">if</span> <span class="n">text_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">device</span><span class="sh">'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">text_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">param</span><span class="sh">'</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">mask_reply</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">'</span><span class="s">device</span><span class="sh">'</span><span class="p">:</span><span class="n">text_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">device</span><span class="sh">'</span><span class="p">],</span> <span class="sh">'</span><span class="s">param</span><span class="sh">'</span><span class="p">:</span><span class="n">text_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">param</span><span class="sh">'</span><span class="p">]})</span>
 
-        <span class="n">prompt</span><span class="o">=</span><span class="n">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text_dict</span><span class="p">[</span><span class="s">'text'</span><span class="p">])</span>
-        <span class="n">reply</span><span class="o">=</span><span class="n">get_reply</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+        <span class="n">prompt</span><span class="o">=</span><span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">text</span><span class="sh">'</span><span class="p">])</span>
+        <span class="n">reply</span><span class="o">=</span><span class="nf">get_reply</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
                         <span class="n">mask</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
                         <span class="n">mask_reply</span><span class="o">=</span><span class="n">mask_reply</span><span class="p">)</span>
-        <span class="n">update_state</span><span class="o">=</span><span class="n">match_json</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">reply</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">device_states</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">update_state</span><span class="p">)</span>
+        <span class="n">update_state</span><span class="o">=</span><span class="nf">match_json</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">reply</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">device_states</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">update_state</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>随后我们需要在主文件中注册API文件：</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">OrderApi</span><span class="p">,</span> <span class="s">'/'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">OrderApi</span><span class="p">,</span> <span class="sh">'</span><span class="s">/</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>此时用户可以通过POST请求实现对Arduino设备状态的控制。</p>
@@ -474,13 +478,13 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 
 <p>Arduino设备主要工作内容为读取当前设备工作状态并做出对应调整，因此只需编写简单GET请求响应：</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ArduinoApi</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">device_states</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">device_states</span><span class="p">.</span><span class="nf">get</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>同样在主文件中注册API文件：</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">ArduinoApi</span><span class="p">,</span> <span class="s">'/arduino'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">ArduinoApi</span><span class="p">,</span> <span class="sh">'</span><span class="s">/arduino</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>通过Postman测试，发现可以服务器已经可以正常工作。</p>
@@ -509,8 +513,8 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 <p>接下来，我们需要在Flask应用程序中添加与MongoDB的连接和数据访问逻辑。</p>
 
 <p>在app.py文件中添加pymongo库：</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_pymongo</span> <span class="kn">import</span> <span class="n">PyMongo</span>
-<span class="n">mongo</span> <span class="o">=</span> <span class="n">PyMongo</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="n">config</span><span class="p">.</span><span class="n">MONGO_URI</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask_pymongo</span> <span class="kn">import</span> <span class="n">PyMongo</span>
+<span class="n">mongo</span> <span class="o">=</span> <span class="nc">PyMongo</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="n">config</span><span class="p">.</span><span class="n">MONGO_URI</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="与数据库的交互及数据缓存">与数据库的交互及数据缓存</h3>
@@ -518,27 +522,27 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 <p>我们编写一个DeviceStates类与数据库进行交互，为了提升设备响应的即时性，我们还可以给数据库添加缓存。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DeviceStates</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">_flash</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_flash</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">_flash</span><span class="p">:</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">_flash</span> <span class="o">=</span> <span class="bp">True</span>
-            <span class="k">for</span> <span class="n">device_state</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="p">{</span><span class="s">'_id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})):</span>
-                <span class="bp">self</span><span class="p">.</span><span class="n">state</span><span class="p">[</span><span class="n">device_state</span><span class="p">[</span><span class="s">'device'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">device_state</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">state</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">_flash</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">_flash</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">for</span> <span class="n">device_state</span> <span class="ow">in</span> <span class="nf">list</span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="p">{</span><span class="sh">'</span><span class="s">_id</span><span class="sh">'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})):</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">state</span><span class="p">[</span><span class="n">device_state</span><span class="p">[</span><span class="sh">'</span><span class="s">device</span><span class="sh">'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">device_state</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">state</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update_dict</span><span class="p">:</span><span class="n">DeviceState</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">update_device</span><span class="p">,</span> <span class="n">update_state</span> <span class="ow">in</span> <span class="n">update_dict</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">devices</span><span class="p">.</span><span class="n">update_one</span><span class="p">({</span><span class="sa">f</span><span class="s">'_id'</span><span class="p">:</span><span class="n">update_device</span><span class="p">},</span> <span class="p">{</span><span class="s">'$set'</span><span class="p">:{</span><span class="o">**</span><span class="n">update_state</span><span class="p">}},</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">state</span><span class="p">[</span><span class="n">update_device</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_state</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">update_dict</span><span class="p">:</span><span class="n">DeviceState</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">update_device</span><span class="p">,</span> <span class="n">update_state</span> <span class="ow">in</span> <span class="n">update_dict</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+            <span class="n">devices</span><span class="p">.</span><span class="nf">update_one</span><span class="p">({</span><span class="sa">f</span><span class="sh">'</span><span class="s">_id</span><span class="sh">'</span><span class="p">:</span><span class="n">update_device</span><span class="p">},</span> <span class="p">{</span><span class="sh">'</span><span class="s">$set</span><span class="sh">'</span><span class="p">:{</span><span class="o">**</span><span class="n">update_state</span><span class="p">}},</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">state</span><span class="p">[</span><span class="n">update_device</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_state</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">get</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">all</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">return</span> <span class="n">devices</span><span class="p">.</span><span class="n">delete_many</span><span class="p">({}).</span><span class="n">deleted_count</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="nb">all</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">devices</span><span class="p">.</span><span class="nf">delete_many</span><span class="p">({}).</span><span class="n">deleted_count</span>
 </code></pre></div></div>
 
 <h2 id="编写qqbot实现qq平台控制">编写QQbot实现QQ平台控制</h2>
@@ -551,46 +555,46 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 
 <p>为QQbot编写交互代码如下：</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">asyncio</span>
+<span class="kn">import</span> <span class="n">os</span>
 
-<span class="kn">import</span> <span class="nn">botpy</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">botpy</span> <span class="kn">import</span> <span class="n">logging</span>
-<span class="kn">from</span> <span class="nn">botpy.ext.cog_yaml</span> <span class="kn">import</span> <span class="n">read</span>
-<span class="kn">from</span> <span class="nn">botpy.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">import</span> <span class="n">botpy</span>
+<span class="kn">import</span> <span class="n">requests</span>
+<span class="kn">from</span> <span class="n">botpy</span> <span class="kn">import</span> <span class="n">logging</span>
+<span class="kn">from</span> <span class="n">botpy.ext.cog_yaml</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span> <span class="n">botpy.message</span> <span class="kn">import</span> <span class="n">Message</span>
 
-<span class="n">test_config</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s">"config.yaml"</span><span class="p">))</span>
+<span class="n">test_config</span> <span class="o">=</span> <span class="nf">read</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">"</span><span class="s">config.yaml</span><span class="sh">"</span><span class="p">))</span>
 
-<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">get_logger</span><span class="p">()</span>
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="nf">get_logger</span><span class="p">()</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'accept-language'</span><span class="p">:</span> <span class="s">'zh-CN,zh;q=0.9,en;q=0.8'</span><span class="p">,</span>
-    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="sh">'</span><span class="s">accept-language</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">zh-CN,zh;q=0.9,en;q=0.8</span><span class="sh">'</span><span class="p">,</span>
+    <span class="sh">'</span><span class="s">content-type</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">application/json</span><span class="sh">'</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">MyClient</span><span class="p">(</span><span class="n">botpy</span><span class="p">.</span><span class="n">Client</span><span class="p">):</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_ready</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">_log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s">"robot 「</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">robot</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">」 on_ready!"</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_at_message_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
-        <span class="n">_log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">author</span><span class="p">.</span><span class="n">avatar</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s">"sleep"</span> <span class="ow">in</span> <span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
-            <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">_log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">author</span><span class="p">.</span><span class="n">username</span><span class="p">)</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="n">test_config</span><span class="p">[</span><span class="s">'server'</span><span class="p">]</span>
-        <span class="kn">import</span> <span class="nn">re</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'&lt;.*?&gt;'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_ready</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">_log</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">robot 「</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">robot</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">」 on_ready!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_at_message_create</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+        <span class="n">_log</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">author</span><span class="p">.</span><span class="n">avatar</span><span class="p">)</span>
+        <span class="k">if</span> <span class="sh">"</span><span class="s">sleep</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">_log</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">author</span><span class="p">.</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">test_config</span><span class="p">[</span><span class="sh">'</span><span class="s">server</span><span class="sh">'</span><span class="p">]</span>
+        <span class="kn">import</span> <span class="n">re</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">sub</span><span class="p">(</span><span class="sh">'</span><span class="s">&lt;.*?&gt;</span><span class="sh">'</span><span class="p">,</span> <span class="sh">''</span><span class="p">,</span> <span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s">'text'</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span>
-            <span class="s">'device'</span><span class="p">:</span> <span class="s">'light'</span><span class="p">,</span>
-            <span class="s">'param'</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="sh">'</span><span class="s">text</span><span class="sh">'</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">device</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">light</span><span class="sh">'</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">param</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">}</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">await</span> <span class="n">message</span><span class="p">.</span><span class="n">reply</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'unicode_escape'</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="sh">"</span><span class="s">POST</span><span class="sh">"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">message</span><span class="p">.</span><span class="nf">reply</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="sh">'</span><span class="s">unicode_escape</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">intents</span> <span class="o">=</span> <span class="n">botpy</span><span class="p">.</span><span class="n">Intents</span><span class="p">(</span><span class="n">public_guild_messages</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">client</span> <span class="o">=</span> <span class="n">MyClient</span><span class="p">(</span><span class="n">intents</span><span class="o">=</span><span class="n">intents</span><span class="p">)</span>
-    <span class="n">client</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="n">test_config</span><span class="p">[</span><span class="s">"appid"</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="n">test_config</span><span class="p">[</span><span class="s">"token"</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="n">intents</span> <span class="o">=</span> <span class="n">botpy</span><span class="p">.</span><span class="nc">Intents</span><span class="p">(</span><span class="n">public_guild_messages</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="nc">MyClient</span><span class="p">(</span><span class="n">intents</span><span class="o">=</span><span class="n">intents</span><span class="p">)</span>
+    <span class="n">client</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="n">test_config</span><span class="p">[</span><span class="sh">"</span><span class="s">appid</span><span class="sh">"</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="n">test_config</span><span class="p">[</span><span class="sh">"</span><span class="s">token</span><span class="sh">"</span><span class="p">])</span>
 </code></pre></div></div>
 
 <p>此时，我们可以在QQ频道与QQbot对话，以实现对Arduino设备的控制</p>
@@ -604,10 +608,10 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 
 <p><strong>这部分代码是由我的队友编写的，他速成了Arduino代码编写并实现了设备状态控制，感谢他在该项目的贡献。</strong></p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;ESP8266WiFi.h&gt;
-#include &lt;SoftwareSerial.h&gt;
-#include &lt;ESP8266HTTPClient.h&gt;
-#include &lt;ArduinoJson.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;SoftwareSerial.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;ESP8266HTTPClient.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;ArduinoJson.h&gt;</span><span class="cp">
 </span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">ssid</span><span class="p">;</span> <span class="c1">//Enter your Wi-Fi SSID</span>
 <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">password</span><span class="p">;</span> <span class="c1">//Enter you Wi-Fi Password</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -760,6 +764,13 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
 
             
             
+            
+            
+
+            
+
+            
+            
           </div>
         </div>
       </div>
@@ -840,7 +851,7 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
           <span class="article__minutes">
             
             
-              10 min read
+              11 min read
             
           </span>
           <time class="article__date"
@@ -896,7 +907,7 @@ Out: <span class="o">[{</span><span class="s2">"device"</span>:<span class="s2">
       <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
-      <a href="/tag/arduino/" class="set-1">Arduino</a> <a href="/tag/chatgpt/" class="set-1">ChatGPT</a> <a href="/tag/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="set-5">动态规划</a> <a href="/tag/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD/" class="set-1">智能家庭</a> <a href="/tag/%E7%AE%97%E6%B3%95/" class="set-5">算法</a>
+      <a href="/tag/arduino/" class="set-1">Arduino</a> <a href="/tag/chatgpt/" class="set-1">ChatGPT</a> <a href="/tag/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="set-1">二叉树</a> <a href="/tag/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="set-5">动态规划</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="set-1">数据结构</a> <a href="/tag/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD/" class="set-1">智能家庭</a> <a href="/tag/%E7%AE%97%E6%B3%95/" class="set-5">算法</a>
     </div>
   </div>
 </div>
