@@ -9,8 +9,8 @@
   <title>二叉树基础（三） 线段树（Segment Tree）</title>
   <meta name='description' content='二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。'>
 
-  <link rel="canonical" href="http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
-  <link rel="alternate" type="application/rss+xml" title="PT" href="/feed.xml">
+  <link rel="canonical" href="https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
+  <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
   <!-- Fonts -->
@@ -64,7 +64,7 @@
       <div class="logo">
         <a class="logo__link" href="/">
         
-          PT
+          PT's Blog
         
         </a>
       </div>
@@ -377,13 +377,13 @@
       <h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/_bgl41sZynfVxGLUjQzT3R9.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/_lpjXiEq6vJy$nU7ZaK80bF.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/_5cJm0d7iAGwQL$9u31Wjek.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/_FjoExXncqKdSO23HgM0@vL.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/_@9OnQCq7b6Yia5$JBT2mRy.xml"></include>，设线段树的根节点编号为<include src="/_5cJm0d7iAGwQL$9u31Wjek.xml"></include>，用数组<include src="/_YOF4iVA$jl5@DeBuk2dbpa.xml"></include>来保存线段树，<include src="/_Ba40e8ivWsIfSTNXC6hAtd.xml"></include>用来保存线段树上编号为<include src="/_fztmJyXNlGpaRK7qw9IBir.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/_R9cFJK7@1CZBAfoypjv8S$.xml"></include>，设线段树的根节点编号为<include src="/_FjoExXncqKdSO23HgM0@vL.xml"></include>，用数组<include src="/_lqxd9cJpFNbG836KO4WhTI.xml"></include>来保存线段树，<include src="/_PRuZWVEr4M@ijIlFw2Q7na.xml"></include>用来保存线段树上编号为<include src="/_wldDgtvQFpjIiSkGPMeXqY.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -398,7 +398,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/_fztmJyXNlGpaRK7qw9IBir.xml"></include>，其子节点的编号为<include src="/_poVtdgLfvyERheB6ATPl$j.xml"></include>以及<include src="/_RsB5YDaAzH10rk6K@XWO32.xml"></include>，若节点<include src="/_fztmJyXNlGpaRK7qw9IBir.xml"></include>存储的区间为<include src="/_9aJlcbnqtP$dfCrNgM8G0A.xml"></include>，则节点<include src="/_poVtdgLfvyERheB6ATPl$j.xml"></include>存储的区间应该是<include src="/_IaAX8nYNwLH6SCsu@O75zh.xml"></include>，相应地，节点<include src="/_RsB5YDaAzH10rk6K@XWO32.xml"></include>存储的区间为<include src="/_OLt5CZmS$2TX0@FdIcJpix.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/_wldDgtvQFpjIiSkGPMeXqY.xml"></include>，其子节点的编号为<include src="/_AVIWUqka1KNpyPvfluGREL.xml"></include>以及<include src="/_bY0VjlL43NBcZo7DzxvgaA.xml"></include>，若节点<include src="/_wldDgtvQFpjIiSkGPMeXqY.xml"></include>存储的区间为<include src="/_K40e1bVC8NIQaLfHFBuyjn.xml"></include>，则节点<include src="/_AVIWUqka1KNpyPvfluGREL.xml"></include>存储的区间应该是<include src="/_BxVHNki4FOGKsw$gzlrMZ3.xml"></include>，相应地，节点<include src="/_bY0VjlL43NBcZo7DzxvgaA.xml"></include>存储的区间为<include src="/_e9uSYE$akrw63RG8Cc7Mjv.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -413,7 +413,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/_mW6GzRjsgIroA@2FT$ZSVv.xml"></include>，我们只需直接返回<include src="/_OL94pm6EZ18JMvf2g3TqeR.xml"></include>，但如果我们查询的是<include src="/_D$t5GerlFuCw6TRzBHZXpK.xml"></include>，则需要合并<include src="/_5ujXOfvFcWx$NI9im4ShEG.xml"></include>和<include src="/_32ywD1tTnXBm58e4bNCSiG.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/_2Bj$hLbH0n14Gu3qsEdwNo.xml"></include>，我们只需直接返回<include src="/_2tGomryfCH4Wh0x7ZiwPTF.xml"></include>，但如果我们查询的是<include src="/_VwlnLjy$du@rqQzY2tO4Bg.xml"></include>，则需要合并<include src="/_fFNBIgC0MZsPVYrhjp1S@u.xml"></include>和<include src="/_8SQgcPV@LUYNavRzK2I43M.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -439,9 +439,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/_JblRTj2c1IKX9MF7Hh4kDy.xml"></include>的区间<include src="/_D$t5GerlFuCw6TRzBHZXpK.xml"></include>加上<include src="/_rsCVHcbKRB91fjnPLD6xka.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/_P3TXfIUuJD6RwmoWSB2H$9.xml"></include>的区间<include src="/_VwlnLjy$du@rqQzY2tO4Bg.xml"></include>加上<include src="/_J$baKB2giTn0NIhwdLSkWl.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/_VIiCEZvxX1damBrKhNRQgy.xml"></include>时就已经结束了，因此节点<include src="/_VIiCEZvxX1damBrKhNRQgy.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/_AaqviQ2NdWG4ZB5XVgnDpt.xml"></include>时就已经结束了，因此节点<include src="/_AaqviQ2NdWG4ZB5XVgnDpt.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
@@ -527,17 +527,17 @@
 
     <div class="post__share">
       <div class="share__list">
-        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
 
-        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89&url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89&url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
 
-        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/&amp;media=http://localhost:5001https://api.dujin.org/bing/1920.php&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/&amp;media=https://mortalreminderpt.github.io/https://api.dujin.org/bing/1920.php&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
 
-        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
 
-        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
 
-        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
       </div>
     </div>
 
@@ -928,29 +928,24 @@
     <div class="row">
       <div class="col col-12">
       <div class="footer__inner">
-        <div class="copyright">2023 &copy; <a href="/">PT</a>. Crafted & Designed by <a href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
+        <div class="copyright">2023 &copy; <a href="/">PT's Blog</a>. Crafted & Designed by <a href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
         
 <div class="social">
   <ul class="social__list list-reset">
     
     <li class="social__item">
-      <a class="social__link" href="https://twitter.com/Mortalreminder PTok" aria-label="social icon"><i class="ion ion-logo-twitter"></i></a>
+<!--      <a class="social__link" href="mailto://mortalreminder@foxmail.com" aria-label="social icon"><i class=""></i></a>-->
+      <a class="social__link" href="mailto://mortalreminder@foxmail.com" aria-label="social icon"><i class="ion ion-md-mail"></i></a>
     </li>
     
     <li class="social__item">
-      <a class="social__link" href="https://www.facebook.com/braianagustin.diez" aria-label="social icon"><i class="ion ion-logo-facebook"></i></a>
-    </li>
-    
-    <li class="social__item">
-      <a class="social__link" href="https://github.com/Mortalreminder PT" aria-label="social icon"><i class="ion ion-logo-github"></i></a>
-    </li>
-    
-    <li class="social__item">
-      <a class="social__link" href="https://www.instagram.com/elblogdebraian" aria-label="social icon"><i class="ion ion-logo-instagram"></i></a>
+<!--      <a class="social__link" href="https://github.com/MortalreminderPT" aria-label="social icon"><i class=""></i></a>-->
+      <a class="social__link" href="https://github.com/MortalreminderPT" aria-label="social icon"><i class="ion ion-logo-github"></i></a>
     </li>
     
   </ul>
 </div>
+
 
         </div>
       </div>

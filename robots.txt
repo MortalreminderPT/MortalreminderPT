@@ -1,1 +1,1 @@
-Sitemap: http://localhost:5001/sitemap.xml
+Sitemap: https://mortalreminderpt.github.io//sitemap.xml
