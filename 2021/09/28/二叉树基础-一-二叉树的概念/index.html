@@ -9,7 +9,7 @@
   <title>二叉树基础（一）二叉树的概念</title>
   <meta name='description' content='二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。'>
 
-  <link rel="canonical" href="https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
+  <link rel="canonical" href="http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
   <link rel="alternate" type="application/rss+xml" title="MortalreminderPT" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -51,16 +51,6 @@
 
 
 <body>
-  
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-176116253-1', 'auto');
-  ga('send', 'pageview');
-</script>
   
 
   
@@ -397,20 +387,20 @@
   <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
     <h3 id="性质">性质</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/_$omxfti9852HZUg04LFQXC.xml"></include>个节点 <include src="/_INfl8xT01hKBUb$45VoOGu.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/_2wPtRFr9X0mAipy$vusfJ4.xml"></include>个节点 <include src="/_LGCytfWdOuwMjR9YHPa0B4.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/_XQPS59BTuzJxvg4oCnG6LZ.xml"></include>，度为2的节点为<include src="/_wIji4C0oFunmTb2OWvgzde.xml"></include>，则<include src="/_6@3YG9kaTL$xMtEX0RoHsg.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_7KObcu6HW94qFRmClyPBnr.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/_bCf7l@aw0PL5UBkKtoExA$.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_bEYCKZzw10p2jty7PMliS8.xml"></include></li>
-  <li><include src="/_bCf7l@aw0PL5UBkKtoExA$.xml"></include>个节点的完全二叉树高度为<include src="/_e2JPNuLd5zhb47Is8KoOYS.xml"></include>，深度为<include src="/_P0SbuZKi2m5IFcjY8oLlyw.xml"></include></li>
+  <li>一棵二叉树的第i层最多有<include src="/_4jAZFHYy75Qa9dfSvg0Xu1.xml"></include>个节点 <include src="/_Tzb6@clPpEe2SZWBkHoUax.xml"></include></li>
+  <li>深度为k的二叉树最多有<include src="/_UDhAdvRW3@fqeaPMT50FHl.xml"></include>个节点 <include src="/_fXr39kjG8$xNIEmDtz52MB.xml"></include></li>
+  <li>对于1棵二叉树，度为0的节点为<include src="/_YZdzKML@CGfAxI6UO4bkcX.xml"></include>，度为2的节点为<include src="/_FR9kV1zslpDXI5oZ@xiWaB.xml"></include>，则<include src="/_4k2lunoHZ$9gLmC3fc@Fr6.xml"></include></li>
+  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_nz73NlDgwXqPEy$o40Am82.xml"></include></li>
+  <li>满二叉树定理推论：在一棵具有<include src="/_wA@pt9yBJ1Iic7ofrDLGOq.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_GrR$aFgHAVmsyhMnwdpxC1.xml"></include></li>
+  <li><include src="/_wA@pt9yBJ1Iic7ofrDLGOq.xml"></include>个节点的完全二叉树高度为<include src="/_ozrx0Y3O19MhLvgHQ6qEfK.xml"></include>，深度为<include src="/_ECGjKBAHZSh0tPcwQpOWoL.xml"></include></li>
 </ul>
 
 <h2 id="二叉树的c实现">二叉树的C++实现</h2>
 
 <h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_OrvNbZ1UkWadu$fQH5VLRF.xml"></include>处，
-其左孩子存储于下标<include src="/_gfa0vWrOpNbn4Kjw3LZ8MR.xml"></include>，右孩子存储于下标<include src="/_FTwsdleYqZxKENWL370RDM.xml"></include>….依此类推，对于下标为<include src="/_C1PNecQWDT3j7VBnod4lR2.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_tcjhr6WOn1KB@gxouDd3P7.xml"></include>和<include src="/_aAcwNW65C1f8UiyKvxoqDH.xml"></include>处。</p>
+<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_J0alrm6XycEFGo8UVKewsI.xml"></include>处，
+其左孩子存储于下标<include src="/_ixctmyRgN16uPYDBMpvFTk.xml"></include>，右孩子存储于下标<include src="/_GEnadvejxgy4IKV9pXP2c6.xml"></include>….依此类推，对于下标为<include src="/_mVkiyBS6@Y$ta9bxX0Tdlc.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_Al4stGcOi3wnxFD8rQPgjm.xml"></include>和<include src="/_Gy@tqHkrpbgY2XNnQfDF3s.xml"></include>处。</p>
 <h4 id="实现代码">实现代码</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
@@ -504,17 +494,17 @@
 
     <div class="post__share">
       <div class="share__list">
-        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
 
-        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
 
-        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=https://mortalreminderpt.github.io//images/covers/blackrock2.jpg&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:5001/images/covers/blackrock2.jpg&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
 
-        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
 
-        <a class="share__link share__whatsapp" href="whatsapp://send?text=https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
 
-        <a class="share__link share__telegram" href="https://t.me/share/url?url=https://mortalreminderpt.github.io//2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
       </div>
     </div>
 
@@ -601,51 +591,7 @@
 </div>
 
 
- <!-- begin comments -->
-<div class="container">
-  <div class="row">
-    <div class="col col-12">
-      <div class="disqus-inner">
-        <div id="disqus_thread" class="post-comments">
-          <div id="disqus_empty"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<script>
-  function load_disqus() {
-    var disqus_shortname = 'n00b2h4ck3r',
-      is_disqus_empty = document.getElementById('disqus_empty'),
-      disqus_target = document.getElementById('disqus_thread'),
-      disqus_embed = document.createElement('script'),
-      disqus_hook = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
-
-    if (disqus_target && is_disqus_empty) {
-      disqus_embed.type = 'text/javascript';
-      disqus_embed.async = true;
-      disqus_embed.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      disqus_hook.appendChild(disqus_embed);
-      is_disqus_empty.remove();
-    }
-  }
-
-  window.addEventListener('scroll', function (e) {
-    var currentScroll = document.scrollingElement.scrollTop;
-    var disqus_target = document.getElementById('disqus_thread');
-
-    if (disqus_target && (currentScroll > disqus_target.getBoundingClientRect().top - 150)) {
-      load_disqus('disqus_shortname');
-    }
-  }, false);
-
-</script>
-<noscript>Por favor, activa javascript para poder ver los
-  <a href="https://disqus.com/?ref_noscript">comentarios de Disqus.</a>
-</noscript>
-<!-- end comments -->
- 
 
 
   </main> 
