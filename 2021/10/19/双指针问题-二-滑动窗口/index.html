@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Contact</title>
-  <meta name='description' content=''>
+  <title>双指针问题（二）滑动窗口</title>
+  <meta name='description' content='双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。'>
 
-  <link rel="canonical" href="http://localhost:5001/contact/">
+  <link rel="canonical" href="http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -35,6 +35,18 @@
   </style>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let z = document.body.getElementsByTagName("include")
+        for (let i = 0; i < z.length; ++i) {
+            let elmnt = z[i]
+            let xhttp = new XMLHttpRequest()
+            xhttp.onreadystatechange = function() { elmnt.innerHTML = this.responseText }
+            xhttp.open("GET", elmnt.getAttribute("src"), true)
+            xhttp.send()
+        }
+    })
+</script>
 </head>
 
 
@@ -44,7 +56,7 @@
   
 
 <!-- begin header -->
-<header class="header header--top">
+<header class="header ">
   <div class="container">
     <div class="row">
       <div class="header__inner col col-12">
@@ -314,55 +326,453 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin hero -->
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-6 col-t-12">
+        <div class="image-box">
+          <img class="post-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口">
+        </div>
+      </div>
+      
 
-<section class="hero">
-  <div class="hero__inner">
-    <div class="hero__image">
-      <img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-US" alt="Contact">
-    </div>
-    <div class="hero__content">
-      <h1 class="hero__title">Contact</h1>
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                4 min read
+              
+              <time class="post__date"
+                datetime="2021-10-19T21:41:33+08:00">Oct 19, 2021</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">双指针问题（二）滑动窗口</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Mortalreminder PT"><img class="post__author-image"
+                  src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Mortalreminder PT</a>
+              
+              <span>in</span>
+              <span class="post-tags">
+                
+                <a href="/tag/算法" class="post__tag">算法</a>
+                
+                <a href="/tag/指针" class="post__tag">指针</a>
+                
+                <a href="/tag/链表" class="post__tag">链表</a>
+                
+                <a href="/tag/数据结构" class="post__tag">数据结构</a>
+                
+              </span>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- begin hero -->
-
-<!-- begin page -->
-<div class="container">
-  <article class="page animate">
-    <div class="page__content">
-      <div class="form-container">
-  
-  <p class="contact-description">¡Me encantaría recibir un mensaje de parte tuya/o! Qué te parece si me escribes y me das tus comentarios, o me haces las preguntas que quieras! EStoy a tu disposición.</p>
-  
-  <form class="form"
-    action="https://formspree.io/mortalreminder@foxmail.com" method="POST">
-    <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-name">Tu nombre</label>
-      <input class="form__input" id="form-name" type="text" name="name" placeholder="nombre" required>
-    </div>
-    <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-email">Tu Correo</label>
-      <input class="form__input" id="form-email" type="email" name="_replyto" placeholder="email" required>
-    </div>
-    <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-text">Tu mensaje</label>
-      <textarea class="form__input" id="form-text" name="text" rows="10" placeholder="mensaje" required></textarea>
-    </div>
-    <div class="form__group">
-      <button class="button button--primary" type="submit">Enviar</button>
-    </div>
-    <input type="hidden" name="_next" value="/contact/thanks/" />
-  </form>
-  <hr>
 </div>
 
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <h2 id="概念">概念</h2>
+<p>滑动窗口是在数组上通过双指针同向移动而解决问题的方法。这样的问题我们不必为它们专门命名一个名字，它们的解法其实是很自然的。</p>
+
+<p>滑动窗口通常是暴力解法的优化，掌握这一类问题最好的办法就是练习，然后思考清楚为什么可以使用滑动窗口。</p>
+
+<h2 id="209-长度最小的子数组"><a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h2>
+
+<p>该题是最基本的滑动窗口问题，我们可以用两个指针<include src="/_Sc$PfywreDVzL3la49uMER.xml"></include>和<include src="/_SEJALUtRbsW92KcYzfyvnH.xml"></include>表示窗口的左右段，然后让指针<include src="/_SEJALUtRbsW92KcYzfyvnH.xml"></include>持续向右移动，同时用一个变量<include src="/_QeFbXsxUEf$CltkJ40vH2K.xml"></include>记录<include src="/_tqg1LDe@5h8QMkV$sKIiEc.xml"></include>的区间和，若<include src="/_QeFbXsxUEf$CltkJ40vH2K.xml"></include>满足条件，则记录<include src="/_Sc$PfywreDVzL3la49uMER.xml"></include>和<include src="/_SEJALUtRbsW92KcYzfyvnH.xml"></include>的差作为答案，并移动指针<include src="/_Sc$PfywreDVzL3la49uMER.xml"></include>，代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">int</span> <span class="n">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+                <span class="n">sum</span> <span class="o">-=</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+                <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">r</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span> <span class="o">==</span> <span class="n">INT_MAX</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<h2 id="713-乘积小于k的子数组"><a href="https://leetcode-cn.com/problems/subarray-product-less-than-k/">713. 乘积小于K的子数组</a></h2>
+
+<p>这道题的解法与上道题非常相似，但求的不再是区间长度而是连续子区间数量。</p>
+
+<p>对于子区间数量，我们可以发现，若<include src="/_tqg1LDe@5h8QMkV$sKIiEc.xml"></include>是一个符合条件的窗口，则<include src="/_y5zGLg@M3C4dJKVqEHTrhb.xml"></include>也必然是符合条件的窗口</p>
+
+<p>即对于任何符合条件的区间<include src="/_tqg1LDe@5h8QMkV$sKIiEc.xml"></include>，以<include src="/_SEJALUtRbsW92KcYzfyvnH.xml"></include>结尾的子集个数永远是<include src="/_@Texd2Jmhq5fOkZ1UpDrNu.xml"></include>，因此我们要在每次更新<include src="/_SEJALUtRbsW92KcYzfyvnH.xml"></include>之前为答案加上<include src="/_@Texd2Jmhq5fOkZ1UpDrNu.xml"></include>，代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">int</span> <span class="n">numSubarrayProductLessThanK</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">*=</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">sum</span> <span class="o">/=</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+                <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">r</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<h2 id="3-无重复字符的最长子串"><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h2>
+
+<p>与前面的连续子序列不同的是，这道题要求的是连续子串的长度，因此我们需要修改一下判定条件，若窗口区间内出现重复字符，则更新<include src="/_Sc$PfywreDVzL3la49uMER.xml"></include>，代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">int</span> <span class="n">lengthOfLongestSubstring</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">cnt</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">cnt</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">r</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">cnt</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">r</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cnt</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">l</span><span class="p">]]</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="n">r</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="438-找到字符串中所有字母异位词"><a href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/">438. 找到字符串中所有字母异位词</a></h2>
+
+<p>这道题解法与上一题大同小异，是把字符的判据改为了字符串的比较。同时，该题的窗口长度始终保持不变，为<include src="/_iUGHOtQ@7dYJCsbuI4ZEyk.xml"></include>的长度</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">findAnagrams</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ans</span><span class="p">,</span> <span class="n">target</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">sum</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">length</span><span class="p">())</span> <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">target</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="p">)]</span><span class="o">++</span><span class="p">,</span> <span class="n">sum</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="p">)]</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+        <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">sum</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">l</span><span class="o">++</span><span class="p">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="p">)]</span><span class="o">--</span><span class="p">;</span>
+            <span class="n">sum</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">r</span><span class="o">++</span><span class="p">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="p">)]</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span>
+                <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
     </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3&url=http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/&amp;media=http://localhost:5001https://api.dujin.org/bing/1920.php&amp;description=%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      <a class="prev" href="/2021/10/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-Binary-Search/">
+        <img class="post__nav-image lazy" data-src="/images/covers/blackrock2.jpg" alt="二分查找（Binary Search）">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
+          <h4 class="post__nav__title">二分查找（Binary Search）</h4>
+        </div>
+      </a>
+      
+      
+      <a class="next" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">
+        <img class="post__nav-image lazy" data-src="https://api.wannote.com/image/bing.php?day=2" alt="使用ChatGPT控制Arduino设备">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">使用ChatGPT控制Arduino设备</h4>
+        </div>
+      </a>
+      
+    </div>
+
   </article>
 </div>
-<!-- end page -->
+<!-- end post -->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts is-related">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">相关阅读</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/2021/10/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-Binary-Search/">
+                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="二分查找（Binary Search）">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+                      
+                        8 min para leer
+                      
+                      <time class="article__date"
+                        datetime="2021-10-15T20:51:55+08:00">Oct 15, 2021</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">二分查找（Binary Search）</h2>
+
+                  <p class="article__excerpt">二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到 O(log n)</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tag/算法" class="article__tag">算法</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+              
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/2021/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%9B%9B-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS/">
+                  <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（四）最长上升子序列（LIS）">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+                      
+                        4 min para leer
+                      
+                      <time class="article__date"
+                        datetime="2021-10-11T21:19:19+08:00">Oct 11, 2021</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">动态规划（四）最长上升子序列（LIS）</h2>
+
+                  <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tag/算法" class="article__tag">算法</a>
+                        
+                          <a href="/tag/动态规划" class="article__tag">动态规划</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+              
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
+                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="二叉树基础（三） 线段树（Segment Tree）">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+                      
+                        9 min para leer
+                      
+                      <time class="article__date"
+                        datetime="2021-10-09T19:00:50+08:00">Oct 9, 2021</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">二叉树基础（三） 线段树（Segment Tree）</h2>
+
+                  <p class="article__excerpt">二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tag/算法" class="article__tag">算法</a>
+                        
+                          <a href="/tag/数据结构" class="article__tag">数据结构</a>
+                        
+                          <a href="/tag/二叉树" class="article__tag">二叉树</a>
+                        
+                          <a href="/tag/树型数据结构" class="article__tag">树型数据结构</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+                  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
   </main> 
   <!-- end content -->
@@ -389,7 +799,7 @@
           <span class="article__minutes">
             
             
-              11 min read
+              4 min read
             
           </span>
           <time class="article__date"

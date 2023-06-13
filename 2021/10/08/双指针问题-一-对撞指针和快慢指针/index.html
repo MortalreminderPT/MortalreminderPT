@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Contact</title>
-  <meta name='description' content=''>
+  <title>双指针问题（一）对撞指针和快慢指针</title>
+  <meta name='description' content='双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。'>
 
-  <link rel="canonical" href="http://localhost:5001/contact/">
+  <link rel="canonical" href="http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -35,6 +35,18 @@
   </style>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let z = document.body.getElementsByTagName("include")
+        for (let i = 0; i < z.length; ++i) {
+            let elmnt = z[i]
+            let xhttp = new XMLHttpRequest()
+            xhttp.onreadystatechange = function() { elmnt.innerHTML = this.responseText }
+            xhttp.open("GET", elmnt.getAttribute("src"), true)
+            xhttp.send()
+        }
+    })
+</script>
 </head>
 
 
@@ -44,7 +56,7 @@
   
 
 <!-- begin header -->
-<header class="header header--top">
+<header class="header ">
   <div class="container">
     <div class="row">
       <div class="header__inner col col-12">
@@ -314,55 +326,466 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin hero -->
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-6 col-t-12">
+        <div class="image-box">
+          <img class="post-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（一）对撞指针和快慢指针">
+        </div>
+      </div>
+      
 
-<section class="hero">
-  <div class="hero__inner">
-    <div class="hero__image">
-      <img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-US" alt="Contact">
-    </div>
-    <div class="hero__content">
-      <h1 class="hero__title">Contact</h1>
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                3 min read
+              
+              <time class="post__date"
+                datetime="2021-10-08T21:14:13+08:00">Oct 8, 2021</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">双指针问题（一）对撞指针和快慢指针</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Mortalreminder PT"><img class="post__author-image"
+                  src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Mortalreminder PT</a>
+              
+              <span>in</span>
+              <span class="post-tags">
+                
+                <a href="/tag/算法" class="post__tag">算法</a>
+                
+                <a href="/tag/指针" class="post__tag">指针</a>
+                
+                <a href="/tag/链表" class="post__tag">链表</a>
+                
+                <a href="/tag/数据结构" class="post__tag">数据结构</a>
+                
+              </span>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- begin hero -->
-
-<!-- begin page -->
-<div class="container">
-  <article class="page animate">
-    <div class="page__content">
-      <div class="form-container">
-  
-  <p class="contact-description">¡Me encantaría recibir un mensaje de parte tuya/o! Qué te parece si me escribes y me das tus comentarios, o me haces las preguntas que quieras! EStoy a tu disposición.</p>
-  
-  <form class="form"
-    action="https://formspree.io/mortalreminder@foxmail.com" method="POST">
-    <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-name">Tu nombre</label>
-      <input class="form__input" id="form-name" type="text" name="name" placeholder="nombre" required>
-    </div>
-    <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-email">Tu Correo</label>
-      <input class="form__input" id="form-email" type="email" name="_replyto" placeholder="email" required>
-    </div>
-    <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-text">Tu mensaje</label>
-      <textarea class="form__input" id="form-text" name="text" rows="10" placeholder="mensaje" required></textarea>
-    </div>
-    <div class="form__group">
-      <button class="button button--primary" type="submit">Enviar</button>
-    </div>
-    <input type="hidden" name="_next" value="/contact/thanks/" />
-  </form>
-  <hr>
 </div>
 
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <h2 id="概念">概念</h2>
+<p>双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。</p>
+
+<p>广义上来说，双指针是指用两个变量在线性结构上遍历而解决的问题。</p>
+
+<p>狭义上说：</p>
+
+<ul>
+  <li>对于数组，指两个变量在数组上相向移动解决的问题；</li>
+  <li>对于链表，指两个变量在链表上同向移动解决的问题，也称为「快慢指针」问题。</li>
+</ul>
+
+<h2 id="双指针问题">双指针问题</h2>
+<h3 id="对撞指针">对撞指针</h3>
+<p>对撞指针将最左侧的索引定义为左指针(left)，最右侧的定义为右指针(right)，从两头向中间进行数组遍历</p>
+
+<p>对撞指针适用于<strong>有序的数组和字符串</strong></p>
+
+<p>对撞指针的时间复杂度为<include src="/_VivP5xKYMGntE2l9$hH4BD.xml"></include></p>
+
+<p><a href="https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/">剑指 Offer 21</a></p>
+
+<p>此题要求分奇偶调整数组的顺序，我们可以用左指针寻找奇数，右指针寻找偶数，当左指针找到偶数且右指针找到奇数时，对调两数。代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">exchange</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">r</span><span class="o">--</span><span class="p">;</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">nums</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/">剑指 Offer 57</a></p>
+
+<p>此题要求寻找和为<include src="/_COH69fNq$cr1LKEyuwnpeV.xml"></include>数对，由于此题数组已经做好排序，我们可以确定</p>
+
+<p>若数对<include src="/_gu7WEva8XdlCfs9p42mNK1.xml"></include></p>
+
+<p>则必有<include src="/_UopRMlxrFiIVEh$k4HK3wA.xml"></include></p>
+
+<p>同理，若数对<include src="/_FI2BZXKwl6cs93VqpMJm4$.xml"></include></p>
+
+<p>则<include src="/_Z9HBFycVwDzKNirEsCo$dM.xml"></include></p>
+
+<p>因此这道题也可以用对撞指针求解，当<include src="/_mWJ3q9QkHB7tNX0UVxEfLg.xml"></include>时，<include src="/_Sc$PfywreDVzL3la49uMER.xml"></include>向右移动，反之，<include src="/_u17$hjUQDNe9PnrYlZgMSR.xml"></include>时，r向左移动，代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="o">&amp;&amp;</span><span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">&lt;</span><span class="n">target</span><span class="p">)</span> <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="o">&amp;&amp;</span><span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">&gt;</span><span class="n">target</span><span class="p">)</span> <span class="n">r</span><span class="o">--</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">==</span><span class="n">target</span><span class="p">){</span>
+            <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]);</span>
+            <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]);</span>
+            <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="快慢指针">快慢指针</h3>
+<p>快慢指针在序列中定义了一对不同速度的指针，以进行单向序列问题的求解。</p>
+
+<p>快慢指针的时间复杂度为<include src="/_VivP5xKYMGntE2l9$hH4BD.xml"></include>，空间复杂度为<include src="/_kZnHu3OvMoqdC50QaNPWyV.xml"></include></p>
+
+<p><a href="https://leetcode-cn.com/problems/linked-list-cycle/">141. 环形链表</a></p>
+
+<p>此题要判断链表是否有环，可以定义一个快指针和一个慢指针，随后进行移动，若快指针可以追上慢指针，则表示链表一定有环，代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">hasCycle</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="n">p1</span> <span class="o">!=</span> <span class="n">p2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/">142. 环形链表 II</a></p>
+
+<p>此题需要在求出是否成环的同时找到入环的第一个节点，我们可以根据快指针速度始终是慢指针的两倍这一条件进行推理</p>
+
+<p><img src="/images/posts/doublepoint1.png" alt="在这里插入图片描述" /></p>
+
+<p>假设快慢指针在<include src="/_CufMY$76xghwtlKNmS4oVz.xml"></include>交点相遇，此时慢指针走的距离应该是<include src="/_D3oPCUH8c2jg1xs5I4GkpQ.xml"></include>，而快指针已经走了<include src="/_3b6vM8L4IuCtQefamdj5NE.xml"></include>
+又有快指针的速度是慢指针的两倍，因此</p>
+
+<p><include src="/_XYSf0d9rK1mxZ7P@EjFG5$.xml"></include>，</p>
+
+<p>即<include src="/_9j067cbqamkfOxti@PsRYh.xml"></include></p>
+
+<p>因此，当快慢指针相遇时，相遇点距离入环节点的距离总是<include src="/_ZbVfmXYMTlQqkAxrW71$UB.xml"></include>，因此我们可以再用一个指针<include src="/_g6LuaSCiO3oRVynMksWAcF.xml"></include>寻找入环节点，同时更新<include src="/_g6LuaSCiO3oRVynMksWAcF.xml"></include>和慢指针，当二者相遇时，相遇节点即入环节点。代码如下</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">detectCycle</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">!=</span> <span class="n">p2</span><span class="p">);</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">cur</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cur</span> <span class="o">!=</span> <span class="n">p1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
     </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88&url=http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/&amp;media=http://localhost:5001https://api.dujin.org/bing/1920.php&amp;description=%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2021/10/08/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      <a class="prev" href="/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/">
+        <img class="post__nav-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="二叉树基础（二）二叉搜索树（BST）">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
+          <h4 class="post__nav__title">二叉树基础（二）二叉搜索树（BST）</h4>
+        </div>
+      </a>
+      
+      
+      <a class="next" href="/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
+        <img class="post__nav-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="二叉树基础（三） 线段树（Segment Tree）">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">二叉树基础（三） 线段树（Segment Tree）</h4>
+        </div>
+      </a>
+      
+    </div>
+
   </article>
 </div>
-<!-- end page -->
+<!-- end post -->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts is-related">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">相关阅读</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+                      
+                        1 min read
+                      
+                      <time class="article__date"
+                        datetime="2021-10-19T21:41:33+08:00">Oct 19, 2021</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">双指针问题（二）滑动窗口</h2>
+
+                  <p class="article__excerpt">双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tag/算法" class="article__tag">算法</a>
+                        
+                          <a href="/tag/指针" class="article__tag">指针</a>
+                        
+                          <a href="/tag/链表" class="article__tag">链表</a>
+                        
+                          <a href="/tag/数据结构" class="article__tag">数据结构</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+              
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/2021/10/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-Binary-Search/">
+                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="二分查找（Binary Search）">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+                      
+                        3 min para leer
+                      
+                      <time class="article__date"
+                        datetime="2021-10-15T20:51:55+08:00">Oct 15, 2021</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">二分查找（Binary Search）</h2>
+
+                  <p class="article__excerpt">二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到 O(log n)</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tag/算法" class="article__tag">算法</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+              
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/2021/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%9B%9B-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS/">
+                  <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（四）最长上升子序列（LIS）">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+                      
+                        1 min read
+                      
+                      <time class="article__date"
+                        datetime="2021-10-11T21:19:19+08:00">Oct 11, 2021</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">动态规划（四）最长上升子序列（LIS）</h2>
+
+                  <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tag/算法" class="article__tag">算法</a>
+                        
+                          <a href="/tag/动态规划" class="article__tag">动态规划</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+                  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
   </main> 
   <!-- end content -->
@@ -389,7 +812,7 @@
           <span class="article__minutes">
             
             
-              11 min read
+              4 min read
             
           </span>
           <time class="article__date"
@@ -416,7 +839,7 @@
           <span class="article__minutes">
             
             
-              4 min read
+              1 min read
             
           </span>
           <time class="article__date"
