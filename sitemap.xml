@@ -48,6 +48,9 @@
 <loc>http://localhost:5001/about/</loc>
 </url>
 <url>
+<loc>http://localhost:5001/column/</loc>
+</url>
+<url>
 <loc>http://localhost:5001/contact/</loc>
 </url>
 <url>
