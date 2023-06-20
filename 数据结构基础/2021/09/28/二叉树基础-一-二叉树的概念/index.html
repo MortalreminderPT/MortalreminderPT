@@ -9,7 +9,7 @@
   <title>二叉树基础（一）二叉树的概念</title>
   <meta name='description' content='二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。'>
 
-  <link rel="canonical" href="http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
+  <link rel="canonical" href="https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -204,76 +204,6 @@
     
       
       
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
         <li class="nav__item">
           <a href="/sitemap.xml" class="nav__link"></a>
         </li>
@@ -286,6 +216,11 @@
         <li class="nav__item">
           <a href="/robots.txt" class="nav__link"></a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -433,76 +368,6 @@
     
       
       
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
         <li class="nav__item">
           <a href="/sitemap.xml" class="nav__link"></a>
         </li>
@@ -515,6 +380,11 @@
         <li class="nav__item">
           <a href="/robots.txt" class="nav__link"></a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -614,13 +484,13 @@
               <span>in</span>
               <span class="post-tags">
                 
-                <a href="/tag/算法" class="post__tag">算法</a>
+                <a href="/archive/tag/算法" class="post__tag">算法</a>
                 
-                <a href="/tag/数据结构" class="post__tag">数据结构</a>
+                <a href="/archive/tag/数据结构" class="post__tag">数据结构</a>
                 
-                <a href="/tag/二叉树" class="post__tag">二叉树</a>
+                <a href="/archive/tag/二叉树" class="post__tag">二叉树</a>
                 
-                <a href="/tag/树型数据结构" class="post__tag">树型数据结构</a>
+                <a href="/archive/tag/树型数据结构" class="post__tag">树型数据结构</a>
                 
               </span>
               
@@ -638,7 +508,35 @@
   <article class="post animate">
 
     <div class="post__content">
-      <h2 id="概念">概念</h2>
+      <ol id="markdown-toc">
+  <li><a href="#概念" id="markdown-toc-概念">概念</a>    <ol>
+      <li><a href="#二叉树的定义" id="markdown-toc-二叉树的定义">二叉树的定义</a></li>
+      <li><a href="#基本形态" id="markdown-toc-基本形态">基本形态</a></li>
+      <li><a href="#特殊类型" id="markdown-toc-特殊类型">特殊类型</a></li>
+      <li><a href="#相关术语" id="markdown-toc-相关术语">相关术语</a></li>
+      <li><a href="#性质" id="markdown-toc-性质">性质</a></li>
+    </ol>
+  </li>
+  <li><a href="#二叉树的c实现" id="markdown-toc-二叉树的c实现">二叉树的C++实现</a>    <ol>
+      <li><a href="#二叉树的顺序存储" id="markdown-toc-二叉树的顺序存储">二叉树的顺序存储</a>        <ol>
+          <li><a href="#实现代码" id="markdown-toc-实现代码">实现代码</a></li>
+        </ol>
+      </li>
+      <li><a href="#二叉树的链式存储" id="markdown-toc-二叉树的链式存储">二叉树的链式存储</a>        <ol>
+          <li><a href="#实现代码-1" id="markdown-toc-实现代码-1">实现代码</a></li>
+        </ol>
+      </li>
+      <li><a href="#二叉树的递归遍历" id="markdown-toc-二叉树的递归遍历">二叉树的递归遍历</a>        <ol>
+          <li><a href="#先序遍历dlr" id="markdown-toc-先序遍历dlr">先序遍历（DLR）</a></li>
+          <li><a href="#中序遍历ldr" id="markdown-toc-中序遍历ldr">中序遍历（LDR）</a></li>
+          <li><a href="#后序遍历lrd" id="markdown-toc-后序遍历lrd">后序遍历（LRD）</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="概念">概念</h2>
 <p>二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。</p>
 
 <h3 id="二叉树的定义">二叉树的定义</h3>
@@ -671,20 +569,20 @@
   <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
     <h3 id="性质">性质</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/_k3RXGlEf058uDKyMJBhdT4.xml"></include>个节点 <include src="/_ZsRr8d1ko$GtzfqT@EblnW.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/_Upd@$47BJCcKMg0TlEReuX.xml"></include>个节点 <include src="/_cvrdkiFg048n$NCEm@Rbyq.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/_VpGt6vn4yhO1caszqPM8XF.xml"></include>，度为2的节点为<include src="/_P6etIhGv3F@z7WlwHZ2bUK.xml"></include>，则<include src="/_gAc4l@yF79O6nDw0r2IuSx.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_zR9fWumD2crK6Fd1pTyA8P.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/_YJUuRWa8IbLxSH13hecB5@.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_BKitCdgqLzXIcwv5m84Q3a.xml"></include></li>
-  <li><include src="/_YJUuRWa8IbLxSH13hecB5@.xml"></include>个节点的完全二叉树高度为<include src="/_DEX$m2Z@PwaLpe4UIb5v0C.xml"></include>，深度为<include src="/_fWomuj$TExyk8i562QUBwN.xml"></include></li>
+  <li>一棵二叉树的第i层最多有<include src="/_3l2LS4kiMfvyhXU9bHI8g6.xml"></include>个节点 <include src="/_SgW0eHIGip7cdFzRyLsJkm.xml"></include></li>
+  <li>深度为k的二叉树最多有<include src="/_GTvhnaPbelkwM6gm8$YVop.xml"></include>个节点 <include src="/_4vbG3YHpJruy2I1Rq9LP6d.xml"></include></li>
+  <li>对于1棵二叉树，度为0的节点为<include src="/_jkYyAKhPx$ONIrw6isRp5E.xml"></include>，度为2的节点为<include src="/_LzUp3D4wPQuo@Sj7TBiefa.xml"></include>，则<include src="/_yFSnPhAM67pD814zfYaUm3.xml"></include></li>
+  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_Bp4sQyIfghZT6k@Nltuxj$.xml"></include></li>
+  <li>满二叉树定理推论：在一棵具有<include src="/_dIYsumJhe@91VGEC$Z0pLv.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_acRWSj8oTNFO@BK$Q01sGe.xml"></include></li>
+  <li><include src="/_dIYsumJhe@91VGEC$Z0pLv.xml"></include>个节点的完全二叉树高度为<include src="/_WHxSz$Um@JROh65oe3r8cj.xml"></include>，深度为<include src="/_IncgUXJGbftk3wL4D9udPl.xml"></include></li>
 </ul>
 
 <h2 id="二叉树的c实现">二叉树的C++实现</h2>
 
 <h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_JXUx7@O8etk9mrEInyHgvq.xml"></include>处，
-其左孩子存储于下标<include src="/_r2SB07mlbeJPYnIQthKzVA.xml"></include>，右孩子存储于下标<include src="/_L0@eGkfZXW$ghcK3R9SjUP.xml"></include>….依此类推，对于下标为<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_8Q$pdNqJ37wTuHCBUKrxzk.xml"></include>和<include src="/_$b7QLlPjwmtyIU@sgBhG50.xml"></include>处。</p>
+<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_sC7Or6A3juRP$ySDqM8KIT.xml"></include>处，
+其左孩子存储于下标<include src="/_P6sAT4wu8zn0@37ZXVcGHp.xml"></include>，右孩子存储于下标<include src="/_xEaZt6oCbn31HKJ5wIz$rp.xml"></include>….依此类推，对于下标为<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_bjOsnktFoxYApJeBNhXqQ4.xml"></include>和<include src="/_Veqhy9TCEm20QMRbzNoYwu.xml"></include>处。</p>
 <h4 id="实现代码">实现代码</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
@@ -778,17 +676,17 @@
 
     <div class="post__share">
       <div class="share__list">
-        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
 
-        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
 
-        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:5001https://api.dujin.org/bing/1920.php&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=https://mortalreminderpt.github.io/https://api.dujin.org/bing/1920.php&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
 
-        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
 
-        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
 
-        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=https://mortalreminderpt.github.io//%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
       </div>
     </div>
 
@@ -845,6 +743,62 @@
             
 
             
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
@@ -888,13 +842,13 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
-                          <a href="/tag/指针" class="article__tag">指针</a>
+                          <a href="/archive/tag/指针" class="article__tag">指针</a>
                         
-                          <a href="/tag/链表" class="article__tag">链表</a>
+                          <a href="/archive/tag/链表" class="article__tag">链表</a>
                         
-                          <a href="/tag/数据结构" class="article__tag">数据结构</a>
+                          <a href="/archive/tag/数据结构" class="article__tag">数据结构</a>
                         
                       </span>
                       
@@ -959,7 +913,7 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
                       </span>
                       
@@ -1024,9 +978,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
-                          <a href="/tag/动态规划" class="article__tag">动态规划</a>
+                          <a href="/archive/tag/动态规划" class="article__tag">动态规划</a>
                         
                       </span>
                       
@@ -1097,7 +1051,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口"></a>
+      <a class="recent-posts__image" href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%85%AB-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC-Boot/"><img class="lazy" data-src="https://api.wannote.com/image/bing.php?day=3" alt="操作系统（八）操作系统引导（Boot）"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -1108,9 +1062,9 @@
             
           </span>
           <time class="article__date"
-            datetime="2021-10-19T21:41:33+08:00">Oct 19, 2021</time>
+            datetime="2022-04-20T20:24:43+08:00">Apr 20, 2022</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">双指针问题（二）滑动窗口</a></h4>
+        <h4 class="recent-posts__title"><a href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%85%AB-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC-Boot/">操作系统（八）操作系统引导（Boot）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1164,6 +1118,8 @@
         <a href="/archive/tag/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
       
         <a href="/archive/tag/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+      
+        <a href="/archive/tag/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
       
         <a href="/archive/tag/chatgpt"#{html_opts}>ChatGPT</a>
       

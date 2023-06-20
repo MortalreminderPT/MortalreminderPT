@@ -9,7 +9,7 @@
   <title>二叉树基础（三） 线段树（Segment Tree）</title>
   <meta name='description' content='二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。'>
 
-  <link rel="canonical" href="http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
+  <link rel="canonical" href="https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -204,76 +204,6 @@
     
       
       
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
         <li class="nav__item">
           <a href="/sitemap.xml" class="nav__link"></a>
         </li>
@@ -286,6 +216,11 @@
         <li class="nav__item">
           <a href="/robots.txt" class="nav__link"></a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -433,76 +368,6 @@
     
       
       
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
         <li class="nav__item">
           <a href="/sitemap.xml" class="nav__link"></a>
         </li>
@@ -515,6 +380,11 @@
         <li class="nav__item">
           <a href="/robots.txt" class="nav__link"></a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -614,13 +484,13 @@
               <span>in</span>
               <span class="post-tags">
                 
-                <a href="/tag/算法" class="post__tag">算法</a>
+                <a href="/archive/tag/算法" class="post__tag">算法</a>
                 
-                <a href="/tag/数据结构" class="post__tag">数据结构</a>
+                <a href="/archive/tag/数据结构" class="post__tag">数据结构</a>
                 
-                <a href="/tag/二叉树" class="post__tag">二叉树</a>
+                <a href="/archive/tag/二叉树" class="post__tag">二叉树</a>
                 
-                <a href="/tag/树型数据结构" class="post__tag">树型数据结构</a>
+                <a href="/archive/tag/树型数据结构" class="post__tag">树型数据结构</a>
                 
               </span>
               
@@ -638,16 +508,31 @@
   <article class="post animate">
 
     <div class="post__content">
-      <h2 id="概念">概念</h2>
+      <ol id="markdown-toc">
+  <li><a href="#概念" id="markdown-toc-概念">概念</a>    <ol>
+      <li><a href="#结构" id="markdown-toc-结构">结构</a></li>
+    </ol>
+  </li>
+  <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>    <ol>
+      <li><a href="#线段树的建立" id="markdown-toc-线段树的建立">线段树的建立</a></li>
+      <li><a href="#区间查询" id="markdown-toc-区间查询">区间查询</a></li>
+      <li><a href="#区间修改" id="markdown-toc-区间修改">区间修改</a></li>
+      <li><a href="#懒惰标记" id="markdown-toc-懒惰标记">懒惰标记</a></li>
+    </ol>
+  </li>
+  <li><a href="#整体代码" id="markdown-toc-整体代码">整体代码</a></li>
+</ol>
+
+<h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/_rFujpR0E6qe@3BakoDimbv.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/_rXO69KR1QkJjYntulf8DAW.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/_QYT20pnsrWAVg8L5yv7ZFD.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/_ujRxXroi96WKTy751aeYLM.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/_0tWUVPS75soB3mfD2zqa6@.xml"></include>，设线段树的根节点编号为<include src="/_QYT20pnsrWAVg8L5yv7ZFD.xml"></include>，用数组<include src="/_IewcVkQFuW61D@OYynCZBJ.xml"></include>来保存线段树，<include src="/_@1MoPwjg$fzcU9XCR6D8ps.xml"></include>用来保存线段树上编号为<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/_Unsj5waK1qiDEQZ$m38Trc.xml"></include>，设线段树的根节点编号为<include src="/_ujRxXroi96WKTy751aeYLM.xml"></include>，用数组<include src="/_67eWFVd5D8stZJkMni40Uc.xml"></include>来保存线段树，<include src="/_SqwaVU1EutZHiWRj5PnIlp.xml"></include>用来保存线段树上编号为<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -662,7 +547,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>，其子节点的编号为<include src="/_V$NULv4b9X1syo2ju5awPm.xml"></include>以及<include src="/_WbgZGQsnhB5ue9lNocEUS3.xml"></include>，若节点<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>存储的区间为<include src="/_pOwlVZmRBtcyjP05uWba2q.xml"></include>，则节点<include src="/_V$NULv4b9X1syo2ju5awPm.xml"></include>存储的区间应该是<include src="/_KW3Sj8ixQGOLgRYFoHIDul.xml"></include>，相应地，节点<include src="/_WbgZGQsnhB5ue9lNocEUS3.xml"></include>存储的区间为<include src="/_OelX7iA9wRnI1$jof5d4tU.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>，其子节点的编号为<include src="/_BYd4m7JXN8nqpobe0i3L19.xml"></include>以及<include src="/_cWaywtoGl3eOu$v8LM6XpE.xml"></include>，若节点<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>存储的区间为<include src="/_eAkEKd2pHF@yPNfMCTzt57.xml"></include>，则节点<include src="/_BYd4m7JXN8nqpobe0i3L19.xml"></include>存储的区间应该是<include src="/_WFcewyxiAnXp1UL0HIDfrz.xml"></include>，相应地，节点<include src="/_cWaywtoGl3eOu$v8LM6XpE.xml"></include>存储的区间为<include src="/_G7j1uN3eZsQB2$nopIag6h.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -677,7 +562,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/_69cCsVgHxkn1yZLtXEw8Dq.xml"></include>，我们只需直接返回<include src="/_qDKLX6gb1hpWRnN2IzV4Uu.xml"></include>，但如果我们查询的是<include src="/_2EnmrtdMv0KWxVazjJYCUN.xml"></include>，则需要合并<include src="/_WtOT4FXyGolwV3KPfbLSEz.xml"></include>和<include src="/_VThIPenfWb9$YBsxDURa3Z.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/_G7Yi@d$R1TtBK3JumMzP8x.xml"></include>，我们只需直接返回<include src="/_nIH8DzjuBtxlOE9Zbc5NPK.xml"></include>，但如果我们查询的是<include src="/_I@bpvR0s6QAOPJmX5h3dLx.xml"></include>，则需要合并<include src="/_VDlU1X@ervTpt6yN9ZkM7P.xml"></include>和<include src="/_pA7DiJtVS2znU9XI3LMBTh.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -703,9 +588,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/_J3KfWaY5j0kE2p6zqTPRUA.xml"></include>的区间<include src="/_2EnmrtdMv0KWxVazjJYCUN.xml"></include>加上<include src="/_udqQaFJUK2CEH5cLgXom87.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/_WmTsjObyzF2U7gIZir519A.xml"></include>的区间<include src="/_I@bpvR0s6QAOPJmX5h3dLx.xml"></include>加上<include src="/_dFcGz21lsjLE9ni4uI@b0D.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/_hHDk85g0ijFAVbKap2$XZz.xml"></include>时就已经结束了，因此节点<include src="/_hHDk85g0ijFAVbKap2$XZz.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/_lxTUezdpQ3Mi6Y2K$nIwJ4.xml"></include>时就已经结束了，因此节点<include src="/_lxTUezdpQ3Mi6Y2K$nIwJ4.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
@@ -791,17 +676,17 @@
 
     <div class="post__share">
       <div class="share__list">
-        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
 
-        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89&url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89&url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
 
-        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/&amp;media=http://localhost:5001https://api.dujin.org/bing/1920.php&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/&amp;media=https://mortalreminderpt.github.io/https://api.dujin.org/bing/1920.php&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
 
-        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
 
-        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
 
-        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=https://mortalreminderpt.github.io//2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
       </div>
     </div>
 
@@ -858,6 +743,62 @@
             
 
             
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
@@ -901,13 +842,13 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
-                          <a href="/tag/指针" class="article__tag">指针</a>
+                          <a href="/archive/tag/指针" class="article__tag">指针</a>
                         
-                          <a href="/tag/链表" class="article__tag">链表</a>
+                          <a href="/archive/tag/链表" class="article__tag">链表</a>
                         
-                          <a href="/tag/数据结构" class="article__tag">数据结构</a>
+                          <a href="/archive/tag/数据结构" class="article__tag">数据结构</a>
                         
                       </span>
                       
@@ -972,7 +913,7 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
                       </span>
                       
@@ -1037,9 +978,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
-                          <a href="/tag/动态规划" class="article__tag">动态规划</a>
+                          <a href="/archive/tag/动态规划" class="article__tag">动态规划</a>
                         
                       </span>
                       
@@ -1110,7 +1051,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口"></a>
+      <a class="recent-posts__image" href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%85%AB-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC-Boot/"><img class="lazy" data-src="https://api.wannote.com/image/bing.php?day=3" alt="操作系统（八）操作系统引导（Boot）"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -1121,9 +1062,9 @@
             
           </span>
           <time class="article__date"
-            datetime="2021-10-19T21:41:33+08:00">Oct 19, 2021</time>
+            datetime="2022-04-20T20:24:43+08:00">Apr 20, 2022</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">双指针问题（二）滑动窗口</a></h4>
+        <h4 class="recent-posts__title"><a href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%85%AB-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC-Boot/">操作系统（八）操作系统引导（Boot）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1177,6 +1118,8 @@
         <a href="/archive/tag/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
       
         <a href="/archive/tag/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+      
+        <a href="/archive/tag/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
       
         <a href="/archive/tag/chatgpt"#{html_opts}>ChatGPT</a>
       

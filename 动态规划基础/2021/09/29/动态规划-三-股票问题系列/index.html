@@ -9,7 +9,7 @@
   <title>动态规划（三）股票问题系列</title>
   <meta name='description' content='动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。'>
 
-  <link rel="canonical" href="http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/">
+  <link rel="canonical" href="https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
@@ -204,76 +204,6 @@
     
       
       
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
         <li class="nav__item">
           <a href="/sitemap.xml" class="nav__link"></a>
         </li>
@@ -286,6 +216,11 @@
         <li class="nav__item">
           <a href="/robots.txt" class="nav__link"></a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -433,76 +368,6 @@
     
       
       
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
         <li class="nav__item">
           <a href="/sitemap.xml" class="nav__link"></a>
         </li>
@@ -515,6 +380,11 @@
         <li class="nav__item">
           <a href="/robots.txt" class="nav__link"></a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -614,9 +484,9 @@
               <span>in</span>
               <span class="post-tags">
                 
-                <a href="/tag/算法" class="post__tag">算法</a>
+                <a href="/archive/tag/算法" class="post__tag">算法</a>
                 
-                <a href="/tag/动态规划" class="post__tag">动态规划</a>
+                <a href="/archive/tag/动态规划" class="post__tag">动态规划</a>
                 
               </span>
               
@@ -634,40 +504,81 @@
   <article class="post animate">
 
     <div class="post__content">
-      <h2 id="121-买卖股票的最佳时机"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></h2>
+      <ol id="markdown-toc">
+  <li><a href="#121-买卖股票的最佳时机" id="markdown-toc-121-买卖股票的最佳时机">121. 买卖股票的最佳时机</a>    <ol>
+      <li><a href="#状态转移方程" id="markdown-toc-状态转移方程">状态转移方程</a>        <ol>
+          <li><a href="#如何表示price_min" id="markdown-toc-如何表示price_min">如何表示<include src="/_6hos5IbM0X3JpryPwgmOEF.xml"></include></a></li>
+          <li><a href="#边界条件" id="markdown-toc-边界条件">边界条件</a></li>
+        </ol>
+      </li>
+      <li><a href="#代码" id="markdown-toc-代码">代码</a></li>
+    </ol>
+  </li>
+  <li><a href="#122-买卖股票的最佳时机-ii" id="markdown-toc-122-买卖股票的最佳时机-ii">122. 买卖股票的最佳时机 II</a>    <ol>
+      <li><a href="#状态转移方程-1" id="markdown-toc-状态转移方程-1">状态转移方程</a></li>
+      <li><a href="#代码-1" id="markdown-toc-代码-1">代码</a></li>
+    </ol>
+  </li>
+  <li><a href="#714-买卖股票的最佳时机含手续费" id="markdown-toc-714-买卖股票的最佳时机含手续费">714. 买卖股票的最佳时机含手续费</a>    <ol>
+      <li><a href="#状态转移方程-2" id="markdown-toc-状态转移方程-2">状态转移方程</a></li>
+      <li><a href="#代码-2" id="markdown-toc-代码-2">代码</a></li>
+    </ol>
+  </li>
+  <li><a href="#309-最佳买卖股票时机含冷冻期" id="markdown-toc-309-最佳买卖股票时机含冷冻期">309. 最佳买卖股票时机含冷冻期</a>    <ol>
+      <li><a href="#状态转移方程-3" id="markdown-toc-状态转移方程-3">状态转移方程</a></li>
+      <li><a href="#代码-3" id="markdown-toc-代码-3">代码</a></li>
+    </ol>
+  </li>
+  <li><a href="#123-买卖股票的最佳时机-iii" id="markdown-toc-123-买卖股票的最佳时机-iii">123. 买卖股票的最佳时机 III</a>    <ol>
+      <li><a href="#思路" id="markdown-toc-思路">思路</a></li>
+      <li><a href="#代码-4" id="markdown-toc-代码-4">代码</a></li>
+    </ol>
+  </li>
+  <li><a href="#188-买卖股票的最佳时机-iv" id="markdown-toc-188-买卖股票的最佳时机-iv">188. 买卖股票的最佳时机 IV</a></li>
+  <li><a href="#股票问题的一般通解" id="markdown-toc-股票问题的一般通解">股票问题的一般通解</a>    <ol>
+      <li><a href="#状态转移方程-4" id="markdown-toc-状态转移方程-4">状态转移方程</a>        <ol>
+          <li><a href="#边界条件-1" id="markdown-toc-边界条件-1">边界条件</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#结束语" id="markdown-toc-结束语">结束语</a></li>
+</ol>
+
+<h2 id="121-买卖股票的最佳时机"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></h2>
 <h3 id="状态转移方程">状态转移方程</h3>
-<p>我们可以用<include src="/_g5pMERI3$dcBfYrLj2z6i9.xml"></include>来表示，在前<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>日我们可以得到的最大利润，那么我们第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>日的操作有两种选择：</p>
+<p>我们可以用<include src="/_cgwR5qOJ97@Tr6hbP8VCDI.xml"></include>来表示，在前<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>日我们可以得到的最大利润，那么我们第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>日的操作有两种选择：</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.我们在第i日卖出得到的利润可能比之前的利润（dp[i-1]）更高
 2.我们之前的利润要比现在更高，不用进行任何操作
 </code></pre></div></div>
 
-<p>对于情况1，我们得到状态转移方程<include src="/_6WXHPG9I1B7YtkqopDidRf.xml"></include>
-而对于情况2，我们有<include src="/_DxbXG2PnQAklIaE4L10fU6.xml"></include>
+<p>对于情况1，我们得到状态转移方程<include src="/_4g6AOz8U3rPVdjEh0imckv.xml"></include>
+而对于情况2，我们有<include src="/_0ayW26Yq3@r9D8kXUC$Qsh.xml"></include>
 综合两种情况，也就得到此题的状态转移方程：</p>
 
-<p><include src="/_iNRconFWetjx4HKf5U@Bmd.xml"></include></p>
+<p><include src="/_lkoBYT$UH0a86MLqWtnr9f.xml"></include></p>
 
-<p>那么剩下的问题就在于如何表示<include src="/_exg4L6pzQ0FGSB5YZIvEXa.xml"></include>。</p>
+<p>那么剩下的问题就在于如何表示<include src="/_6hos5IbM0X3JpryPwgmOEF.xml"></include>。</p>
 
-<h4 id="如何表示price_min">如何表示<include src="/_exg4L6pzQ0FGSB5YZIvEXa.xml"></include></h4>
-<p>我们发现，<include src="/_exg4L6pzQ0FGSB5YZIvEXa.xml"></include>的计算也是一个无后效性的问题，我们同样可以通过动态规划来求解，用<include src="/_kRjIeC$c1LrJyEbP0YuSD5.xml"></include>来表示前i日股票的最低价格，则<include src="/_kRjIeC$c1LrJyEbP0YuSD5.xml"></include>的状态转移方程可以写成：</p>
+<h4 id="如何表示price_min">如何表示<include src="/_6hos5IbM0X3JpryPwgmOEF.xml"></include></h4>
+<p>我们发现，<include src="/_6hos5IbM0X3JpryPwgmOEF.xml"></include>的计算也是一个无后效性的问题，我们同样可以通过动态规划来求解，用<include src="/_@Jj$HQGN0xcvS3nDRuYeVT.xml"></include>来表示前i日股票的最低价格，则<include src="/_@Jj$HQGN0xcvS3nDRuYeVT.xml"></include>的状态转移方程可以写成：</p>
 
-<p><include src="/_kRjIeC$c1LrJyEbP0YuSD5.xml"></include> = <include src="/_xFyjktiXA3BNHPYzvV8MQm.xml"></include></p>
+<p><include src="/_@Jj$HQGN0xcvS3nDRuYeVT.xml"></include> = <include src="/_Nj4KdTZtsRQuIb9VD$kCEq.xml"></include></p>
 
-<p>可能这时候你就要说了，你这不是脱了裤子放屁吗？那我们不妨换一个思维方式，还是上面的状态转移方程不变，<strong>我们用<include src="/_GWF4gMHJo9Ek1uTBsADLlj.xml"></include>表示前<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天手上有<include src="/_X@61EAt5jpM3rPbiI8DQvw.xml"></include>个股票时我们的最大利润。</strong> 这时候你不妨停下来思考一会，该如何写出状态转移方程呢？</p>
+<p>可能这时候你就要说了，你这不是脱了裤子放屁吗？那我们不妨换一个思维方式，还是上面的状态转移方程不变，<strong>我们用<include src="/_5kflty0ED7TIs@9dMap6HF.xml"></include>表示前<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天手上有<include src="/_9txjMAa8cnpUQu@qvTClRG.xml"></include>个股票时我们的最大利润。</strong> 这时候你不妨停下来思考一会，该如何写出状态转移方程呢？</p>
 
-<p>联立上面两个转移方程，得到<include src="/_GWF4gMHJo9Ek1uTBsADLlj.xml"></include>的状态转移方程：</p>
+<p>联立上面两个转移方程，得到<include src="/_5kflty0ED7TIs@9dMap6HF.xml"></include>的状态转移方程：</p>
 
-<p><include src="/_rixjZKT9gLaPDYuWV7SpH1.xml"></include>
-<include src="/_6YxqRk51Fl824tgHIZWz90.xml"></include></p>
+<p><include src="/_sEkbxOncPW$4zY9eGwZQdU.xml"></include>
+<include src="/_TKQINYlsiWcA2ELt@d1X$G.xml"></include></p>
 
-<p>没错，此时的<include src="/_svFRo3h1eKk$gQGy8xUWD0.xml"></include>就是之前我们的开销，用来辅助我们计算第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天的最大利润，也就是<include src="/_Vk$WR0BowGUY2zpHtLjO@D.xml"></include></p>
+<p>没错，此时的<include src="/_UsCmG$Yc4nLZSzqgpAoR7w.xml"></include>就是之前我们的开销，用来辅助我们计算第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天的最大利润，也就是<include src="/_@RvUKF0WkH6ZyXL5YN7V$O.xml"></include></p>
 
 <h4 id="边界条件">边界条件</h4>
-<p><include src="/_s@Udft7k3prLTEgGj$Amol.xml"></include>表示在第0天我们手上有0支股票时的最大利润，因此<include src="/_cZCB5gWx$AzobGfQ0tV4Fj.xml"></include></p>
+<p><include src="/_$7Fz8rGkDnWegyl0CwV4xR.xml"></include>表示在第0天我们手上有0支股票时的最大利润，因此<include src="/_t5pNcSLITbHh8rC$Jzj10d.xml"></include></p>
 
-<p><include src="/_8tZ4v0zqoPL5SR7VUcTnHr.xml"></include>表示在第0天我们手上有1支股票时的最大利润，因此<include src="/_ZEWgnNaViq@kHotPAymhMe.xml"></include></p>
+<p><include src="/_TjQeNWkS9iYXR@oGm25up1.xml"></include>表示在第0天我们手上有1支股票时的最大利润，因此<include src="/_@scHghKAMqP6VTQfuJGBvp.xml"></include></p>
 
 <h3 id="代码">代码</h3>
 
@@ -687,20 +598,20 @@
 <h3 id="状态转移方程-1">状态转移方程</h3>
 <p>122.题与121.题的不同点在于，122.是可以无限进行购买操作的，相应的，我们的状态转移方程也有所改变。</p>
 
-<p>根据我们第一题的状态转移方程，在第一题里，一但我们前面卖出了股票，下次再想购买股票时，总利润便会变成<include src="/_iSRruDQX@BL3fcO0qKoakz.xml"></include>，但在这道题中，由于我们不再受购买次数的限制，因此我们的利润就可以一直累计下去，如何理解这种累计呢？</p>
+<p>根据我们第一题的状态转移方程，在第一题里，一但我们前面卖出了股票，下次再想购买股票时，总利润便会变成<include src="/_nzya3i1@NfEd8UKF04mW5J.xml"></include>，但在这道题中，由于我们不再受购买次数的限制，因此我们的利润就可以一直累计下去，如何理解这种累计呢？</p>
 
-<p>在前<include src="/_2ELFYvHWqpT8JdIn7l3MDw.xml"></include>天，我们的最大利润达到了<include src="/_V$x8GQoMeOsKX5wrSukT6B.xml"></include>，而在第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天我们要购入股票，此时的利润就会变为<include src="/_$cGKY9r6XyZSgwnzf5p0P4.xml"></include></p>
+<p>在前<include src="/_fLwBCiqJ2H43U@uZPtFsaN.xml"></include>天，我们的最大利润达到了<include src="/_YU0TGivfgSjt$nkOKpXBHZ.xml"></include>，而在第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天我们要购入股票，此时的利润就会变为<include src="/_3CXw0rVE84oz7SNMZ6ma2Y.xml"></include></p>
 
-<p>即<include src="/_svFRo3h1eKk$gQGy8xUWD0.xml"></include>的状态转移方程变为：</p>
+<p>即<include src="/_UsCmG$Yc4nLZSzqgpAoR7w.xml"></include>的状态转移方程变为：</p>
 
-<p><include src="/_6hIaFbP1HsJYmkuWpOx74S.xml"></include></p>
+<p><include src="/_0P4zf2QKVXIudAwiRb$aY6.xml"></include></p>
 
-<p>读者应该也注意到，在我们把状态转移方程分成两部分后，我们对转移方程的解读方式也转变了，这里我再次阐述一遍，<include src="/_Vk$WR0BowGUY2zpHtLjO@D.xml"></include>表示手上没有股票时的最大利润，<include src="/_svFRo3h1eKk$gQGy8xUWD0.xml"></include>表示手上有一枚股票时的最大利润。</p>
+<p>读者应该也注意到，在我们把状态转移方程分成两部分后，我们对转移方程的解读方式也转变了，这里我再次阐述一遍，<include src="/_@RvUKF0WkH6ZyXL5YN7V$O.xml"></include>表示手上没有股票时的最大利润，<include src="/_UsCmG$Yc4nLZSzqgpAoR7w.xml"></include>表示手上有一枚股票时的最大利润。</p>
 
 <p>综上，状态转移方程为：</p>
 
-<p><include src="/_rixjZKT9gLaPDYuWV7SpH1.xml"></include>
-<include src="/_6hIaFbP1HsJYmkuWpOx74S.xml"></include></p>
+<p><include src="/_sEkbxOncPW$4zY9eGwZQdU.xml"></include>
+<include src="/_0P4zf2QKVXIudAwiRb$aY6.xml"></include></p>
 
 <p>边界条件与之前相同。</p>
 
@@ -719,14 +630,14 @@
 
 <h2 id="714-买卖股票的最佳时机含手续费"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></h2>
 <h3 id="状态转移方程-2">状态转移方程</h3>
-<p>如果你认真阅读了题714.并理解了题122.那这道题你其实可以直接过的，因为这道题和题122.的不同之处就在于，它在售卖时多了手续费这个固定消耗，因此在决定卖出股票的第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天里，如果收益不足以抵消掉手续费，那我们会选择之前的利润作为最优解，即：</p>
+<p>如果你认真阅读了题714.并理解了题122.那这道题你其实可以直接过的，因为这道题和题122.的不同之处就在于，它在售卖时多了手续费这个固定消耗，因此在决定卖出股票的第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天里，如果收益不足以抵消掉手续费，那我们会选择之前的利润作为最优解，即：</p>
 
-<p><include src="/_ys8nNK1e96OM2lR4A0b3vG.xml"></include></p>
+<p><include src="/_zmDjbwP4vZxT$6HUtI@3WK.xml"></include></p>
 
 <p>整体的转移方程表示为：</p>
 
-<p><include src="/_ys8nNK1e96OM2lR4A0b3vG.xml"></include>
-<include src="/_6hIaFbP1HsJYmkuWpOx74S.xml"></include></p>
+<p><include src="/_zmDjbwP4vZxT$6HUtI@3WK.xml"></include>
+<include src="/_0P4zf2QKVXIudAwiRb$aY6.xml"></include></p>
 
 <p>边界条件仍与之前相同</p>
 
@@ -745,19 +656,19 @@
 
 <h2 id="309-最佳买卖股票时机含冷冻期"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></h2>
 <h3 id="状态转移方程-3">状态转移方程</h3>
-<p>这道题的变化在于，之前我们只有<include src="/_cHzkrjUx@bg$iDvhZENIlO.xml"></include>卖出、<include src="/_Aq0CNWTJcDt9XduPsQIvZa.xml"></include>买入两种状态，但这道题引入了一个新的新的状态<include src="/_PjVExv2kJRF$e9ZzOWcd5p.xml"></include>冷冻期，而这个冷冻期状态是在卖出操作后出现，如果我们用<include src="/_6n2ktTayKDA4gWH7oqR8fj.xml"></include>来表示当我们在第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天的冷冻期收益，则<include src="/_6n2ktTayKDA4gWH7oqR8fj.xml"></include>可以用<include src="/_E13TgXRePYO@Va6i2A4BJU.xml"></include>表示为：</p>
+<p>这道题的变化在于，之前我们只有<include src="/_onGYiJHjrZ0EX$P5hxfOzK.xml"></include>卖出、<include src="/_SEQV0CiJ1HWhP9ug4XmFNa.xml"></include>买入两种状态，但这道题引入了一个新的新的状态<include src="/_FME5zTalZbK06Op9LSB3sY.xml"></include>冷冻期，而这个冷冻期状态是在卖出操作后出现，如果我们用<include src="/_wbDUhS79sgZc0m2EVFKOJa.xml"></include>来表示当我们在第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天的冷冻期收益，则<include src="/_wbDUhS79sgZc0m2EVFKOJa.xml"></include>可以用<include src="/_kmE$zLYKCUPMZBlfo5X96c.xml"></include>表示为：</p>
 
-<p><include src="/_Q5V8@AWlTnRoOGvXstYBPh.xml"></include></p>
+<p><include src="/_HJCOuzgxh6XNQRt9F4GIw@.xml"></include></p>
 
 <p>买入状态的转移方程也有所变化，因为此题中买入状态必须由冷冻期状态进入，也就是：</p>
 
-<p><include src="/_XqA2UmRuKgPEp4SDhQeYLj.xml"></include></p>
+<p><include src="/_K14wxb6QIGp@VJUWuBC52d.xml"></include></p>
 
 <p>最后，综合三式就可以得到我们新的状态转移方程：</p>
 
-<p><include src="/_XcHvq9dFjN@7WBMb1tTrm8.xml"></include>
-<include src="/_XqA2UmRuKgPEp4SDhQeYLj.xml"></include>
-<include src="/_8UjRf5qPgcadQxerD7IHos.xml"></include></p>
+<p><include src="/_4sgpWyPi5DEfle03cXZqtU.xml"></include>
+<include src="/_K14wxb6QIGp@VJUWuBC52d.xml"></include>
+<include src="/_5ftpOSio8cl4rPRKB7d3wa.xml"></include></p>
 
 <p>边界条件仍然不变</p>
 
@@ -779,9 +690,9 @@
 <h3 id="思路">思路</h3>
 <p>如果没有前面的铺垫直接来看这道题，难度瞬间就高起来了。但现在带着前面的经验再来对比这道题，我们会发现这道题和题121. 题122.有着很大的关联。</p>
 
-<p>假设在第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天卖出了股票，当我们是第一次或第二次操作时，我们的利润是可以积累的。但如果是在第三次操作，那么我们就要重新累计利润了。</p>
+<p>假设在第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天卖出了股票，当我们是第一次或第二次操作时，我们的利润是可以积累的。但如果是在第三次操作，那么我们就要重新累计利润了。</p>
 
-<p>我们不妨将<include src="/_E13TgXRePYO@Va6i2A4BJU.xml"></include>升到三维数组，用第三维来区分第一次操作和第二次操作，即得到代码如下：</p>
+<p>我们不妨将<include src="/_kmE$zLYKCUPMZBlfo5X96c.xml"></include>升到三维数组，用第三维来区分第一次操作和第二次操作，即得到代码如下：</p>
 <h3 id="代码-4">代码</h3>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
@@ -801,7 +712,7 @@
 
 <h2 id="188-买卖股票的最佳时机-iv"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">188. 买卖股票的最佳时机 IV</a></h2>
 
-<p>当问题扩充到<include src="/_mSKw39ey6V2O0ophHEf5Ri.xml"></include>时，我们解决题123.的思路仍然有效，我们可以用初始化边界为<include src="/_JXUx7@O8etk9mrEInyHgvq.xml"></include>，再用一个<include src="/_oYAsGHk2yCwxFpz@QX4fJU.xml"></include>循环写出结果。</p>
+<p>当问题扩充到<include src="/_NxkoumaDYcTLwf@$h5Uj2n.xml"></include>时，我们解决题123.的思路仍然有效，我们可以用初始化边界为<include src="/_sC7Or6A3juRP$ySDqM8KIT.xml"></include>，再用一个<include src="/_PeTZKmCWdDrhq4IiSw$@UR.xml"></include>循环写出结果。</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">prices</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -821,18 +732,18 @@
 <p>股票问题的三个限定条件是</p>
 
 <ul>
-  <li>当前天数<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include></li>
-  <li>手持股票<include src="/_X@61EAt5jpM3rPbiI8DQvw.xml"></include></li>
-  <li>允许的最大操作次数<include src="/_mSKw39ey6V2O0ophHEf5Ri.xml"></include></li>
+  <li>当前天数<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include></li>
+  <li>手持股票<include src="/_9txjMAa8cnpUQu@qvTClRG.xml"></include></li>
+  <li>允许的最大操作次数<include src="/_NxkoumaDYcTLwf@$h5Uj2n.xml"></include></li>
 </ul>
 
-<p>我们设在第<include src="/_b1RCUwAMhv4uxjgTPqINfe.xml"></include>天，手持股票为<include src="/_X@61EAt5jpM3rPbiI8DQvw.xml"></include>，操作次数为<include src="/_mSKw39ey6V2O0ophHEf5Ri.xml"></include>时我们的利润为<include src="/_fsIaR3$LJhFO1kcGyQrNXv.xml"></include>，视每次购买股票为进行一次操作，则我们的状态转移方程为：</p>
+<p>我们设在第<include src="/_c4tPCoS5FK3wBVs7H6al0e.xml"></include>天，手持股票为<include src="/_9txjMAa8cnpUQu@qvTClRG.xml"></include>，操作次数为<include src="/_NxkoumaDYcTLwf@$h5Uj2n.xml"></include>时我们的利润为<include src="/_3UEaf4o1rAVFMPIT0DGtmZ.xml"></include>，视每次购买股票为进行一次操作，则我们的状态转移方程为：</p>
 
-<p><include src="/_@EkN$rM9h3CyQcelVn6ujz.xml"></include>
-<include src="/_4PnMTkxDqRc6CQWzgJufXb.xml"></include></p>
+<p><include src="/_Hs4xWhy9uNEXJrPkt3CIme.xml"></include>
+<include src="/_FLqEuafY7IUxPWQTH30z9G.xml"></include></p>
 
 <h4 id="边界条件-1">边界条件</h4>
-<p><include src="/_hY3H9eKJynxztC64WI7sTP.xml"></include>
+<p><include src="/_$gystGlEU1H5TpCM2XPc@a.xml"></include>
 其余值都为0</p>
 
 <h2 id="结束语">结束语</h2>
@@ -842,17 +753,17 @@
 
     <div class="post__share">
       <div class="share__list">
-        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
 
-        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97&url=http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97&url=https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
 
-        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/&amp;media=http://localhost:5001/images/covers/village.jpg&amp;description=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/&amp;media=https://mortalreminderpt.github.io//images/covers/village.jpg&amp;description=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
 
-        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
+        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>
 
-        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
+        <a class="share__link share__whatsapp" href="whatsapp://send?text=https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>
 
-        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
+        <a class="share__link share__telegram" href="https://t.me/share/url?url=https://mortalreminderpt.github.io//%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>
       </div>
     </div>
 
@@ -909,6 +820,62 @@
             
 
             
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
@@ -952,13 +919,13 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
-                          <a href="/tag/指针" class="article__tag">指针</a>
+                          <a href="/archive/tag/指针" class="article__tag">指针</a>
                         
-                          <a href="/tag/链表" class="article__tag">链表</a>
+                          <a href="/archive/tag/链表" class="article__tag">链表</a>
                         
-                          <a href="/tag/数据结构" class="article__tag">数据结构</a>
+                          <a href="/archive/tag/数据结构" class="article__tag">数据结构</a>
                         
                       </span>
                       
@@ -1023,7 +990,7 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
                       </span>
                       
@@ -1088,9 +1055,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tag/算法" class="article__tag">算法</a>
+                          <a href="/archive/tag/算法" class="article__tag">算法</a>
                         
-                          <a href="/tag/动态规划" class="article__tag">动态规划</a>
+                          <a href="/archive/tag/动态规划" class="article__tag">动态规划</a>
                         
                       </span>
                       
@@ -1161,7 +1128,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口"></a>
+      <a class="recent-posts__image" href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%85%AB-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC-Boot/"><img class="lazy" data-src="https://api.wannote.com/image/bing.php?day=3" alt="操作系统（八）操作系统引导（Boot）"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -1172,9 +1139,9 @@
             
           </span>
           <time class="article__date"
-            datetime="2021-10-19T21:41:33+08:00">Oct 19, 2021</time>
+            datetime="2022-04-20T20:24:43+08:00">Apr 20, 2022</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/2021/10/19/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">双指针问题（二）滑动窗口</a></h4>
+        <h4 class="recent-posts__title"><a href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%85%AB-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC-Boot/">操作系统（八）操作系统引导（Boot）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1228,6 +1195,8 @@
         <a href="/archive/tag/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
       
         <a href="/archive/tag/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+      
+        <a href="/archive/tag/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
       
         <a href="/archive/tag/chatgpt"#{html_opts}>ChatGPT</a>
       
