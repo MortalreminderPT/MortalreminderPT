@@ -512,10 +512,10 @@
 <p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">300.最长递增子序列</a></p>
 
 <h2 id="动态规划">动态规划</h2>
-<p>我们可以定义<include src="/_dgSKp195MzjqeRC7vbxZHu.xml"></include>为以<include src="/_m4QNnK$pWUH6k75tzxsrFG.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_Iy$bA3nUOGVYwWv9qMTDhk.xml"></include>的常用套路），则我们可以写出状态转移方程为
-<include src="/_Uo$jstiT@hK4Cn5GXYz3QH.xml"></include></p>
+<p>我们可以定义<include src="/_GaeExgWKfYSz7T8XFnwUCd.xml"></include>为以<include src="/_eF1I$8qmUbDvsHLRhcGgXQ.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_4lsQ6R$aZBtOiGoScDzxh0.xml"></include>的常用套路），则我们可以写出状态转移方程为
+<include src="/_YOrVHAPfUaDpXTnWdJsKbc.xml"></include></p>
 
-<p>最后，此题的结果便是<include src="/_MiFSUwm2hZAJHORPok1TY8.xml"></include>，代码如下</p>
+<p>最后，此题的结果便是<include src="/_f3Q1TJaYPSk4hu@UEDH729.xml"></include>，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -532,12 +532,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_QaOYkqFyhtWx@jM1fC2B0V.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_je4u7XzcIrwmOqL3HVgFGC.xml"></include></p>
 
 <h2 id="树状数组">树状数组</h2>
 <p>LIS问题的本质是偏序问题，我们之前在二维偏序问题中提到过，树状数组可以轻松的解决这类问题。但之前的问题中，我们求的是数对的数量，而不是序列的长度。为了能够求得序列长度，我们要对树状数组进行修改。</p>
 
-<p>我们可以用树状数组存储以<include src="/_m4QNnK$pWUH6k75tzxsrFG.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
+<p>我们可以用树状数组存储以<include src="/_eF1I$8qmUbDvsHLRhcGgXQ.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -555,7 +555,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>随后用和<include src="/_Iy$bA3nUOGVYwWv9qMTDhk.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
+<p>随后用和<include src="/_4lsQ6R$aZBtOiGoScDzxh0.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -605,7 +605,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_NMvydRT6pst3fHYXnlbDU5.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_ZIipPh@8akfLcC$UesD91K.xml"></include></p>
 
     </div>
 
@@ -1032,7 +1032,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2022/04/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%89-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/"><img class="lazy" data-src="\images\covers\操作系统-cover2.png" alt="操作系统（十三）进程通信"></a>
+      <a class="recent-posts__image" href="/2022/04/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%89-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/"><img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十三）进程通信"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
