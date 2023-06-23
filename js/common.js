@@ -29,6 +29,11 @@ $(document).ready(function() {
     searchClose();
   });
 
+  document.onscroll = (function() {
+    menuClose();
+    searchClose();
+  });
+
   function menuOpen() {
     menuList.addClass("is-open");
   }
