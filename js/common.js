@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   'use strict';
 
@@ -8,6 +9,7 @@ $(document).ready(function() {
     searchCloseIcon = $(".search__close"),
     searchInput = $(".search__text"),
     searchBox = $(".search");
+
 
 
   /* =======================
@@ -151,5 +153,9 @@ $(document).ready(function() {
       $(".top").removeClass("is-active");
     }
   });
+
+  /* =======================
+  // Change color
+  ======================= */
 
 });
