@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>数据结构基础</title>
-  <meta name='description' content=''>
+  <title>阳光体育一键汉姆</title>
+  <meta name='description' content='这篇博客介绍了一种阳光体育平台下基于HTTP请求完成汉姆的方式，与虚拟定位方式相比，该种方式速度更快，使用更加便捷'>
 
-  <link rel="canonical" href="http://localhost:5001/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/">
+  <link rel="canonical" href="http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
 
   <!-- Icons -->
@@ -46,7 +46,7 @@
   
 
 <!-- begin header -->
-<header class="header header--top">
+<header class="header ">
   <div class="container">
     <div class="row">
       <div class="header__inner col col-12">
@@ -426,102 +426,450 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin hero -->
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-6 col-t-12">
+        <div class="image-box">
+          <img class="post-image lazy" data-src="https://src.onlinedown.net/images/h_imges/wdj/3/logo/c76a697a57cfc446c777513a033e19b1_256_256.png" alt="阳光体育一键汉姆">
+        </div>
+      </div>
+      
 
-<section class="hero">
-  <div class="hero__inner">
-    <div class="hero__image">
-      <img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-US" alt="数据结构基础">
-    </div>
-    <div class="hero__content">
-      <div class="row">
-        <div class="col col-8 col-d-10 col-m-12 push-m-0 push-d-1 push-2">
-          <div class="archive-box">
-            
-                <h1 class="archive-title">数据结构基础</h1>
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
               
-            <span class="archive-meta">1 post  found.</span>
+              
+                1 min read
+              
+              <time class="post__date"
+                datetime="2019-10-11T11:59:11+08:00">Oct 11, 2019</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">阳光体育一键汉姆</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Mortalreminder PT"><img class="post__author-image"
+                  src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Mortalreminder PT</a>
+              
+              <span>in</span>
+              <span class="post-tags">
+                
+                <a href="/tags/计算机网络" class="post__tag">计算机网络</a>
+                
+              </span>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <ol id="markdown-toc">
+  <li><a href="#登录过程" id="markdown-toc-登录过程">登录过程</a></li>
+  <li><a href="#申请跑步" id="markdown-toc-申请跑步">申请跑步</a></li>
+  <li><a href="#结束跑步" id="markdown-toc-结束跑步">结束跑步</a></li>
+  <li><a href="#密码表" id="markdown-toc-密码表">密码表</a></li>
+</ol>
+
+<p>这篇博客介绍了一种阳光体育平台下基于HTTP请求完成汉姆的方式，与虚拟定位方式相比，该种方式速度更快，使用更加便捷</p>
+
+<p>此博客基于李叶学长的项目启发完成，<a href="https://github.com/HackerLiye/fuckhanmu">点此链接</a>传送至该项目</p>
+
+<h2 id="登录过程">登录过程</h2>
+
+<p>登录过程是<strong>获取<code class="language-plaintext highlighter-rouge">token</code>的过程</strong>，在这个过程中需要用到用户的<code class="language-plaintext highlighter-rouge">IMEI</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">IMEI</code>是一个<strong>32位16进制数</strong>，可以在阳光体育平台的登录过程进行抓包获得</p>
+
+<p>登录过程中，我们要将<code class="language-plaintext highlighter-rouge">IMEI</code>作为参数代入，如下：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://client3.aipao.me/api/{token}/QM_Users/Login_AndroidSchool?IMEICode=00000000000000000000000000000000
+</code></pre></div></div>
+
+<p>同时，我们需要在header中加入当前的<strong>乐跑版本号<code class="language-plaintext highlighter-rouge">version</code></strong>，<code class="language-plaintext highlighter-rouge">version</code>一般为2.40即可</p>
+
+<p>该http请求会获取一个<code class="language-plaintext highlighter-rouge">json</code>，其中<code class="language-plaintext highlighter-rouge">Data</code>下的<code class="language-plaintext highlighter-rouge">token</code>即为我们需要获取的值</p>
+
+<h2 id="申请跑步">申请跑步</h2>
+
+<p>跑步过程用到的请求基于上文的<code class="language-plaintext highlighter-rouge">token</code>，请求的链接及参数如下</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://client3.aipao.me/api/{token}/QM_Runs/SRS?S1=30.534737&amp;S2=114.367785&amp;S3=2000
+</code></pre></div></div>
+
+<p>可以注意到，其存在三个参数S1、S2和S3，分别代表着跑步所在的<strong>经纬度</strong>和<strong>路程</strong></p>
+
+<p>上述链接中所采用的参数为武汉大学信息学部操场及2000米路程</p>
+
+<p>发送该请求后，即可<strong>获得<code class="language-plaintext highlighter-rouge">RunId</code>并进入跑步状态</strong></p>
+
+<h2 id="结束跑步">结束跑步</h2>
+
+<p>在李叶学长的代码中，是存在等待跑步结束这一过程的，这是为了保证数据的准确性和一致性。
+而在实测中发现，我们其实不必等待跑步的过程，直接请求跑步结束即可提交汉姆成绩。</p>
+
+<p>此时请求的链接如下</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://client3.aipao.me/api/{token}/QM_Runs/ES
+</code></pre></div></div>
+
+<p>此时需要提交的参数较多，我们逐一讲解</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S1</td>
+      <td>RunId，由申请跑步时获得</td>
+    </tr>
+    <tr>
+      <td>S4</td>
+      <td>跑步消耗时间，合理即可</td>
+    </tr>
+    <tr>
+      <td>S5</td>
+      <td>实际跑步距离，一般比理论距离多1到2米</td>
+    </tr>
+    <tr>
+      <td>S5</td>
+      <td>实际跑步距离，一般比理论距离多1到2米</td>
+    </tr>
+    <tr>
+      <td>S8</td>
+      <td>密码表，后文会介绍</td>
+    </tr>
+    <tr>
+      <td>S9</td>
+      <td>步数，合理即可</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="密码表">密码表</h2>
+
+<p>在结束跑步的参数中，凡是整数类参数都以密码表的方式进行加密。
+其原理类似凯撒密码，将数字和字母一一对应，提交时同时提交密文和密码表</p>
+
+<p>提交时，我们要<strong>保证密码表与数值正确对应</strong>，方可提交成功</p>
+
+<p>跑步距离加密示范</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>实际值</th>
+      <th>加密值</th>
+      <th>密码表</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2000</td>
+      <td>caaa</td>
+      <td>abcdefghijklmnopqrstuvwxyz</td>
+    </tr>
+    <tr>
+      <td>246</td>
+      <td>oqs</td>
+      <td>mnopqrstuvwxyzabcdefghijkl</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+<!--    <div class="post__share">-->
+<!--      <div class="share__list">-->
+<!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
+
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86&url=http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/&amp;media=http://localhost:5001https://src.onlinedown.net/images/h_imges/wdj/3/logo/c76a697a57cfc446c777513a033e19b1_256_256.png&amp;description=%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+
+<!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
+
+<!--&lt;!&ndash;        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="post__navigation">
+      
+      
+      <a class="next" href="/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%80-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97/">
+        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="动态规划（一）打家劫舍系列">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">动态规划（一）打家劫舍系列</h4>
+        </div>
+      </a>
+      
+    </div>
+
+  </article>
+</div>
+<!-- end post -->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts ">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">相关阅读</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col col-12 col-d-10 col-m-12 push-m-0 push-d-1">
-      <div class="container__inner">
-        <div class="row grid">
-          
-            <div class="article col col-4 col-d-6 col-t-12 grid__post animate">
-  <div class="article__inner">
-    
-    <a class="article__image" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
-      <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（一）二叉树的概念">
-    </a>
-    
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        <span class="article__minutes">
-          
-
-阅读时间 14 分钟
-
-
-          <time class="article__date" datetime="2021-09-28T13:58:19+08:00">Sep 28, 2021</time>
-        </span>
-      </div>
-
-      <h2 class="article__title">二叉树基础（一）二叉树的概念</h2>
-
-      <p class="article__excerpt">二叉树（Binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。</p>
-
-      <div class="article__bottom">
-
-        
-        <div class="article__author">
-          <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-        </div>
-        
-
-        <div class="article__bottom-meta">
-          
-            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-          
-          
-            <span>in</span>
-            <span class="article-tags">
-              
-<!--                <a href="/tags/算法" class="article__tag">算法</a>-->
-                <a class="article__tag" href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
-              
-<!--                <a href="/tags/数据结构" class="article__tag">数据结构</a>-->
-                <a class="article__tag" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
-              
-<!--                <a href="/tags/二叉树" class="article__tag">二叉树</a>-->
-                <a class="article__tag" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
-              
-<!--                <a href="/tags/树型数据结构" class="article__tag">树型数据结构</a>-->
-                <a class="article__tag" href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
-              
-            </span>
-          
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 
   </main> 
   <!-- end content -->
@@ -548,7 +896,7 @@
           <span class="article__minutes">
             
 
-阅读时间 49 分钟
+阅读时间 48 分钟
 
 
           </span>

@@ -202,6 +202,11 @@
     
   
     
+      
+      
+    
+  
+    
   
     
   
@@ -286,6 +291,11 @@
         <li class="nav__item">
           <a href="/tags/" class="nav__link">Tags</a>
         </li>
+      
+    
+  
+    
+      
       
     
   
@@ -500,9 +510,9 @@
   </li>
   <li><a href="#代码" id="markdown-toc-代码">代码</a>    <ol>
       <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/_1NJ0KEeVWYOBpG7btyIR5U.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/_WPdew9KhxuaySfZqE@VGvs.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/_m4$5ByaEhSTcLAn7gWC6wk.xml"></include></a></li>
+          <li><a href="#find" id="markdown-toc-find"><include src="/_tp2YGsOR@JqEmT$14Q0Kdy.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/_WPyKejGdAM4B0Df$R1Ht57.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/_E7PRdrTFY3h8VgWpBDnlaj.xml"></include></a></li>
         </ol>
       </li>
     </ol>
@@ -536,8 +546,8 @@
 
 <p>BST的构造和析构与普通二叉树相同，这里不多赘述。相比于普通二叉树，BST的主要功能增加了查找，插入和删除</p>
 
-<h4 id="find"><include src="/_1NJ0KEeVWYOBpG7btyIR5U.xml"></include></h4>
-<p><include src="/_1NJ0KEeVWYOBpG7btyIR5U.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
+<h4 id="find"><include src="/_tp2YGsOR@JqEmT$14Q0Kdy.xml"></include></h4>
+<p><include src="/_tp2YGsOR@JqEmT$14Q0Kdy.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">;</span>
@@ -552,8 +562,8 @@
     <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="insert"><include src="/_WPdew9KhxuaySfZqE@VGvs.xml"></include></h4>
-<p><include src="/_WPdew9KhxuaySfZqE@VGvs.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_PS2T0kCWligv@Ked64pyfr.xml"></include>后，要找到合适的父节点<include src="/_9maWEpuPYfgNAbBq8$K0hv.xml"></include>并插入其中。代码如下</p>
+<h4 id="insert"><include src="/_WPyKejGdAM4B0Df$R1Ht57.xml"></include></h4>
+<p><include src="/_WPyKejGdAM4B0Df$R1Ht57.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_U2wed5@ft9I3AuZvOnqVX$.xml"></include>后，要找到合适的父节点<include src="/_merI@awUdhzbvN3QjSPxyB.xml"></include>并插入其中。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
@@ -577,7 +587,7 @@
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="delete"><include src="/_m4$5ByaEhSTcLAn7gWC6wk.xml"></include></h4>
+<h4 id="delete"><include src="/_E7PRdrTFY3h8VgWpBDnlaj.xml"></include></h4>
 <p>二叉搜索树进行删除操作后，仍然要保证它的排序正确，因此我们的删除操作分为三种情况：</p>
 
 <ul>
@@ -1132,6 +1142,8 @@
       <h3 class="widget__title">探索标签</h3>
     </div>
     <div class="tag__cloud">
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
       
         <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
       
