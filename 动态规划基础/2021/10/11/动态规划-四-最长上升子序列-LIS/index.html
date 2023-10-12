@@ -207,7 +207,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -365,7 +380,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -506,10 +536,10 @@
 <p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">300.最长递增子序列</a></p>
 
 <h2 id="动态规划">动态规划</h2>
-<p>我们可以定义<include src="/_WH$4CcSI@p86gYhLO32QX0.xml"></include>为以<include src="/_3$iwBmGzPVCvbaxy4Oe7qX.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_x7PE5Smh9jAT201Yz8vegf.xml"></include>的常用套路），则我们可以写出状态转移方程为
-<include src="/_utZXzS9U4YAbc@6vrhMqIj.xml"></include></p>
+<p>我们可以定义<include src="/_gGAbonFKpY4zZPlLW0@JS9.xml"></include>为以<include src="/_c$ASydYZpCOEoP68JG3Tre.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_EStu2VaOwsF1ZJNd74HX$n.xml"></include>的常用套路），则我们可以写出状态转移方程为
+<include src="/_g8hYBf5S3sDToGdeKxCNLu.xml"></include></p>
 
-<p>最后，此题的结果便是<include src="/_sKObfedUcixSvQVC1A@9RW.xml"></include>，代码如下</p>
+<p>最后，此题的结果便是<include src="/_P@rp9URnSXIx0wly1k8aAu.xml"></include>，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -526,12 +556,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_szl8m@ihrYt9UKv23Q7RA1.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_IyieFZp@2kRdmva85AV09K.xml"></include></p>
 
 <h2 id="树状数组">树状数组</h2>
 <p>LIS问题的本质是偏序问题，我们之前在二维偏序问题中提到过，树状数组可以轻松的解决这类问题。但之前的问题中，我们求的是数对的数量，而不是序列的长度。为了能够求得序列长度，我们要对树状数组进行修改。</p>
 
-<p>我们可以用树状数组存储以<include src="/_3$iwBmGzPVCvbaxy4Oe7qX.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
+<p>我们可以用树状数组存储以<include src="/_c$ASydYZpCOEoP68JG3Tre.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -549,7 +579,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>随后用和<include src="/_x7PE5Smh9jAT201Yz8vegf.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
+<p>随后用和<include src="/_EStu2VaOwsF1ZJNd74HX$n.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -599,7 +629,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_TJU81x4ObkmoBWeCuw0QIn.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_MCLymdTq5EaB0IQnz4G3et.xml"></include></p>
 
     </div>
 
@@ -659,6 +689,34 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1036,6 +1094,34 @@
     
     <div class="recent-posts">
       
+      <a class="recent-posts__image" href="/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用DiskGenius进行系统迁移"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+
+阅读时间 3 分钟
+
+
+          </span>
+          <time class="article__date"
+            datetime="2023-10-12T18:54:54+08:00">Oct 12, 2023</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/">使用DiskGenius进行系统迁移</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
       <a class="recent-posts__image" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用ChatGPT控制Arduino设备"></a>
       
       <div class="recent-posts__content">
@@ -1051,34 +1137,6 @@
             datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
         </div>
         <h4 class="recent-posts__title"><a href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">使用ChatGPT控制Arduino设备</a></h4>
-        <div class="article__bottom">
-          <div class="article__author">
-            <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-          </div>
-          <div class="article__bottom-meta">
-            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="recent-posts">
-      
-      <a class="recent-posts__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/"><img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十八）进程调度的时机、切换与过程、方式"></a>
-      
-      <div class="recent-posts__content">
-        <div class="article__meta">
-          <span class="article__minutes">
-            
-
-阅读时间 1 分钟
-
-
-          </span>
-          <time class="article__date"
-            datetime="2023-04-23T20:05:19+08:00">Apr 23, 2023</time>
-        </div>
-        <h4 class="recent-posts__title"><a href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">操作系统（十八）进程调度的时机、切换与过程、方式</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1137,11 +1195,15 @@
       
         <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
       
+        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+      
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
         <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+      
+        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
       
     </div>
   </div>

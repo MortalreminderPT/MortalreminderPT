@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>操作系统（十四）线程的概念</title>
+  <title>操作系统（十七）调度的概念和层次</title>
   <meta name='description' content='进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。'>
 
-  <link rel="canonical" href="http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/">
+  <link rel="canonical" href="http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
 
   <!-- Icons -->
@@ -195,7 +195,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -353,7 +368,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -432,7 +462,7 @@
       
       <div class="col col-6 col-t-12">
         <div class="image-box">
-          <img class="post-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十四）线程的概念">
+          <img class="post-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十七）调度的概念和层次">
         </div>
       </div>
       
@@ -447,11 +477,11 @@
                 1 min read
               
               <time class="post__date"
-                datetime="2023-04-22T02:24:51+08:00">Apr 22, 2023</time>
+                datetime="2022-04-23T17:38:13+08:00">Apr 23, 2022</time>
             </span>
           </div>
 
-          <h2 class="post__title">操作系统（十四）线程的概念</h2>
+          <h2 class="post__title">操作系统（十七）调度的概念和层次</h2>
 
           <div class="post__bottom">
 
@@ -485,99 +515,133 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#为什么要引入线程" id="markdown-toc-为什么要引入线程">为什么要引入线程？</a></li>
-  <li><a href="#引入线程后带来的变化" id="markdown-toc-引入线程后带来的变化">引入线程后带来的变化</a></li>
-  <li><a href="#线程的属性" id="markdown-toc-线程的属性">线程的属性</a></li>
+  <li><a href="#调度的概念" id="markdown-toc-调度的概念">调度的概念</a></li>
+  <li><a href="#调度的三个层次" id="markdown-toc-调度的三个层次">调度的三个层次</a>    <ol>
+      <li><a href="#高级调度" id="markdown-toc-高级调度">高级调度</a></li>
+      <li><a href="#低级调度" id="markdown-toc-低级调度">低级调度</a></li>
+      <li><a href="#中级调度" id="markdown-toc-中级调度">中级调度</a></li>
+    </ol>
+  </li>
+  <li><a href="#进程的挂起态与七状态模型" id="markdown-toc-进程的挂起态与七状态模型">进程的挂起态与七状态模型</a></li>
+  <li><a href="#三层调度的联系和对比" id="markdown-toc-三层调度的联系和对比">三层调度的联系和对比</a></li>
 </ol>
 
-<h2 id="为什么要引入线程">为什么要引入线程？</h2>
+<h2 id="调度的概念">调度的概念</h2>
+<p>背景：
+在银行取款时，普通客户一般先到先服务，但VIP客户可以优先被服务；
+假设有一群人需要使用厕所，他们可以用先排队先使用的方式，也可以经过讨论后时间短的人优先使用。</p>
 
-<p>在一个程序运行过程中，可能需要同时进行视频聊天、传输文件等多种功能，而进程是程序的一次执行，这些功能显然不能通过一个程序顺序处理就能实现。</p>
+<p>类似的，当有一堆任务要处理，但由于资源有限，这些事情没法同时处理。这就需要确定<strong>某种规则</strong>来<strong>决定</strong>处理这些任务的<strong>顺序</strong>，这就是“调度”研究的问题。</p>
 
-<p>有的进程可能需要“同时”做很多事，而传统的进程只能串行地执行一系列程序。为此，引入了“线程”，来增加并发度。</p>
+<h2 id="调度的三个层次">调度的三个层次</h2>
 
-<p><img src="\images\posts\操作系统-进程-线程概念.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
+<h3 id="高级调度">高级调度</h3>
 
-<p>传统的进程是程序执行流的最小单位；引入线程后，线程成为程序执行流的最小单位。</p>
+<p>作业的定义：一个具体的任务</p>
 
-<p>可以把线程理解为“轻量级进程”。</p>
+<p>用户向系统提交一个作业≈用户让操作系统启动一个程序（来处理一个具体的任务）</p>
 
-<p><strong>线程</strong>是一个<strong>基本的CPU执行单元</strong>，也是<strong>程序执行流的最小单位</strong>。
-引入线程之后，不仅是进程之间可以并发，进程内的<strong>各线程之间也可以并发</strong>，从而进一步<strong>提升了系统的并发度</strong>，使得一个进程内也可以并发处理各种任务（如QQ视频、文字聊天、传文件）。</p>
+<p>当用户向系统提交大量作业时，有时内存空间有限，有时无法将用户提交的作业全部放入内存，此时需要采用高级调度，即作业调度的方式，决定哪些程序该优先启动。</p>
 
-<p>引入线程后，<strong>进程</strong>只作为<strong>除CPU之外的系统资源的分配单元</strong>（如打印机、内存地址空间等都是分配给进程的）。</p>
+<p><strong>高级调度（作业调度）</strong>：按一定的原则从外存的作业后备队列中挑选一个作业调入内存，并创建进程。<strong>每个作业只调入一次，调出一次</strong>。作业调入时会建立PCB，调出时才撤销PCB。</p>
 
-<h2 id="引入线程后带来的变化">引入线程后带来的变化</h2>
+<h3 id="低级调度">低级调度</h3>
 
-<p>资源分配、调度：</p>
-<ul>
-  <li>传统进程机制中，进程是资源分配、调度的基本单位；</li>
-  <li>引入线程后，进程是资源分配的基本单位，线程是调度的基本单位。</li>
-</ul>
+<p><strong>低级调度（进程调度/处理机调度）</strong>：按照某种策略从就绪队列中选取一个进程，将处理机分配给它。</p>
 
-<p>并发性：</p>
-<ul>
-  <li>传统进程机制中，只能进程间并发；</li>
-  <li>引入线程后，各线程间也能并发，提升了并发度。</li>
-</ul>
+<p>进程调度是操作系统中<strong>最基本的一种调度</strong>，在一般的操作系统中都必须配置进程调度。进程调度的<strong>频率很高</strong>，一般几十毫秒一次。</p>
 
-<p>系统开销：</p>
-<ul>
-  <li>传统的进程间并发，需要切换进程的运行环境，系统开销很大；</li>
-  <li>线程间并发，如果是同一进程内的线程切换，则不需要切换进程环境，系统开销小；</li>
-  <li>引入线程后，并发所带来的系统开销减小。</li>
-</ul>
+<h3 id="中级调度">中级调度</h3>
 
-<h2 id="线程的属性">线程的属性</h2>
+<p>在内存不够时，可将某些进程的数据调出外存。等内存空闲或者进程需要运行时再重新调入内存。</p>
 
-<ol>
-  <li>线程是处理机调度的单位；</li>
-  <li>多CPU计算机中，各个线程可占用不同的CPU；</li>
-  <li>每个线程都有一个线程ID、线程控制块（TCB）；</li>
-  <li>线程也有就绪、阻塞、运行三种基本状态；</li>
-  <li>线程几乎不拥有系统资源；</li>
-  <li>同一进程的不同线程间共享进程的资源；</li>
-  <li>由于共享内存地址空间，同一进程中的线程间通信甚至无需系统干预；</li>
-  <li>同一进程中的线程切换，不会引起进程切换；</li>
-  <li>不同进程中的线程切换，会引起进程切换；</li>
-  <li>切换同进程内的线程，系统开销很小；</li>
-  <li>切换进程，系统开销较大。</li>
-</ol>
+<p>暂时调到外存等待的进程状态为<strong>挂起状态</strong>。被挂起的进程PCB会被组织成<strong>挂起队列</strong>。</p>
+
+<p><strong>中级调度（内存调度）</strong>：按照某种策略决定将哪个处于挂起状态的进程重新调入内存。一个进程可能会被多次调出、调入内存，因此<strong>中级调度发生的频率要比高级调度更高</strong>。</p>
+
+<h2 id="进程的挂起态与七状态模型">进程的挂起态与七状态模型</h2>
+
+<p>暂时调到外存等待的进程状态为<strong>挂起状态（挂起态，suspend）</strong>，挂起态又可以进一步细分为<strong>就绪挂起</strong>、<strong>阻塞挂起</strong>两种状态。</p>
+
+<p>加入挂起态后，进程的五状态模型可以扩展到七状态模型：</p>
+
+<p><img src="\images\posts\操作系统-进程-七状态模型.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
+
+<p>注意“挂起”和“阻塞”的区别，两种状态都是暂时不能获得CPU的服务，但挂起态是将进程映像调到外存去了，而阻塞态下进程映像还在内存中。</p>
+
+<p>有的操作系统会把就绪挂起、阻塞挂起分为两个挂起队列，甚至会根据阻塞原因不同再把阻塞挂起进程进一步细分为多个队列。</p>
+
+<h2 id="三层调度的联系和对比">三层调度的联系和对比</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>行为</th>
+      <th>调度位置</th>
+      <th>频率</th>
+      <th>对进程状态的影响</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>高级调度（作业调度）</td>
+      <td>按照某种规则，从后备队列中选择合适的作业将其调入内存，并为其创建进程</td>
+      <td>外存→内存（面向作业）</td>
+      <td>最低</td>
+      <td>无→创建态→就绪态</td>
+    </tr>
+    <tr>
+      <td>中级调度（内存调度）</td>
+      <td>按照某种规则，从挂起队列中选择合适的进程将其数据调回内存</td>
+      <td>外存→内存（面向进程）</td>
+      <td>中等</td>
+      <td>挂起态→就绪态（阻塞挂起→阻塞态）</td>
+    </tr>
+    <tr>
+      <td>低级调度（进程调度）</td>
+      <td>按照某种规则，从就绪队列中选择一个进程为其分配处理机</td>
+      <td>内存→CPU</td>
+      <td>最高</td>
+      <td>就绪态→运行态</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
 
 <!--    <div class="post__share">-->
 <!--      <div class="share__list">-->
-<!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
+<!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5&url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1&url=http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:5001/images/covers/操作系统-cover2.png&amp;description=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/&amp;media=http://localhost:5001/images/covers/操作系统-cover2.png&amp;description=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
-<!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
+<!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
-<!--&lt;!&ndash;        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>&ndash;&gt;-->
 
-<!--&lt;!&ndash;        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>&ndash;&gt;-->
 <!--      </div>-->
 <!--    </div>-->
 
     <div class="post__navigation">
       
-      <a class="prev" href="/2022/04/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%89-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/">
-        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十三）进程通信">
+      <a class="prev" href="/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AD-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2/">
+        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十六）线程的状态与转换">
         <div class="post__nav-box">
           <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">操作系统（十三）进程通信</h4>
+          <h4 class="post__nav__title">操作系统（十六）线程的状态与转换</h4>
         </div>
       </a>
       
       
-      <a class="next" href="/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
-        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十五）线程的实现方式和多线程模型">
+      <a class="next" href="/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">
+        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十八）进程调度的时机、切换与过程、方式">
         <div class="post__nav-box">
           <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">操作系统（十五）线程的实现方式和多线程模型</h4>
+          <h4 class="post__nav__title">操作系统（十八）进程调度的时机、切换与过程、方式</h4>
         </div>
       </a>
       
@@ -615,12 +679,40 @@
             
 
             
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">
+                <a class="article__image" href="/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">
                   <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十八）进程调度的时机、切换与过程、方式">
                 </a>
                 
@@ -635,7 +727,7 @@
 
 
                       <time class="article__date"
-                        datetime="2023-04-23T20:05:19+08:00">Apr 23, 2023</time>
+                        datetime="2022-04-23T20:05:19+08:00">Apr 23, 2022</time>
                     </span>
                   </div>
 
@@ -681,13 +773,20 @@
             
 
             
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十七）调度的概念和层次">
+                <a class="article__image" href="/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AD-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2/">
+                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十六）线程的状态与转换">
                 </a>
                 
 
@@ -697,15 +796,15 @@
                     <span class="article__minutes">
                       
 
-阅读时间 6 分钟
+阅读时间 1 分钟
 
 
                       <time class="article__date"
-                        datetime="2023-04-23T17:38:13+08:00">Apr 23, 2023</time>
+                        datetime="2022-04-23T10:05:43+08:00">Apr 23, 2022</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">操作系统（十七）调度的概念和层次</h2>
+                  <h2 class="article__title">操作系统（十六）线程的状态与转换</h2>
 
                   <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
 
@@ -752,8 +851,8 @@
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AD-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十六）线程的状态与转换">
+                <a class="article__image" href="/2022/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十五）线程的实现方式和多线程模型">
                 </a>
                 
 
@@ -763,15 +862,15 @@
                     <span class="article__minutes">
                       
 
-阅读时间 2 分钟
+阅读时间 7 分钟
 
 
                       <time class="article__date"
-                        datetime="2023-04-23T10:05:43+08:00">Apr 23, 2023</time>
+                        datetime="2022-04-22T02:46:02+08:00">Apr 22, 2022</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">操作系统（十六）线程的状态与转换</h2>
+                  <h2 class="article__title">操作系统（十五）线程的实现方式和多线程模型</h2>
 
                   <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
 
@@ -834,6 +933,34 @@
     
     <div class="recent-posts">
       
+      <a class="recent-posts__image" href="/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用DiskGenius进行系统迁移"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+
+阅读时间 3 分钟
+
+
+          </span>
+          <time class="article__date"
+            datetime="2023-10-12T18:54:54+08:00">Oct 12, 2023</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/">使用DiskGenius进行系统迁移</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
       <a class="recent-posts__image" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用ChatGPT控制Arduino设备"></a>
       
       <div class="recent-posts__content">
@@ -849,34 +976,6 @@
             datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
         </div>
         <h4 class="recent-posts__title"><a href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">使用ChatGPT控制Arduino设备</a></h4>
-        <div class="article__bottom">
-          <div class="article__author">
-            <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-          </div>
-          <div class="article__bottom-meta">
-            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="recent-posts">
-      
-      <a class="recent-posts__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/"><img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十八）进程调度的时机、切换与过程、方式"></a>
-      
-      <div class="recent-posts__content">
-        <div class="article__meta">
-          <span class="article__minutes">
-            
-
-阅读时间 1 分钟
-
-
-          </span>
-          <time class="article__date"
-            datetime="2023-04-23T20:05:19+08:00">Apr 23, 2023</time>
-        </div>
-        <h4 class="recent-posts__title"><a href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">操作系统（十八）进程调度的时机、切换与过程、方式</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -935,11 +1034,15 @@
       
         <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
       
+        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+      
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
         <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+      
+        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
       
     </div>
   </div>

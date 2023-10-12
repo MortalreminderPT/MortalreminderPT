@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>操作系统（十五）线程的实现方式和多线程模型</title>
-  <meta name='description' content='进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。'>
+  <title>PT's Blog</title>
+  <meta name='description' content=''>
 
-  <link rel="canonical" href="http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+  <link rel="canonical" href="http://localhost:5001/page/5/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
 
   <!-- Icons -->
@@ -46,7 +46,7 @@
   
 
 <!-- begin header -->
-<header class="header ">
+<header class="header header--top">
   <div class="container">
     <div class="row">
       <div class="header__inner col col-12">
@@ -195,7 +195,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -353,7 +368,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -426,422 +456,440 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <div class="post-head">
-  <div class="container">
-    <div class="row">
-      
-      <div class="col col-6 col-t-12">
-        <div class="image-box">
-          <img class="post-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十五）线程的实现方式和多线程模型">
-        </div>
-      </div>
-      
+    <!-- begin hero -->
 
-      <div class="col col-6 col-t-12">
-        <div class="post-head__box">
-
-          <div class="post__meta">
-            <span class="post__minutes">
-              
-              
-                1 min read
-              
-              <time class="post__date"
-                datetime="2023-04-22T02:46:02+08:00">Apr 22, 2023</time>
-            </span>
-          </div>
-
-          <h2 class="post__title">操作系统（十五）线程的实现方式和多线程模型</h2>
-
-          <div class="post__bottom">
-
-            <div class="post__author">
-              <a href="/about/" aria-label="Mortalreminder PT"><img class="post__author-image"
-                  src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-            </div>
-
-            <div class="post__bottom-meta">
-              <a href="/about/" class="post__author-link">Mortalreminder PT</a>
-              
-              <span>in</span>
-              <span class="post-tags">
-                
-                <a href="/tags/操作系统" class="post__tag">操作系统</a>
-                
-              </span>
-              
-            </div>
-          </div>
-
-        </div>
-      </div>
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__image">
+      <img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-US" alt="Mortalreminder PT">
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">Mortalreminder PT</h1>
+      <p class="hero__desc">videtis illam spirare libertatis auram.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- begin post -->
-<div class="container">
-  <article class="post animate">
-
-    <div class="post__content">
-      <ol id="markdown-toc">
-  <li><a href="#线程的背景" id="markdown-toc-线程的背景">线程的背景</a></li>
-  <li><a href="#线程的实现方式" id="markdown-toc-线程的实现方式">线程的实现方式</a>    <ol>
-      <li><a href="#用户级线程" id="markdown-toc-用户级线程">用户级线程</a></li>
-      <li><a href="#内核级线程" id="markdown-toc-内核级线程">内核级线程</a></li>
-    </ol>
-  </li>
-  <li><a href="#多线程模型" id="markdown-toc-多线程模型">多线程模型</a>    <ol>
-      <li><a href="#一对一模型" id="markdown-toc-一对一模型">一对一模型</a></li>
-      <li><a href="#多对一模型" id="markdown-toc-多对一模型">多对一模型</a></li>
-      <li><a href="#多对多模型" id="markdown-toc-多对多模型">多对多模型</a></li>
-    </ol>
-  </li>
-</ol>
-
-<h2 id="线程的背景">线程的背景</h2>
-
-<h2 id="线程的实现方式">线程的实现方式</h2>
-
-<h3 id="用户级线程">用户级线程</h3>
-
-<p><img src="\images\posts\操作系统-进程-用户级线程.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
-
-<ol>
-  <li>用户级线程（User-Level Thread，ULT）由应用程序通过线程库实现，所有的<strong>线程管理工作</strong>都由<strong>应用程序负责</strong>（包括线程切换）；</li>
-  <li>用户级线程中，<strong>线程切换</strong>可以在<strong>用户态下即可完成</strong>，无需操作系统干预；</li>
-  <li>在用户看来，是有多个线程。但是在操作系统内核看来，并意识不到线程的存在。<strong>“用户级线程”</strong>就是<strong>“从用户视角看能看到的线程”</strong>。</li>
-</ol>
-
-<p>用户级线程的优缺点：</p>
-<ul>
-  <li>优点：用户级线程的切换在用户空间即可完成，不需要切换到内核态，线程管理的系统开销小，效率高；</li>
-  <li>缺点：当一个用户级线程被阻塞后。整个进程都会被阻塞，并发度不高。多个线程不可在多核处理机上并行运行。</li>
-</ul>
-
-<h3 id="内核级线程">内核级线程</h3>
-
-<p><img src="\images\posts\操作系统-进程-内核级线程.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
-
-<ol>
-  <li><strong>内核级线程（Kernel-Level Thread，KLT）的管理工作</strong>由<strong>操作系统内核</strong>完成；</li>
-  <li>线程调度、切换等工作都由内核负责，因此<strong>内核级线程的切换</strong>必然需要在<strong>内核态</strong>下才能完成；</li>
-  <li>操作系统会为每个内核级线程建立相应的TCB (Thread Control Block，线程控制块)，通过TCB对线程进行管理。<strong>“内核级线程”</strong>就是<strong>“从操作系统内核视角看能看到的线程”</strong>。</li>
-</ol>
-
-<p>内核级线程的优缺点：</p>
-<ul>
-  <li>优点：当一个线程被阻塞后，别的线程还可以继续执行，并发能力强。多线程可在多核处理机上并行执行；</li>
-  <li>缺点：一个用户进程会占用多个内核级线程，线程切换由操作系统内核完成，需要切换到核心态，因此线程管理的成本高，开销大。</li>
-</ul>
-
-<h2 id="多线程模型">多线程模型</h2>
-
-<p>在支持内核级线程的系统中，根据用户级线程和内核级线程的映射关系，可以划分为几种多线程模型。</p>
-
-<h3 id="一对一模型">一对一模型</h3>
-
-<p><img src="\images\posts\操作系统-进程-一对一模型.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
-
-<p>一对一模型：一个用户级线程映射到一个内核级线程，每个用户进程有与用户级线程同数量的内核级线程。</p>
-<ul>
-  <li>优点：当一个线程被阻塞后，别的线程还可以继续执行，并发能力强。多线程可在多核处理机上并行执行。</li>
-  <li>缺点：一个用户进程会占用多个内核级线程,线程切换由操作系统内核完成，需要切换到内核态，因此线程管理的成本高，开销大。</li>
-</ul>
-
-<h3 id="多对一模型">多对一模型</h3>
-
-<p><img src="\images\posts\操作系统-进程-多对一模型.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
-
-<p>多对一模型：多个用户级线程映射到一个内核级线程，且一个进程只被分配一个内核级线程。</p>
-<ul>
-  <li>优点：用户级线程的切换在用户空间即可完成，不需要切换到核心态，线程管理的系统开销小，效率高</li>
-  <li>缺点：当一个用户级线程被阻塞后，整个进程都会被阻塞，并发度不高。多个线程不可在多核处理机上并行运行</li>
-  <li>注意：操作系统只“看得见”内核级线程，因此只有<strong>内核级线程才是处理机分配的单位</strong>。</li>
-</ul>
-
-<h3 id="多对多模型">多对多模型</h3>
-
-<p><img src="\images\posts\操作系统-进程-多对多模型.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
-
-<p>多对多模型：<strong>n用户及线程映射到m个内核级线程（n&gt;=m）</strong>。每个用户进程对应m个内核级线程。</p>
-
-<p>克服了多对一模型并发度不高的缺点（一个阻塞全体阻塞），又克服了一对一模型中一个用户进程占用太多内核级线程，开销太大的缺点。</p>
-
-<p>可以这么理解：用户级线程是“代码逻辑”的载体；内核级线程是“运行机会”的载体。<strong>内核级线程才是处理机分配的单位</strong>，多核CPU环境下，上图这个进程最多能被分配两个核。
-一段“代码逻辑”只有获得了“运行机会”才能被CPU执行。
-内核级线程中可以运行任意一个有映射关系的用户级线程代码，只有两个内核级线程中正在运行的代码逻辑都阻塞时，这个进程才会阻塞。</p>
-
-    </div>
-
-<!--    <div class="post__share">-->
-<!--      <div class="share__list">-->
-<!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
-
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B&url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
-
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/&amp;media=http://localhost:5001/images/covers/操作系统-cover2.png&amp;description=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
-
-<!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
-
-<!--&lt;!&ndash;        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>&ndash;&gt;-->
-<!--      </div>-->
-<!--    </div>-->
-
-    <div class="post__navigation">
-      
-      <a class="prev" href="/2023/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%9B%9B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/">
-        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十四）线程的概念">
-        <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">操作系统（十四）线程的概念</h4>
-        </div>
-      </a>
-      
-      
-      <a class="next" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AD-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2/">
-        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十六）线程的状态与转换">
-        <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">操作系统（十六）线程的状态与转换</h4>
-        </div>
-      </a>
-      
-    </div>
-
-  </article>
-</div>
-<!-- end post -->
+<!-- end hero -->
 
 
 
 
-
-
-
-<div class="container">
-  <div class="related-posts is-related">
+<!-- begin featured post -->
+<section class="featured-post">
+  <div class="container">
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
-          <div class="row grid">
 
+          <div class="row">
+            
+            
+            
+            
+            <div class="article col col-4 col-d-6 col-t-12 animate">
+
+              <div class="article__inner">
+
+                
+                <span class="featured-post ion ion-ios-star-outline"></span>
+                
+
+                
+                <a class="article__image" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">
+                  <img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用ChatGPT控制Arduino设备">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+
+阅读时间 49 分钟
+
+
+                    </span>
+                    <time class="article__date"
+                      datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
+                  </div>
+
+                  <h2 class="article__title">
+                    <a href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">使用ChatGPT控制Arduino设备</a>
+                  </h2>
+
+                  <p class="article__excerpt">本文介绍了ChatGPT与外部系统集成的一种方法，通过ChatGPT作为控制器实现对Arduino设备的控制，以探索自然语言命令控制家庭设备的可能性及智能家庭设备的发展方向。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tags/ChatGPT" class="article__tag">ChatGPT</a>
+                        
+                          <a href="/tags/Arduino" class="article__tag">Arduino</a>
+                        
+                          <a href="/tags/智能家庭" class="article__tag">智能家庭</a>
+                        
+                      </span>
+                      
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="article col col-4 col-d-6 col-t-12 animate">
+
+              <div class="article__inner">
+
+                
+                <span class="featured-post ion ion-ios-star-outline"></span>
+                
+
+                
+                <a class="article__image" href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B8%80-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8A%9F%E8%83%BD/">
+                  <img class="lazy" data-src="/images/covers/操作系统-cover1.png" alt="操作系统（一）操作系统的概念和功能">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+
+阅读时间 8 分钟
+
+
+                    </span>
+                    <time class="article__date"
+                      datetime="2022-04-20T02:17:03+08:00">Apr 20, 2022</time>
+                  </div>
+
+                  <h2 class="article__title">
+                    <a href="/2022/04/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B8%80-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8A%9F%E8%83%BD/">操作系统（一）操作系统的概念和功能</a>
+                  </h2>
+
+                  <p class="article__excerpt">操作系统（Operating System，OS）是指控制和管理计算机系统软硬件资源，合理组织调度计算机工作和资源分配，提供给用户和其它软件方便的接口和环境。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tags/操作系统" class="article__tag">操作系统</a>
+                        
+                      </span>
+                      
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="article col col-4 col-d-6 col-t-12 animate">
+
+              <div class="article__inner">
+
+                
+                <span class="featured-post ion ion-ios-star-outline"></span>
+                
+
+                
+                <a class="article__image" href="/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%80-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97/">
+                  <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（一）打家劫舍系列">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      
+
+阅读时间 4 分钟
+
+
+                    </span>
+                    <time class="article__date"
+                      datetime="2021-09-27T20:12:45+08:00">Sep 27, 2021</time>
+                  </div>
+
+                  <h2 class="article__title">
+                    <a href="/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%80-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97/">动态规划（一）打家劫舍系列</a>
+                  </h2>
+
+                  <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/tags/算法" class="article__tag">算法</a>
+                        
+                          <a href="/tags/动态规划" class="article__tag">动态规划</a>
+                        
+                      </span>
+                      
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end featured post -->
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="container__inner">
+        <div class="row grid">
           
             
-            
+              <div class="article col col-4 col-d-6 col-t-12 grid__post animate">
+  <div class="article__inner">
+    
+    <a class="article__image" href="/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80/2021/09/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%80-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97/">
+      <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（一）打家劫舍系列">
+    </a>
+    
 
-            
+    <div class="article__content">
 
-            
-            
-            
-            
+      <div class="article__meta">
+        <span class="article__minutes">
+          
 
-            
-
-            
-
-            <div class="article col col-4 col-d-6 col-t-12 grid__post">
-              <div class="article__inner">
-
-                
-                <a class="article__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十八）进程调度的时机、切换与过程、方式">
-                </a>
-                
-
-                <div class="article__content">
-
-                  <div class="article__meta">
-                    <span class="article__minutes">
-                      
-
-阅读时间 1 分钟
+阅读时间 4 分钟
 
 
-                      <time class="article__date"
-                        datetime="2023-04-23T20:05:19+08:00">Apr 23, 2023</time>
-                    </span>
-                  </div>
+          <time class="article__date" datetime="2021-09-27T20:12:45+08:00">Sep 27, 2021</time>
+        </span>
+      </div>
 
-                  <h2 class="article__title">操作系统（十八）进程调度的时机、切换与过程、方式</h2>
+      <h2 class="article__title">动态规划（一）打家劫舍系列</h2>
 
-                  <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
+      <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
 
-                  <div class="article__bottom">
+      <div class="article__bottom">
 
-                    
-                    <div class="article__author">
-                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-                    </div>
-                    
+        
+        <div class="article__author">
+          <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+        </div>
+        
 
-                    <div class="article__bottom-meta">
-                      
-                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-                      
-                      
-                      <span>in</span>
-                      <span class="article-tags">
-                        
-                          <a href="/tags/操作系统" class="article__tag">操作系统</a>
-                        
-                      </span>
-                      
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-            
-                
+        <div class="article__bottom-meta">
+          
+            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+          
+          
+            <span>in</span>
+            <span class="article-tags">
               
-            
-            
-            
-
-            
-
-            
-
-            <div class="article col col-4 col-d-6 col-t-12 grid__post">
-              <div class="article__inner">
-
-                
-                <a class="article__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十七）调度的概念和层次">
-                </a>
-                
-
-                <div class="article__content">
-
-                  <div class="article__meta">
-                    <span class="article__minutes">
-                      
-
-阅读时间 6 分钟
-
-
-                      <time class="article__date"
-                        datetime="2023-04-23T17:38:13+08:00">Apr 23, 2023</time>
-                    </span>
-                  </div>
-
-                  <h2 class="article__title">操作系统（十七）调度的概念和层次</h2>
-
-                  <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
-
-                  <div class="article__bottom">
-
-                    
-                    <div class="article__author">
-                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-                    </div>
-                    
-
-                    <div class="article__bottom-meta">
-                      
-                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-                      
-                      
-                      <span>in</span>
-                      <span class="article-tags">
-                        
-                          <a href="/tags/操作系统" class="article__tag">操作系统</a>
-                        
-                      </span>
-                      
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-            
-                
+<!--                <a href="/tags/算法" class="article__tag">算法</a>-->
+                <a class="article__tag" href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
               
-            
-            
-            
-
-            
-
-            
-
-            <div class="article col col-4 col-d-6 col-t-12 grid__post">
-              <div class="article__inner">
-
-                
-                <a class="article__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AD-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十六）线程的状态与转换">
-                </a>
-                
-
-                <div class="article__content">
-
-                  <div class="article__meta">
-                    <span class="article__minutes">
-                      
-
-阅读时间 2 分钟
-
-
-                      <time class="article__date"
-                        datetime="2023-04-23T10:05:43+08:00">Apr 23, 2023</time>
-                    </span>
-                  </div>
-
-                  <h2 class="article__title">操作系统（十六）线程的状态与转换</h2>
-
-                  <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
-
-                  <div class="article__bottom">
-
-                    
-                    <div class="article__author">
-                      <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-                    </div>
-                    
-
-                    <div class="article__bottom-meta">
-                      
-                        <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-                      
-                      
-                      <span>in</span>
-                      <span class="article-tags">
-                        
-                          <a href="/tags/操作系统" class="article__tag">操作系统</a>
-                        
-                      </span>
-                      
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-            
-                
-                  
-          </div>
+<!--                <a href="/tags/动态规划" class="article__tag">动态规划</a>-->
+                <a class="article__tag" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+              
+            </span>
+          
         </div>
       </div>
     </div>
   </div>
 </div>
 
+            
+              <div class="article col col-4 col-d-6 col-t-12 grid__post animate">
+  <div class="article__inner">
+    
+    <a class="article__image" href="/2019/10/11/%E9%98%B3%E5%85%89%E4%BD%93%E8%82%B2%E4%B8%80%E9%94%AE%E6%B1%89%E5%A7%86/">
+      <img class="lazy" data-src="https://src.onlinedown.net/images/h_imges/wdj/3/logo/c76a697a57cfc446c777513a033e19b1_256_256.png" alt="阳光体育一键汉姆">
+    </a>
+    
 
+    <div class="article__content">
+
+      <div class="article__meta">
+        <span class="article__minutes">
+          
+
+阅读时间 7 分钟
+
+
+          <time class="article__date" datetime="2019-10-11T11:59:11+08:00">Oct 11, 2019</time>
+        </span>
+      </div>
+
+      <h2 class="article__title">阳光体育一键汉姆</h2>
+
+      <p class="article__excerpt">这篇博客介绍了一种阳光体育平台下基于HTTP请求完成汉姆的方式，与虚拟定位方式相比，该种方式速度更快，使用更加便捷</p>
+
+      <div class="article__bottom">
+
+        
+        <div class="article__author">
+          <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+        </div>
+        
+
+        <div class="article__bottom-meta">
+          
+            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+          
+          
+            <span>in</span>
+            <span class="article-tags">
+              
+<!--                <a href="/tags/计算机网络" class="article__tag">计算机网络</a>-->
+                <a class="article__tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+              
+            </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12 load-more">
+      
+      
+      
+      <div class="load-more-section">
+        <button class="load-more-posts button button--middle">Load more</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
   </main> 
@@ -862,21 +910,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用ChatGPT控制Arduino设备"></a>
+      <a class="recent-posts__image" href="/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用DiskGenius进行系统迁移"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 48 分钟
+阅读时间 3 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
+            datetime="2023-10-12T18:54:54+08:00">Oct 12, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">使用ChatGPT控制Arduino设备</a></h4>
+        <h4 class="recent-posts__title"><a href="/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/">使用DiskGenius进行系统迁移</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -890,21 +938,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/"><img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十八）进程调度的时机、切换与过程、方式"></a>
+      <a class="recent-posts__image" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用ChatGPT控制Arduino设备"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 1 分钟
+阅读时间 49 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2023-04-23T20:05:19+08:00">Apr 23, 2023</time>
+            datetime="2023-04-24T00:00:00+08:00">Apr 24, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/2023/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AB-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA-%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B-%E6%96%B9%E5%BC%8F/">操作系统（十八）进程调度的时机、切换与过程、方式</a></h4>
+        <h4 class="recent-posts__title"><a href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">使用ChatGPT控制Arduino设备</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -963,11 +1011,15 @@
       
         <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
       
+        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+      
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
         <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+      
+        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
       
     </div>
   </div>
@@ -1058,7 +1110,7 @@
   var base_url = "",
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',
-    pagination_available_pages_number = '';
+    pagination_available_pages_number = '5';
 </script>
 
 </body>
