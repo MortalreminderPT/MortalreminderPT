@@ -228,6 +228,16 @@
       
     
   
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
 <!--  <li class="nav__item">-->
 <!--    <a href="/2021/12/27/queres-que-tu-arch-se-vea-hermoso-aca-te-dejo-mis-dotfiles/" class="nav__link">DOTFILES</a>-->
 <!--  </li>-->
@@ -401,6 +411,16 @@
       
     
   
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
 <!--  <li class="nav__item">-->
 <!--    <a href="/2021/12/27/queres-que-tu-arch-se-vea-hermoso-aca-te-dejo-mis-dotfiles/" class="nav__link">DOTFILES</a>-->
 <!--  </li>-->
@@ -514,7 +534,113 @@
   <article class="post animate">
 
     <div class="post__content">
-      
+      <ol id="markdown-toc">
+  <li><a href="#时机" id="markdown-toc-时机">时机</a>    <ol>
+      <li><a href="#需要进行进程调度与切换的情况" id="markdown-toc-需要进行进程调度与切换的情况">需要进行进程调度与切换的情况</a></li>
+      <li><a href="#不能进行进程调度与切换的情况" id="markdown-toc-不能进行进程调度与切换的情况">不能进行进程调度与切换的情况</a></li>
+      <li><a href="#操作系统内核程序临界区中不能进行调度与切换" id="markdown-toc-操作系统内核程序临界区中不能进行调度与切换">操作系统内核程序临界区中不能进行调度与切换</a></li>
+    </ol>
+  </li>
+  <li><a href="#方式" id="markdown-toc-方式">方式</a>    <ol>
+      <li><a href="#非剥夺调度方式非抢占式" id="markdown-toc-非剥夺调度方式非抢占式">非剥夺调度方式（非抢占式）</a></li>
+      <li><a href="#剥夺调度方式抢占式" id="markdown-toc-剥夺调度方式抢占式">剥夺调度方式（抢占式）</a></li>
+    </ol>
+  </li>
+  <li><a href="#切换与过程" id="markdown-toc-切换与过程">切换与过程</a></li>
+</ol>
+
+<h2 id="时机">时机</h2>
+
+<p><strong>进程调度（低级调度）</strong>，就是按照某种算法从就绪队列中选择一个进程为其分配处理机。</p>
+
+<h3 id="需要进行进程调度与切换的情况">需要进行进程调度与切换的情况</h3>
+
+<p><strong>需要进行</strong>进程调度与切换的情况主要分为两种，<strong>主动放弃</strong>和<strong>被动放弃</strong>。</p>
+
+<p>当前运行的进程<strong>主动放弃</strong>处理机：</p>
+<ul>
+  <li>进程正常终止；</li>
+  <li>运行过程中发生异常而终止；</li>
+  <li>进程主动请求阻塞（如等待I/O）。</li>
+</ul>
+
+<p>当前运行的进程<strong>被动放弃</strong>处理机：</p>
+<ul>
+  <li>分给进程的时间片用完；</li>
+  <li>有更紧急的事需要处理（如I/O中断）；</li>
+  <li>有更高优先级的进程进入就绪队列。</li>
+</ul>
+
+<h3 id="不能进行进程调度与切换的情况">不能进行进程调度与切换的情况</h3>
+
+<p><strong>不能进行</strong>进程调度与切换的情况：</p>
+<ul>
+  <li>在<strong>处理中断的过程中</strong>。中断处理过程复杂，与硬件密切相关，很难做到在中断处理过程中进行进程切换；</li>
+  <li>进程在<strong>操作系统内核程序临界区</strong>中；</li>
+  <li>在原子操作过程中（原语）。原子操作不可中断，要一气呵成（如修改PCB中进程状态的标识，并把PCB放到相应队列）。</li>
+</ul>
+
+<h3 id="操作系统内核程序临界区中不能进行调度与切换">操作系统内核程序临界区中不能进行调度与切换</h3>
+
+<p>临界资源：一个时间段内只允许一个进程使用的资源。各进程需要<strong>互斥地</strong>访问临界资源。</p>
+
+<p>临界区：访问临界资源的那段代码。</p>
+
+<p><strong>内核程序临界区</strong>一般是用来访问某种<strong>内核数据结构</strong>的，比如进程的就绪队列（由各就绪进程的PCB组成）</p>
+
+<p>内核程序临界区访问的临界资源如果不尽快释放的话，极有可能影响到操作系统内核的其他管理工作。因此在访问内核程序临界区期间不能进行调度与切换。</p>
+
+<p>如图，访问进程的就绪队列时，由于就绪队列被访问，操作系统不能进行调度与切换。</p>
+
+<p><img src="\images\posts\操作系统-进程调度时机1.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
+
+<p>普通临界区访问的临界资源不会直接影响操作系统内核的管理工作，因此在访问普通临界区时可以进行调度与切换。</p>
+
+<p>如图，在打印机打印完成之前，进程一直处于临界区内，临界资源不会解锁。但打印机又是慢速设备，此时如果一直不允许进程调度的话就会导致CPU一直空闲。</p>
+
+<p><img src="\images\posts\操作系统-进程调度时机2.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
+
+<h2 id="方式">方式</h2>
+
+<p>有的系统中，只允许进程主动放弃处理机；</p>
+
+<p>而有的系统中，进程可以主动放弃处理机，当有更紧急的任务需要处理时，也会强行剥夺处理机。</p>
+
+<p>因此，可以将进程调度的方式分为<strong>非剥夺调度方式</strong>和<strong>剥夺调度方式</strong>。</p>
+
+<h3 id="非剥夺调度方式非抢占式">非剥夺调度方式（非抢占式）</h3>
+
+<p><strong>非剥夺调度方式，又称非抢占方式</strong>。即，只允许进程主动放弃处理机。在运行过程中即便有更紧迫的任务到达，当前进程依然会继续使用处理机，直到该进程终止或主动要求进入阻塞态。</p>
+
+<p>非剥夺调度方式实现简单，系统开销小但是无法及时处理紧急任务，适合于早期的批处理系统。</p>
+
+<h3 id="剥夺调度方式抢占式">剥夺调度方式（抢占式）</h3>
+
+<p><strong>剥夺调度方式，又称抢占方式</strong>。当一个进程正在处理机上执行时，如果有一个更重要或更紧迫的进程需要使用处理机，则立即暂停正在执行的进程，将处理机分配给更重要紧迫的那个进程。</p>
+
+<p>剥夺调度方式可以优先处理更紧急的进程,也可实现让各进程按时间片轮流执行的功能（通过时钟中断）。适合于分时操作系统、实时操作系统。</p>
+
+<h2 id="切换与过程">切换与过程</h2>
+
+<p>狭义的进程调度和进程切换：</p>
+
+<p><strong>狭义的进程调度</strong>指的是从就绪队列中<strong>选中一个要运行的进程</strong>。
+（这个进程可以是刚刚被暂停执行的进程，也可能是<strong>另一个进程</strong>，后一种情况就需要<strong>进程切换</strong>）</p>
+
+<p><strong>进程切换</strong>是指一个进程让出处理机，由另一个进程占用处理机的过程。</p>
+
+<p><strong>广义的进程调度</strong>包含了选择一个进程和进程切换两个步骤。</p>
+
+<p>进程切换的过程主要完成了：</p>
+
+<ol>
+  <li>对原来运行进程各种数据的保存；</li>
+  <li>对新的进程各种数据的恢复。（如:程序计数器、程序状态字、各种数据寄存器等处理机现场信息，这些信息一般保存在进程控制块）</li>
+</ol>
+
+<p>注意：<strong>进程切换是有代价的</strong>，因此如果<strong>过于频繁的</strong>进行进程<strong>调度、切换</strong>，必然会使整个<strong>系统的效率降低</strong>，使系统大部分时间都花在了进程切换上，而真正用于执行进程的时间减少。</p>
+
+
     </div>
 
 <!--    <div class="post__share">-->
@@ -544,11 +670,11 @@
       </a>
       
       
-      <a class="next" href="/2022/09/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%B8%80-%E7%AE%80%E4%BB%8B/">
-        <img class="post__nav-image lazy" data-src="" alt="设计模式（一）简介">
+      <a class="next" href="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B9%9D-%E8%B0%83%E5%BA%A6%E5%99%A8-Scheduler-%E5%92%8C%E9%97%B2%E9%80%9B%E8%BF%9B%E7%A8%8B/">
+        <img class="post__nav-image lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十九）调度器（Scheduler）和闲逛进程">
         <div class="post__nav-box">
           <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">设计模式（一）简介</h4>
+          <h4 class="post__nav__title">操作系统（十九）调度器（Scheduler）和闲逛进程</h4>
         </div>
       </a>
       
@@ -614,20 +740,13 @@
             
 
             
-            
-            
-            
-
-            
-
-            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%B8%83-%E8%B0%83%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%B1%82%E6%AC%A1/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十七）调度的概念和层次">
+                <a class="article__image" href="/2022/04/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B8%89%E5%8D%81%E5%9B%9B-%E7%AE%A1%E7%A8%8B/">
+                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（三十四）管程">
                 </a>
                 
 
@@ -637,15 +756,15 @@
                     <span class="article__minutes">
                       
 
-阅读时间 7 分钟
+阅读时间 10 分钟
 
 
                       <time class="article__date"
-                        datetime="2022-04-23T17:38:13+08:00">Apr 23, 2022</time>
+                        datetime="2022-04-30T18:16:50+08:00">Apr 30, 2022</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">操作系统（十七）调度的概念和层次</h2>
+                  <h2 class="article__title">操作系统（三十四）管程</h2>
 
                   <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
 
@@ -692,8 +811,8 @@
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/2022/04/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E5%85%AD-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十六）线程的状态与转换">
+                <a class="article__image" href="/2022/04/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B8%89%E5%8D%81%E4%B8%89-%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90%E9%97%AE%E9%A2%98/">
+                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（三十三）哲学家进餐问题">
                 </a>
                 
 
@@ -703,15 +822,15 @@
                     <span class="article__minutes">
                       
 
-阅读时间 1 分钟
+阅读时间 9 分钟
 
 
                       <time class="article__date"
-                        datetime="2022-04-23T10:05:43+08:00">Apr 23, 2022</time>
+                        datetime="2022-04-30T12:05:09+08:00">Apr 30, 2022</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">操作系统（十六）线程的状态与转换</h2>
+                  <h2 class="article__title">操作系统（三十三）哲学家进餐问题</h2>
 
                   <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
 
@@ -758,8 +877,8 @@
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/2022/04/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%8D%81%E4%BA%94-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
-                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（十五）线程的实现方式和多线程模型">
+                <a class="article__image" href="/2022/04/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B8%89%E5%8D%81%E4%BA%8C-%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98/">
+                  <img class="lazy" data-src="/images/covers/操作系统-cover2.png" alt="操作系统（三十二）读者-写者问题">
                 </a>
                 
 
@@ -769,15 +888,15 @@
                     <span class="article__minutes">
                       
 
-阅读时间 7 分钟
+阅读时间 13 分钟
 
 
                       <time class="article__date"
-                        datetime="2022-04-22T02:46:02+08:00">Apr 22, 2022</time>
+                        datetime="2022-04-29T10:47:21+08:00">Apr 29, 2022</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">操作系统（十五）线程的实现方式和多线程模型</h2>
+                  <h2 class="article__title">操作系统（三十二）读者-写者问题</h2>
 
                   <p class="article__excerpt">进程（Process）是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
 
