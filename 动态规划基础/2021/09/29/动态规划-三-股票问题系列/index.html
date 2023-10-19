@@ -551,7 +551,7 @@
       <ol id="markdown-toc">
   <li><a href="#121-买卖股票的最佳时机" id="markdown-toc-121-买卖股票的最佳时机">121. 买卖股票的最佳时机</a>    <ol>
       <li><a href="#状态转移方程" id="markdown-toc-状态转移方程">状态转移方程</a>        <ol>
-          <li><a href="#如何表示price_min" id="markdown-toc-如何表示price_min">如何表示<include src="/_e895iPWqADznXhuFaV0CZf.xml"></include></a></li>
+          <li><a href="#如何表示price_min" id="markdown-toc-如何表示price_min">如何表示<include src="/_CoOs2iwpmB4k1tdIMnFPJh.xml"></include></a></li>
           <li><a href="#边界条件" id="markdown-toc-边界条件">边界条件</a></li>
         </ol>
       </li>
@@ -591,38 +591,38 @@
 
 <h2 id="121-买卖股票的最佳时机"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></h2>
 <h3 id="状态转移方程">状态转移方程</h3>
-<p>我们可以用<include src="/_iH8ZYKBSwqtbev2$7Fkm3@.xml"></include>来表示，在前<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>日我们可以得到的最大利润，那么我们第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>日的操作有两种选择：</p>
+<p>我们可以用<include src="/_nWmTuR8OX0chDQvK5taGEr.xml"></include>来表示，在前<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>日我们可以得到的最大利润，那么我们第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>日的操作有两种选择：</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.我们在第i日卖出得到的利润可能比之前的利润（dp[i-1]）更高
 2.我们之前的利润要比现在更高，不用进行任何操作
 </code></pre></div></div>
 
-<p>对于情况1，我们得到状态转移方程<include src="/_WjUMm9tA6KP8zqk5pce10x.xml"></include>
-而对于情况2，我们有<include src="/_IAieL4c9SUvZjrNFJ0s86B.xml"></include>
+<p>对于情况1，我们得到状态转移方程<include src="/_4F3Rqpl8AjKPV6so@wmg$h.xml"></include>
+而对于情况2，我们有<include src="/_eU@XLAPn1ZB4g6kT7pVHqC.xml"></include>
 综合两种情况，也就得到此题的状态转移方程：</p>
 
-<p><include src="/_Ta6QAbfjd3BNOz4vL1lxnm.xml"></include></p>
+<p><include src="/_JOfjp8C2trumD@1AZ5Ina9.xml"></include></p>
 
-<p>那么剩下的问题就在于如何表示<include src="/_e895iPWqADznXhuFaV0CZf.xml"></include>。</p>
+<p>那么剩下的问题就在于如何表示<include src="/_CoOs2iwpmB4k1tdIMnFPJh.xml"></include>。</p>
 
-<h4 id="如何表示price_min">如何表示<include src="/_e895iPWqADznXhuFaV0CZf.xml"></include></h4>
-<p>我们发现，<include src="/_e895iPWqADznXhuFaV0CZf.xml"></include>的计算也是一个无后效性的问题，我们同样可以通过动态规划来求解，用<include src="/_YPAr0sWhlO1jp68eyoLq$d.xml"></include>来表示前i日股票的最低价格，则<include src="/_YPAr0sWhlO1jp68eyoLq$d.xml"></include>的状态转移方程可以写成：</p>
+<h4 id="如何表示price_min">如何表示<include src="/_CoOs2iwpmB4k1tdIMnFPJh.xml"></include></h4>
+<p>我们发现，<include src="/_CoOs2iwpmB4k1tdIMnFPJh.xml"></include>的计算也是一个无后效性的问题，我们同样可以通过动态规划来求解，用<include src="/_pckdDChArNzUMt9IOq4wv2.xml"></include>来表示前i日股票的最低价格，则<include src="/_pckdDChArNzUMt9IOq4wv2.xml"></include>的状态转移方程可以写成：</p>
 
-<p><include src="/_YPAr0sWhlO1jp68eyoLq$d.xml"></include> = <include src="/_JfiCLtAxZUHqoMX1YQm5bN.xml"></include></p>
+<p><include src="/_pckdDChArNzUMt9IOq4wv2.xml"></include> = <include src="/_OlVUAnqQ2vYEwLBW01D6cX.xml"></include></p>
 
-<p>可能这时候你就要说了，你这不是脱了裤子放屁吗？那我们不妨换一个思维方式，还是上面的状态转移方程不变，<strong>我们用<include src="/_yzSYmPol7XTAsRiHaJZfOr.xml"></include>表示前<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天手上有<include src="/_zEO$8Yr7ohb1FnG@kQXexK.xml"></include>个股票时我们的最大利润。</strong> 这时候你不妨停下来思考一会，该如何写出状态转移方程呢？</p>
+<p>可能这时候你就要说了，你这不是脱了裤子放屁吗？那我们不妨换一个思维方式，还是上面的状态转移方程不变，<strong>我们用<include src="/_ZI1pVSo0DU8xQCnNRd3s7$.xml"></include>表示前<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天手上有<include src="/_MWAB6ZI@GKmhLDi7O$1FSP.xml"></include>个股票时我们的最大利润。</strong> 这时候你不妨停下来思考一会，该如何写出状态转移方程呢？</p>
 
-<p>联立上面两个转移方程，得到<include src="/_yzSYmPol7XTAsRiHaJZfOr.xml"></include>的状态转移方程：</p>
+<p>联立上面两个转移方程，得到<include src="/_ZI1pVSo0DU8xQCnNRd3s7$.xml"></include>的状态转移方程：</p>
 
-<p><include src="/_21b0oaL8xw9$G47KPqHT@c.xml"></include>
-<include src="/_bSnR2Y8qzTNJhiEyLIZA96.xml"></include></p>
+<p><include src="/_2FnirYIuKjlvft1SHh9mJZ.xml"></include>
+<include src="/_BJdDGnPwX@K3SxhvjTFZsM.xml"></include></p>
 
-<p>没错，此时的<include src="/_$8BEZbh2ld0H4W5eI7@Xnx.xml"></include>就是之前我们的开销，用来辅助我们计算第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天的最大利润，也就是<include src="/_X@r50$7kCeFPlLDZKVQiIY.xml"></include></p>
+<p>没错，此时的<include src="/_lkxeYCtHFjwMZNcvGm7E5X.xml"></include>就是之前我们的开销，用来辅助我们计算第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天的最大利润，也就是<include src="/_0lakqYZhUOcwNsX1ymCbpF.xml"></include></p>
 
 <h4 id="边界条件">边界条件</h4>
-<p><include src="/_iylht1vrxoNbEd4AHUsgF5.xml"></include>表示在第0天我们手上有0支股票时的最大利润，因此<include src="/_v$ETH0W36ULqjotlwzYxD2.xml"></include></p>
+<p><include src="/_s$BgKpik8@ThnUNr2o9muy.xml"></include>表示在第0天我们手上有0支股票时的最大利润，因此<include src="/_uWaKIZkO6lNv$Cg5DRw7iX.xml"></include></p>
 
-<p><include src="/_UuzvNWlg@aOIYZhMAyH40b.xml"></include>表示在第0天我们手上有1支股票时的最大利润，因此<include src="/_jnCM980D2OSJlWv5meLHFp.xml"></include></p>
+<p><include src="/_iIxM@Hwoz68pec$rqaXsFA.xml"></include>表示在第0天我们手上有1支股票时的最大利润，因此<include src="/_Nn0cv5Leo1jCY$6XSFqzr4.xml"></include></p>
 
 <h3 id="代码">代码</h3>
 
@@ -642,20 +642,20 @@
 <h3 id="状态转移方程-1">状态转移方程</h3>
 <p>122.题与121.题的不同点在于，122.是可以无限进行购买操作的，相应的，我们的状态转移方程也有所改变。</p>
 
-<p>根据我们第一题的状态转移方程，在第一题里，一但我们前面卖出了股票，下次再想购买股票时，总利润便会变成<include src="/_c318OxYTGW5bHtahRspvfg.xml"></include>，但在这道题中，由于我们不再受购买次数的限制，因此我们的利润就可以一直累计下去，如何理解这种累计呢？</p>
+<p>根据我们第一题的状态转移方程，在第一题里，一但我们前面卖出了股票，下次再想购买股票时，总利润便会变成<include src="/_VejXstHo4vSOTiynRu@pgb.xml"></include>，但在这道题中，由于我们不再受购买次数的限制，因此我们的利润就可以一直累计下去，如何理解这种累计呢？</p>
 
-<p>在前<include src="/_KEfb8RNW9cxkYLu5ZGhOJA.xml"></include>天，我们的最大利润达到了<include src="/_vy2TVK0wsZe5fcmrBMlEjn.xml"></include>，而在第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天我们要购入股票，此时的利润就会变为<include src="/_w754SoF1qTns9byxKjUADP.xml"></include></p>
+<p>在前<include src="/_RnkJ9MS1NpaXZ27wq3uGWT.xml"></include>天，我们的最大利润达到了<include src="/_tVyTZfHU7MDCl4bnX@Fe80.xml"></include>，而在第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天我们要购入股票，此时的利润就会变为<include src="/_QBw9vLR5FyZmDzAe6KUNab.xml"></include></p>
 
-<p>即<include src="/_$8BEZbh2ld0H4W5eI7@Xnx.xml"></include>的状态转移方程变为：</p>
+<p>即<include src="/_lkxeYCtHFjwMZNcvGm7E5X.xml"></include>的状态转移方程变为：</p>
 
-<p><include src="/_Qtp0LHNnPCGqYJ8VwAZ2KO.xml"></include></p>
+<p><include src="/_OLWMg6TjNdbw2$Aea@cFSY.xml"></include></p>
 
-<p>读者应该也注意到，在我们把状态转移方程分成两部分后，我们对转移方程的解读方式也转变了，这里我再次阐述一遍，<include src="/_X@r50$7kCeFPlLDZKVQiIY.xml"></include>表示手上没有股票时的最大利润，<include src="/_$8BEZbh2ld0H4W5eI7@Xnx.xml"></include>表示手上有一枚股票时的最大利润。</p>
+<p>读者应该也注意到，在我们把状态转移方程分成两部分后，我们对转移方程的解读方式也转变了，这里我再次阐述一遍，<include src="/_0lakqYZhUOcwNsX1ymCbpF.xml"></include>表示手上没有股票时的最大利润，<include src="/_lkxeYCtHFjwMZNcvGm7E5X.xml"></include>表示手上有一枚股票时的最大利润。</p>
 
 <p>综上，状态转移方程为：</p>
 
-<p><include src="/_21b0oaL8xw9$G47KPqHT@c.xml"></include>
-<include src="/_Qtp0LHNnPCGqYJ8VwAZ2KO.xml"></include></p>
+<p><include src="/_2FnirYIuKjlvft1SHh9mJZ.xml"></include>
+<include src="/_OLWMg6TjNdbw2$Aea@cFSY.xml"></include></p>
 
 <p>边界条件与之前相同。</p>
 
@@ -674,14 +674,14 @@
 
 <h2 id="714-买卖股票的最佳时机含手续费"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></h2>
 <h3 id="状态转移方程-2">状态转移方程</h3>
-<p>如果你认真阅读了题714.并理解了题122.那这道题你其实可以直接过的，因为这道题和题122.的不同之处就在于，它在售卖时多了手续费这个固定消耗，因此在决定卖出股票的第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天里，如果收益不足以抵消掉手续费，那我们会选择之前的利润作为最优解，即：</p>
+<p>如果你认真阅读了题714.并理解了题122.那这道题你其实可以直接过的，因为这道题和题122.的不同之处就在于，它在售卖时多了手续费这个固定消耗，因此在决定卖出股票的第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天里，如果收益不足以抵消掉手续费，那我们会选择之前的利润作为最优解，即：</p>
 
-<p><include src="/_yu$NDUETASXc89inK5bdr3.xml"></include></p>
+<p><include src="/_OAfZDM6TBrJwCvK3gc9Etd.xml"></include></p>
 
 <p>整体的转移方程表示为：</p>
 
-<p><include src="/_yu$NDUETASXc89inK5bdr3.xml"></include>
-<include src="/_Qtp0LHNnPCGqYJ8VwAZ2KO.xml"></include></p>
+<p><include src="/_OAfZDM6TBrJwCvK3gc9Etd.xml"></include>
+<include src="/_OLWMg6TjNdbw2$Aea@cFSY.xml"></include></p>
 
 <p>边界条件仍与之前相同</p>
 
@@ -700,19 +700,19 @@
 
 <h2 id="309-最佳买卖股票时机含冷冻期"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></h2>
 <h3 id="状态转移方程-3">状态转移方程</h3>
-<p>这道题的变化在于，之前我们只有<include src="/_M7yPb8go4taZhTmLEDjus6.xml"></include>卖出、<include src="/_vj@qsT6J8AQdbWO1iKuoEm.xml"></include>买入两种状态，但这道题引入了一个新的新的状态<include src="/_2WdqQ5NlvcTzFKHpbBo0h$.xml"></include>冷冻期，而这个冷冻期状态是在卖出操作后出现，如果我们用<include src="/_OJj5SnhaU@ZL7Qoxu0AmPN.xml"></include>来表示当我们在第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天的冷冻期收益，则<include src="/_OJj5SnhaU@ZL7Qoxu0AmPN.xml"></include>可以用<include src="/_AmcREpwWrx9SjPYH8MvoZz.xml"></include>表示为：</p>
+<p>这道题的变化在于，之前我们只有<include src="/_9wNlKd47HmITLCnBJvbq3Y.xml"></include>卖出、<include src="/_09NrGaP5v$7YbjXoFVqBdZ.xml"></include>买入两种状态，但这道题引入了一个新的新的状态<include src="/_HvseW6RbVCKLjmyiXt3rGI.xml"></include>冷冻期，而这个冷冻期状态是在卖出操作后出现，如果我们用<include src="/_uNct5qrYVKR9aEvF$2BU4d.xml"></include>来表示当我们在第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天的冷冻期收益，则<include src="/_uNct5qrYVKR9aEvF$2BU4d.xml"></include>可以用<include src="/_nK3y9sB@7uwoT5FmfQNMgC.xml"></include>表示为：</p>
 
-<p><include src="/_KhEel35S620fxsn$1TPBwY.xml"></include></p>
+<p><include src="/_O9rUdKs27tnIpTy30RQowA.xml"></include></p>
 
 <p>买入状态的转移方程也有所变化，因为此题中买入状态必须由冷冻期状态进入，也就是：</p>
 
-<p><include src="/_E7JWHxC54ONIFhiq1tARp2.xml"></include></p>
+<p><include src="/_NeStbgFCQE40rhuBHlGv$6.xml"></include></p>
 
 <p>最后，综合三式就可以得到我们新的状态转移方程：</p>
 
-<p><include src="/_5ZkjY6GrLSw1VA7WHJ3xmo.xml"></include>
-<include src="/_E7JWHxC54ONIFhiq1tARp2.xml"></include>
-<include src="/_YSwjkKxdQbGWonEJAsPyBf.xml"></include></p>
+<p><include src="/_31nQ9o@E5RyqvpGXgYwCbA.xml"></include>
+<include src="/_NeStbgFCQE40rhuBHlGv$6.xml"></include>
+<include src="/_5XfOwaAK17LoqRp$grVjED.xml"></include></p>
 
 <p>边界条件仍然不变</p>
 
@@ -734,9 +734,9 @@
 <h3 id="思路">思路</h3>
 <p>如果没有前面的铺垫直接来看这道题，难度瞬间就高起来了。但现在带着前面的经验再来对比这道题，我们会发现这道题和题121. 题122.有着很大的关联。</p>
 
-<p>假设在第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天卖出了股票，当我们是第一次或第二次操作时，我们的利润是可以积累的。但如果是在第三次操作，那么我们就要重新累计利润了。</p>
+<p>假设在第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天卖出了股票，当我们是第一次或第二次操作时，我们的利润是可以积累的。但如果是在第三次操作，那么我们就要重新累计利润了。</p>
 
-<p>我们不妨将<include src="/_AmcREpwWrx9SjPYH8MvoZz.xml"></include>升到三维数组，用第三维来区分第一次操作和第二次操作，即得到代码如下：</p>
+<p>我们不妨将<include src="/_nK3y9sB@7uwoT5FmfQNMgC.xml"></include>升到三维数组，用第三维来区分第一次操作和第二次操作，即得到代码如下：</p>
 <h3 id="代码-4">代码</h3>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
@@ -756,7 +756,7 @@
 
 <h2 id="188-买卖股票的最佳时机-iv"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">188. 买卖股票的最佳时机 IV</a></h2>
 
-<p>当问题扩充到<include src="/_OoJLSK6y81qkE7wZp2N9rs.xml"></include>时，我们解决题123.的思路仍然有效，我们可以用初始化边界为<include src="/_fMOh2ni6syVL@9TjQSGoxu.xml"></include>，再用一个<include src="/_rwsP0FvIVQG2g7RaAJuE6K.xml"></include>循环写出结果。</p>
+<p>当问题扩充到<include src="/_ktX0yJYnHZ7aLWDBG3dCfg.xml"></include>时，我们解决题123.的思路仍然有效，我们可以用初始化边界为<include src="/_p0hN2HOlGode9ryL6Y5Unw.xml"></include>，再用一个<include src="/_WRkvKzUjoY5payqeifD06d.xml"></include>循环写出结果。</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">prices</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -776,18 +776,18 @@
 <p>股票问题的三个限定条件是</p>
 
 <ul>
-  <li>当前天数<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include></li>
-  <li>手持股票<include src="/_zEO$8Yr7ohb1FnG@kQXexK.xml"></include></li>
-  <li>允许的最大操作次数<include src="/_OoJLSK6y81qkE7wZp2N9rs.xml"></include></li>
+  <li>当前天数<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include></li>
+  <li>手持股票<include src="/_MWAB6ZI@GKmhLDi7O$1FSP.xml"></include></li>
+  <li>允许的最大操作次数<include src="/_ktX0yJYnHZ7aLWDBG3dCfg.xml"></include></li>
 </ul>
 
-<p>我们设在第<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>天，手持股票为<include src="/_zEO$8Yr7ohb1FnG@kQXexK.xml"></include>，操作次数为<include src="/_OoJLSK6y81qkE7wZp2N9rs.xml"></include>时我们的利润为<include src="/_9fTDoVlp8FX0$UWKtgJ214.xml"></include>，视每次购买股票为进行一次操作，则我们的状态转移方程为：</p>
+<p>我们设在第<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>天，手持股票为<include src="/_MWAB6ZI@GKmhLDi7O$1FSP.xml"></include>，操作次数为<include src="/_ktX0yJYnHZ7aLWDBG3dCfg.xml"></include>时我们的利润为<include src="/_auefR8PMYJvQ153qdyW$hU.xml"></include>，视每次购买股票为进行一次操作，则我们的状态转移方程为：</p>
 
-<p><include src="/_OFzgIL@wAe6Ni5kyoScp0s.xml"></include>
-<include src="/_Ju@AZxrVRHgClkb3shFWqU.xml"></include></p>
+<p><include src="/_k7@rVu1MX5ml3dgeyTYsIA.xml"></include>
+<include src="/_0QY$CM2S95z8lbAIOscPvt.xml"></include></p>
 
 <h4 id="边界条件-1">边界条件</h4>
-<p><include src="/_gvd58WJOPNCfoj@RsxFhGU.xml"></include>
+<p><include src="/_mYeJUdPZsnhkBjKTcQ7XM8.xml"></include>
 其余值都为0</p>
 
 <h2 id="结束语">结束语</h2>
@@ -851,6 +851,41 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 

@@ -570,13 +570,13 @@
 <h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/_faDBuykKx9zCEQhNLt$VPY.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/_cAZWh5V0iHN9rLtz2CBMnX.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/_xj$KCYXFRsWrI7PTp0VUA8.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/_uaD6rUmKfNgl0VhE92nZjy.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/_fLH$NM7tUsJwuOC8Aqa@53.xml"></include>，设线段树的根节点编号为<include src="/_xj$KCYXFRsWrI7PTp0VUA8.xml"></include>，用数组<include src="/_rSIcZTDWijLod9YsJE@w84.xml"></include>来保存线段树，<include src="/_C5uYrHRItq$kA9ZP4n3zSO.xml"></include>用来保存线段树上编号为<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/_MYNGbLXOqrQoH6jRdk$wJp.xml"></include>，设线段树的根节点编号为<include src="/_uaD6rUmKfNgl0VhE92nZjy.xml"></include>，用数组<include src="/_6pdKMExubJjnDPZ$mvNezo.xml"></include>来保存线段树，<include src="/_WgaX94rxyOkoNjTnh8mK$7.xml"></include>用来保存线段树上编号为<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -591,7 +591,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>，其子节点的编号为<include src="/_opaZS8rGQPiF4eTuLUh9jM.xml"></include>以及<include src="/_BO8FetlPK1bNdRn$jqwp0S.xml"></include>，若节点<include src="/_FNU1SGIYMur2bHXq9QOs4m.xml"></include>存储的区间为<include src="/_zCYOl12INVjX@FuKsi3hUx.xml"></include>，则节点<include src="/_opaZS8rGQPiF4eTuLUh9jM.xml"></include>存储的区间应该是<include src="/_QmOvspXMHySJDVbcrR$1ZL.xml"></include>，相应地，节点<include src="/_BO8FetlPK1bNdRn$jqwp0S.xml"></include>存储的区间为<include src="/_ZNTtBOkhJHorAK9Y8R@VvD.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>，其子节点的编号为<include src="/_r3KgsDPYSTW1RAeo2bUXBv.xml"></include>以及<include src="/_yiu7HRCoWlPOTES@GBn8X$.xml"></include>，若节点<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>存储的区间为<include src="/_0a4wSdbYO7GVrAl2Tz6ykW.xml"></include>，则节点<include src="/_r3KgsDPYSTW1RAeo2bUXBv.xml"></include>存储的区间应该是<include src="/_C76ji$1DcZWLnEeT4dMyYh.xml"></include>，相应地，节点<include src="/_yiu7HRCoWlPOTES@GBn8X$.xml"></include>存储的区间为<include src="/_Gx$a7RiQhfCpBrWv@T54H0.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -606,7 +606,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/_HcxOYubTo0lSU7VjW84A19.xml"></include>，我们只需直接返回<include src="/_BIH1NFkgDuTKwqJSXsUC5M.xml"></include>，但如果我们查询的是<include src="/_69WfZOHsGI2aNiVCBlp1hr.xml"></include>，则需要合并<include src="/_LBU217HAjNq8MWhgYcDREC.xml"></include>和<include src="/_vG5FaBEJPL@K9V$OXShWYp.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/_2@4LzqTNh9GlnROC8I3K7J.xml"></include>，我们只需直接返回<include src="/_0n1@Atim4I$KrZzoR57Q9h.xml"></include>，但如果我们查询的是<include src="/_UnThkE3fjxAVKuyeYXrHd6.xml"></include>，则需要合并<include src="/_hxfTNM3HqnKmXjtv8zGSRP.xml"></include>和<include src="/_xNr6Kqub1lv7Otcj@3XeWQ.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -632,9 +632,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/_VHQmax6OhpRtlYI2f0WTG9.xml"></include>的区间<include src="/_69WfZOHsGI2aNiVCBlp1hr.xml"></include>加上<include src="/_w7Sf06hDibFpAj5JOGQVkq.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/_D2@rz0qFciK97tXmsTIYQg.xml"></include>的区间<include src="/_UnThkE3fjxAVKuyeYXrHd6.xml"></include>加上<include src="/_L1mRHA8UIJGvcyaukF9nSl.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/_KiSJVTGhc$6eXRxNyqv4dY.xml"></include>时就已经结束了，因此节点<include src="/_KiSJVTGhc$6eXRxNyqv4dY.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/_8C6iJxq$nFTg3cPhZHBAMd.xml"></include>时就已经结束了，因此节点<include src="/_8C6iJxq$nFTg3cPhZHBAMd.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
@@ -774,6 +774,41 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
