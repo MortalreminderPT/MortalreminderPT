@@ -9,7 +9,7 @@
   <title>二叉树基础（一）二叉树的概念</title>
   <meta name='description' content='二叉树（Binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。'>
 
-  <link rel="canonical" href="http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
+  <link rel="canonical" href="http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
 
   <!-- Icons -->
@@ -217,10 +217,6 @@
     
   
     
-  
-    
-  
-    
       
       
     
@@ -248,6 +244,10 @@
     
       
       
+    
+  
+    
+  
     
   
 <!--  <li class="nav__item">-->
@@ -400,10 +400,6 @@
     
   
     
-  
-    
-  
-    
       
       
     
@@ -431,6 +427,10 @@
     
       
       
+    
+  
+    
+  
     
   
 <!--  <li class="nav__item">-->
@@ -613,20 +613,20 @@
   <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
     <h3 id="性质">性质</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/_yoz0@2hwB7vIE1OYJP6uet.xml"></include>个节点 <include src="/_0wdZrsi76Ck1EzJGnXIoH4.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/_ksLXTZ15Qr3MFmnVSuWpcb.xml"></include>个节点 <include src="/_@Br73RMdHUynTKSF2IikXZ.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/_$7LivozWdZcYK2Mak6TqGE.xml"></include>，度为2的节点为<include src="/_s10@cdeDHP5t2EBwKj4o9T.xml"></include>，则<include src="/_Ncbtp74YeAPZgCvUBSQ3G2.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_N0AkcOXZDzWF36I8yPEiYl.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/_lo4QgpEaqOxXrLeSyJ$dmf.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_QdhG8bSusTXJU@ogL0KjEF.xml"></include></li>
-  <li><include src="/_lo4QgpEaqOxXrLeSyJ$dmf.xml"></include>个节点的完全二叉树高度为<include src="/_uywCZsOKqkEPv9n2l7dM0U.xml"></include>，深度为<include src="/_k5vG$norhXNOFU91i6EyAq.xml"></include></li>
+  <li>一棵二叉树的第i层最多有<include src="/_iXQcTCVSesI0q2dyUkHtO1.xml"></include>个节点 <include src="/_AzkvNUfdiOoLjPXaB7K4$D.xml"></include></li>
+  <li>深度为k的二叉树最多有<include src="/_d25fQG$u43JxHS80zWimyC.xml"></include>个节点 <include src="/_qWiwEV7@x8y$eNQIobZdD2.xml"></include></li>
+  <li>对于1棵二叉树，度为0的节点为<include src="/_4OAo7G8$5SMqxCEtbi2d0I.xml"></include>，度为2的节点为<include src="/_rPRZpuMG2bwOI$lidWtcxJ.xml"></include>，则<include src="/_VsSywa6MZ8EBDo4TO2irPl.xml"></include></li>
+  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_H1X0MJ$8ynDLZEONSzfIob.xml"></include></li>
+  <li>满二叉树定理推论：在一棵具有<include src="/_d8ViwnYyrhcFuJLBKDUxRj.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_e2zDLQ5m4rqB0a6Wltv1Aw.xml"></include></li>
+  <li><include src="/_d8ViwnYyrhcFuJLBKDUxRj.xml"></include>个节点的完全二叉树高度为<include src="/_IxMeBb3gyOlRW0hzL2HnAa.xml"></include>，深度为<include src="/_Y65HV8ut0EzvIMNyQT$JA7.xml"></include></li>
 </ul>
 
 <h2 id="二叉树的c实现">二叉树的C++实现</h2>
 
 <h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_p0hN2HOlGode9ryL6Y5Unw.xml"></include>处，
-其左孩子存储于下标<include src="/_$yt2eAXOfhiBmnuzGqHCD3.xml"></include>，右孩子存储于下标<include src="/_pmHksvSe2B9UFughnYIxR3.xml"></include>….依此类推，对于下标为<include src="/_hJ3QICZjx4ralukX5@DMO$.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_2T$N3uzqcFXUZoSM9BlGjm.xml"></include>和<include src="/_coPfYvhmOJbyu@$Z5UaDBg.xml"></include>处。</p>
+<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_jirAUY2L6s30RZK7FdQog9.xml"></include>处，
+其左孩子存储于下标<include src="/_ad4uHkhMY6eCn1BtPIR9v$.xml"></include>，右孩子存储于下标<include src="/_mQK4NIlLhPnZbg0AcB5Yav.xml"></include>….依此类推，对于下标为<include src="/_Ty41gL2RBestSdl9C5hxJf.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_H$OypbNPAvQzfI6wxl3ct0.xml"></include>和<include src="/_GZYo9Og0CBlP8p@7yi6FMx.xml"></include>处。</p>
 <h4 id="实现代码">实现代码</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
@@ -720,17 +720,17 @@
 
 <!--    <div class="post__share">-->
 <!--      <div class="share__list">-->
-<!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
+<!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:5001/images/covers/数据结构-cover1.png&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
-<!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
+<!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
-<!--&lt;!&ndash;        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="share__link share__whatsapp" href="whatsapp://send?text=http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Whatsapp" rel="nofollow"><i class="ion ion-logo-whatsapp"></i></a>&ndash;&gt;-->
 
-<!--&lt;!&ndash;        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:5001/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="share__link share__telegram" href="https://t.me/share/url?url=http://localhost:4000/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Telegram" rel="nofollow"><i class="ion ion-logo-tux"></i></a>&ndash;&gt;-->
 <!--      </div>-->
 <!--    </div>-->
 
