@@ -237,7 +237,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -450,7 +465,22 @@
     
   
     
+      
+      
+    
   
+    
+      
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      
     
   
     
@@ -616,10 +646,10 @@
 <p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">300.最长递增子序列</a></p>
 
 <h2 id="动态规划">动态规划</h2>
-<p>我们可以定义<include src="/_Iy$xpaRGYdrz7mUPMTtQF9.xml"></include>为以<include src="/_zq6JVInM8DisjxAC1T4l5K.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_jcoPJfW4YaENDndGLSX80u.xml"></include>的常用套路），则我们可以写出状态转移方程为
-<include src="/_WQBjJA9HCVEvqdhx@YnUO2.xml"></include></p>
+<p>我们可以定义<include src="/_hBOSkXrEDaYcHxR89@LuAs.xml"></include>为以<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_br49tzdwNWBHjmuqa7G1Ok.xml"></include>的常用套路），则我们可以写出状态转移方程为
+<include src="/_A@6qnv5FO3y7jYEugLoHr4.xml"></include></p>
 
-<p>最后，此题的结果便是<include src="/_GLebgKtVD1X50Wy68F4$sP.xml"></include>，代码如下</p>
+<p>最后，此题的结果便是<include src="/_ePa@$4WQ2gIH0yYOv8519R.xml"></include>，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -636,12 +666,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_XsWy$YfunHxA4wE3Z1kzIi.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_aHmwdovQBNe6W28GMtjnPK.xml"></include></p>
 
 <h2 id="树状数组">树状数组</h2>
 <p>LIS问题的本质是偏序问题，我们之前在二维偏序问题中提到过，树状数组可以轻松的解决这类问题。但之前的问题中，我们求的是数对的数量，而不是序列的长度。为了能够求得序列长度，我们要对树状数组进行修改。</p>
 
-<p>我们可以用树状数组存储以<include src="/_zq6JVInM8DisjxAC1T4l5K.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
+<p>我们可以用树状数组存储以<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -659,7 +689,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>随后用和<include src="/_jcoPJfW4YaENDndGLSX80u.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
+<p>随后用和<include src="/_br49tzdwNWBHjmuqa7G1Ok.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -709,7 +739,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_KUtHqJa2YobjygO4w$5QnX.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_nLXdSJjaDpybz8WRcf3FBq.xml"></include></p>
 
     </div>
 
@@ -769,6 +799,62 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1398,21 +1484,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%83-Springboot%E9%9B%86%E6%88%90%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="Apollo配置中心（七）Springboot集成及分布式部署"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/04/Maven-%E5%85%AB-%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="Maven（八）构建生命周期"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 6 分钟
+阅读时间 57 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2023-11-24T13:29:57+08:00">Nov 24, 2023</time>
+            datetime="2023-12-04T16:56:23+08:00">Dec 4, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%83-Springboot%E9%9B%86%E6%88%90%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2/">Apollo配置中心（七）Springboot集成及分布式部署</a></h4>
+        <h4 class="recent-posts__title"><a href="/maven/2023/12/04/Maven-%E5%85%AB-%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">Maven（八）构建生命周期</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1426,21 +1512,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E5%85%AD-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%8A%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E8%AE%A1/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="Apollo配置中心（六）服务端及客户端设计"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/04/Maven-%E4%B8%83-%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A%E6%8C%87%E5%8D%97/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="Maven（七）命名约定指南"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 10 分钟
+阅读时间 4 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2023-11-24T11:54:12+08:00">Nov 24, 2023</time>
+            datetime="2023-12-04T13:05:40+08:00">Dec 4, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E5%85%AD-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%8A%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E8%AE%A1/">Apollo配置中心（六）服务端及客户端设计</a></h4>
+        <h4 class="recent-posts__title"><a href="/maven/2023/12/04/Maven-%E4%B8%83-%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A%E6%8C%87%E5%8D%97/">Maven（七）命名约定指南</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1469,6 +1555,8 @@
         <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80"#{html_opts}>数据结构基础</a>
       
         <a href="/categories/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/categories/maven"#{html_opts}>Maven</a>
       
     </div>
   </div>
@@ -1516,6 +1604,8 @@
         <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/maven"#{html_opts}>Maven</a>
       
     </div>
   </div>
