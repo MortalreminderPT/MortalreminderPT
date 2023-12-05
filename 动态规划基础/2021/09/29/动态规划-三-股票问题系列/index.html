@@ -641,7 +641,7 @@
       <ol id="markdown-toc">
   <li><a href="#121-买卖股票的最佳时机" id="markdown-toc-121-买卖股票的最佳时机">121. 买卖股票的最佳时机</a>    <ol>
       <li><a href="#状态转移方程" id="markdown-toc-状态转移方程">状态转移方程</a>        <ol>
-          <li><a href="#如何表示price_min" id="markdown-toc-如何表示price_min">如何表示<include src="/_ecS7hxEYv9wOmFja0AtJX2.xml"></include></a></li>
+          <li><a href="#如何表示price_min" id="markdown-toc-如何表示price_min">如何表示<include src="/_L8cxriJFjhXkP$YWz90vSU.xml"></include></a></li>
           <li><a href="#边界条件" id="markdown-toc-边界条件">边界条件</a></li>
         </ol>
       </li>
@@ -681,38 +681,38 @@
 
 <h2 id="121-买卖股票的最佳时机"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></h2>
 <h3 id="状态转移方程">状态转移方程</h3>
-<p>我们可以用<include src="/_hBOSkXrEDaYcHxR89@LuAs.xml"></include>来表示，在前<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>日我们可以得到的最大利润，那么我们第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>日的操作有两种选择：</p>
+<p>我们可以用<include src="/_$WXo3C5h0tuYJ1Am94glqv.xml"></include>来表示，在前<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>日我们可以得到的最大利润，那么我们第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>日的操作有两种选择：</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.我们在第i日卖出得到的利润可能比之前的利润（dp[i-1]）更高
 2.我们之前的利润要比现在更高，不用进行任何操作
 </code></pre></div></div>
 
-<p>对于情况1，我们得到状态转移方程<include src="/_B0Y3F6S4Ohs8b1@DXtw5WP.xml"></include>
-而对于情况2，我们有<include src="/_kLSszm9YiBFOudlr6cV8wW.xml"></include>
+<p>对于情况1，我们得到状态转移方程<include src="/_$DKv6ynbkFAgfi@JtT2H5j.xml"></include>
+而对于情况2，我们有<include src="/_IxmNalc5v@shUgt7diECqX.xml"></include>
 综合两种情况，也就得到此题的状态转移方程：</p>
 
-<p><include src="/_1y235NhTiYxQ0OVCPF@WcS.xml"></include></p>
+<p><include src="/_F@riwbMYP1aRBmTKAfg4sE.xml"></include></p>
 
-<p>那么剩下的问题就在于如何表示<include src="/_ecS7hxEYv9wOmFja0AtJX2.xml"></include>。</p>
+<p>那么剩下的问题就在于如何表示<include src="/_L8cxriJFjhXkP$YWz90vSU.xml"></include>。</p>
 
-<h4 id="如何表示price_min">如何表示<include src="/_ecS7hxEYv9wOmFja0AtJX2.xml"></include></h4>
-<p>我们发现，<include src="/_ecS7hxEYv9wOmFja0AtJX2.xml"></include>的计算也是一个无后效性的问题，我们同样可以通过动态规划来求解，用<include src="/_avVhyYlT3Mm0S2ur4dZ@Oz.xml"></include>来表示前i日股票的最低价格，则<include src="/_avVhyYlT3Mm0S2ur4dZ@Oz.xml"></include>的状态转移方程可以写成：</p>
+<h4 id="如何表示price_min">如何表示<include src="/_L8cxriJFjhXkP$YWz90vSU.xml"></include></h4>
+<p>我们发现，<include src="/_L8cxriJFjhXkP$YWz90vSU.xml"></include>的计算也是一个无后效性的问题，我们同样可以通过动态规划来求解，用<include src="/_GobUjZEIXi6ukz@nVpQrJg.xml"></include>来表示前i日股票的最低价格，则<include src="/_GobUjZEIXi6ukz@nVpQrJg.xml"></include>的状态转移方程可以写成：</p>
 
-<p><include src="/_avVhyYlT3Mm0S2ur4dZ@Oz.xml"></include> = <include src="/_18tYFmKux9SlWPOL2@Dfwg.xml"></include></p>
+<p><include src="/_GobUjZEIXi6ukz@nVpQrJg.xml"></include> = <include src="/_eCBjZxtOzI$0DbdmRUV3vw.xml"></include></p>
 
-<p>可能这时候你就要说了，你这不是脱了裤子放屁吗？那我们不妨换一个思维方式，还是上面的状态转移方程不变，<strong>我们用<include src="/_340IHCP9ijugYBXz6TqkoU.xml"></include>表示前<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天手上有<include src="/_E3Ro46wtYzyT8DMCUWkJbr.xml"></include>个股票时我们的最大利润。</strong> 这时候你不妨停下来思考一会，该如何写出状态转移方程呢？</p>
+<p>可能这时候你就要说了，你这不是脱了裤子放屁吗？那我们不妨换一个思维方式，还是上面的状态转移方程不变，<strong>我们用<include src="/_0z345pfsWugdEAjDY8nRk$.xml"></include>表示前<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天手上有<include src="/_C4n1A8@Y7$yXPMk5Utoru2.xml"></include>个股票时我们的最大利润。</strong> 这时候你不妨停下来思考一会，该如何写出状态转移方程呢？</p>
 
-<p>联立上面两个转移方程，得到<include src="/_340IHCP9ijugYBXz6TqkoU.xml"></include>的状态转移方程：</p>
+<p>联立上面两个转移方程，得到<include src="/_0z345pfsWugdEAjDY8nRk$.xml"></include>的状态转移方程：</p>
 
-<p><include src="/_WlAPREkLVe@ZnjTC6ayw14.xml"></include>
-<include src="/_c$DdAjXLfwUHJCByZ8zYSF.xml"></include></p>
+<p><include src="/_GiQ$bp5403eAKzn1E8BFOC.xml"></include>
+<include src="/_A82z5YBqe1houCF3mQlMtE.xml"></include></p>
 
-<p>没错，此时的<include src="/_dVFYpzIun8EM@9Ds0USP5v.xml"></include>就是之前我们的开销，用来辅助我们计算第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天的最大利润，也就是<include src="/_@WHQPg1vboJ$Rsxur3awn2.xml"></include></p>
+<p>没错，此时的<include src="/_r2UYwRMX@8znqG5Jh$KENA.xml"></include>就是之前我们的开销，用来辅助我们计算第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天的最大利润，也就是<include src="/_Mby0gY7qFNEaUoIXlR2iZQ.xml"></include></p>
 
 <h4 id="边界条件">边界条件</h4>
-<p><include src="/_xULMqtXnAdrKsm5iSFRC46.xml"></include>表示在第0天我们手上有0支股票时的最大利润，因此<include src="/_FybAYqZJLQzU73tcr@CS96.xml"></include></p>
+<p><include src="/_O6lPVm3j@9A$gRnzh1EpNf.xml"></include>表示在第0天我们手上有0支股票时的最大利润，因此<include src="/_v4bZ8FlJPVnDsTk@hfjgdN.xml"></include></p>
 
-<p><include src="/_XDMftZwkV9C@qbY6NvWi5d.xml"></include>表示在第0天我们手上有1支股票时的最大利润，因此<include src="/_oDpPAjsFC$0yeTWiwxlm2X.xml"></include></p>
+<p><include src="/_SM@zXeuo8qgwyGrCsT9FD3.xml"></include>表示在第0天我们手上有1支股票时的最大利润，因此<include src="/_nz27YSaM8XRCguEfkpVZFT.xml"></include></p>
 
 <h3 id="代码">代码</h3>
 
@@ -732,20 +732,20 @@
 <h3 id="状态转移方程-1">状态转移方程</h3>
 <p>122.题与121.题的不同点在于，122.是可以无限进行购买操作的，相应的，我们的状态转移方程也有所改变。</p>
 
-<p>根据我们第一题的状态转移方程，在第一题里，一但我们前面卖出了股票，下次再想购买股票时，总利润便会变成<include src="/_qeM73iPNGfpB2$z0wS5CDI.xml"></include>，但在这道题中，由于我们不再受购买次数的限制，因此我们的利润就可以一直累计下去，如何理解这种累计呢？</p>
+<p>根据我们第一题的状态转移方程，在第一题里，一但我们前面卖出了股票，下次再想购买股票时，总利润便会变成<include src="/_8R0SiewgfmzLP9BckMuHJK.xml"></include>，但在这道题中，由于我们不再受购买次数的限制，因此我们的利润就可以一直累计下去，如何理解这种累计呢？</p>
 
-<p>在前<include src="/_RDNBC@frdMFmPopuj7Y8c4.xml"></include>天，我们的最大利润达到了<include src="/_Ew5LXk9N$Dr1FnU2uqm@BG.xml"></include>，而在第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天我们要购入股票，此时的利润就会变为<include src="/_$CYn3PxlpswUKmzLk0JFON.xml"></include></p>
+<p>在前<include src="/_0PuC$En9MqzWJBelQZRvTD.xml"></include>天，我们的最大利润达到了<include src="/_7l3or9JBFVe6YtNg4@GLjM.xml"></include>，而在第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天我们要购入股票，此时的利润就会变为<include src="/_ng5zu3sEixHpNqd9v@W7bT.xml"></include></p>
 
-<p>即<include src="/_dVFYpzIun8EM@9Ds0USP5v.xml"></include>的状态转移方程变为：</p>
+<p>即<include src="/_r2UYwRMX@8znqG5Jh$KENA.xml"></include>的状态转移方程变为：</p>
 
-<p><include src="/_LO7iZI$FhY2vzqSXwA@mQR.xml"></include></p>
+<p><include src="/_msofL5qzR3U$bZOM4GNJyl.xml"></include></p>
 
-<p>读者应该也注意到，在我们把状态转移方程分成两部分后，我们对转移方程的解读方式也转变了，这里我再次阐述一遍，<include src="/_@WHQPg1vboJ$Rsxur3awn2.xml"></include>表示手上没有股票时的最大利润，<include src="/_dVFYpzIun8EM@9Ds0USP5v.xml"></include>表示手上有一枚股票时的最大利润。</p>
+<p>读者应该也注意到，在我们把状态转移方程分成两部分后，我们对转移方程的解读方式也转变了，这里我再次阐述一遍，<include src="/_Mby0gY7qFNEaUoIXlR2iZQ.xml"></include>表示手上没有股票时的最大利润，<include src="/_r2UYwRMX@8znqG5Jh$KENA.xml"></include>表示手上有一枚股票时的最大利润。</p>
 
 <p>综上，状态转移方程为：</p>
 
-<p><include src="/_WlAPREkLVe@ZnjTC6ayw14.xml"></include>
-<include src="/_LO7iZI$FhY2vzqSXwA@mQR.xml"></include></p>
+<p><include src="/_GiQ$bp5403eAKzn1E8BFOC.xml"></include>
+<include src="/_msofL5qzR3U$bZOM4GNJyl.xml"></include></p>
 
 <p>边界条件与之前相同。</p>
 
@@ -764,14 +764,14 @@
 
 <h2 id="714-买卖股票的最佳时机含手续费"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></h2>
 <h3 id="状态转移方程-2">状态转移方程</h3>
-<p>如果你认真阅读了题714.并理解了题122.那这道题你其实可以直接过的，因为这道题和题122.的不同之处就在于，它在售卖时多了手续费这个固定消耗，因此在决定卖出股票的第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天里，如果收益不足以抵消掉手续费，那我们会选择之前的利润作为最优解，即：</p>
+<p>如果你认真阅读了题714.并理解了题122.那这道题你其实可以直接过的，因为这道题和题122.的不同之处就在于，它在售卖时多了手续费这个固定消耗，因此在决定卖出股票的第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天里，如果收益不足以抵消掉手续费，那我们会选择之前的利润作为最优解，即：</p>
 
-<p><include src="/_1@pIDehBJ93anMsW5qZbuV.xml"></include></p>
+<p><include src="/_c5aHL6giVw2rAPY4fQNOhz.xml"></include></p>
 
 <p>整体的转移方程表示为：</p>
 
-<p><include src="/_1@pIDehBJ93anMsW5qZbuV.xml"></include>
-<include src="/_LO7iZI$FhY2vzqSXwA@mQR.xml"></include></p>
+<p><include src="/_c5aHL6giVw2rAPY4fQNOhz.xml"></include>
+<include src="/_msofL5qzR3U$bZOM4GNJyl.xml"></include></p>
 
 <p>边界条件仍与之前相同</p>
 
@@ -790,19 +790,19 @@
 
 <h2 id="309-最佳买卖股票时机含冷冻期"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></h2>
 <h3 id="状态转移方程-3">状态转移方程</h3>
-<p>这道题的变化在于，之前我们只有<include src="/_vOF1XC4kqSjGptyxcaNm37.xml"></include>卖出、<include src="/_$Ljf0QUBEWTCZI4pdYA5wb.xml"></include>买入两种状态，但这道题引入了一个新的新的状态<include src="/_tiN9drZ4Tu7hIL2Cz@SQHA.xml"></include>冷冻期，而这个冷冻期状态是在卖出操作后出现，如果我们用<include src="/_N7hygEsYWQ@lR8wpIGUc9S.xml"></include>来表示当我们在第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天的冷冻期收益，则<include src="/_N7hygEsYWQ@lR8wpIGUc9S.xml"></include>可以用<include src="/_br49tzdwNWBHjmuqa7G1Ok.xml"></include>表示为：</p>
+<p>这道题的变化在于，之前我们只有<include src="/_Ndwpc5MjCnzKEuJROQtU4q.xml"></include>卖出、<include src="/_FV39k$EzGD2nC7wrj0Wixv.xml"></include>买入两种状态，但这道题引入了一个新的新的状态<include src="/_zkwP@MriKclSUtEW3j9OeA.xml"></include>冷冻期，而这个冷冻期状态是在卖出操作后出现，如果我们用<include src="/_x2fZDjgyshJwKNBkM0C$pi.xml"></include>来表示当我们在第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天的冷冻期收益，则<include src="/_x2fZDjgyshJwKNBkM0C$pi.xml"></include>可以用<include src="/_Q7afeLqGg@AExXyRuF1ZNb.xml"></include>表示为：</p>
 
-<p><include src="/_3d7ONTrX8oVDMAqZsvcnCJ.xml"></include></p>
+<p><include src="/_fNZhBoHYWAXRQud$0bLlIT.xml"></include></p>
 
 <p>买入状态的转移方程也有所变化，因为此题中买入状态必须由冷冻期状态进入，也就是：</p>
 
-<p><include src="/_F3rMxgfmSjoh0W4T15H9iL.xml"></include></p>
+<p><include src="/_U1IvGBEaxZDj6SpbJK03e5.xml"></include></p>
 
 <p>最后，综合三式就可以得到我们新的状态转移方程：</p>
 
-<p><include src="/_eOPjCHAEiYztlXMaL4831q.xml"></include>
-<include src="/_F3rMxgfmSjoh0W4T15H9iL.xml"></include>
-<include src="/_hxATcW4Y6jaO8Gy@1SZUeq.xml"></include></p>
+<p><include src="/_1jZ5M0fzJbHLtvPuT37d@A.xml"></include>
+<include src="/_U1IvGBEaxZDj6SpbJK03e5.xml"></include>
+<include src="/_fSQkbpEuBa2jxClG@7P3NT.xml"></include></p>
 
 <p>边界条件仍然不变</p>
 
@@ -824,9 +824,9 @@
 <h3 id="思路">思路</h3>
 <p>如果没有前面的铺垫直接来看这道题，难度瞬间就高起来了。但现在带着前面的经验再来对比这道题，我们会发现这道题和题121. 题122.有着很大的关联。</p>
 
-<p>假设在第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天卖出了股票，当我们是第一次或第二次操作时，我们的利润是可以积累的。但如果是在第三次操作，那么我们就要重新累计利润了。</p>
+<p>假设在第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天卖出了股票，当我们是第一次或第二次操作时，我们的利润是可以积累的。但如果是在第三次操作，那么我们就要重新累计利润了。</p>
 
-<p>我们不妨将<include src="/_br49tzdwNWBHjmuqa7G1Ok.xml"></include>升到三维数组，用第三维来区分第一次操作和第二次操作，即得到代码如下：</p>
+<p>我们不妨将<include src="/_Q7afeLqGg@AExXyRuF1ZNb.xml"></include>升到三维数组，用第三维来区分第一次操作和第二次操作，即得到代码如下：</p>
 <h3 id="代码-4">代码</h3>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
@@ -846,7 +846,7 @@
 
 <h2 id="188-买卖股票的最佳时机-iv"><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">188. 买卖股票的最佳时机 IV</a></h2>
 
-<p>当问题扩充到<include src="/_n7XfjsyvC4lKeHPM6rx1V2.xml"></include>时，我们解决题123.的思路仍然有效，我们可以用初始化边界为<include src="/_fQoBicyga8Xqn24S0uPAv3.xml"></include>，再用一个<include src="/_wngBqcQdZ1DKuMFaU9xyHm.xml"></include>循环写出结果。</p>
+<p>当问题扩充到<include src="/_VZ6mxOHcahM9dSDgRyvpBQ.xml"></include>时，我们解决题123.的思路仍然有效，我们可以用初始化边界为<include src="/_rJIlsqmbhKB$PVkx25@ZiQ.xml"></include>，再用一个<include src="/_fxNLz@17I9U6oyMdqhbnXC.xml"></include>循环写出结果。</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">prices</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -866,18 +866,18 @@
 <p>股票问题的三个限定条件是</p>
 
 <ul>
-  <li>当前天数<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include></li>
-  <li>手持股票<include src="/_E3Ro46wtYzyT8DMCUWkJbr.xml"></include></li>
-  <li>允许的最大操作次数<include src="/_n7XfjsyvC4lKeHPM6rx1V2.xml"></include></li>
+  <li>当前天数<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include></li>
+  <li>手持股票<include src="/_C4n1A8@Y7$yXPMk5Utoru2.xml"></include></li>
+  <li>允许的最大操作次数<include src="/_VZ6mxOHcahM9dSDgRyvpBQ.xml"></include></li>
 </ul>
 
-<p>我们设在第<include src="/_zUT7XkeSprcsYjbul0$yF6.xml"></include>天，手持股票为<include src="/_E3Ro46wtYzyT8DMCUWkJbr.xml"></include>，操作次数为<include src="/_n7XfjsyvC4lKeHPM6rx1V2.xml"></include>时我们的利润为<include src="/_NW73YPoOTEi2cbvZ4msj8h.xml"></include>，视每次购买股票为进行一次操作，则我们的状态转移方程为：</p>
+<p>我们设在第<include src="/_uLK19qWwp6sxvOkmJn3VAG.xml"></include>天，手持股票为<include src="/_C4n1A8@Y7$yXPMk5Utoru2.xml"></include>，操作次数为<include src="/_VZ6mxOHcahM9dSDgRyvpBQ.xml"></include>时我们的利润为<include src="/_0VRGYmDPtwBdvK5l6SQz9x.xml"></include>，视每次购买股票为进行一次操作，则我们的状态转移方程为：</p>
 
-<p><include src="/_0PBNdvR47wKs91xHFcnJ8p.xml"></include>
-<include src="/_oTLdCuypYkBag052WFec8K.xml"></include></p>
+<p><include src="/_bW8iNu74cUwFPMntRAgGpy.xml"></include>
+<include src="/_UB3Xt20LRKeoA9OcPZMSja.xml"></include></p>
 
 <h4 id="边界条件-1">边界条件</h4>
-<p><include src="/_aFGv05r8BHEKdN9zMt2uAe.xml"></include>
+<p><include src="/_1v@sx5uZ3EWAoianlDjKyX.xml"></include>
 其余值都为0</p>
 
 <h2 id="结束语">结束语</h2>
@@ -941,6 +941,41 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1615,21 +1650,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/04/Maven-%E5%85%AB-%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="Maven（八）构建生命周期"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 57 分钟
+阅读时间 19 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2023-12-04T16:56:23+08:00">Dec 4, 2023</time>
+            datetime="2023-12-05T17:01:56+08:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/maven/2023/12/04/Maven-%E5%85%AB-%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">Maven（八）构建生命周期</a></h4>
+        <h4 class="recent-posts__title"><a href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1643,21 +1678,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/04/Maven-%E4%B8%83-%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A%E6%8C%87%E5%8D%97/"><img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="Maven（七）命名约定指南"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 4 分钟
+阅读时间 48 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2023-12-04T13:05:40+08:00">Dec 4, 2023</time>
+            datetime="2023-12-05T16:10:42+08:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/maven/2023/12/04/Maven-%E4%B8%83-%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A%E6%8C%87%E5%8D%97/">Maven（七）命名约定指南</a></h4>
+        <h4 class="recent-posts__title"><a href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">Maven（十一）标准文件目录</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
