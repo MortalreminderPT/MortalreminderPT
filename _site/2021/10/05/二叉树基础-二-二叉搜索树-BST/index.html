@@ -686,9 +686,9 @@
   </li>
   <li><a href="#代码" id="markdown-toc-代码">代码</a>    <ol>
       <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/_rexRTDbSpoYZMKmfiUG8$0.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/_nVb@WuBP2Z6z1Sw$Ihefrm.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/_CZb94eR5fclw3uEBOWSxzh.xml"></include></a></li>
+          <li><a href="#find" id="markdown-toc-find"><include src="/_yEMLBuP8GQjalFpU9m3DI@.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/_uS3R@QNTV0Z8aXz5bom$kA.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/_fxXvKhPHOEUFNYZsJwp1du.xml"></include></a></li>
         </ol>
       </li>
     </ol>
@@ -722,8 +722,8 @@
 
 <p>BST的构造和析构与普通二叉树相同，这里不多赘述。相比于普通二叉树，BST的主要功能增加了查找，插入和删除</p>
 
-<h4 id="find"><include src="/_rexRTDbSpoYZMKmfiUG8$0.xml"></include></h4>
-<p><include src="/_rexRTDbSpoYZMKmfiUG8$0.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
+<h4 id="find"><include src="/_yEMLBuP8GQjalFpU9m3DI@.xml"></include></h4>
+<p><include src="/_yEMLBuP8GQjalFpU9m3DI@.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">;</span>
@@ -738,8 +738,8 @@
     <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="insert"><include src="/_nVb@WuBP2Z6z1Sw$Ihefrm.xml"></include></h4>
-<p><include src="/_nVb@WuBP2Z6z1Sw$Ihefrm.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_AxK4FkiSmvB8Tqe2RtI$Gs.xml"></include>后，要找到合适的父节点<include src="/_XCrt4ILluOAv2oQGDeR7EN.xml"></include>并插入其中。代码如下</p>
+<h4 id="insert"><include src="/_uS3R@QNTV0Z8aXz5bom$kA.xml"></include></h4>
+<p><include src="/_uS3R@QNTV0Z8aXz5bom$kA.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_12ZN8hWXlajmu$QgpdYCiB.xml"></include>后，要找到合适的父节点<include src="/_51QPf24rFpxL@EkcJT63MR.xml"></include>并插入其中。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
@@ -763,7 +763,7 @@
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="delete"><include src="/_CZb94eR5fclw3uEBOWSxzh.xml"></include></h4>
+<h4 id="delete"><include src="/_fxXvKhPHOEUFNYZsJwp1du.xml"></include></h4>
 <p>二叉搜索树进行删除操作后，仍然要保证它的排序正确，因此我们的删除操作分为三种情况：</p>
 
 <ul>

@@ -696,13 +696,13 @@
 <h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/_ZTdqIfo8641hbm@Lc0gHMA.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/_3nOh4mZE51pGzPUwceQiVr.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/_oYRKfWLGVg30FBxX2dZCPj.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/_0AfEOM47lvZyaNQir6esRz.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/_qLvHa1miJtWIpu6CKcfhOy.xml"></include>，设线段树的根节点编号为<include src="/_oYRKfWLGVg30FBxX2dZCPj.xml"></include>，用数组<include src="/_d8VtKhr4@TlmOvD$pUGSH7.xml"></include>来保存线段树，<include src="/_@IRfEU2TkBagvV45hOySr9.xml"></include>用来保存线段树上编号为<include src="/_F6KAkBC03sd1nO5WIVE9LT.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/_spjVel8dAckh64nuoztqQ5.xml"></include>，设线段树的根节点编号为<include src="/_0AfEOM47lvZyaNQir6esRz.xml"></include>，用数组<include src="/_73VkgamMfIt9U8FQXwWzDv.xml"></include>来保存线段树，<include src="/_l8jaR3LszP$tU9WNueqXE5.xml"></include>用来保存线段树上编号为<include src="/_bCQqOUvR@GnH5pxcyls73r.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -717,7 +717,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/_F6KAkBC03sd1nO5WIVE9LT.xml"></include>，其子节点的编号为<include src="/_J3hK4CO5H1upPaBUN69sE$.xml"></include>以及<include src="/_jWvfEN5xFwsOl@SK2Ta7rL.xml"></include>，若节点<include src="/_F6KAkBC03sd1nO5WIVE9LT.xml"></include>存储的区间为<include src="/_kRTSpdyze6tUo9rNA$3iI1.xml"></include>，则节点<include src="/_J3hK4CO5H1upPaBUN69sE$.xml"></include>存储的区间应该是<include src="/_T1gCdmy8GAr3MZnpPUQl6z.xml"></include>，相应地，节点<include src="/_jWvfEN5xFwsOl@SK2Ta7rL.xml"></include>存储的区间为<include src="/_l7hGeTCcWtManRsPrHAEOg.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/_bCQqOUvR@GnH5pxcyls73r.xml"></include>，其子节点的编号为<include src="/_nZymf6KjdD9aehuqIT5O81.xml"></include>以及<include src="/_RBYeL6dT8Oy$fwGJx2tWXE.xml"></include>，若节点<include src="/_bCQqOUvR@GnH5pxcyls73r.xml"></include>存储的区间为<include src="/_zlGE6bFAxUa@DmTgcZV2LK.xml"></include>，则节点<include src="/_nZymf6KjdD9aehuqIT5O81.xml"></include>存储的区间应该是<include src="/_EB01R8FM$Do9zwrxVS2dhJ.xml"></include>，相应地，节点<include src="/_RBYeL6dT8Oy$fwGJx2tWXE.xml"></include>存储的区间为<include src="/_TSXe5qR@o8lxMkytjvmOua.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -732,7 +732,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/_BG2wx@YefiCvdmRZgzkKPt.xml"></include>，我们只需直接返回<include src="/_6MlOedVY$7okiE@fSpZCTA.xml"></include>，但如果我们查询的是<include src="/_EP8QLwvHDNXqUMm257ClRO.xml"></include>，则需要合并<include src="/_grVZ9Qn4Ht8BjN7X@c3YxE.xml"></include>和<include src="/_kQAHyqewGiI4PBlhoSmO@Z.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/_KCYEGnD57uFbvhQOVWTkzI.xml"></include>，我们只需直接返回<include src="/_$oBlD1X75HMSd@mnWIgC4Q.xml"></include>，但如果我们查询的是<include src="/_38SgXoUwtMVlaLjRTe472x.xml"></include>，则需要合并<include src="/_HZUBMXLr@VQeYsqnKcmpF0.xml"></include>和<include src="/_hfei7c0UFbQ@R6vzDAu1SG.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -758,9 +758,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/_2SHVQjtNlpALui5oMI4PWa.xml"></include>的区间<include src="/_EP8QLwvHDNXqUMm257ClRO.xml"></include>加上<include src="/_rFDWMOJQfHxuh3cewSAdzt.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/_PRQDtJqwYZiH$AWyI4m3eN.xml"></include>的区间<include src="/_38SgXoUwtMVlaLjRTe472x.xml"></include>加上<include src="/_lwg4aCJr2sbV@KhmBnOj3k.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/_F16@wMyKhz$LftdH9OEaeC.xml"></include>时就已经结束了，因此节点<include src="/_F16@wMyKhz$LftdH9OEaeC.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/_9Yk@Z$eLJ3zdP1Iwrocti2.xml"></include>时就已经结束了，因此节点<include src="/_9Yk@Z$eLJ3zdP1Iwrocti2.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
