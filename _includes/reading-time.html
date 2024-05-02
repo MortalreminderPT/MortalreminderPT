@@ -1,0 +1,10 @@
+{% if post %}
+    {% assign words = post.content | strip_html | strip_newlines | split: "" | size %}
+{% else %}
+    {% assign words = page.content | strip_html | strip_newlines | split: "" | size %}
+{% endif %}
+{% if words < 360 %}
+阅读时间 1 分钟
+{% else %}
+阅读时间 {{ words | divided_by:180 }} 分钟
+{% endif %}

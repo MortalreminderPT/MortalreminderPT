@@ -1,0 +1,34 @@
+
+<!-- begin hero -->
+{% if page.image %}
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__image">
+      <img class="lazy" data-src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}">
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">{{page.title}}</h1>
+    </div>
+  </div>
+</section>
+{% else if site.hero.image %}
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__image">
+      <img class="lazy" data-src="{{site.baseurl}}{{site.hero.image}}" alt="{{page.title}}">
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">{{page.title}}</h1>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="hero-without-image">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="hero__title">{{page.title}}</h1>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- end hero -->

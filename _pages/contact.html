@@ -1,0 +1,52 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+---
+<div class="form-container">
+  {% if site.contact.description %}
+  <p class="contact-description">{{site.contact.description}}</p>
+  {% endif %}
+  <form class="form"
+    name="addForm" method="post" onsubmit="return CheckPost();">
+<!--    action="{% if site.contact.email %}https://formspree.io/{{site.contact.email}}{% else %}#{% endif %}" method="POST">-->
+    <div class="form__group">
+      <label class="form__label screen-reader-text" for="form-name">您的称呼</label>
+      <input class="form__input" id="form-name" type="text" name="name" placeholder="您的称呼" required>
+    </div>
+    <div class="form__group">
+      <label class="form__label screen-reader-text" for="form-email">邮箱</label>
+      <input class="form__input" id="form-email" type="email" name="_replyto" placeholder="邮箱" required>
+    </div>
+    <div class="form__group">
+      <label class="form__label screen-reader-text" for="form-text">留言内容</label>
+      <textarea class="form__input" id="form-text" name="text" rows="10" placeholder="留言内容" required></textarea>
+    </div>
+    <div class="form__group">
+      <button class="button button--primary" type="submit">留言</button>
+    </div>
+<!--    <input type="hidden" name="_next" value="{{ site.baseurl }}/contact/thanks/" />-->
+  </form>
+  <hr>
+</div>
+
+<script>
+  function CheckPost () {
+  var body = ("发件人姓名: "+addForm.name.value+"\n" +
+    "发件人邮箱地址: "+addForm._replyto.value+"\n" +
+    "正文内容:\n" +addForm.text.value)
+    Email.send({
+      SecureToken : "5df920cd-e43e-4280-8f18-98fe220ef67e",
+      To : 'contact@mortalreminder.net',
+      From : "ptblogsender@yeah.net",
+      Subject : "Blog Contact",
+      Body : body
+      }).then(
+      message => {
+        alert(message);
+        return true;
+      }
+    );
+    return false;
+  }
+</script>

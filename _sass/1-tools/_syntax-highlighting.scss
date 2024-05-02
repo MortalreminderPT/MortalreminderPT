@@ -1,0 +1,128 @@
+/*
+  Syntax Highlighting
+*/
+
+.highlight {
+  border-radius: 4px;
+  color: hsl(var(--primary-color), 0%,  var(--white-lightness));
+  background: hsl(var(--primary-color), 13%,  var(--dark-lightness));
+
+  pre { white-space: pre; overflow: auto; }
+
+  .highlighter-rouge & {
+    background: #171724;
+  }
+
+  table td {
+    padding: 5px;
+  }
+
+  table pre {
+    margin: 0;
+  }
+
+  .w {
+    color: #f8f8f2;
+    background-color: #272822;
+  }
+
+  .err {
+    color: #272822;
+    background-color: #f92672;
+  }
+
+  .c, .ch, .cd, .cm, .cpf, .c1, .cs {
+    color: #75715e;
+  }
+
+  .cp {
+    color: #f4bf75;
+  }
+
+  .nt {
+    color: #f4bf75;
+  }
+
+  .o, .ow {
+    color: #f8f8f2;
+  }
+
+  .p, .pi {
+    color: #f8f8f2;
+  }
+
+  .gi {
+    color: #a6e22e;
+  }
+
+  .gd {
+    color: #f92672;
+  }
+
+  .gh {
+    color: #66d9ef;
+    background-color: #272822;
+    font-weight: bold;
+  }
+
+  .k, .kn, .kp, .kr, .kv {
+    color: #ae81ff;
+  }
+
+  .kc {
+    color: #fd971f;
+  }
+
+  .kt {
+    color: #fd971f;
+  }
+
+  .kd {
+    color: #fd971f;
+  }
+
+  .s, .sb, .sc, .dl, .sd, .s2, .sh, .sx, .s1 {
+    color: #a6e22e;
+  }
+
+  .sa {
+    color: #ae81ff;
+  }
+
+  .sr {
+    color: #a1efe4;
+  }
+
+  .si {
+    color: #cc6633;
+  }
+
+  .se {
+    color: #cc6633;
+  }
+
+  .nn {
+    color: #f4bf75;
+  }
+
+  .nc {
+    color: #f4bf75;
+  }
+
+  .no {
+    color: #f4bf75;
+  }
+
+  .na {
+    color: #66d9ef;
+  }
+
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx {
+    color: #a6e22e;
+  }
+
+  .ss {
+    color: #a6e22e;
+  }
+
+}

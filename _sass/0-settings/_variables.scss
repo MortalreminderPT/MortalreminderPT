@@ -1,0 +1,80 @@
+// *****************
+// Global Variables
+// *****************
+
+// Spaces
+$base-spacing-unit: 20px;
+
+// Transition
+$global-transition: all .2s;
+
+
+// *****************
+// Color Variables
+// *****************
+
+//$color-degree: calc(var(--color)*1deg);
+//$color-degree: \{{site.color}\};
+
+//$test-color: hsl(82,100%,50%);
+
+
+// $color-degree: 82deg;
+
+:root {
+  --primary-color: 192deg;
+  --secondary-color: 0deg;
+  --dark-saturation: 25%;
+  --darkest-saturation: 0%;
+  --dark-lightness: 10%;
+  --darkest-lightness: 8%;
+  --gray-lightness: 76%;
+  --light-gray-lightness: 93%;
+  --white-lightness: 100%;
+
+  //--color-degree: 82deg;
+  //--brand-color: (var(--color-degree), 100%, 50%);
+  //--dark-color: hsl(var(--color-degree),30%,8%);
+  //--light-gray-color: hsl(var(--color-degree),0%,93%);
+  //--gray-color: hsl(var(--color-degree),0%,76%);
+  //--blue-dark-color: hsl(var(--color-degree),13%,13%);
+  //--white-color: hsl(var(--color-degree), 0%, 100%); //hsl(var(--color-degree),0%,100%);
+
+  // Body Color
+  //--text-color: hsl(var(--primary-color), 0%, var(--light-gray-lightness));
+  // Background Colors
+  //--background-color: hsl(var(--primary-color),20%,7%);
+}
+
+// *****************
+// Typography
+// *****************
+$base-font-size: 18px;
+$base-font-style: normal;
+$base-font-variant: normal;
+$base-font-weight: normal;
+$base-font-family: 'JetBrains Mono', 'Noto Sans SC', sans-serif;
+$base-line-height: 1.7;
+
+// Blockquotes
+$quote-font-size: 18px;
+$quote-font-style: normal;
+$quote-font-variant: normal;
+$quote-font-weight: 900;
+$quote-font-family: 'JetBrains Mono', serif;
+$quote-line-height: 1.7;
+
+// Headings
+$heading-font-weight: 900;
+$heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+$heading-color: hsl(var(--primary-color), 0%, var(--light-gray-lightness));
+
+$font-size-h1:  36px;
+$font-size-h2:  28px;
+$font-size-h3:  24px;
+$font-size-h4:  20px;
+$font-size-h5:  18px;
+$font-size-h6:  16px;
+
+$heading-line-height: 1.4em;
+$heading-letter-spacing: 0px;

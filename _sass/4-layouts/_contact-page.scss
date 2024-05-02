@@ -1,0 +1,27 @@
+/* Contact Page */
+.form__group {
+  margin-bottom: 20px;
+}
+
+.form__input {
+  width: 100%;
+  padding: 20px;
+  font-family: $heading-font-family;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: hsl(var(--primary-color), 0%, var(--light-gray-lightness));
+  background: hsl(var(--primary-color), 13%,  var(--dark-lightness));
+  transition: border-color .2s ease-in-out;
+  &::placeholder {
+    color: hsl(var(--primary-color), 0%,  var(--white-lightness));
+  }
+  &:focus {
+    border-color: hsl(var(--primary-color), 100%, 50%);
+  }
+}
+
+textarea {
+  resize: vertical;
+}
