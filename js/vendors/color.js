@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
   img.crossOrigin = 'Anonymous';
   img.addEventListener('load', function() {
     rgb = colorThief.getColor(img);
-    // console.log(rgb[0], rgb[1], rgb[2], (rgbToHsl(rgb[0], rgb[1], rgb[2])));
     document.documentElement.style.setProperty('--primary-color', (rgbToHsl(rgb[0], rgb[1], rgb[2]))+'deg');
   });
 });

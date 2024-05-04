@@ -26,16 +26,22 @@ $global-transition: all .2s;
   --secondary-color: 0deg;
   --dark-saturation: 25%;
   --darkest-saturation: 0%;
-  --dark-lightness: 10%;
-  --darkest-lightness: 8%;
-  --gray-lightness: 76%;
-  --light-gray-lightness: 93%;
-  --white-lightness: 100%;
+  --dark-lightness: 85%;
+  --darkest-lightness: 92%;
+  --gray-lightness: 24%;
+  --light-gray-lightness: 7%;
+  --white-lightness: 5%;
 
   --background-saturation: 20%;
-  --background-lightness: 7%;
+  --background-lightness: 93%;
   --middle-grey-lightness: 100%;
 }
+
+
+// Body Color
+$text-color: hsl(var(--primary-color), 0%, var(--darkest-saturation));
+// Background Colors
+$background-color: hsla(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
 
 // *****************
 // Typography

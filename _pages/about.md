@@ -25,24 +25,23 @@ hidden: true
 - Maintaining an open-source project
 
 #### 💻 Tech stacks:
-- Language: Java, C/C++, Python, Rust, Html/CSS, Javascript
-<!-- <img width="80" src="https://www.vectorlogo.zone/logos/java/java-ar21.svg"> <img width="80" src="https://www.vectorlogo.zone/logos/python/python-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/rust-lang/rust-lang-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/javascript/javascript-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/javascript/javascript-ar21.svg"> -->
-- Datebase: MySQL, Redis, Monogo DB, Elastic Search
-<!-- <img width="80" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/redis/redis-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/elastic/elastic-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg"> -->
-- Backend: Spring, Apollo, Docker, Kubernetes, MinIO
-<!-- <img width="80" src="https://www.vectorlogo.zone/logos/springio/springio-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/springio/springio-ar21.svg"> -->
 
-- Tools: Git, Vim, Postman
-<!-- <img width="80" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/docker/docker-ar21.svg">
-<img width="80" src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-ar21.svg"> -->
+|Field|Skill|
+|---|---|
+|Language|<img style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" /><img style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" />|
+|Database|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original-wordmark.svg" />|
+|Frontend|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />|
+|Backend|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" />|
+|Tools|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vim/vim-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg" />|
+
+<!-- - Language: -->
+<!-- Java, C/C++, Python, Rust, Html/CSS, Javascript -->
+<!-- - Datebase:  -->
+<!-- MySQL, Redis, Monogo DB, Elastic Search -->
+<!-- - Frontend:  -->
+<!-- - Backend:  -->
+<!-- Spring, Apollo, Docker, Kubernetes, MinIO -->
+<!-- - Tools: Git, Vim, Postman -->
 
 #### 🌱 Learning: 
   - Some front-end tech stacks (Node.js, React)
@@ -52,6 +51,3 @@ hidden: true
 #### 🤔 Looking for help with:
 - An internship in Melbourne (Or remote)
 - Interesting open-source projects
-
-
-
