@@ -39,6 +39,8 @@
   overflow: hidden;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
   background-color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
+  --title-font-color: hsl(var(--primary-color), 0%,  var(--middle-grey-lightness));
+  --content-font-color: hsl(var(--primary-color), 0%,  var(--middle-grey-lightness));
 
   .featured-post {
     position: absolute;
@@ -48,7 +50,6 @@
     padding: 2px 4px;
     font-size: 20px;
     border-radius: 4px;
-    // color: hsl(var(--primary-color), var(--darkest-saturation), var(--middle-grey-lightness));
     background: rgba(255,255,255, 0.08);
     pointer-events: none;
     @media only screen and (max-width: $mobile) {
@@ -61,9 +62,9 @@
   margin: 12px 0 12px;
   font-size: 28px;
   line-height: 1;    
-  color: hsl(var(--primary-color), var(--darkest-saturation), var(--middle-grey-lightness));
+  color: var(--title-font-color);
   a {
-    color: hsl(var(--primary-color), 0%, var(--middle-grey-lightness));
+    color: var(--title-font-color);
   }
   @media only screen and (max-width: $mobile) {
     font-size: 24px;
@@ -74,7 +75,6 @@
   margin-bottom: 12px;
   font-size: 14px;
   line-height: 17px;
-  color: hsl(var(--primary-color), var(--darkest-saturation), var(--middle-grey-lightness));
   @media only screen and (max-width: $mobile) {
     font-size: 13px;
   }
@@ -118,7 +118,7 @@
   margin-top: auto;
   padding: 0 32px 32px;
   pointer-events: none;
-
+  color: var(--content-font-color);
   @media only screen and (max-width: $mobile) {
     padding: 20px;
   }
@@ -126,7 +126,6 @@
 
 .article__meta {
   line-height: 12px;
-  color: hsl(var(--primary-color), var(--darkest-saturation), var(--middle-grey-lightness));
   .article__date,
   .article__minutes {
     font-size: 12px;
@@ -144,8 +143,6 @@
   font-size: 12px;
   line-height: 18px;
   font-weight: 500;
-  color: hsl(var(--primary-color), 0%,  var(--middle-grey-lightness));
-
   a {
     pointer-events: all;
   }
@@ -163,9 +160,9 @@
     letter-spacing: -0.5px;
     border: 2px solid hsla(var(--primary-color), 0%,  var(--middle-grey-lightness), 0.4);
     border-radius: 24px;
-    color: hsl(var(--primary-color), var(--darkest-saturation), var(--middle-grey-lightness));
+    color: var(--content-font-color);
     &:hover {
-      color: hsl(var(--primary-color), 0%,  var(--middle-grey-lightness));
+      // color: var(--content-font-color);
       border-color: hsl(var(--primary-color), 100%, 50%);
     }
   }
@@ -195,12 +192,12 @@
   }
   &-link {
     font-size: 12px;
-    color: hsl(var(--primary-color), 0%,  var(--middle-grey-lightness));
+    color: var(--content-font-color);
     &:hover {
-      color: hsl(var(--primary-color), 0%,  var(--middle-grey-lightness));
+      // color: var(--content-font-color);
     }
   }
   span {
-    color: hsla(var(--primary-color), 0%,  var(--middle-grey-lightness), .8);
+    // color: hsla(var(--primary-color), 0%,  var(--middle-grey-lightness), .8);
   }
 }

@@ -46,6 +46,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  --title-font-color: hsl(var(--primary-color), 0%,  var(--light-gray-lightness));
+  --content-font-color: hsl(var(--primary-color), 0%,  var(--light-gray-lightness));
+  color: var(--content-font-color);
 
   &:last-child {
     margin-bottom: 0;
@@ -86,10 +89,12 @@
   }
 }
 
-.recent-posts__content {
+.recent-posts__content {  
+  color: var(--content-font-color);
   .recent-posts__title {
     font-size: 18px;
     margin: 8px 0;
+    color: var(--title-font-color);
   }
 
   .article__author-image {
@@ -109,9 +114,10 @@
     font-size: 12px;
     line-height: 10px;
     font-weight: 700;
-    border: 3px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.1);
     border-radius: 24px;
     color: hsl(var(--primary-color), var(darkest-saturation), var(gray-lightness));
+    border-color: hsla(var(--primary-color), 100%, 70%, 0.1);
     &:hover {
       border-color: hsl(var(--primary-color), 100%, 50%);
       color: hsl(var(--primary-color), 0%,  var(--white-lightness));

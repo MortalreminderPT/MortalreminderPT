@@ -46,6 +46,20 @@
   object-fit: cover;
 }
 
+.post-image-author {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  width: 36px;
+  height: 36px;
+  padding: 3px;
+  margin-right: 8px;
+  border: 2px solid hsl(var(--primary-color), 100%, 50%);
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
 .image-box {
   position: relative;
   padding-top: 90%;

@@ -42,11 +42,36 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function isNight() {
+    const theme = sessionStorage.getItem("theme");
+    if (theme === 'night') {
+        return true;
+    } 
+    if (theme === 'day') {
+        return false;
+    }
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return true;
-    } else {    
+    } else {
         var now = new Date();
         var hour = now.getHours();
         return hour < 6 || hour >= 18;
     }
 }
+
+var ThemeSwitch = {
+    init: function() {
+      var switchButton = document.getElementById('js-theme-switch');
+      switchButton.addEventListener('click', this.switchTheme);
+      var switchPopButton = document.getElementById('js-theme-switch-pop');
+      switchPopButton.addEventListener('click', this.switchTheme);
+    },
+    switchTheme: function() {
+        const theme = sessionStorage.getItem("theme");
+        if (theme === 'day') {
+            sessionStorage.setItem("theme", "night");
+        } else {
+            sessionStorage.setItem("theme", "day");
+        }
+        location.reload();
+    }
+};

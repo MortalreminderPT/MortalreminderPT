@@ -8,8 +8,8 @@ $(document).ready(function() {
     searchOpenIcon = $(".search-button"),
     searchCloseIcon = $(".search__close"),
     searchInput = $(".search__text"),
-    searchBox = $(".search");
-
+    searchBox = $(".search"),
+    themeIcon = $(".theme-button");
 
 
   /* =======================
@@ -24,6 +24,10 @@ $(document).ready(function() {
   })
 
   searchOpenIcon.click(function () {
+    searchOpen();
+  });
+
+  themeIcon.click(function () {
     searchOpen();
   });
 
@@ -81,6 +85,10 @@ $(document).ready(function() {
     noResultsText: '<li class="no-results"><h3>No results found</h3></li>'
   });
 
+  // =====================
+  // Switch Themes
+  // =====================
+  ThemeSwitch.init();
 
   /* =======================
   // LazyLoad Images

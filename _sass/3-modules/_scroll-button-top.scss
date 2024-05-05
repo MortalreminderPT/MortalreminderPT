@@ -1,9 +1,18 @@
 /* Scroll Button */
-.top {
+.pop {
   position: fixed;
   bottom: 25px;
   right: -100px;
   z-index: 5;
+  cursor: pointer;
+  transition: all .25s ease;
+
+  &.is-active {
+    right: 30px;
+  }
+}
+
+.pop-item {
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -11,9 +20,7 @@
   border-radius: 8px;
   background-color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
   color: hsl(var(--primary-color), 0%,  var(--white-lightness));
-  cursor: pointer;
-  transition: all .25s ease;
-
+  margin-top: 20px;
   @media (any-hover: hover){
     &:hover {
       color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
@@ -21,18 +28,20 @@
     }
   }
 
-  &:active {
-    color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
-    background: hsl(var(--primary-color), 100%, 50%);
-  }
+  // &:active {
+  //   color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
+  //   background: hsl(var(--primary-color), 100%, 50%);
+  // }
 
-  &.is-active {
-    right: 30px;
-  }
+  // &.is-active {
+  //   right: 30px;
+  // }
 }
 
+.top {}
+
 @media only screen and (max-width: $tablet) {
-  .top {
+  .pop {
     bottom: 15px;
     &.is-active {
       right: 25px;
