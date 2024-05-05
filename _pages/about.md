@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About PT
+title: PT's Home
 permalink: /about/
 hidden: true
 ---
