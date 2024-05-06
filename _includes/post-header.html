@@ -3,7 +3,7 @@
     {% if page.image %}
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}">
+        <img class="post-image lazy" data-src="{{site.baseurl_root}}{{page.image}}" alt="{{page.title}}">
       </div>
     </div>
     {% endif %}
@@ -30,7 +30,7 @@
 
           <div class="post__author">
             <a href="{{site.baseurl}}/about/" aria-label="{{site.author.name}}"><img class="post__author-image"
-                src="{{site.baseurl}}{{site.author.avatar}}" alt="{{site.author.name}}'s Picture"></a>
+                src="{{site.author.avatar}}" alt="{{site.author.name}}'s Picture"></a>
           </div>
 
           <div class="post__bottom-meta">

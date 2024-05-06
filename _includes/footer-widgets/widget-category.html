@@ -6,7 +6,7 @@
     </div>
     <div class="tag__cloud">
       {% for category in site.categories %}
-        <a href="/categories/{{ category | first | slugify | url_encode }}"#{html_opts}>{{ category | first }}</a>
+        <a href="{{site.baseurl}}/categories/{{ category | first | slugify | url_encode }}"#{html_opts}>{{ category | first }}</a>
       {% endfor %}
     </div>
   </div>

@@ -1,3 +1,10 @@
+PATH
+  remote: _plugins/t4j
+  specs:
+    jekyll-t4j (0.5.0)
+      duktape (~> 2.7)
+      jekyll (~> 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -80,11 +87,12 @@ GEM
     erubi (1.12.0)
     eventmachine (1.2.7)
     ffi (1.15.5)
-    ffi (1.15.5-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    google-protobuf (3.23.2)
+    google-protobuf (3.23.2-arm64-darwin)
+    google-protobuf (3.23.2-x64-mingw-ucrt)
+    google-protobuf (3.23.2-x86_64-linux)
     http_parser.rb (0.8.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -112,9 +120,6 @@ GEM
       sass-embedded (~> 1.54)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-t4j (0.5.0)
-      duktape (~> 2.7)
-      jekyll (~> 4.1)
     jekyll-tagging (1.1.0)
       nuggets
     jekyll-watch (2.2.1)
@@ -139,7 +144,6 @@ GEM
     mercenary (0.4.0)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.6)
     minitest (5.18.0)
     net-imap (0.3.4)
       date
@@ -151,8 +155,11 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.4)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     nuggets (1.6.1)
     pathutil (0.16.2)
@@ -229,7 +236,7 @@ DEPENDENCIES
   jekyll-fontawesome-svg
   jekyll-paginate
   jekyll-sitemap
-  jekyll-t4j
+  jekyll-t4j!
   jekyll-tagging
   simple_search_filter
 

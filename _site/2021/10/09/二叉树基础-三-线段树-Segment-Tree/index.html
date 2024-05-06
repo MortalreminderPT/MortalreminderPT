@@ -269,6 +269,10 @@
     
   
     
+  
+    
+  
+    
       
       
     
@@ -311,10 +315,6 @@
     
       
       
-    
-  
-    
-  
     
   
 <!--  <li class="nav__item">-->
@@ -515,6 +515,10 @@
     
   
     
+  
+    
+  
+    
       
       
     
@@ -557,10 +561,6 @@
     
       
       
-    
-  
-    
-  
     
   
 <!--  <li class="nav__item">-->
@@ -713,13 +713,13 @@
 <h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/_AvG2xy91ZRB@bn3MKc7aLr.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/_H1PAuDQLo2drZtgnBbclq4.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/_wt1KPzTJEC4WaXOAe7rf9p.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/_@uWecfqZ4NX3b7n8GPmUAB.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/_RJsgx2aA6G3HoQEUP4qN@r.xml"></include>，设线段树的根节点编号为<include src="/_wt1KPzTJEC4WaXOAe7rf9p.xml"></include>，用数组<include src="/_aX2Gd0KJfeLDPIbZzB7npH.xml"></include>来保存线段树，<include src="/_24WSA0bPJjohdTwlE$nv5V.xml"></include>用来保存线段树上编号为<include src="/_sl5Pto8u2ZjgOY1endDvAc.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/_auOTIilMjEHVh408kP3Kvg.xml"></include>，设线段树的根节点编号为<include src="/_@uWecfqZ4NX3b7n8GPmUAB.xml"></include>，用数组<include src="/_7CQ3eSZ2$1gBk@uAWotlaq.xml"></include>来保存线段树，<include src="/_BQNdf62erSasYnA@FU0vhk.xml"></include>用来保存线段树上编号为<include src="/_B1w3VUrdZTz9u0acnSqXeo.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -734,7 +734,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/_sl5Pto8u2ZjgOY1endDvAc.xml"></include>，其子节点的编号为<include src="/_4iU3g5pbC9l$EKPLuI7qrF.xml"></include>以及<include src="/_CU17BASDje8x4KYFNWOltk.xml"></include>，若节点<include src="/_sl5Pto8u2ZjgOY1endDvAc.xml"></include>存储的区间为<include src="/_Zjr1aP0@iEmGHMoDwtcNn8.xml"></include>，则节点<include src="/_4iU3g5pbC9l$EKPLuI7qrF.xml"></include>存储的区间应该是<include src="/_R74@TUVgMD2oiPXGc0pau8.xml"></include>，相应地，节点<include src="/_CU17BASDje8x4KYFNWOltk.xml"></include>存储的区间为<include src="/_sNe@ZElGmp3KPk1DW5wzdn.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/_B1w3VUrdZTz9u0acnSqXeo.xml"></include>，其子节点的编号为<include src="/_rMUcs$tkxEFuRoqJWazXBO.xml"></include>以及<include src="/_jHtiT@mf3dJKaqZCoEDlF9.xml"></include>，若节点<include src="/_B1w3VUrdZTz9u0acnSqXeo.xml"></include>存储的区间为<include src="/_DMjSlRxtN@fpV5YcJaGBve.xml"></include>，则节点<include src="/_rMUcs$tkxEFuRoqJWazXBO.xml"></include>存储的区间应该是<include src="/_ObpPlxuB08m3qCvTfL@SsU.xml"></include>，相应地，节点<include src="/_jHtiT@mf3dJKaqZCoEDlF9.xml"></include>存储的区间为<include src="/_DwZ$R7GHNrotaS0lm1z29J.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -749,7 +749,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/_NK6wFyj2SItexOiRqsAf1P.xml"></include>，我们只需直接返回<include src="/_M@vs$kUKA9gqRpPTW1YB0V.xml"></include>，但如果我们查询的是<include src="/_8TtZPmnayQgc2bD4VvWjAJ.xml"></include>，则需要合并<include src="/_X5vnf@NQH8O9AyGrhaIFsU.xml"></include>和<include src="/_CDgjfnyasw7iUqrM@THFEK.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/_iRT1YkSxBUMdVPgbEjNpHA.xml"></include>，我们只需直接返回<include src="/_$NjgeVLfx3d@blK6nPvJAM.xml"></include>，但如果我们查询的是<include src="/_IWaBzEUPkKxY7uL$e6AvC4.xml"></include>，则需要合并<include src="/_0eW6bPn8FJXG49q3acHAwQ.xml"></include>和<include src="/_4jDsCFdeHIMX9c0rOAWGlk.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -775,9 +775,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/_e4Hc8CdRXxbYUTuOAzkWSZ.xml"></include>的区间<include src="/_8TtZPmnayQgc2bD4VvWjAJ.xml"></include>加上<include src="/_tBjhg74asiR3YvIOXd01rl.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/_hN@Ck3BZQL2XKlric0vRDq.xml"></include>的区间<include src="/_IWaBzEUPkKxY7uL$e6AvC4.xml"></include>加上<include src="/_eq6$4tQN57jAfr9iuWSFXG.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/_OjKS4gHQkJPhwzDny8ERBr.xml"></include>时就已经结束了，因此节点<include src="/_OjKS4gHQkJPhwzDny8ERBr.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/_hcZWfkYLniC$UEDB09wFAJ.xml"></include>时就已经结束了，因此节点<include src="/_hcZWfkYLniC$UEDB09wFAJ.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
@@ -1638,7 +1638,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/.Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -1652,7 +1652,7 @@
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/edit-xlsx/2024/01/30/.Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1680,7 +1680,7 @@
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

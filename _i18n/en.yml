@@ -1,0 +1,12 @@
+global:
+  author:
+    name: Mortalreminder PT
+    avatar: aa # '/images/logos/avatar128.png'
+  hero:
+    title: PT's Blog
+    description: videtis illam spirare libertatis auram.
+    image: 'https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-US'
+
+author:
+    name: Mortalreminder PT
+    avatar: aa # https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg # '/images/logos/avatar128.png'

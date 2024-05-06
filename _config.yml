@@ -10,7 +10,7 @@ url: "https://blog.tomori.io/" # The base hostname & protocol for your site, e.g
 # Author Settings
 author:
   name: Mortalreminder PT
-  avatar: 'https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg'# '/images/logos/avatar128.png'
+  avatar: 'https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg' # '/images/logos/avatar128.png'
 
 #-------------------------------
 # Hero Settings
@@ -110,3 +110,6 @@ color:
   82deg
 # 时区
 #timezone: Asia/Shanghai
+
+# i18n
+languages: ["zh-cn", "en"]
