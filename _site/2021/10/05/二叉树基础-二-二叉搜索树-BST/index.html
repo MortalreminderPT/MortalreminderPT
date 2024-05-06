@@ -574,11 +574,12 @@
       <div class="nav-buttons">
         <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
         <i id="js-theme-switch" class="nav__icon ion ion-md-contrast"></i>
-        <div class="search-button">
-          <i class="nav__icon ion ion-md-search"></i>
+        <i class="search-button nav__icon ion ion-md-search"></i>
+        <!-- <div class="search-button"> -->
+          <!-- <i class="search-button nav__icon ion ion-md-search"></i> -->
           <!-- <span>Search</span> -->
           <!-- <span>Search</span> -->
-        </div>
+        <!-- </div> -->
       </div>
 
       </div>
@@ -702,9 +703,9 @@
   </li>
   <li><a href="#代码" id="markdown-toc-代码">代码</a>    <ol>
       <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/_F4APGpeBKylLoVzjtng7u5.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/_2Rakvq9LJDWeGwfrycElz5.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/_Uu8i5392NVgRFKM6lhvxWY.xml"></include></a></li>
+          <li><a href="#find" id="markdown-toc-find"><include src="/_aT6MtAom7YyP23Eunpibsr.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/_Q8jklKbYtXv7macVTNqAuG.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/_7xH4SpEc@g6yYsRhlnPQLi.xml"></include></a></li>
         </ol>
       </li>
     </ol>
@@ -738,8 +739,8 @@
 
 <p>BST的构造和析构与普通二叉树相同，这里不多赘述。相比于普通二叉树，BST的主要功能增加了查找，插入和删除</p>
 
-<h4 id="find"><include src="/_F4APGpeBKylLoVzjtng7u5.xml"></include></h4>
-<p><include src="/_F4APGpeBKylLoVzjtng7u5.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
+<h4 id="find"><include src="/_aT6MtAom7YyP23Eunpibsr.xml"></include></h4>
+<p><include src="/_aT6MtAom7YyP23Eunpibsr.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">;</span>
@@ -754,8 +755,8 @@
     <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="insert"><include src="/_2Rakvq9LJDWeGwfrycElz5.xml"></include></h4>
-<p><include src="/_2Rakvq9LJDWeGwfrycElz5.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_@tyWLc7u23HeGTXgPsqfv4.xml"></include>后，要找到合适的父节点<include src="/_HueP6k4EFj$W7qTKC5B9av.xml"></include>并插入其中。代码如下</p>
+<h4 id="insert"><include src="/_Q8jklKbYtXv7macVTNqAuG.xml"></include></h4>
+<p><include src="/_Q8jklKbYtXv7macVTNqAuG.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_ZX9iqswu@2I8vOjhC7EPmU.xml"></include>后，要找到合适的父节点<include src="/_HwnqezMd@cYTptKQ94IybS.xml"></include>并插入其中。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
@@ -779,7 +780,7 @@
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="delete"><include src="/_Uu8i5392NVgRFKM6lhvxWY.xml"></include></h4>
+<h4 id="delete"><include src="/_7xH4SpEc@g6yYsRhlnPQLi.xml"></include></h4>
 <p>二叉搜索树进行删除操作后，仍然要保证它的排序正确，因此我们的删除操作分为三种情况：</p>
 
 <ul>
