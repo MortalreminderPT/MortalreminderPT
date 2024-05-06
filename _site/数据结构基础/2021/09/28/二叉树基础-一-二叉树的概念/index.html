@@ -755,20 +755,20 @@
   <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
     <h3 id="性质">性质</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/_SI3AqE$6ihYfpQ7GrvDBMW.xml"></include>个节点 <include src="/_ewPKs4NhQdv$LTX7@8HkZS.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/_wFLAQKbTgZNhoe2@mEUay6.xml"></include>个节点 <include src="/_69R4TPHS2xgsYdwWfi0ApU.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/_YQyobX$e3MkC2lTsVLrwd5.xml"></include>，度为2的节点为<include src="/_KOS81IrsC$U3xqJMAy0uN7.xml"></include>，则<include src="/_NdlVM4IwDszCfH1y8QLq5U.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_PnB5sZk@DLEOF0Yv2JHbgV.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/_ol1r@jmwI$yTA2LXkCeMun.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_oT98JwSVzP1O4MtF23hqrK.xml"></include></li>
-  <li><include src="/_ol1r@jmwI$yTA2LXkCeMun.xml"></include>个节点的完全二叉树高度为<include src="/_bP219W$o5qk7CMQUEngpA@.xml"></include>，深度为<include src="/_4BycoFb9s1N63Slper@LVI.xml"></include></li>
+  <li>一棵二叉树的第i层最多有<include src="/_c6K7HQglWuwv8sNr1pCP@T.xml"></include>个节点 <include src="/_BAwPfl9XrkEqcitzMSUh@o.xml"></include></li>
+  <li>深度为k的二叉树最多有<include src="/_gY8RCtfZQ0XEnVrw$PckFT.xml"></include>个节点 <include src="/_mRd5hNHPwqTEFMDG02B1WO.xml"></include></li>
+  <li>对于1棵二叉树，度为0的节点为<include src="/_OvN@LbsiUflzMXp8qVjohP.xml"></include>，度为2的节点为<include src="/_1uxsBC@yPc$plJX8V4nQ6w.xml"></include>，则<include src="/_4FBnVAqG6U0siIo2XfPYhp.xml"></include></li>
+  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_DRaiwmtCJoKcpVSTdhOMGX.xml"></include></li>
+  <li>满二叉树定理推论：在一棵具有<include src="/_8U7RtQ$okaMnygLIeD1SYP.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_R8uyBcMpEvPOmsQVGzg6Zx.xml"></include></li>
+  <li><include src="/_8U7RtQ$okaMnygLIeD1SYP.xml"></include>个节点的完全二叉树高度为<include src="/_FZG2jIdmPWVYs0eaX$plib.xml"></include>，深度为<include src="/_lpkiSCFI8oecbXdwMZ1Guh.xml"></include></li>
 </ul>
 
 <h2 id="二叉树的c实现">二叉树的C++实现</h2>
 
 <h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_82Fp5cuIQr0ymBqGK4WTPg.xml"></include>处，
-其左孩子存储于下标<include src="/_CP@8I25W47RLxjUheD1Y6E.xml"></include>，右孩子存储于下标<include src="/_aUB4LvQSsDodMfKtEVXywI.xml"></include>….依此类推，对于下标为<include src="/_2DIgQSR7Fy8cLNKhunCOva.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_sxpmbiJnt0HQXgV4L35o@d.xml"></include>和<include src="/_SG8970JMaQPy@xNUI1YRBj.xml"></include>处。</p>
+<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_ZlW$Kf9cGDOkXbBy4JU5rP.xml"></include>处，
+其左孩子存储于下标<include src="/_INAglmLr$o5Yj8BuKGyWac.xml"></include>，右孩子存储于下标<include src="/_fp9embXjzigMlhGta8Qr1N.xml"></include>….依此类推，对于下标为<include src="/_$DYB7Heh6Ffp59qnRT3Kya.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_0GNXl3s5FQ$Ywp@9maiqWT.xml"></include>和<include src="/_hKmQluBRpdXaI7L2C1$wco.xml"></include>处。</p>
 <h4 id="实现代码">实现代码</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>

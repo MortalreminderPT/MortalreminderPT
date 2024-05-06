@@ -67,9 +67,9 @@ var ThemeSwitch = {
     },
     switchTheme: function() {
         if (isNight()) {
-            sessionStorage.setItem("theme", "night");
-        } else {
             sessionStorage.setItem("theme", "day");
+        } else {
+            sessionStorage.setItem("theme", "night");
         }
         location.reload();
     }
