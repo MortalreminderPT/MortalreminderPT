@@ -66,11 +66,10 @@ var ThemeSwitch = {
       switchPopButton.addEventListener('click', this.switchTheme);
     },
     switchTheme: function() {
-        const theme = sessionStorage.getItem("theme");
-        if (theme === 'day') {
-            sessionStorage.setItem("theme", "night");
-        } else {
+        if (isNight()) {
             sessionStorage.setItem("theme", "day");
+        } else {
+            sessionStorage.setItem("theme", "night");
         }
         location.reload();
     }
