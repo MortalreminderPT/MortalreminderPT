@@ -409,7 +409,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -520,7 +520,7 @@
 
 <h2 id="209-minimum-size-subarray-sum"><a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. Minimum Size Subarray Sum</a></h2>
 
-<p>This problem is the most basic sliding window problem. We can use two pointers <include src="/en/_6CxoZzgniWQeI0qSV5fmrA.xml"></include> and <include src="/en/_HvecNbgmAqafMpQXhlDtuL.xml"></include> to represent the left and right ends of the window, then move the pointer <include src="/en/_HvecNbgmAqafMpQXhlDtuL.xml"></include> continuously to the right. Meanwhile, use a variable <include src="/en/_PYqzr2B4Hn1pl8A0Xy@V7m.xml"></include> to record the sum of the interval <include src="/en/_jdwMIgV54im@9TntJuOQeA.xml"></include>. If <include src="/en/_PYqzr2B4Hn1pl8A0Xy@V7m.xml"></include> meets the condition, record the difference between <include src="/en/_6CxoZzgniWQeI0qSV5fmrA.xml"></include> and <include src="/en/_HvecNbgmAqafMpQXhlDtuL.xml"></include> as the answer, and move the pointer <include src="/en/_6CxoZzgniWQeI0qSV5fmrA.xml"></include>. Here’s the code:</p>
+<p>This problem is the most basic sliding window problem. We can use two pointers <include src="/en/_27HMCIwvRWd@XhjuO6EP4F.xml"></include> and <include src="/en/_2f8vmXRK5hWA4EVb3Sd7J0.xml"></include> to represent the left and right ends of the window, then move the pointer <include src="/en/_2f8vmXRK5hWA4EVb3Sd7J0.xml"></include> continuously to the right. Meanwhile, use a variable <include src="/en/_QB9$FRfq23JS7ng0Ozm@ta.xml"></include> to record the sum of the interval <include src="/en/_3YITc$Bh7ewaPMEHROJUQF.xml"></include>. If <include src="/en/_QB9$FRfq23JS7ng0Ozm@ta.xml"></include> meets the condition, record the difference between <include src="/en/_27HMCIwvRWd@XhjuO6EP4F.xml"></include> and <include src="/en/_2f8vmXRK5hWA4EVb3Sd7J0.xml"></include> as the answer, and move the pointer <include src="/en/_27HMCIwvRWd@XhjuO6EP4F.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -544,9 +544,9 @@
 
 <p>The solution to this problem is very similar to the previous one, but instead of finding the length of the interval, we’re looking for the number of consecutive subintervals.</p>
 
-<p>For the number of subintervals, we can observe that if <include src="/en/_jdwMIgV54im@9TntJuOQeA.xml"></include> is a valid window, then <include src="/en/_Ynb09L2KBoN7WFht@Azip8.xml"></include> for <include src="/en/_cwZnYR59CbxSh7iFpDzmtG.xml"></include> must also be valid windows.</p>
+<p>For the number of subintervals, we can observe that if <include src="/en/_3YITc$Bh7ewaPMEHROJUQF.xml"></include> is a valid window, then <include src="/en/_Ke1$jVU0YPBfSyxAlEsuM9.xml"></include> for <include src="/en/_ljkN@16BZAcL$3FheodUbz.xml"></include> must also be valid windows.</p>
 
-<p>For any valid interval <include src="/en/_jdwMIgV54im@9TntJuOQeA.xml"></include>, the number of subsets ending at <include src="/en/_HvecNbgmAqafMpQXhlDtuL.xml"></include> is always <include src="/en/_mL4Pd$q7z1@kGUXtZYEMl0.xml"></include>. Therefore, before updating <include src="/en/_HvecNbgmAqafMpQXhlDtuL.xml"></include> each time, we add <include src="/en/_mL4Pd$q7z1@kGUXtZYEMl0.xml"></include> to the answer. Here’s the code:</p>
+<p>For any valid interval <include src="/en/_3YITc$Bh7ewaPMEHROJUQF.xml"></include>, the number of subsets ending at <include src="/en/_2f8vmXRK5hWA4EVb3Sd7J0.xml"></include> is always <include src="/en/_GBEYXvsC26IiwKPb@hVlTr.xml"></include>. Therefore, before updating <include src="/en/_2f8vmXRK5hWA4EVb3Sd7J0.xml"></include> each time, we add <include src="/en/_GBEYXvsC26IiwKPb@hVlTr.xml"></include> to the answer. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -569,7 +569,7 @@
 
 <h2 id="3-longest-substring-without-repeating-characters"><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. Longest Substring Without Repeating Characters</a></h2>
 
-<p>Unlike the previous contiguous subsequence problem, this problem requires the length of contiguous substrings. Therefore, we need to modify the condition. If duplicate characters appear within the window interval, we update <include src="/en/_6CxoZzgniWQeI0qSV5fmrA.xml"></include>. Here’s the code:</p>
+<p>Unlike the previous contiguous subsequence problem, this problem requires the length of contiguous substrings. Therefore, we need to modify the condition. If duplicate characters appear within the window interval, we update <include src="/en/_27HMCIwvRWd@XhjuO6EP4F.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -592,7 +592,7 @@
 
 <h2 id="438-find-all-anagrams-in-a-string"><a href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/">438. Find All Anagrams in a String</a></h2>
 
-<p>The solution to this problem is quite similar to the previous one, but instead of comparing characters, we’re comparing strings. Additionally, the length of the window in this problem remains constant, which is the length of <include src="/en/_LnBe$N@ZVDMj1xtQglwRup.xml"></include>.</p>
+<p>The solution to this problem is quite similar to the previous one, but instead of comparing characters, we’re comparing strings. Additionally, the length of the window in this problem remains constant, which is the length of <include src="/en/_bYfWi4Qvt0kOp$XF8ozIMa.xml"></include>.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -1120,6 +1120,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
+    site_langs = '["zh-cn","en"]',
     site_lang = '/en',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

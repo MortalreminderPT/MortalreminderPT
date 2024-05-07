@@ -409,7 +409,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -513,9 +513,9 @@
   </li>
   <li><a href="#code" id="markdown-toc-code">Code</a>    <ol>
       <li><a href="#basic-operations" id="markdown-toc-basic-operations">Basic Operations</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/en/_dRxtsw0q2cYjhVenCFgvr6.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/en/_FZIdLcXPJvf7C9i2MR6KnU.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/en/_13oFcGvl076XJWHmZT$LSg.xml"></include></a></li>
+          <li><a href="#find" id="markdown-toc-find"><include src="/en/_$qIH3BC1Ki2wSQZYegzJRs.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/en/_tvOARZL7@mweNzVHKoi0nD.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/en/_m02wW7MPai4XKkRCnIjF91.xml"></include></a></li>
         </ol>
       </li>
     </ol>
@@ -554,7 +554,7 @@
 
 <p>The construction and destruction of a BST are similar to those of a regular binary tree. Here, we focus on additional operations like search, insertion, and deletion compared to regular binary trees.</p>
 
-<h4 id="find"><include src="/en/_dRxtsw0q2cYjhVenCFgvr6.xml"></include></h4>
+<h4 id="find"><include src="/en/_$qIH3BC1Ki2wSQZYegzJRs.xml"></include></h4>
 <p>The <code class="language-plaintext highlighter-rouge">find()</code> function searches whether a node with a known data value exists in the tree and returns the node. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
@@ -571,8 +571,8 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="insert"><include src="/en/_FZIdLcXPJvf7C9i2MR6KnU.xml"></include></h4>
-<p>The <code class="language-plaintext highlighter-rouge">insert()</code> function inserts a node into the tree. All nodes in a BST are inserted as leaf nodes. Hence, after creating node <include src="/en/_LnBe$N@ZVDMj1xtQglwRup.xml"></include>, we find the appropriate parent node <include src="/en/_EBA0t6U5QHhWCpgY8Dm9x1.xml"></include> and insert <include src="/en/_LnBe$N@ZVDMj1xtQglwRup.xml"></include> there. The code is as follows:</p>
+<h4 id="insert"><include src="/en/_tvOARZL7@mweNzVHKoi0nD.xml"></include></h4>
+<p>The <code class="language-plaintext highlighter-rouge">insert()</code> function inserts a node into the tree. All nodes in a BST are inserted as leaf nodes. Hence, after creating node <include src="/en/_bYfWi4Qvt0kOp$XF8ozIMa.xml"></include>, we find the appropriate parent node <include src="/en/_btM0qL67TC519D@AXUFsfj.xml"></include> and insert <include src="/en/_bYfWi4Qvt0kOp$XF8ozIMa.xml"></include> there. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
@@ -597,7 +597,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="delete"><include src="/en/_13oFcGvl076XJWHmZT$LSg.xml"></include></h4>
+<h4 id="delete"><include src="/en/_m02wW7MPai4XKkRCnIjF91.xml"></include></h4>
 <p>After deleting a node in a binary search tree, its sorting order must still be maintained. Therefore, deletion is divided into three cases:</p>
 <ul>
   <li>If the node to be deleted has no left child, replace it with its right child.</li>
@@ -1143,6 +1143,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
+    site_langs = '["zh-cn","en"]',
     site_lang = '/en',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

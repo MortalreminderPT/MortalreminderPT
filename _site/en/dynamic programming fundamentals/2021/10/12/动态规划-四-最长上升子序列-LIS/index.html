@@ -409,7 +409,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -510,10 +510,10 @@
 
 <h2 id="dynamic-programming">Dynamic Programming</h2>
 
-<p>We can define <include src="/en/_7JqwK$sejp8lXWhoPcnR6N.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/en/_XSa9AUovzDYNyrWeFk314@.xml"></include> (a common pattern for the <include src="/en/_YxSJneWB01PTL5A3XFRy2q.xml"></include> array). Then, we can write the state transition equation as
-<include src="/en/_Sqyt@rBnQ1oMOZ2gLGWwxc.xml"></include></p>
+<p>We can define <include src="/en/_De29WK1dZ3nOczy8FgMrUk.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/en/_u4NfzC1v9QHkTnPOsa3Mi8.xml"></include> (a common pattern for the <include src="/en/_@OoWlVqdvL8fbcGY1NF0up.xml"></include> array). Then, we can write the state transition equation as
+<include src="/en/_L0Z@u9hAXjEoRbJMysIt6n.xml"></include></p>
 
-<p>Finally, the result of this problem is <include src="/en/_JK8gynHU@ksXp0EFVjC$hL.xml"></include>, and the code is as follows:</p>
+<p>Finally, the result of this problem is <include src="/en/_5Xo2b3GY94E6pVrRLADK7Q.xml"></include>, and the code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -530,13 +530,13 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/en/_s1Y@hAiDpoH8FvuSJZ5clV.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/en/_m08iIur75MB3vZhsyHTdz@.xml"></include>.</p>
 
 <h2 id="fenwick-tree-binary-indexed-tree">Fenwick Tree (Binary Indexed Tree)</h2>
 
 <p>The LIS problem is essentially a partial order problem. Previously, in two-dimensional partial order problems, we mentioned that a Fenwick tree can easily solve such problems. However, in the previous problems, we were counting the number of pairs, not the length of sequences. To find the length of sequences, we need to modify the Fenwick tree structure.</p>
 
-<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/en/_XSa9AUovzDYNyrWeFk314@.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
+<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/en/_u4NfzC1v9QHkTnPOsa3Mi8.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -554,7 +554,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>Then, we traverse the array in the same way as with <include src="/en/_YxSJneWB01PTL5A3XFRy2q.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
+<p>Then, we traverse the array in the same way as with <include src="/en/_@OoWlVqdvL8fbcGY1NF0up.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -604,7 +604,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/en/_Y@GDCLe7MI4f3KTsHc0v$8.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/en/_Sp6BNcCe2gs$RQPnx7FImH.xml"></include>.</p>
 
     </div>
 
@@ -1116,6 +1116,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
+    site_langs = '["zh-cn","en"]',
     site_lang = '/en',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

@@ -1,4 +1,7 @@
 global:
+  lang: zh-cn
+  not-found: 没有找到内容
+  back-homepage: 返回首页
   recent: 最新发布
   tags: 探索标签
   categories: 查看专栏
@@ -13,6 +16,8 @@ global:
     email: 邮箱
     message: 留言内容
     send-message: 留言
+  search:
+    search: "搜索..."
 pages:
   previous-post: 上一篇
   next-post: 下一篇

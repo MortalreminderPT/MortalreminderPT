@@ -1,4 +1,7 @@
 global:
+  lang: en
+  not-found: Page not found
+  back-homepage: BACK TO THE HOMEPAGE
   recent: Latest Posts
   tags: Explore Tags
   categories: View Categories
@@ -13,6 +16,8 @@ global:
     email: Email
     message: Message
     send-message: Send Message
+  search:
+    search: "Search..."
 pages:
   previous-post: PREVIOUS POST
   next-post: NEXT POST

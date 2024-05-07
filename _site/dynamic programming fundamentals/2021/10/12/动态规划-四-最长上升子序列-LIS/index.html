@@ -699,10 +699,10 @@
 <p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">300.最长递增子序列</a></p>
 
 <h2 id="动态规划">动态规划</h2>
-<p>我们可以定义<include src="/_ZvjHiVFbyzmrcWTUut@0QD.xml"></include>为以<include src="/_v83guLO5oqPeJtFHYIE1Dw.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_oF$gW9pfcV6Tyi7P3mSzZL.xml"></include>的常用套路），则我们可以写出状态转移方程为
-<include src="/_dT5FfO7jxoa4qM2KDl3pXN.xml"></include></p>
+<p>我们可以定义<include src="/_AJbHveOyhr7U3IMdW1cQfo.xml"></include>为以<include src="/_9WqOFu2tSwe5cHz6CP3amh.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/_itUCm5abB2je4y6VkzcKFT.xml"></include>的常用套路），则我们可以写出状态转移方程为
+<include src="/_Ihdlqz$USV8jcgHkvN6bie.xml"></include></p>
 
-<p>最后，此题的结果便是<include src="/_8gSfbNaj@ydDTOXHZQ3Bh4.xml"></include>，代码如下</p>
+<p>最后，此题的结果便是<include src="/_vxj$@gaNMtCD0zBQ95FKhT.xml"></include>，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -719,12 +719,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_IT6Acbsjzmi1XB9H$rwNCL.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_y2jxh9csUBCg$NIPrzOZt5.xml"></include></p>
 
 <h2 id="树状数组">树状数组</h2>
 <p>LIS问题的本质是偏序问题，我们之前在二维偏序问题中提到过，树状数组可以轻松的解决这类问题。但之前的问题中，我们求的是数对的数量，而不是序列的长度。为了能够求得序列长度，我们要对树状数组进行修改。</p>
 
-<p>我们可以用树状数组存储以<include src="/_v83guLO5oqPeJtFHYIE1Dw.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
+<p>我们可以用树状数组存储以<include src="/_9WqOFu2tSwe5cHz6CP3amh.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -742,7 +742,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>随后用和<include src="/_oF$gW9pfcV6Tyi7P3mSzZL.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
+<p>随后用和<include src="/_itUCm5abB2je4y6VkzcKFT.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -792,7 +792,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/_5ALkMrYbXdWZOoNuV7taIi.xml"></include></p>
+<p>该解法时间复杂度为<include src="/_UeuK02T47qDznyGL1tsQaw.xml"></include></p>
 
     </div>
 
@@ -1802,6 +1802,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
+    site_langs = '["zh-cn","en"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',
