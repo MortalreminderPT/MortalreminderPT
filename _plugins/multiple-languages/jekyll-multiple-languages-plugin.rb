@@ -180,7 +180,7 @@ module Jekyll
           self.config['baseurl'] = baseurl_org + "/" + lang
           self.config['lang']    =                     lang
         end
-        
+
         # Translate site attributes to current language
         translate_props(self.config, self)
 

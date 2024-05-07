@@ -5,27 +5,26 @@ permalink: /contact/
 ---
 <div class="form-container">
   {% if site.contact.description %}
-  <p class="contact-description">{{site.contact.description}}</p>
+  <p class="contact-description">{% t global.contact.content %}</p>
   {% endif %}
   <form class="form"
     name="addForm" method="post" onsubmit="return CheckPost();">
 <!--    action="{% if site.contact.email %}https://formspree.io/{{site.contact.email}}{% else %}#{% endif %}" method="POST">-->
     <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-name">您的称呼</label>
-      <input class="form__input" id="form-name" type="text" name="name" placeholder="您的称呼" required>
+      <label class="form__label screen-reader-text" for="form-name">{% t global.contact.name %}</label>
+      <input class="form__input" id="form-name" type="text" name="name" placeholder="{% t global.contact.name %}" required>
     </div>
     <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-email">邮箱</label>
-      <input class="form__input" id="form-email" type="email" name="_replyto" placeholder="邮箱" required>
+      <label class="form__label screen-reader-text" for="form-email">{% t global.contact.email %}</label>
+      <input class="form__input" id="form-email" type="email" name="_replyto" placeholder="{% t global.contact.email %}" required>
     </div>
     <div class="form__group">
-      <label class="form__label screen-reader-text" for="form-text">留言内容</label>
-      <textarea class="form__input" id="form-text" name="text" rows="10" placeholder="留言内容" required></textarea>
+      <label class="form__label screen-reader-text" for="form-text">{% t global.contact.message %}</label>
+      <textarea class="form__input" id="form-text" name="text" rows="10" placeholder="{% t global.contact.message %}" required></textarea>
     </div>
     <div class="form__group">
-      <button class="button button--primary" type="submit">留言</button>
+      <button class="button button--primary" type="submit">{% t global.contact.send-message %}</button>
     </div>
-<!--    <input type="hidden" name="_next" value="{{ site.baseurl }}/contact/thanks/" />-->
   </form>
   <hr>
 </div>

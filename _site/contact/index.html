@@ -628,7 +628,7 @@
     <div class="page__content">
       <div class="form-container">
   
-  <p class="contact-description">非常欢迎您与博主联系！如果您对博客有任何建议，可以留言给博主来信，无论您是有疑问、需要帮助还是想表达对博主的赞赏，博主非常期待听到您的声音。</p>
+  <p class="contact-description">欢迎与博主互动！无论您是有任何建议、疑问，需要帮助，还是想表达对博主的赞赏，都欢迎发送邮件给博主。期待听到您的声音！</p>
   
   <form class="form"
     name="addForm" method="post" onsubmit="return CheckPost();">
@@ -648,7 +648,6 @@
     <div class="form__group">
       <button class="button button--primary" type="submit">留言</button>
     </div>
-<!--    <input type="hidden" name="_next" value="/contact/thanks/" />-->
   </form>
   <hr>
 </div>
@@ -768,9 +767,9 @@
     </div>
     <div class="tag__cloud">
       
-        <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%9F%BA%E7%A1%80"#{html_opts}>动态规划基础</a>
+        <a href="/categories/dynamic-programming-fundamentals"#{html_opts}>Dynamic Programming Fundamentals</a>
       
-        <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80"#{html_opts}>数据结构基础</a>
+        <a href="/categories/fundamentals-of-data-structures"#{html_opts}>Fundamentals of Data Structures</a>
       
         <a href="/categories/apollo"#{html_opts}>Apollo</a>
       
@@ -917,6 +916,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
+    site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',
     pagination_available_pages_number = '';

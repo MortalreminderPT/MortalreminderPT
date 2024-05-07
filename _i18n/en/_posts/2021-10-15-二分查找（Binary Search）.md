@@ -1,23 +1,23 @@
 ---
 layout: post
 featured: false
-title: "二分查找（Binary Search）"
+title: "Binary Search"
 image: /images/covers/blackrock2.jpg
-description: 二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到 O(log n)
+description: Binary search is a common method for finding a specific value in a sorted array. It doesn't need to traverse the entire sequence; it only needs to focus on the boundaries and the middle value of the sequence. Therefore, its time complexity can reach O(log n).
 date: 2021-10-15 20:51:55 +0800
 tags:
-- 算法
+- Algorithms
 ---
 
-1. 目录
+1. Table of Contents
 {:toc}
 
-## 概念
-二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到$$O(logn)$$
+## Concept
+Binary search is a common method for finding a specific value in a sorted array. It doesn't need to traverse the entire sequence; it only needs to focus on the boundaries and the middle value of the sequence. Therefore, its time complexity can reach $$O(\log n)$$.
 
-### 模板
+### Template
 
-在一个有序序列中查找关键字$$key$$的模板代码如下
+The template code for finding the key in a sorted sequence is as follows:
 
 ```cpp
 int binarySearch(vector<int>& nums, int key) {
@@ -32,18 +32,19 @@ int binarySearch(vector<int>& nums, int key) {
     return ans;
 }
 ```
-## 题目
 
-二分的题目模板一般都是固定的，主要是能否想到的对什么进行二分，怎样二分。
+## Problems
 
-### [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+The template for binary search problems is usually fixed. The key is to determine what to binary search and how to perform the binary search.
 
-该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若`nums[i] < key`，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为`nums[i] <= key`。这样查找的结果是大于$$key$$的第一个元素的位置。因此该题的代码如下
+### [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+This problem requires not only finding the first occurrence of an element but also the last occurrence. In the template code, if `nums[i] < key`, it continues searching on the left side. To continue searching after finding the element, we need to modify it to `nums[i] <= key`. This modification finds the position of the first element greater than or equal to $$key$$. Therefore, the code for this problem is as follows:
 
 ```cpp
 class Solution {
 public:
-    int binarySearch(vector<int> &nums, int key, bool next) {
+    int binarySearch(vector<int> &nums, int key, bool last) {
         int l = 0, r = nums.size() - 1, ans = nums.size();
         while (l <= r) {
             int mid = (l + r) / 2;
@@ -63,18 +64,19 @@ public:
     }
 };
 ```
-### [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/)
 
-依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于$$target$$的最大元素
+### [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
 
-之后对该行进行基本的二分查找，即可得到结果。代码如下
+According to the problem, the element to be searched must be greater than or equal to the first element in its row. Therefore, we first perform a binary search on the columns to find the largest element not greater than $$target$$.
+
+Then, we perform a basic binary search on that row to find the result. The code for this problem is as follows:
 
 ```cpp
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>> &matrix, int target) {
         int l = 0, r = matrix.size() - 1, ans = matrix.size(), res = matrix[0].size();
-        // 先找小于target的第一个数的位置
+        // Find the position of the first element greater than target
         while (l <= r) {
             int mid = (l + r) / 2;
             if (matrix[mid][0] > target) r = mid - 1;
@@ -91,9 +93,10 @@ public:
     }
 };
 ```
-### [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
 
-该题只保证了数组的局部有序，但对数组进行二分后，会发现总有一半的数组是有序的，此时可以继续对有序的数组进行二分查找，代码如下
+### [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+This problem only guarantees partial order in the array. However, after binary partitioning the array, we always find that one half of the array is sorted. In this case, we can continue to binary search the sorted part of the array. The code for this problem is as follows:
 
 ```cpp
 class Solution {
@@ -130,11 +133,9 @@ public:
 };
 ```
 
+### [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 
-
-### [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
-
-该题要查找的是上一题中旋转的排序数组的最小值，也即旋转点的值，我们依然利用部分有序的性质，二分查找数组最小值，代码如下
+This problem requires finding the minimum value in the rotated sorted array, which is the value at the rotation point found in the previous problem. We still utilize the partially ordered property and perform binary search to find the minimum value in the array. The code for this problem is as follows:
 
 ```cpp
 class Solution {
@@ -152,22 +153,25 @@ public:
     }
 };
 ```
-### [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
 
-我们可以用$$[l,r]$$来存储可能存在峰值的区间，根据$$mid$$进行二分，若`nums[mid] < nums[mid + 1]`则说明在区间$$[mid+1,r]$$存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下
+### [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+
+We can use the $$[l,r]$$ range
+
+ to store the possible intervals containing peaks. Based on the midpoint, we perform binary search. If `nums[mid] < nums[mid + 1]`, it means a peak exists in the $$[mid+1,r]$$ interval; otherwise, it exists in the $$[l,mid]$$ interval. The code for this problem is as follows:
 
 ```cpp
 class Solution {
 public:
     int findPeakElement(vector<int>& nums) {
         int l = 0, r = nums.size() - 1;
-        while (l <= r) { // 用l,r表示可能存在峰值的区间
+        while (l <= r) { // Use l,r to represent possible intervals containing peaks
             int mid = (l + r) / 2;
             if (l == r) return l;
             if (nums[mid] < nums[mid + 1])
-                l = mid + 1;//mid+1-r更大
+                l = mid + 1; // mid+1 to r has a larger value
             else
-                r = mid;//l-mid更大
+                r = mid; // l to mid has a larger value
         }
         return -1;
     }
