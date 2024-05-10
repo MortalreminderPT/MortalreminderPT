@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maven (Part 2) - Your First Maven Project
-description: Let's dive into creating your inaugural Maven project! We'll use Maven's archetype mechanism to kickstart our project. Archetypes serve as templates, shaping projects based on user input. Follow along to witness how archetypes work and jumpstart your Maven journey.
+description: 
 date: 2023-12-03 11:05:54 +0800
 image: /images/covers/maven-cover.jpg
 tags:

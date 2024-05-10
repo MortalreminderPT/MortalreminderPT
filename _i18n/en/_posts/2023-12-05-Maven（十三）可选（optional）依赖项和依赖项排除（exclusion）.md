@@ -1,7 +1,7 @@
 ---
 layout: post 
-title: Maven (Part 13) Optional Dependencies and Dependency Exclusions
-description: Understanding optional dependencies and dependency exclusions in Maven.
+title: Maven (Part 13) - Optional Dependencies and Dependency Exclusions
+description: 
 date: 2023-12-05 17:01:56 +0800 
 image: /images/covers/maven-cover.jpg
 tags:

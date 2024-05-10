@@ -5,7 +5,6 @@ gem "jekyll-paginate"
 gem 'jekyll-tagging'
 # gem 'duktape', '~> 2.7'
 gem 'jekyll-fontawesome-svg'
-# gem 'jekyll-t4j'
 gem "jekyll-sitemap"
 gem 'simple_search_filter'
 gem 'jekyll-archives'

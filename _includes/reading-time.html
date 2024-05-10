@@ -4,7 +4,7 @@
     {% assign words = page.content | strip_html | strip_newlines | split: "" | size %}
 {% endif %}
 {% if words < 360 %}
-阅读时间 1 分钟
+{% t global.reading-times-front %} 1 {% t global.reading-times-tail %}
 {% else %}
-阅读时间 {{ words | divided_by:180 }} 分钟
+{% t global.reading-times-front %} {{ words | divided_by:180 }} {% t global.reading-times-tail %}
 {% endif %}

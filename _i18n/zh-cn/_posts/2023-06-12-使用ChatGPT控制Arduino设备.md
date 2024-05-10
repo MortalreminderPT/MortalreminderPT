@@ -4,7 +4,7 @@ featured: true
 title: 使用ChatGPT控制Arduino设备
 description: 本文介绍了ChatGPT与外部系统集成的一种方法，通过ChatGPT作为控制器实现对Arduino设备的控制，以探索自然语言命令控制家庭设备的可能性及智能家庭设备的发展方向。
 date: 2023-04-24 00:00:00 +0800
-image: https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN
+image: https://www.bing.com/th?id=OHR.LittleDuckling_ZH-CN2922471258_1920x1080.jpg
 tags:
 - ChatGPT
 - Arduino

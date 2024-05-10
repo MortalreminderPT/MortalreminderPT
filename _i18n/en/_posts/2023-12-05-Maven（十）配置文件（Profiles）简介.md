@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: Maven (Part 10) Introduction to Configuration Files (Profiles)
+title: Maven (Part 10) - Introduction to Configuration Files (Profiles)
 description:
 date: 2023-12-05 11:33:35 +0800 
 image: /images/covers/maven-cover.jpg

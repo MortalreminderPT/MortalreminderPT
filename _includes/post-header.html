@@ -39,7 +39,7 @@
             <span>in</span>
             <span class="post-tags">
               {% for tag in page.tags %}
-              <a href="{{ site.baseurl }}/tags/{{ tag }}" class="post__tag">{{ tag }}</a>
+              <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}" class="post__tag">{{ tag }}</a>
               {% endfor %}
             </span>
             {% endif %}
