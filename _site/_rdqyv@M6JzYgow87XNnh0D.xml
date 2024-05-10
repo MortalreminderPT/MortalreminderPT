@@ -1,3 +1,0 @@
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.16em" columnspacing="1em"><mtr><mtd class ="mtr-glue"></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mfrac><mrow><mn>5</mn><mo>+</mo><mn>5</mn></mrow><mrow><mn>5</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>5</mn></mrow></mfrac><mo>=</mo><mn>66.66</mn><mi mathvariant="normal">%</mi></mrow></mstyle></mtd><mtd class ="mtr-glue"></mtd><mtd class ="mml-eqn-num"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{equation}
-\dfrac {5+5} {5+5+5}=66.66\%
-\end{equation}</annotation></semantics></math>
