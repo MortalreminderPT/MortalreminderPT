@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Edit-xlsx开发日志（一）</title>
+  <title>Edit-xlsx Development Log (Part 1)</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）">
+        <img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）">
+        <img class="post-image lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              1 min read
+              5 min read
             
             <time class="post__date"
               datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
           </span>
         </div>
 
-        <h2 class="post__title">Edit-xlsx开发日志（一）</h2>
+        <h2 class="post__title">Edit-xlsx Development Log (Part 1)</h2>
 
         <div class="post__bottom">
 
@@ -678,39 +638,39 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#起因" id="markdown-toc-起因">起因</a></li>
-  <li><a href="#openxml及xlsx简介" id="markdown-toc-openxml及xlsx简介">OpenXml及Xlsx简介</a></li>
-  <li><a href="#xlsx-文件的处理" id="markdown-toc-xlsx-文件的处理">XLSX 文件的处理</a>    <ol>
-      <li><a href="#zip简介" id="markdown-toc-zip简介">Zip简介</a></li>
-      <li><a href="#walkdir简介" id="markdown-toc-walkdir简介">Walkdir简介</a></li>
-      <li><a href="#serde简介" id="markdown-toc-serde简介">Serde简介</a></li>
-      <li><a href="#quick-xml简介" id="markdown-toc-quick-xml简介">Quick-xml简介</a></li>
+  <li><a href="#genesis" id="markdown-toc-genesis">Genesis</a></li>
+  <li><a href="#introduction-to-openxml-and-xlsx" id="markdown-toc-introduction-to-openxml-and-xlsx">Introduction to OpenXml and Xlsx</a></li>
+  <li><a href="#processing-xlsx-files" id="markdown-toc-processing-xlsx-files">Processing XLSX Files</a>    <ol>
+      <li><a href="#introduction-to-zip" id="markdown-toc-introduction-to-zip">Introduction to Zip</a></li>
+      <li><a href="#introduction-to-walkdir" id="markdown-toc-introduction-to-walkdir">Introduction to Walkdir</a></li>
+      <li><a href="#introduction-to-serde" id="markdown-toc-introduction-to-serde">Introduction to Serde</a></li>
+      <li><a href="#introduction-to-quick-xml" id="markdown-toc-introduction-to-quick-xml">Introduction to Quick-xml</a></li>
     </ol>
   </li>
-  <li><a href="#总结" id="markdown-toc-总结">总结</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
 </ol>
 
-<h2 id="起因">起因</h2>
-<p>当我在工作中接触到一个名为POI的Java库时，我开始思考：为什么在Rust项目中找不到像POI这样的功能，能够对XLSX文件进行编辑的库呢？这个问题激发了我开发一款名为edit-xlsx的Rust库的想法。</p>
+<h2 id="genesis">Genesis</h2>
+<p>When I encountered a Java library called POI during my work, I began to ponder: why can’t I find a Rust library like POI that can edit XLSX files? This question sparked the idea of developing a Rust library named edit-xlsx.</p>
 
-<p>在我工作的过程中，我意识到虽然有一些Rust库可以用来读取和写入XLSX文件，但是却没有一个专门用于编辑XLSX文件的库。这就是我决定开发edit-xlsx库的原因。</p>
+<p>During my work, I realized that while there are Rust libraries available for reading and writing XLSX files, there isn’t one specifically tailored for editing them. That’s why I decided to embark on developing the edit-xlsx library.</p>
 
-<p>edit-xlsx的目标很简单：为用户提供一个方便、易于使用的工具，让他们能够轻松地编辑现有的XLSX文件。这意味着用户可以修改、添加或删除文件中的内容，而无需手动处理XLSX格式的复杂细节。</p>
+<p>The goal of edit-xlsx is simple: to provide users with a convenient and easy-to-use tool to effortlessly edit existing XLSX files. This means users can modify, add, or delete content from files without manually handling the complex details of the XLSX format.</p>
 
-<p>通过开发edit-xlsx库，我希望能够填补Rust生态系统中的这一空白，并为开发人员提供一个便捷的工具，以便他们能够更轻松地处理XLSX文件，而无需依赖于其他语言或平台。这个项目的动力源于我对Rust语言的热爱，以及对解决实际问题的渴望。</p>
+<p>Through the development of the edit-xlsx library, I aim to fill this gap in the Rust ecosystem and provide developers with a handy tool to more easily handle XLSX files without relying on other languages or platforms. This project is driven by my passion for the Rust language and my desire to solve real-world problems.</p>
 
-<p>在你们看到这条博客时，我已经在crates.io中发布了<a href="https://crates.io/crates/edit-xlsx">edit-xlsx</a>项目。同时，我也会不定期记录它的更新内容。</p>
+<p>By the time you read this blog post, I have already released the <a href="https://crates.io/crates/edit-xlsx">edit-xlsx</a> project on crates.io. Additionally, I will periodically document its updates.</p>
 
-<h2 id="openxml及xlsx简介">OpenXml及Xlsx简介</h2>
+<h2 id="introduction-to-openxml-and-xlsx">Introduction to OpenXml and Xlsx</h2>
 
-<p>OpenXML是一种基于XML（可扩展标记语言）的开放式文件格式，用于创建和管理电子文档，如文档、电子表格和演示文稿。它由Microsoft在2006年推出，并成为了Office Open XML（OOXML）标准的一部分。XLSX文件就是一种使用OpenXML标准创建的电子表格文件格式之一。</p>
+<p>OpenXML is an open file format based on XML (eXtensible Markup Language) used for creating and managing electronic documents such as documents, spreadsheets, and presentations. It was introduced by Microsoft in 2006 and became part of the Office Open XML (OOXML) standard. XLSX files are one of the spreadsheet file formats created using the OpenXML standard.</p>
 
-<p>OpenXML标准中定义着XLSX文件的结构和内容，使得其能够被不同的应用程序读取和编辑，而无需使用特定的软件（如Office，LibreOffice，Numbers，WPS等）。XLSX文件是一种压缩的XML文件，其中包含了电子表格的数据、格式、图表等内容，以及与文件相关的元数据和其他信息。</p>
+<p>The OpenXML standard defines the structure and content of XLSX files, enabling them to be read and edited by different applications without the need for specific software such as Office, LibreOffice, Numbers, or WPS. XLSX files are compressed XML files containing data, formatting, charts, metadata, and other information related to the file.</p>
 
-<p>XLSX 文件实际上是一个压缩包，它内部包含了多个文件和文件夹，这些文件和文件夹共同构成了表格的结构及内容。
-为了便于理解 XLSX 文件的结构，我们将创建一个包含最基本内容的 XLSX 文档。
-注意：一个 XLSX 文件中可能不止包含这些文件。
-此外，一个只包含以下文件的 XLSX 文档不一定能够正常工作（取决于 XLSX 文档的处理软件及版本）</p>
+<p>An XLSX file is essentially a compressed package containing multiple files and folders, collectively forming the structure and content of the spreadsheet.</p>
+
+<p>To facilitate understanding the structure of XLSX files, let’s create an XLSX document containing the most basic content.
+Note: An XLSX file may contain more than just these files. Furthermore, a document containing only the following files may not necessarily function properly (depending on the processing software and version of the XLSX document).</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- new_excel.xlsx
     - _rels/
@@ -727,52 +687,52 @@
                 - sheet1.xml
 </code></pre></div></div>
 
-<p>随后，我们可以逐步了解每个文件的作用：</p>
+<p>Subsequently, we can gradually understand the purpose of each file:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">_rels</code>：包含与文件之间关系的 XML 文件。其中的 <code class="language-plaintext highlighter-rouge">.rels</code> 文件定义了工作簿和工作表之间的关系。</li>
-  <li><code class="language-plaintext highlighter-rouge">Content_Types.xml</code>：定义了 XLSX 文件中包含的所有 XML 文件的类型。它告诉应用程序每个 XML 文件的内容类型，以便正确解析和处理这些文件。</li>
-  <li><code class="language-plaintext highlighter-rouge">docProps</code>：包含了文档的属性信息，这些信息通常是元数据，用于描述文档的作者、创建日期、最后修改日期等。它包含以下文件：
+  <li><code class="language-plaintext highlighter-rouge">_rels</code>: Contains XML files defining relationships between files. The <code class="language-plaintext highlighter-rouge">.rels</code> file specifies the relationships between the workbook and worksheets.</li>
+  <li><code class="language-plaintext highlighter-rouge">Content_Types.xml</code>: Defines the types of all XML files contained in the XLSX file. It informs applications about the content type of each XML file for proper parsing and handling.</li>
+  <li><code class="language-plaintext highlighter-rouge">docProps</code>: Contains document property information, typically metadata describing the document’s author, creation date, last modification date, etc. It includes the following files:
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">app.xml</code>：包含了与应用程序相关的元数据，例如文档的标题、作者、主题等。</li>
-      <li><code class="language-plaintext highlighter-rouge">core.xml</code>：包含了核心元数据，如文档的创建者、创建日期、最后修改者、最后修改日期等。</li>
+      <li><code class="language-plaintext highlighter-rouge">app.xml</code>: Contains application-related metadata such as the document’s title, author, subject, etc.</li>
+      <li><code class="language-plaintext highlighter-rouge">core.xml</code>: Contains core metadata such as the document’s creator, creation date, last modifier, last modification date, etc.</li>
     </ul>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">xl</code>：这是包含主要内容的文件夹。
+  <li><code class="language-plaintext highlighter-rouge">xl</code>: This folder contains the main content.
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">_rels</code>：包含了与工作簿中不同部分之间关系的 XML 文件。例如，<code class="language-plaintext highlighter-rouge">workbook.xml.rels</code> 文件定义了工作簿中工作表和共享字符串文件（共享字符串我们将在之后介绍）之间的关系。</li>
-      <li><code class="language-plaintext highlighter-rouge">worksheets</code>：包含了每个工作表的数据。在我们的示例中，只有一个名为 <code class="language-plaintext highlighter-rouge">sheet1.xml</code> 的文件，它包含了工作表中的数据和格式信息。
+      <li><code class="language-plaintext highlighter-rouge">_rels</code>: Contains XML files defining relationships between different sections of the workbook. For example, the <code class="language-plaintext highlighter-rouge">workbook.xml.rels</code> file defines relationships between worksheets and shared string files (shared strings will be introduced later).</li>
+      <li><code class="language-plaintext highlighter-rouge">worksheets</code>: Contains data for each worksheet. In our example, there is only one file named <code class="language-plaintext highlighter-rouge">sheet1.xml</code>, which contains data and formatting information for the worksheet.
         <ul>
-          <li><code class="language-plaintext highlighter-rouge">sheet1.xml</code>：包含了工作表中的数据、单元格的样式和格式等信息。</li>
+          <li><code class="language-plaintext highlighter-rouge">sheet1.xml</code>: Contains data, cell styles, and formatting information for the worksheet.</li>
         </ul>
       </li>
-      <li><code class="language-plaintext highlighter-rouge">workbook.xml</code>：定义了工作簿的结构，包括工作表、名称和外部链接。它描述了工作簿中包含的所有工作表的名称和位置等信息。</li>
-      <li><code class="language-plaintext highlighter-rouge">styles.xml</code>: 定义了工作簿中的样式，包括字体、颜色、数字格式等。</li>
+      <li><code class="language-plaintext highlighter-rouge">workbook.xml</code>: Defines the structure of the workbook, including worksheets, names, and external links. It describes information such as the names and positions of all worksheets contained in the workbook.</li>
+      <li><code class="language-plaintext highlighter-rouge">styles.xml</code>: Defines styles in the workbook, including fonts, colors, number formats, etc.</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="xlsx-文件的处理">XLSX 文件的处理</h2>
-<p>我们已经知道XLSX文件的本质就是XML文件（及文件夹）的压缩包，因此对XLSX文件的处理主要包括压缩包处理（解压及压缩）及Xml处理（序列化及反序列化）两部分。</p>
+<h2 id="processing-xlsx-files">Processing XLSX Files</h2>
+<p>We know that XLSX files are essentially compressed packages of XML files (and folders). Therefore, processing XLSX files mainly involves handling compressed packages (decompression and compression) and XML processing (serialization and deserialization).</p>
 
-<p>我在下方列出了当前我为完成这些功能所依赖的库，今后可能对依赖的库进行增加或减少，而我亦会记录这些修改。</p>
+<p>Below, I list the libraries I currently depend on to accomplish these tasks. There may be additions or reductions in the dependencies in the future, and I will document these modifications.</p>
 
-<h4 id="zip简介">Zip简介</h4>
-<p><a href="https://crates.io/crates/zip">Zip</a> 是 crates.io 中下载量最高的压缩包处理库（不排除与它的名字有关）。该库支持 XLSX 文件所使用的 deflate 算法，刚好符合我们的需求，因此我们使用 zip 库完成XLSX文件的压缩和解压。</p>
+<h4 id="introduction-to-zip">Introduction to Zip</h4>
+<p><a href="https://crates.io/crates/zip">Zip</a> is the most downloaded compression library on crates.io (probably due to its name). This library supports the deflate algorithm used by XLSX files, making it suitable for our needs. Therefore, we use the zip library to compress and decompress XLSX files.</p>
 
-<h4 id="walkdir简介">Walkdir简介</h4>
-<p><a href="https://crates.io/crates/walkdir">Walkdir</a> 是一个用于递归遍历目录结构并列出其中文件和子目录的 Rust 语言库。重要的是，该库是 Zip 推荐的实现压缩方法所依赖的库，因此我们结合该库完成对XLSX文件的压缩功能。</p>
+<h4 id="introduction-to-walkdir">Introduction to Walkdir</h4>
+<p><a href="https://crates.io/crates/walkdir">Walkdir</a> is a Rust library for recursively traversing directory structures and listing files and subdirectories within them. Importantly, this library is recommended by Zip for implementing compression methods. Thus, we combine this library with Zip to achieve compression functionality for XLSX files.</p>
 
-<h4 id="serde简介">Serde简介</h4>
-<p><a href="https://crates.io/crates/serde">Serde</a> 是 Rust 中最流行的序列化和反序列化库之一。其名字来源于“serialize” 和 “deserialize” 这两个单词的组合，旨在提供一种简单而灵活的方式来实现 Rust 数据结构和各种数据格式之间的转换。</p>
+<h4 id="introduction-to-serde">Introduction to Serde</h4>
+<p><a href="https://crates.io/crates/serde">Serde</a> is one of the most popular serialization and deserialization libraries in Rust. Its name is derived from the combination of “serialize” and “deserialize,” aiming to provide a simple and flexible way to convert Rust data structures to and from various data formats.</p>
 
-<p>在我们的项目中，我们主要使用其 derive 功能，以快速实现对结构，枚举的序列化和反序列化。</p>
+<p>In our project, we primarily use its derive feature to quickly implement serialization and deserialization for structures and enums.</p>
 
-<h4 id="quick-xml简介">Quick-xml简介</h4>
-<p><a href="https://crates.io/crates/quick-xml">quick-xml</a> 是我反复实验并挑选的最适合XLSX中xml格式的序列化/反序列化工具，与 fast-xml 等项目对比，该项目支持的特性更加全面，如支持<code class="language-plaintext highlighter-rouge">@</code>，<code class="language-plaintext highlighter-rouge">$</code>等方式对XML结构的attributes，value等内容的读取。而且该项目仍在维护，我很期待它今后添加更多，更易用的features。</p>
+<h4 id="introduction-to-quick-xml">Introduction to Quick-xml</h4>
+<p><a href="https://crates.io/crates/quick-xml">Quick-xml</a> is the XML serialization/deserialization tool I experimented with extensively and found most suitable for XLSX XML formats. Compared to projects like fast-xml, this project supports a more comprehensive range of features, such as reading XML structure attributes, values, etc., using <code class="language-plaintext highlighter-rouge">@</code>, <code class="language-plaintext highlighter-rouge">$</code>, and other methods. Moreover, this project is still maintained, and I look forward to it adding more user-friendly features in the future.</p>
 
-<h2 id="总结">总结</h2>
-<p>该篇博客记录了我对edit-xlsx项目开发的原因及预计使用的技术栈，如果时间和精力允许，我将在该栏目持续记录我的开发日志。</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This blog post documented the reasons behind the development of the edit-xlsx project and the expected technology stack. If time and resources permit, I will continue to document my development progress in this section.</p>
 
     </div>
 
@@ -780,9 +740,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89&url=http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Edit-xlsx%20Development%20Log%20(Part%201)&url=http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/&amp;media=http://localhost:4000/images/covers/edit-xlsx-cover.png&amp;description=Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/&amp;media=http://localhost:4000/images/covers/edit-xlsx-cover.png&amp;description=Edit-xlsx%20Development%20Log%20(Part%201)" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -795,10 +755,10 @@
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h4>
         </div>
       </a>
       
@@ -820,332 +780,10 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
             
             
 
@@ -1411,27 +1049,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1445,21 +1083,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 32 分钟
+  53 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1479,7 +1117,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1502,43 +1140,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1553,9 +1193,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1632,7 +1272,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

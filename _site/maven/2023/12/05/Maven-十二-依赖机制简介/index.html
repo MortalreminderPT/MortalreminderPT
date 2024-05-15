@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maven（十二）依赖机制简介</title>
+  <title>Maven (Part 12) - Introduction to Dependency Mechanism</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              10 min read
+              18 min read
             
             <time class="post__date"
               datetime="2023-12-05T19:10:42+11:00">Dec 5, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Maven（十二）依赖机制简介</h2>
+        <h2 class="post__title">Maven (Part 12) - Introduction to Dependency Mechanism</h2>
 
         <div class="post__bottom">
 
@@ -678,31 +638,31 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#传递依赖" id="markdown-toc-传递依赖">传递依赖</a></li>
-  <li><a href="#依赖关系作用域" id="markdown-toc-依赖关系作用域">依赖关系作用域</a></li>
-  <li><a href="#依赖关系管理" id="markdown-toc-依赖关系管理">依赖关系管理</a>    <ol>
-      <li><a href="#importing-依赖关系" id="markdown-toc-importing-依赖关系">importing 依赖关系</a></li>
+  <li><a href="#transitive-dependencies" id="markdown-toc-transitive-dependencies">Transitive Dependencies</a></li>
+  <li><a href="#dependency-scopes" id="markdown-toc-dependency-scopes">Dependency Scopes</a></li>
+  <li><a href="#dependency-management" id="markdown-toc-dependency-management">Dependency Management</a>    <ol>
+      <li><a href="#importing-dependencies" id="markdown-toc-importing-dependencies">Importing Dependencies</a></li>
       <li><a href="#bom" id="markdown-toc-bom">BOM</a></li>
     </ol>
   </li>
 </ol>
 
-<p>依赖关系管理是 Maven 的核心功能之一。管理单个项目的依赖关系非常简单。管理由数百个模块组成的多模块项目和应用程序的依赖关系也是可能的。Maven 可帮助定义、创建和维护具有明确定义的 classpath 和库版本的可重现构建。</p>
+<p>Dependency management is one of the core functionalities of Maven. Managing dependencies for a single project is straightforward. It’s also possible to manage dependencies for multi-module projects and applications consisting of hundreds of modules. Maven helps define, create, and maintain reproducible builds with clearly defined classpaths and library versions.</p>
 
-<h2 id="传递依赖">传递依赖</h2>
+<h2 id="transitive-dependencies">Transitive Dependencies</h2>
 
-<p>Maven 通过自动包含传递依赖关系，避免了发现和指定自己的依赖关系所需的库。</p>
+<p>Maven eliminates the need to discover and specify your own dependencies by automatically including transitive dependencies.</p>
 
-<p>该功能通过从指定的远程资源库读取依赖项的项目文件来实现。一般来说，这些项目的所有依赖库都会在你的项目中使用，项目从其父项目或依赖库继承的任何依赖库也是如此。</p>
+<p>This functionality is achieved by reading project files of dependencies from specified remote repositories. Generally, all dependencies of these projects will be used in your project, and any dependencies inherited from the parent project or dependencies of dependencies will also be included.</p>
 
-<p>收集依赖项的层级数量没有限制。只有在发现循环依赖关系时才会出现问题。</p>
+<p>There’s no limit to the depth of dependency collection. Issues only arise when circular dependencies are detected.</p>
 
-<p>由于存在传递依赖关系，所包含的库图可能会迅速变大。因此，还有一些附加功能可以限制依赖关系的包含范围：</p>
+<p>Due to transitive dependencies, the dependency graph can quickly grow large. Therefore, there are additional features to limit the scope of dependencies:</p>
 
 <ul>
-  <li><em>依赖调解（Dependency mediation）</em>：这决定了在遇到多个版本的依赖时，将选择哪个版本的工件。Maven 会选择“最近的定义”。也就是说，它会使用依赖关系树中与您的项目最接近的依赖关系的版本。您可以通过在项目的 POM 中明确声明版本来保证版本。请注意，如果两个依赖版本在依赖关系树中的深度相同，则先声明的版本胜出。
+  <li><em>Dependency Mediation</em>: This determines which version of a dependency to use when encountering multiple versions. Maven selects the “nearest definition,” meaning it uses the version of the dependency closest to your project in the dependency tree. You can ensure versions by explicitly declaring them in the project’s POM. Note that if two dependency versions are at the same depth in the dependency tree, the version declared first takes precedence.
     <ul>
-      <li>“最近定义（nearest definition）”意味着所使用的版本将是依赖关系树中与您的项目最接近的版本。请看这棵依赖关系树：</li>
+      <li>“Nearest definition” means the version used will be the one closest to your project in the dependency tree. Consider this dependency tree:</li>
     </ul>
   </li>
 </ul>
@@ -715,7 +675,7 @@
       └── D 1.0
 </code></pre></div></div>
 
-<p>A、B 和 C 的依赖关系定义为 A -&gt; B -&gt; C -&gt; D:2.0 和 A -&gt; E -&gt; D:1.0，那么在构建 A 时将使用 D:1.0，因为从 A 到 D 经过 E 的路径更短。您可以在 A 中明确添加对 D:2.0 的依赖，以强制使用 D:2.0，如图所示：</p>
+<p>If the dependencies of A, B, and C are defined as A -&gt; B -&gt; C -&gt; D:2.0 and A -&gt; E -&gt; D:1.0, then D:1.0 will be used when building A because the path from A to D via E is shorter. You can explicitly add a dependency on D:2.0 in A to force its usage, as shown below:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  A
   ├── B
@@ -728,63 +688,56 @@
 </code></pre></div></div>
 
 <ul>
-  <li><em>依赖关系管理（Dependency management）</em>：这允许项目作者直接指定在传递依赖关系或未指定版本的依赖关系中遇到工件时要使用的版本。在上一节的示例中，一个依赖项被直接添加到了 A 中，尽管 A 并未直接使用该依赖项。相反，A 可以将 D 作为依赖项包含在其依赖项管理（dependencyManagement）部分中，并直接控制在使用或引用 D 时使用的版本。</li>
-  <li><em>依赖范围（Dependency scope）</em>：这使您可以只包含适合当前构建阶段的依赖项。下文将对此进行详细介绍。</li>
-  <li><em>排除的依赖关系（Excluded dependencies）</em>：如果项目 X -&gt; Y -&gt; Z，则项目 X 的所有者可使用“exclusion（排除）”元素明确地将项目 Z 排除为依赖关系。</li>
-  <li><em>可选依赖关系（Optional dependencies）</em> - 如果项目 Y -&gt; Z，项目 Y 的所有者可使用“optional（可选）”元素将项目 Z 标记为可选依赖关系。当项目 X 依赖于项目 Y 时，X 将只依赖于 Y，而不依赖于 Y 的可选依赖项 Z。(将可选依赖关系视为 “默认排除 “可能会有所帮助）。</li>
+  <li>
+    <p><em>Dependency Management</em>: This allows project authors to directly specify the version to use when encountering a transitive dependency or a dependency without a specified version. In the example from the previous section, a dependency was directly added to A even though A does not directly use that dependency. Instead, A can include D in its dependency management section and directly control the version used when referencing D.</p>
+  </li>
+  <li>
+    <p><em>Dependency Scope</em>: This allows you to include dependencies suitable for the current build stage. This will be detailed further below.</p>
+  </li>
+  <li>
+    <p><em>Excluded Dependencies</em>: If project X -&gt; Y -&gt; Z, the owner of project X can explicitly exclude project Z as a dependency using the “exclusion” element.</p>
+  </li>
+  <li>
+    <p><em>Optional Dependencies</em>: If project Y -&gt; Z, the owner of project Y can mark project Z as an optional dependency using the “optional” element. When project X depends on project Y, X will only depend on Y and not on Y’s optional dependency Z. (Considering optional dependencies as “default exclusions” can be helpful.)</p>
+  </li>
 </ul>
 
-<p>尽管传递依赖关系可以隐式地包含所需的依赖关系，但明确指定源代码直接使用的依赖关系仍不失为一种好的做法。尤其是当项目的依赖关系发生变化时，这种最佳实践就会证明其价值。</p>
+<p>While transitive dependencies can implicitly include the required dependencies, it’s still a good practice to explicitly specify dependencies that your source code directly uses. This best practice proves its value, especially when project dependencies change.</p>
 
-<p>例如，假设项目 A 指定了对另一个项目 B 的依赖关系，而项目 B 指定了对项目 C 的依赖关系。如果您直接使用项目 C 中的组件，而没有在项目 A 中指定项目 C，那么当项目 B 突然更新/删除对项目 C 的依赖关系时，可能会导致构建失败。</p>
+<p>For example, suppose project A specifies a dependency on another project B, and project B specifies a dependency on project C. If you directly use components from project C without specifying project C in project A, a sudden update/removal of the dependency from project B to project C could lead to build failures.</p>
 
-<p>直接指定依赖关系的另一个原因是，它能为项目提供更好的文档：只需阅读项目中的 POM 文件，或执行 <code class="language-plaintext highlighter-rouge">mvn dependency:tree</code> 就能了解更多信息。</p>
+<p>Another reason for directly specifying dependencies is to provide better documentation for the project: simply by reading the project’s POM file or running <code class="language-plaintext highlighter-rouge">mvn dependency:tree</code>, you can gather more information.</p>
 
-<p>Maven 还提供了用于分析依赖关系的 <a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-mojo.html">dependency:analyze</a> 插件目标：它有助于使这一最佳实践更容易实现。</p>
+<p>Maven also provides the <a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-mojo.html">dependency:analyze</a> plugin goal for analyzing dependencies, which helps make this best practice easier to implement.</p>
 
-<h2 id="依赖关系作用域">依赖关系作用域</h2>
+<h2 id="dependency-scopes">Dependency Scopes</h2>
 
-<p>依赖关系作用域用于限制依赖关系的传递性，并确定依赖关系何时包含在 classpath 中。</p>
+<p>Dependency scopes are used to limit the transitivity of dependencies and determine when dependencies are included in the classpath.</p>
 
-<p>共有 6 种作用域：</p>
+<p>There are six scopes:</p>
 
 <ul>
-  <li>compile</li>
+  <li>
+    <p><em>compile</em>: This is the default scope used when no scope is specified. Compile dependencies are available in <strong>all classpaths of the project (compile, test, runtime)</strong>. Additionally, these dependencies are also propagated to dependent projects.</p>
+  </li>
+  <li>
+    <p><em>provided</em>: This is similar to <code class="language-plaintext highlighter-rouge">compile</code>, but indicates that you expect the JDK or a container to provide the dependency at runtime. For example, when building web applications for Java Enterprise Edition, you would set the scope of dependencies on the Servlet API and related Java EE APIs to <code class="language-plaintext highlighter-rouge">provided</code> because the web container provides these classes. Dependencies with this scope are added to the classpath for compilation and testing but not for runtime. It does not have transitivity.</p>
+  </li>
+  <li>
+    <p><em>runtime</em>: This scope indicates dependencies that are not required for compilation but are required at runtime. Maven includes dependencies with this scope in <strong>runtime and test classpaths</strong> but not in the compile classpath.</p>
+  </li>
+  <li>
+    <p><em>test</em>: This scope indicates dependencies that are not required for normal use of the application and are only available during <strong>test compilation and execution</strong>. This scope does not have transitivity. It’s commonly used for testing libraries like JUnit and Mockito. If a non-testing library (such as Apache Commons IO) is used in unit tests (<code class="language-plaintext highlighter-rouge">src/test/java</code>) but not in the main code (<code class="language-plaintext highlighter-rouge">src/main/java</code>), this scope can also be used.</p>
+  </li>
+  <li>
+    <p><em>system</em>: This scope is similar to <code class="language-plaintext highlighter-rouge">provided</code>, but you must explicitly provide the JAR with this scope. (You can specify the path to the dependency JAR via the dependency’s systemPath element.) The artifact is always available and not looked up in the repository.</p>
+  </li>
+  <li>
+    <p><em>import</em>: This scope is only supported for POM-type dependencies in the <code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code> section. It indicates that the dependency will be replaced by the effective dependency list in the <code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code> section of the importing project’s POM. Since the dependency has been replaced, dependencies with the import scope do not actually participate in limiting the transitivity of dependencies.</p>
+  </li>
 </ul>
 
-<p>这是默认作用域，在未指定任何作用域时使用。编译依赖项在项目的<strong>所有 classpath 中（编译、测试、运行）都可用</strong>。此外，这些依赖关系也会传播到依赖的项目中。</p>
-
-<ul>
-  <li>provided</li>
-</ul>
-
-<p>这与<code class="language-plaintext highlighter-rouge">compile</code>很相似，但表示您希望 JDK 或容器在运行时提供依赖关系。例如，在为 Java 企业版构建 Web 应用程序时，您会将对 Servlet API 和相关 Java EE API 的依赖关系作用域设置为 <code class="language-plaintext highlighter-rouge">provided</code>，因为 Web 容器会提供这些类。具有此作用域的依赖关系<strong>会添加到用于编译和测试的 classpath 中</strong>，但不会添加到运行时 classpath 中。它不具有传递性。</p>
-
-<ul>
-  <li>runtime</li>
-</ul>
-
-<p>此作用域表示编译时不需要依赖，但执行时需要。Maven 会将此作用域的依赖关系包含在<strong>运行时和测试 classpath 中</strong>，但不会包含在编译 classpath 中。</p>
-
-<ul>
-  <li>test</li>
-</ul>
-
-<p>此作用域表示应用程序的正常使用不需要依赖关系，依赖关系<strong>仅在测试编译和执行阶段</strong>可用。此作用域不具有传递性。此作用域通常用于 JUnit 和 Mockito 等测试库。如果非测试库（如 Apache Commons IO）在单元测试（<code class="language-plaintext highlighter-rouge">src/test/java</code>）中使用，但不在模型代码（<code class="language-plaintext highlighter-rouge">src/main/java</code>）中使用，也可使用此作用域。</p>
-
-<ul>
-  <li>system</li>
-</ul>
-
-<p>该作用域与 <code class="language-plaintext highlighter-rouge">provided</code> 类似，只是您必须明确提供包含该作用域的 JAR。（可以通过dependency的systemPath元素指定依赖 JAR 的路径）工件始终可用，不会在资源库中查找。</p>
-
-<ul>
-  <li>import</li>
-</ul>
-
-<p>此作用域仅支持 <code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code> 部分中 pom 类型的依赖关系。它表示依赖关系将被指定项目的 POM 的 <code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code> 部分中的有效依赖关系列表替换。由于依赖关系已被替换，因此具有导入作用域的依赖关系实际上并不参与限制依赖关系的易变性。</p>
-
-<p>如下表所示，每个作用域（<code class="language-plaintext highlighter-rouge">import</code> 除外）都会以不同的方式影响传递依赖关系。如果<strong>将依赖关系设置为左列中的作用域</strong>，那么该依赖关系与最上面一行中的作用域之间的传递依赖关系就会<strong>在主项目中产生一个依赖关系</strong>，该依赖关系的作用域列在交叉点上。如果没有列出作用域，则表示该依赖关系被省略。</p>
+<p>The table below shows how each scope (except <code class="language-plaintext highlighter-rouge">import</code>) affects transitive dependencies. If a dependency is set to the scope in the left column, then the dependency between it and the scope in the top row will <strong>result in a dependency in the main project</strong> with the scope listed at the intersection. If no scope is listed, it means the dependency is omitted.</p>
 
 <table>
   <thead>
@@ -828,11 +781,13 @@
   </tbody>
 </table>
 
-<p>注意：这应该是运行时范围，因此必须明确列出所有编译依赖项。但是，如果您所依赖的库扩展了另一个库中的类，那么这两个库都必须在编译时可用。因此，编译时的依赖关系即使具有传递性，也仍然是编译作用域。</p>
+<p>Note: This should</p>
 
-<h2 id="依赖关系管理">依赖关系管理</h2>
+<p>be the runtime scope, so all compile dependencies must be explicitly listed. However, if the library you depend on extends classes from another library, both libraries must be available at compile time. Therefore, compile-time dependencies, even with transitivity, are still compile scope.</p>
 
-<p>依赖关系管理部分是一种集中管理依赖关系信息的机制。当一组项目继承自一个共同的父项目时，就可以将所有有关依赖关系的信息放在共同的 POM 中，并在子 POM 中对工件进行更简单的引用。通过一些示例可以很好地说明这种机制。下面这两个 POM 扩展了同一个父类：</p>
+<h2 id="dependency-management">Dependency Management</h2>
+
+<p>The dependency management section is a mechanism for centrally managing dependency information. When a group of projects inherit from a common parent project, all dependency-related information can be placed in a common POM, simplifying artifact references in child POMs. This mechanism can be well illustrated with a few examples. The following two POMs extend the same parent:</p>
 
 <p>Project A:</p>
 
@@ -884,7 +839,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>这两个示例 POM 有一个共同的依赖关系，每个 POM 有一个非单一依赖关系。这些信息可以这样放在父 POM 中：</p>
+<p>These two sample POMs have a common dependency, and each POM has a non-trivial dependency. This information can be placed in the parent POM like this:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -894,16 +849,16 @@
         <span class="nt">&lt;groupId&gt;</span>group-a<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>artifact-a<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
- 
+
         <span class="nt">&lt;exclusions&gt;</span>
           <span class="nt">&lt;exclusion&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>group-c<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>excluded-artifact<span class="nt">&lt;/artifactId&gt;</span>
           <span class="nt">&lt;/exclusion&gt;</span>
         <span class="nt">&lt;/exclusions&gt;</span>
- 
+
       <span class="nt">&lt;/dependency&gt;</span>
- 
+
       <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>group-c<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>artifact-b<span class="nt">&lt;/artifactId&gt;</span>
@@ -911,7 +866,7 @@
         <span class="nt">&lt;type&gt;</span>war<span class="nt">&lt;/type&gt;</span>
         <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
       <span class="nt">&lt;/dependency&gt;</span>
- 
+
       <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>group-a<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>artifact-b<span class="nt">&lt;/artifactId&gt;</span>
@@ -924,7 +879,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>这样，两个子 POM 就简单多了：</p>
+<p>This way, the two child POMs are simplified:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -933,7 +888,7 @@
       <span class="nt">&lt;groupId&gt;</span>group-a<span class="nt">&lt;/groupId&gt;</span>
       <span class="nt">&lt;artifactId&gt;</span>artifact-a<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
- 
+
     <span class="nt">&lt;dependency&gt;</span>
       <span class="nt">&lt;groupId&gt;</span>group-a<span class="nt">&lt;/groupId&gt;</span>
       <span class="nt">&lt;artifactId&gt;</span>artifact-b<span class="nt">&lt;/artifactId&gt;</span>
@@ -953,8 +908,8 @@
       <span class="c">&lt;!-- This is not a jar dependency, so we must specify type. --&gt;</span>
       <span class="nt">&lt;type&gt;</span>war<span class="nt">&lt;/type&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
- 
-    <span class="nt">&lt;deendency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
       <span class="nt">&lt;groupId&gt;</span>group-a<span class="nt">&lt;/groupId&gt;</span>
       <span class="nt">&lt;artifactId&gt;</span>artifact-b<span class="nt">&lt;/artifactId&gt;</span>
       <span class="c">&lt;!-- This is not a jar dependency, so we must specify type. --&gt;</span>
@@ -964,9 +919,9 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p><strong>注意：</strong> 在其中两个依赖关系引用中，我们必须指定 <code class="language-plaintext highlighter-rouge">&lt;type/&gt;</code> 元素。这是因为与依赖关系管理（dependencyManagement）部分匹配依赖关系引用的最小信息集实际上是<strong>{groupId、artifactId、type、classifier}</strong>。在许多情况下，这些依赖关系会引用没有 <code class="language-plaintext highlighter-rouge">classifier</code> 的 <code class="language-plaintext highlighter-rouge">jar</code> 工件。由于类型字段的默认值为 <code class="language-plaintext highlighter-rouge">jar</code>，而默认分类器为空，因此我们可以将身份集简称为 <strong>{groupId、artifactId}</strong>。</p>
+<p><strong>Note:</strong> In two of the dependency references, we must specify the <code class="language-plaintext highlighter-rouge">&lt;type/&gt;</code> element. This is because the minimal information set that matches dependency references in the dependency management (<code class="language-plaintext highlighter-rouge">dependencyManagement</code>) section is actually <strong>{groupId, artifactId, type, classifier}</strong>. In many cases, these dependencies reference artifacts with no <code class="language-plaintext highlighter-rouge">classifier</code>. Since the default value for the type field is <code class="language-plaintext highlighter-rouge">jar</code> and the default classifier is empty, we can abbreviate the identity set to <strong>{groupId, artifactId}</strong>.</p>
 
-<p>依赖关系管理部分的第二个也是非常重要的用途是控制用于传递依赖关系的项目版本。举个例子：</p>
+<p>The second very important use of the dependency management section is to control the project versions used for transitive dependencies. Let’s illustrate this with an example:</p>
 
 <p>Project A:</p>
 
@@ -1047,19 +1002,19 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>在项目 B 上运行 maven 时，将使用 a、b、c 和 d 的 1.0 版本，而不管它们的 POM 中指定了什么版本。</p>
+<p>When Maven runs on Project B, versions 1.0 of a, b, c, and d will be used, regardless of what versions are specified in their POMs.</p>
 
 <ul>
-  <li>a 和 c 都被声明为项目的依赖关系，因此由于依赖关系调解，使用了 1.0 版本。由于直接指定了 <code class="language-plaintext highlighter-rouge">runtime</code> 作用域，因此两者都具有 <code class="language-plaintext highlighter-rouge">runtime</code> 作用域。</li>
-  <li>b 定义在 B 的父级依赖关系管理部分，由于对于传递依赖关系，依赖关系管理优先于依赖关系调解，因此如果 a 或 c 的 POM 中引用了版本 1.0，则将选择版本 1.0。</li>
-  <li>最后，由于 d 是在 B 的依赖关系管理部分中指定的，如果 d 是 a 或 c 的依赖关系（或传递依赖关系），则将选择版本 1.0，这同样是因为依赖关系管理优先于依赖关系调解，而且当前 POM 的声明优先于其父声明。</li>
+  <li>Both a and c are declared as dependencies of the project, so version 1.0 is used due to dependency mediation. Since they are directly specified with a <code class="language-plaintext highlighter-rouge">runtime</code> scope, both have a <code class="language-plaintext highlighter-rouge">runtime</code> scope.</li>
+  <li>b is defined in the parent’s dependency management section. Since for transitive dependencies, dependency management takes precedence over dependency mediation, if version 1.0 is referenced in the POMs of a or c, version 1.0 will be chosen.</li>
+  <li>Lastly, since d is specified in Project B’s dependency management section, if d is a dependency (or transitive dependency) of a or c, version 1.0 will be chosen as well, again because dependency management takes precedence over dependency mediation, and the declaration in the current POM takes precedence over its parent’s declaration.</li>
 </ul>
 
-<p>有关<code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code>标记的参考信息可从<a href="https://maven.apache.org/ref/current/maven-model/maven.html#class_DependencyManagement">项目描述符参考</a>中获取。</p>
+<p>Reference information for the <code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code> tag can be found in the <a href="https://maven.apache.org/ref/current/maven-model/maven.html#class_DependencyManagement">Project Descriptor Reference</a>.</p>
 
-<h3 id="importing-依赖关系">importing 依赖关系</h3>
+<h3 id="importing-dependencies">Importing Dependencies</h3>
 
-<p>上一节的示例介绍了如何通过继承来指定依赖关系。但是，在大型项目中，由于一个项目只能从一个父项目继承，因此可能无法实现这一点。为此，项目可以从其他项目导入依赖。这可以通过将 POM 依赖声明为 <code class="language-plaintext highlighter-rouge">&lt;scope&gt;import&lt;/scope&gt;</code> 来实现。</p>
+<p>The examples in the previous section demonstrated how to specify dependencies through inheritance. However, in large projects, it may not always be feasible as a project can only inherit from one parent project. To address this, projects can import dependencies from other projects. This can be achieved by declaring POM dependencies with <code class="language-plaintext highlighter-rouge">&lt;scope&gt;import&lt;/scope&gt;</code>.</p>
 
 <p>Project B:</p>
 
@@ -1104,7 +1059,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>假设 A 是上例中定义的 POM，那么最终结果也是一样的。A 的所有依赖管理关系都将并入 B，但 d 除外，因为它是在此 POM 中定义的。</p>
+<p>Assuming A is the POM defined in the previous example, the end result is the same. All dependency management relationships from A will be incorporated into B, except for d, as it’s defined in this POM.</p>
 
 <p>Project X:</p>
 
@@ -1193,15 +1148,15 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>在上面的示例中，Z 从 X 和 Y 中导入了受管理的依赖关系。其中 X 和 Y 都包含依赖关系 a，但由于 X 更先声明，且 a 并未在 Z 的依赖关系管理（dependencyManagement）中声明，因此将使用 a 的 1.1 版本而不是 1.2 版本。</p>
+<p>In the above examples, Z imports managed dependencies from X and Y. Both X and Y contain dependency a, but since X is declared first and a is not declared in Z’s dependency management, version 1.1 will be used instead of 1.2.</p>
 
-<p>这个过程是递归的。比如若 X 导入了另一个 POM Q，那么在处理 Z 时，就会发现 Q 的所有依赖关系管理都定义在 X 中。</p>
+<p>This process is recursive. For instance, if X imports another POM Q, then when processing Z, all dependency management defined in Q will be found within X.</p>
 
 <h3 id="bom">BOM</h3>
 
-<p>导入在定义相关工件的“库”时最为有效，这些工件通常是多项目构建的一部分。一个项目使用这些库中的一个或多个工件是很常见的。不过，有时很难保证使用工件的项目版本与库中分发的版本保持同步。下面的模式说明了如何创建供其他项目使用的“物料清单”（BOM）。</p>
+<p>Importing is most effective when defining “libraries” containing artifacts that are typically part of multi-project builds. It’s common for a project to use one or more artifacts from these libraries. However, it can be challenging to ensure that the versions of artifacts used by projects remain in sync with those distributed in the library. The following pattern illustrates how to create a “Bill of Materials” (BOM) for use by other projects.</p>
 
-<p>项目的根是 BOM POM。它定义了将在库中创建的所有工件的版本。其他希望使用该库的项目应将此 POM 导入其 POM 的依赖关系管理（dependencyManagement）部分。</p>
+<p>The root of the project is the BOM POM. It defines the versions of all artifacts that will be created in the library. Other projects wishing to use the library should import this POM into their POM’s dependency management section.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
     <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -1236,7 +1191,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">parent</code> 子项目将 BOM POM 作为其父项目。这是一个普通的多项目 POM。</p>
+<p>The <code class="language-plaintext highlighter-rouge">parent</code> submodule treats the BOM POM as its parent project. This is a standard multi-module POM.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
      <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -1273,7 +1228,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>接下来是实际的项目 POM：</p>
+<p>Next are the actual project POMs:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
      <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -1318,7 +1273,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>下面的项目展示了如何在另一个项目中使用该库，而无需指定依赖项目的版本：</p>
+<p>The following project demonstrates how to use the library in another project without specifying the versions of the dependent projects:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
      <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -1352,15 +1307,15 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>最后，在创建 <code class="language-plaintext highlighter-rouge">import</code> 依赖项的项目时，请注意以下几点：</p>
+<p>Finally, when creating <code class="language-plaintext highlighter-rouge">import</code> dependencies in your project, please pay attention to the following:</p>
 
 <ul>
-  <li>不要尝试导入在当前 POM 的子模块中定义的 POM。这样做会导致构建失败，因为它无法定位 POM。</li>
-  <li>切勿将导入 POM 声明为目标 POM 的父级（或 grandparent 等）。这样就无法解决循环问题，并会抛出异常。</li>
-  <li>在引用 POM 具有传递依赖关系的工件时，项目需要将这些工件的版本指定为依赖关系管理。不这样做会导致构建失败，因为工件可能没有指定版本。(在任何情况下，这都应被视为最佳实践，因为它能防止工件的版本从一次构建到下一次构建发生变化）。</li>
+  <li>Do not attempt to import a POM defined in a submodule of the current POM. Doing so will cause build failures because it cannot locate the POM.</li>
+  <li>Do not declare the imported POM as a parent of the target POM (or grandparent, etc.). This will not resolve cyclic issues and will throw exceptions.</li>
+  <li>When referencing artifacts with transitive dependencies in a POM, the project needs to specify the versions of these artifacts as managed dependencies. Failure to do so will result in build failures because the artifacts may not have specified versions. (In any case, this should be considered a best practice as it prevents the versions of artifacts from changing from one build to another).</li>
 </ul>
 
-<p>从 Maven 4.0 开始，引入了一种新的特定 BOM 包装。它允许定义在利用较新的 4.1.0 模型的项目中不作为父类使用的 BOM，同时仍与 Maven 3.x 客户端和项目完全兼容。在安装/部署时，这种 BOM 包装会利用 Maven 4 中的构建/消费 POM 功能转化为更常见的 POM 包装。因此，它与 Maven 3.x 完全兼容。</p>
+<p>Starting from Maven 4.0, a new specific BOM wrapping has been introduced. It allows the definition of BOMs that are not used as parents in projects utilizing the newer 4.1.0 model, while remaining fully compatible with Maven 3.x clients and projects. During installation/deployment, this BOM wrapping utilizes the build/consumer POM functionality in Maven 4 to transform into the more common POM wrapping. Thus, it is fully compatible with Maven 3.x.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.1.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
     <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd"</span><span class="nt">&gt;</span>
@@ -1400,9 +1355,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B&url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%20(Part%2012)%20-%20Introduction%20to%20Dependency%20Mechanism&url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%20(Part%2012)%20-%20Introduction%20to%20Dependency%20Mechanism" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -1415,19 +1370,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（十一）标准文件目录</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (11) - Standard Directory Structure</h4>
         </div>
       </a>
       
       
       <a class="next" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h4>
         </div>
       </a>
       
@@ -1448,7 +1403,7 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -1471,7 +1426,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
                 </a>
                 
 
@@ -1482,7 +1437,7 @@
                       <!--  -->
                       
 
-阅读时间 19 分钟
+  39 min read
 
 
                       <time class="article__date"
@@ -1490,7 +1445,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h2>
+                  <h2 class="article__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1545,7 +1500,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
                 </a>
                 
 
@@ -1556,7 +1511,7 @@
                       <!--  -->
                       
 
-阅读时间 6 分钟
+  13 min read
 
 
                       <time class="article__date"
@@ -1564,7 +1519,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十一）标准文件目录</h2>
+                  <h2 class="article__title">Maven (11) - Standard Directory Structure</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1612,7 +1567,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十）配置文件（Profiles）简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 10) - Introduction to Configuration Files (Profiles)">
                 </a>
                 
 
@@ -1623,7 +1578,7 @@
                       <!--  -->
                       
 
-阅读时间 79 分钟
+  143 min read
 
 
                       <time class="article__date"
@@ -1631,7 +1586,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十）配置文件（Profiles）简介</h2>
+                  <h2 class="article__title">Maven (Part 10) - Introduction to Configuration Files (Profiles)</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1693,27 +1648,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1727,21 +1682,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1761,7 +1716,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1784,43 +1739,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1835,9 +1792,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1914,7 +1871,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</title>
+  <title>Maven (Part 13) - Optional Dependencies and Dependency Exclusions</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              3 min read
+              7 min read
             
             <time class="post__date"
               datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h2>
+        <h2 class="post__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h2>
 
         <div class="post__bottom">
 
@@ -678,36 +638,36 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#可选依赖项optional-dependencies" id="markdown-toc-可选依赖项optional-dependencies">可选依赖项（Optional Dependencies）</a>    <ol>
-      <li><a href="#为什么使用可选依赖项" id="markdown-toc-为什么使用可选依赖项">为什么使用可选依赖项？</a></li>
-      <li><a href="#如何使用可选标签" id="markdown-toc-如何使用可选标签">如何使用可选标签？</a></li>
-      <li><a href="#可选依赖项如何工作" id="markdown-toc-可选依赖项如何工作">可选依赖项如何工作？</a></li>
-      <li><a href="#示例" id="markdown-toc-示例">示例</a></li>
+  <li><a href="#optional-dependencies" id="markdown-toc-optional-dependencies">Optional Dependencies</a>    <ol>
+      <li><a href="#why-use-optional-dependencies" id="markdown-toc-why-use-optional-dependencies">Why Use Optional Dependencies?</a></li>
+      <li><a href="#how-to-use-the-optional-tag" id="markdown-toc-how-to-use-the-optional-tag">How to Use the Optional Tag?</a></li>
+      <li><a href="#how-optional-dependencies-work" id="markdown-toc-how-optional-dependencies-work">How Optional Dependencies Work?</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ol>
   </li>
-  <li><a href="#依赖项排除dependency-exclusions" id="markdown-toc-依赖项排除dependency-exclusions">依赖项排除（Dependency Exclusions）</a>    <ol>
-      <li><a href="#如何使用依赖项排除" id="markdown-toc-如何使用依赖项排除">如何使用依赖项排除</a></li>
-      <li><a href="#依赖关系排除如何运作以及何时使用-作为最后手段" id="markdown-toc-依赖关系排除如何运作以及何时使用-作为最后手段">依赖关系排除如何运作以及何时使用 <strong>（作为最后手段！）</strong></a></li>
-      <li><a href="#为什么要按依赖关系而不是在-pom-层面进行排除" id="markdown-toc-为什么要按依赖关系而不是在-pom-层面进行排除">为什么要按依赖关系而不是在 POM 层面进行排除</a></li>
+  <li><a href="#dependency-exclusions" id="markdown-toc-dependency-exclusions">Dependency Exclusions</a>    <ol>
+      <li><a href="#how-to-use-dependency-exclusions" id="markdown-toc-how-to-use-dependency-exclusions">How to Use Dependency Exclusions</a></li>
+      <li><a href="#how-dependency-exclusions-work-and-when-to-use-as-a-last-resort" id="markdown-toc-how-dependency-exclusions-work-and-when-to-use-as-a-last-resort">How Dependency Exclusions Work and When to Use (As a Last Resort!)</a></li>
+      <li><a href="#why-exclude-based-on-dependency-rather-than-at-the-pom-level" id="markdown-toc-why-exclude-based-on-dependency-rather-than-at-the-pom-level">Why Exclude Based on Dependency Rather Than at the POM Level</a></li>
     </ol>
   </li>
 </ol>
 
-<p>本节将讨论可选依赖项和依赖项排除。这将有助于用户了解它们是什么，以及何时和如何使用它们。本节还解释了为什么要按依赖关系而不是在 POM 层级进行排除。</p>
+<p>This section will discuss optional dependencies and dependency exclusions. It will help users understand what they are, when and how to use them. This section also explains why exclusions are done based on dependency rather than at the POM level.</p>
 
-<h2 id="可选依赖项optional-dependencies">可选依赖项（Optional Dependencies）</h2>
+<h2 id="optional-dependencies">Optional Dependencies</h2>
 
-<p>可选依赖项用于无法（无论出于何种原因）将项目拆分成子模块的情况。我们的想法是，某些依赖项只用于项目中的某些功能，如果不使用该功能，就不需要这些依赖项。理想情况下，这样的功能会被拆分成一个依赖于核心功能项目的子模块。这个新的子项目将只有非选择性的依赖关系，因为如果您决定使用该子项目的功能，就会需要所有这些依赖关系。</p>
+<p>Optional dependencies are used in cases where a project cannot be split into sub-modules for some reason. The idea is that certain dependencies are only needed for specific functionalities within the project. Ideally, such functionalities would be split into a sub-module that depends on the core functionality project. This new sub-project would only have non-optional dependencies because if you decide to use the functionality of that sub-project, you’ll need all those dependencies.</p>
 
-<p>但是，由于项目无法拆分（同样，无论出于什么原因），这些依赖关系被声明为可选。如果用户想使用与可选依赖项相关的功能，就必须在自己的项目中重新声明该可选依赖项。这并不是处理这种情况的最明确方法，但可选依赖和依赖排除都是权宜之计。</p>
+<p>However, due to the inability to split the project (again, for whatever reason), these dependencies are declared as optional. If a user wants to use the functionality associated with optional dependencies, they must declare that optional dependency in their own project. It’s not the cleanest way to deal with such a situation, but optional dependencies and dependency exclusions are pragmatic solutions.</p>
 
-<h3 id="为什么使用可选依赖项">为什么使用可选依赖项？</h3>
+<h3 id="why-use-optional-dependencies">Why Use Optional Dependencies?</h3>
 
-<p>可选依赖项可以节省空间和内存。它们能防止有问题的 jar（违反许可协议或导致 classpath 问题）被捆绑到 WAR、EAR、fat jar 或类似文件中。</p>
+<p>Optional dependencies can save space and memory. They prevent problematic JARs (violating licensing agreements or causing classpath issues) from being bundled into WARs, EARs, fat JARs, or similar files.</p>
 
-<h3 id="如何使用可选标签">如何使用可选标签？</h3>
+<h3 id="how-to-use-the-optional-tag">How to Use the Optional Tag?</h3>
 
-<p>通过在依赖关系声明中将 <code class="language-plaintext highlighter-rouge">&lt;optional&gt;</code> 元素设置为 true，可将依赖关系声明为可选：</p>
+<p>By setting the <code class="language-plaintext highlighter-rouge">&lt;optional&gt;</code> element to true in the dependency declaration, you declare the dependency as optional:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -724,29 +684,29 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<h3 id="可选依赖项如何工作">可选依赖项如何工作？</h3>
+<h3 id="how-optional-dependencies-work">How Optional Dependencies Work?</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-A -&gt; Project-B
 </code></pre></div></div>
 
-<p>上图表示项目 A 依赖于项目 B。当 A 在其 POM 中将 B 声明为可选依赖项时，这种关系将保持不变。这就像正常编译一样，Project-B 会被添加到 Project-A 的 classpath 中。</p>
+<p>The above illustrates that Project A depends on Project B. When A declares B as an optional dependency in its POM, this relationship remains unchanged. Just like normal compilation, Project B gets added to Project A’s classpath.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-X -&gt; Project-A
 </code></pre></div></div>
 
-<p>当另一个项目（Project-X）在其 POM 中将 项目-A 声明为依赖关系时，依赖关系的可选性就会生效。项目-B 并不包含在项目-X 的 classpath 中。您需要在项目-X 的 POM 中直接声明，这样 B 才能包含在 X 的 classpath 中。</p>
+<p>When another project (Project-X) declares Project-A as a dependency in its POM, the optional nature of the dependency comes into play. Project-B isn’t included in Project-X’s classpath. You need to declare it directly in Project-X’s POM for it to be included.</p>
 
-<h3 id="示例">示例</h3>
+<h3 id="example">Example</h3>
 
-<p>假设有一个名为 X2 的项目，其功能与 Hibernate 类似。它支持多种数据库，如 MySQL、PostgreSQL 和多个版本的 Oracle。每个受支持的数据库都需要额外依赖一个驱动 jar。编译 X2 时需要所有这些依赖项。但是，您的项目只使用一个特定的数据库，不需要其他数据库的驱动程序。X2 可以将这些依赖项声明为可选项，这样当项目在其 POM 中将 X2 声明为直接依赖项时，X2 支持的所有驱动程序就不会自动包含在项目的 classpath 中。您的项目必须为其使用的数据库的特定驱动程序加入明确的依赖关系。</p>
+<p>Imagine a project called X2, similar to Hibernate. It supports multiple databases like MySQL, PostgreSQL, and various versions of Oracle. Each supported database requires an additional dependency on a driver JAR. When compiling X2, you need all these dependencies. However, your project only uses a specific database and doesn’t need drivers for other databases. X2 can declare these dependencies as optional, so when your project declares X2 as a direct dependency in its POM, all the drivers supported by X2 won’t automatically be included in your project’s classpath. You’ll need to explicitly add dependencies for the specific driver of the database you’re using.</p>
 
-<h2 id="依赖项排除dependency-exclusions">依赖项排除（Dependency Exclusions）</h2>
+<h2 id="dependency-exclusions">Dependency Exclusions</h2>
 
-<p>由于 Maven 是临时解析依赖关系的，因此有可能在项目的 classpath 中包含不需要的依赖关系。例如，某个较旧的 jar 可能存在安全问题，或者与您正在使用的 Java 版本不兼容。为了解决这个问题，Maven 允许您排除特定的依赖项。排除项设置在 POM 中的特定依赖项上，并针对特定的 groupId 和 artifactId。在构建项目时，该工件将不会通过声明了排除的依赖关系添加到项目的 classpath 中。</p>
+<p>Since Maven resolves dependencies transiently, it’s possible to include unwanted dependencies in a project’s classpath. For example, an older JAR might have security issues or be incompatible with the Java version you’re using. To address this, Maven allows you to exclude specific dependencies. Exclusions are set on specific dependencies in the POM and target specific groupId and artifactId. When building the project, that artifact won’t be added to the project’s classpath through the dependency declared with exclusions.</p>
 
-<h3 id="如何使用依赖项排除">如何使用依赖项排除</h3>
+<h3 id="how-to-use-dependency-exclusions">How to Use Dependency Exclusions</h3>
 
-<p>在 <code class="language-plaintext highlighter-rouge">&lt;dependency&gt;</code> 元素中添加<code class="language-plaintext highlighter-rouge">&lt;exclusions&gt;</code> 元素，通过该元素将有问题的 jar 包括在内。</p>
+<p>Add the <code class="language-plaintext highlighter-rouge">&lt;exclusions&gt;</code> element within the <code class="language-plaintext highlighter-rouge">&lt;dependency&gt;</code> element to include the problematic JAR.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -767,22 +727,22 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<h3 id="依赖关系排除如何运作以及何时使用-作为最后手段">依赖关系排除如何运作以及何时使用 <strong>（作为最后手段！）</strong></h3>
+<h3 id="how-dependency-exclusions-work-and-when-to-use-as-a-last-resort">How Dependency Exclusions Work and When to Use (As a Last Resort!)</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-A
    -&gt; Project-B
-        -&gt; Project-D <span class="c">&lt;!-- This dependency should be excluded --&gt;</span>
+        -&gt; Project-D &lt;!-- This dependency should be excluded --&gt;
               -&gt; Project-E
               -&gt; Project-F
    -&gt; Project C
 </code></pre></div></div>
 
-<p>图中显示，项目 A 依赖于项目 B 和 C，项目 B 依赖于项目 D。默认情况下，项目 A 的 classpath 包括</p>
+<p>In the above graph, Project A depends on Project B and C, and Project B depends on Project D. By default, Project A’s classpath includes:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>B, C, D, E, F
 </code></pre></div></div>
 
-<p>假设您不希望项目 D 及其依赖项被添加到项目 A 的 classpath 中，因为项目 D 的某些依赖项从资源库中丢失了，而且您也不需要项目 B 中依赖于项目 D 的功能。项目 B 的开发人员本可以将项目 D 的依赖关系标记为 <code class="language-plaintext highlighter-rouge">&lt;optional&gt;true&lt;/optional&gt;</code>：</p>
+<p>Suppose you don’t want Project D and its dependencies added to Project A’s classpath because some of Project D’s dependencies are missing from the repository, and you don’t need the functionality from Project D that Project B relies on. Project B’s developers could have marked Project D’s dependencies as <code class="language-plaintext highlighter-rouge">&lt;optional&gt;true&lt;/optional&gt;</code>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>sample.ProjectD<span class="nt">&lt;/groupId&gt;</span>
@@ -792,7 +752,7 @@
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
-<p>不幸的是，他们没有这样做。万不得已，您可以在自己的项目 A POM 中这样排除它：</p>
+<p>Unfortunately, they didn’t. As a last resort, you can exclude it in your Project A POM:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -817,14 +777,14 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>如果将项目-A 部署到资源库，而项目-X 声明对项目-A 的正常依赖，那么项目-D 还会被排除在 classpath 之外吗？</p>
+<p>If Project-A is deployed to the repository and Project-X declares a normal dependency on Project-A, will Project-D still be excluded from the classpath?</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-X -&gt; Project-A
 </code></pre></div></div>
 
-<p>答案是肯定的。项目 A 已声明它不需要项目 D 来运行，因此它不会作为项目 A 的传递依赖关系被引入。</p>
+<p>Yes, it will. Project A has declared it doesn’t need Project D to run, so it won’t be introduced as a transitive dependency of Project A.</p>
 
-<p>现在，考虑项目-X 依赖于项目-Y，如下图所示：</p>
+<p>Now, consider Project-X depends on Project-Y, as shown below:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-X -&gt; Project-Y
                -&gt; Project-B
@@ -832,9 +792,11 @@
                        ...
 </code></pre></div></div>
 
-<p>项目 Y 也依赖于项目 B，而且它确实需要项目-D 支持的功能。因此，它不会在其依赖关系列表中排除项目-D。项目-Y 还可能提供一个额外的资源库，以解决项目-E 的问题。在这种情况下，重要的是项目-D 不会被全局排除，因为它是项目-Y 的合法依赖关系。</p>
+<p>Project Y also depends on Project B, and indeed, it needs the functionality supported by Project D. Therefore, it doesn’t exclude Project D in its dependency list. Project Y might also provide an</p>
 
-<p>在另一种情况下，假设你不想要的依赖关系是 Project-E，而不是 Project-D。如何将其排除在外？请看下图：</p>
+<p>additional repository to address issues with Project E. In this case, it’s important that Project D isn’t globally excluded because it’s a legitimate dependency of Project Y.</p>
+
+<p>In another scenario, let’s say the unwanted dependency is Project-E, not Project-D. How do you exclude it? See the graph below:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project-A
    -&gt; Project-B
@@ -844,7 +806,7 @@
    -&gt; Project C
 </code></pre></div></div>
 
-<p>排除对声明点以下的整个依赖关系图都有效。如果想排除项目-E，而不是项目-D，只需将排除改为指向项目-E，但不能将排除向下移动到项目-D。您不能更改项目-D 的 POM。如果可以，你就可以使用可选依赖项来代替排除项，或者将项目-D 拆分成多个子项目，每个子项目都只包含正常的依赖项。</p>
+<p>Exclusions made at the declaration point apply to the entire dependency graph below. If you want to exclude Project-E instead of Project-D, simply point the exclusion to Project-E, but don’t move the exclusion down to Project-D. You can’t change Project-D’s POM. If you could, you might use optional dependencies instead of exclusions, or split Project-D into multiple sub-projects, each containing only necessary dependencies.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -869,11 +831,11 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<h3 id="为什么要按依赖关系而不是在-pom-层面进行排除">为什么要按依赖关系而不是在 POM 层面进行排除</h3>
+<h3 id="why-exclude-based-on-dependency-rather-than-at-the-pom-level">Why Exclude Based on Dependency Rather Than at the POM Level</h3>
 
-<p>这主要是为了确保依赖关系图是可预测的，并防止继承效应将不应该被排除的依赖关系排除在外。如果您到了万不得已的地步，不得不使用排除法，那么您应该绝对确定是哪个依赖关系带来了不需要的传递依赖关系。</p>
+<p>This is primarily to ensure the dependency graph is predictable and to prevent inheritance effects from excluding dependencies that shouldn’t be excluded. If you’re forced to use exclusions as a last resort, you should be absolutely certain which dependency is bringing in the unwanted transitive dependency.</p>
 
-<p>如果您真的想确保某个特定依赖关系不会出现在 classpath 中（无论路径如何），那么可以配置禁止依赖关系规则，以便在发现有问题的依赖关系时使构建失败。当编译失败时，你需要在 enforcer 发现的每个路径上添加特定的排除项。</p>
+<p>If you truly want to ensure a specific dependency doesn’t end up in the classpath (regardless of the path), you can configure dependency banning rules to fail the build when problematic dependencies are found. When the build fails, you’ll need to add specific exclusions on each path Enforcer finds.</p>
 
     </div>
 
@@ -881,9 +843,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E5%8F%AF%E9%80%89%EF%BC%88optional%EF%BC%89%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4%EF%BC%88exclusion%EF%BC%89&url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%20(Part%2013)%20-%20Optional%20Dependencies%20and%20Dependency%20Exclusions&url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E5%8F%AF%E9%80%89%EF%BC%88optional%EF%BC%89%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4%EF%BC%88exclusion%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%20(Part%2013)%20-%20Optional%20Dependencies%20and%20Dependency%20Exclusions" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -896,19 +858,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（十二）依赖机制简介</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (Part 12) - Introduction to Dependency Mechanism</h4>
         </div>
       </a>
       
       
       <a class="next" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">
-        <img class="post__nav-image lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）">
+        <img class="post__nav-image lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Edit-xlsx开发日志（一）</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Edit-xlsx Development Log (Part 1)</h4>
         </div>
       </a>
       
@@ -929,7 +891,7 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -959,7 +921,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
                 </a>
                 
 
@@ -970,7 +932,7 @@
                       <!--  -->
                       
 
-阅读时间 117 分钟
+  159 min read
 
 
                       <time class="article__date"
@@ -978,7 +940,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十二）依赖机制简介</h2>
+                  <h2 class="article__title">Maven (Part 12) - Introduction to Dependency Mechanism</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1026,7 +988,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
                 </a>
                 
 
@@ -1037,7 +999,7 @@
                       <!--  -->
                       
 
-阅读时间 6 分钟
+  13 min read
 
 
                       <time class="article__date"
@@ -1045,7 +1007,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十一）标准文件目录</h2>
+                  <h2 class="article__title">Maven (11) - Standard Directory Structure</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1093,7 +1055,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十）配置文件（Profiles）简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 10) - Introduction to Configuration Files (Profiles)">
                 </a>
                 
 
@@ -1104,7 +1066,7 @@
                       <!--  -->
                       
 
-阅读时间 79 分钟
+  143 min read
 
 
                       <time class="article__date"
@@ -1112,7 +1074,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十）配置文件（Profiles）简介</h2>
+                  <h2 class="article__title">Maven (Part 10) - Introduction to Configuration Files (Profiles)</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1174,27 +1136,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1208,21 +1170,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 32 分钟
+  53 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1242,7 +1204,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1265,43 +1227,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1316,9 +1280,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1395,7 +1359,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

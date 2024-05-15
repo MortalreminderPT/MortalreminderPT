@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maven（二）第一个Maven项目</title>
+  <title>Maven (Part 2) - Your First Maven Project</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（二）第一个Maven项目">
+        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 2) - Your First Maven Project">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（二）第一个Maven项目">
+        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 2) - Your First Maven Project">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              5 min read
+              11 min read
             
             <time class="post__date"
               datetime="2023-12-03T14:05:54+11:00">Dec 3, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Maven（二）第一个Maven项目</h2>
+        <h2 class="post__title">Maven (Part 2) - Your First Maven Project</h2>
 
         <div class="post__bottom">
 
@@ -678,23 +638,23 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#第一个maven项目" id="markdown-toc-第一个maven项目">第一个Maven项目</a></li>
-  <li><a href="#compile编译应用程序源" id="markdown-toc-compile编译应用程序源">compile：编译应用程序源</a></li>
-  <li><a href="#test编译测试源并运行单元测试" id="markdown-toc-test编译测试源并运行单元测试">test：编译测试源并运行单元测试</a></li>
-  <li><a href="#package-和-install" id="markdown-toc-package-和-install">package 和 install</a></li>
-  <li><a href="#site-和-clean" id="markdown-toc-site-和-clean">site 和 clean</a></li>
+  <li><a href="#your-first-maven-project" id="markdown-toc-your-first-maven-project">Your First Maven Project</a></li>
+  <li><a href="#compile-compiling-application-source" id="markdown-toc-compile-compiling-application-source">compile: Compiling Application Source</a></li>
+  <li><a href="#test-compiling-test-source-and-running-unit-tests" id="markdown-toc-test-compiling-test-source-and-running-unit-tests">test: Compiling Test Source and Running Unit Tests</a></li>
+  <li><a href="#package-and-install" id="markdown-toc-package-and-install">package and install</a></li>
+  <li><a href="#site-and-clean" id="markdown-toc-site-and-clean">site and clean</a></li>
 </ol>
 
-<h2 id="第一个maven项目">第一个Maven项目</h2>
+<h2 id="your-first-maven-project">Your First Maven Project</h2>
 
-<p>我们将立即开始创建您的第一个 Maven 项目！为了创建我们的第一个 Maven 项目，我们将使用 Maven 的原型（Archetypes）机制。原型被定义为<strong>一种原始模式或模型，所有其他同类事物都是由它构成的</strong>。在 Maven 中，<strong>原型是一个项目模板</strong>，它与一些用户输入相结合，生成一个根据用户需求定制的工作 Maven 项目。我们现在将向您展示原型机制是如何工作的，但是如果您想了解有关原型的更多信息，请参阅我们的<a href="https://maven.apache.org/guides/introduction/introduction-to-archetypes.html">原型简介</a>。</p>
+<p>Let’s dive right into creating your first Maven project! To create our first Maven project, we’ll employ Maven’s archetype mechanism. Archetypes are defined as <strong>original patterns or models from which all other similar things are made</strong>. In Maven, an <strong>archetype is a project template</strong> that, combined with some user input, generates a working Maven project tailored to the user’s needs. We’ll show you how the archetype mechanism works, but if you want to delve deeper into archetypes, check out our <a href="https://maven.apache.org/guides/introduction/introduction-to-archetypes.html">Introduction to Archetypes</a>.</p>
 
-<p>开始创建您的第一个项目！为了创建最简单的 Maven 项目，请从命令行执行以下命令：</p>
+<p>Let’s kickstart your first project! To create the simplest Maven project, execute the following command from the command line:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nt">-B</span> archetype:generate <span class="nt">-DgroupId</span><span class="o">=</span>com.mycompany.app <span class="nt">-DartifactId</span><span class="o">=</span>my-app <span class="nt">-DarchetypeArtifactId</span><span class="o">=</span>maven-archetype-quickstart <span class="nt">-DarchetypeVersion</span><span class="o">=</span>1.4
 </code></pre></div></div>
 
-<p>执行此命令后，您会注意到发生了一些事情。首先，您会注意到一个名为<code class="language-plaintext highlighter-rouge">my-app</code>的目录被创建，并且该目录包含一个文件<code class="language-plaintext highlighter-rouge">pom.xml</code>，该文件应如下所示：</p>
+<p>After executing this command, you’ll notice some action taking place. Firstly, you’ll observe a directory named <code class="language-plaintext highlighter-rouge">my-app</code> being created, containing a file named <code class="language-plaintext highlighter-rouge">pom.xml</code>, which should look like this:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
   <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -731,26 +691,26 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">pom.xml</code>包含该项目的项目对象模型 （POM）。<strong>POM 是 Maven 中的基本工作单元</strong>。记住这一点很重要，因为 <strong>Maven 本质上是以项目为中心的，一切都围绕项目的概念</strong>。简而言之，POM 包含有关您的项目的每一条重要信息，并且本质上是查找与您的项目相关的任何内容的一站式服务。了解 POM 很重要，鼓励新用户参考<a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">POM 简介</a>。</p>
+<p>The <code class="language-plaintext highlighter-rouge">pom.xml</code> contains the Project Object Model (POM) for the project. <strong>The POM is the fundamental working unit in Maven</strong>. Remember this, as <strong>Maven is fundamentally project-centric, and everything revolves around the concept of a project</strong>. In essence, the POM contains every crucial piece of information about your project and is essentially a one-stop shop for finding anything related to your project. Understanding the POM is crucial, and new users are encouraged to refer to the <a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">POM Introduction</a>.</p>
 
-<p>这是一个非常简单的 POM，但仍然显示每个 POM 包含的关键元素，因此让我们逐一介绍它们，让您熟悉 POM 要点：</p>
+<p>This is a very basic POM, but it still showcases key elements present in every POM, so let’s go through them one by one to acquaint you with the essentials of POM:</p>
 
 <ul>
-  <li><strong>project</strong> 这是所有 Maven pom.xml 文件中的顶级元素。</li>
-  <li><strong>modelVersion</strong> 该元素指示该 POM 使用的对象模型的版本。<strong>模型本身的版本很少更改</strong>，但是当 Maven 开发人员认为有必要更改模型时，为了确保使用的稳定性，这是强制性的。</li>
-  <li><strong>groupId</strong> 该元素指示创建项目的组织或组的唯一标识符。groupId 是项目的关键标识符之一，通常基于组织的完全限定域名。例如<code class="language-plaintext highlighter-rouge">org.apache.maven.plugins</code>为所有 Maven 插件指定的 groupId。</li>
-  <li><strong>artifactId</strong> 该元素指示<strong>由该项目生成的主要工件的唯一基本名称</strong>。项目的主要工件通常是 JAR 文件。诸如源包之类的次要工件也使用artifactId作为其最终名称的一部分。Maven 生成的典型工件的格式为 &lt;artifactId&gt;-&lt;version&gt;.&lt;extension&gt;（例如，<code class="language-plaintext highlighter-rouge">myapp-1.0.jar</code>）。</li>
-  <li><strong>version</strong> 该元素指示<strong>项目生成的工件的版本</strong>。Maven 在很大程度上帮助您进行版本管理，您经常会<code class="language-plaintext highlighter-rouge">SNAPSHOT</code>在版本中看到指示符，这表明<strong>项目处于开发状态</strong>。<a href="https://maven.apache.org/guides/getting-started/index.html#what-is-a-snapshot-version">我们将在本指南中讨论快照</a>的使用以及它们如何进一步工作。</li>
-  <li><strong>name</strong> 该元素指示用于<strong>项目的显示名称</strong>。这在 <strong>Maven 生成的文档中经常使用</strong>。</li>
-  <li><strong>url</strong> 该元素指示可以找到项目站点的位置。这在 Maven 生成的文档中经常使用。</li>
-  <li><strong>properties</strong> 该元素包含<strong>可在 POM 中的任何位置访问的值</strong>占位符。</li>
-  <li><strong>dependencies</strong> <strong>该元素的子项列出了<a href="https://maven.apache.org/pom.html#dependencies">依赖项</a></strong>。POM 的基石。</li>
-  <li><strong>build</strong> 该元素处理诸如<strong>声明项目的目录结构和管理插件</strong>之类的事情。</li>
+  <li><strong>project</strong>: This is the top-level element in all Maven <code class="language-plaintext highlighter-rouge">pom.xml</code> files.</li>
+  <li><strong>modelVersion</strong>: This element indicates the version of the object model that the POM is using. <strong>Changes to the model itself are rare</strong>, but when Maven developers deem it necessary to alter the model, it’s mandatory for ensuring stability.</li>
+  <li><strong>groupId</strong>: This element indicates the unique identifier of the organization or group that created the project. The groupId is one of the key identifiers for a project, usually based on the organization’s fully qualified domain name. For example, <code class="language-plaintext highlighter-rouge">org.apache.maven.plugins</code> specifies the groupId for all Maven plugins.</li>
+  <li><strong>artifactId</strong>: This element indicates <strong>the unique base name of the primary artifact generated by this project</strong>. The primary artifact of a project is typically a JAR file. Secondary artifacts like source bundles also use the artifactId as part of their final name. The typical format for Maven-generated artifacts is &lt;artifactId&gt;-&lt;version&gt;.&lt;extension&gt; (e.g., <code class="language-plaintext highlighter-rouge">myapp-1.0.jar</code>).</li>
+  <li><strong>version</strong>: This element indicates <strong>the version of the artifact generated by the project</strong>. Maven assists you significantly in version management, and you often see the <code class="language-plaintext highlighter-rouge">SNAPSHOT</code> indicator in versions, denoting that <strong>the project is in a developmental state</strong>. <a href="https://maven.apache.org/guides/getting-started/index.html#what-is-a-snapshot-version">We’ll discuss the use of snapshots</a> and how they further work in this guide.</li>
+  <li><strong>name</strong>: This element indicates <strong>the display name for the project</strong>. This is frequently used in Maven-generated documentation.</li>
+  <li><strong>url</strong>: This element indicates <strong>the location where the project’s site can be found</strong>. This is frequently used in Maven-generated documentation.</li>
+  <li><strong>properties</strong>: This element contains <strong>placeholders for values accessible throughout the POM</strong>.</li>
+  <li><strong>dependencies</strong>: This element’s children list the <a href="https://maven.apache.org/pom.html#dependencies">dependencies</a> of the POM. The cornerstone of the POM.</li>
+  <li><strong>build</strong>: This element deals with things like <strong>declaring the project’s directory structure and managing plugins</strong>.</li>
 </ul>
 
-<p>有关可在 POM 中使用的元素的<strong>完整参考</strong>，请参阅我们的 <a href="https://maven.apache.org/ref/current/maven-model/maven.html">POM 参考</a>。现在让我们回到手头的项目。</p>
+<p>For a complete reference of elements you can use in the POM, refer to our <a href="https://maven.apache.org/ref/current/maven-model/maven.html">POM Reference</a>. Now let’s get back to our project at hand.</p>
 
-<p>在第一个项目的原型生成之后，您还会注意到已创建以下目录结构：</p>
+<p>Upon generating the prototype for the first project, you’ll also notice the following directory structure created:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my-app
 |-- pom.xml
@@ -769,20 +729,22 @@
                         <span class="sb">`</span><span class="nt">--</span> AppTest.java
 </code></pre></div></div>
 
-<p>正如您所看到的，从原型创建的项目有一个 POM、一个用于您的应用程序源的树和一个用于您的测试源的树。这是 Maven 项目的标准布局（应用程序源位于<code class="language-plaintext highlighter-rouge">${project.basedir}/src/main/java</code>，测试源位于<code class="language-plaintext highlighter-rouge">${project.basedir}/src/test/java</code>，其中 <code class="language-plaintext highlighter-rouge">${project.basedir}</code> 表示包含 的目录<code class="language-plaintext highlighter-rouge">pom.xml</code>）。</p>
+<p>As you can see, the project created from the archetype has a POM, a tree for your application source, and another for your test source. This is the standard layout for a Maven project (application source resides in <code class="language-plaintext highlighter-rouge">${project.basedir}/src/main/java</code>, and test source resides in <code class="language-plaintext highlighter-rouge">${project.basedir}/src/test/java</code>, where <code class="language-plaintext highlighter-rouge">${project.basedir}</code> denotes the directory containing the `pom</p>
 
-<p>如果您要手动创建 Maven 项目，这是我们建议使用的目录结构。这是 Maven 约定，要了解更多信息，您可以阅读我们的<a href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">标准目录布局简介</a>。</p>
+<p>.xml` file).</p>
 
-<p>现在我们有了 POM、应用程序源和测试源，接下来我们来看如何编译应用程序源代码和测试源代码。</p>
+<p>This is the directory structure we recommend using if you’re manually creating a Maven project. It’s a Maven convention, and to learn more, you can read our <a href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Introduction to the Standard Directory Layout</a>.</p>
 
-<h2 id="compile编译应用程序源">compile：编译应用程序源</h2>
+<p>Now that we have the POM, application source, and test source, let’s see how to compile them.</p>
 
-<p>切换到 <code class="language-plaintext highlighter-rouge">pom.xml</code> 所在的目录，并执行以下命令来编译应用程序源：</p>
+<h2 id="compile-compiling-application-source">compile: Compiling Application Source</h2>
+
+<p>Navigate to the directory containing <code class="language-plaintext highlighter-rouge">pom.xml</code> and execute the following command to compile the application source:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn compile
 </code></pre></div></div>
 
-<p>执行此命令后，可以看到如下输出：</p>
+<p>After executing this command, you’ll see the following output:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Scanning <span class="k">for </span>projects...
 <span class="o">[</span>INFO]
@@ -805,18 +767,18 @@
 <span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
 </code></pre></div></div>
 
-<p>第一次执行此（或任何其他）命令时，Maven 将<strong>需要下载完成该命令所需的所有插件和相关依赖项</strong>。从 Maven 的全新安装开始，这可能需要相当长的时间（在上面的输出中，几乎花了 4 分钟）。如果再次执行该命令，Maven 现在将拥有所需的内容，因此不需要下载任何新内容，并且能够更快地执行该命令。</p>
+<p>Upon compiling for the first time (or any command for that matter), Maven <strong>will need to download all plugins and dependencies necessary to fulfill that command</strong>. From a fresh Maven installation, this might take quite some time (in the output above, it took almost 4 minutes). Upon subsequent executions of the command, Maven now possesses what it needs, so it doesn’t need to download anything new, making the command execution faster.</p>
 
-<p>从输出中可以看到，编译后的类被放置在 <code class="language-plaintext highlighter-rouge">${project.basedir}/target/classes</code>，这是 Maven 使用的另一个标准约定。</p>
+<p>From the output, you can see that the compiled classes are placed in <code class="language-plaintext highlighter-rouge">${project.basedir}/target/classes</code>, which is another standard convention used by Maven.</p>
 
-<h2 id="test编译测试源并运行单元测试">test：编译测试源并运行单元测试</h2>
+<h2 id="test-compiling-test-source-and-running-unit-tests">test: Compiling Test Source and Running Unit Tests</h2>
 
-<p>现在您已经成功编译了应用程序的源代码，并且现在您已经有了一些想要编译和执行的单元测试（因为每个程序员总是编写并执行他们的单元测试）。执行以下命令</p>
+<p>Now that you’ve successfully compiled the application’s source code, and now that you have some unit tests you want to compile and execute (because every programmer always writes and runs their unit tests), execute the following command:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nb">test</span>
 </code></pre></div></div>
 
-<p>执行此命令后，您应该看到如下输出：</p>
+<p>After executing this command, you should see the following output:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>......
 <span class="o">[</span>INFO] <span class="nt">-------------------------------------------------------</span>
@@ -837,21 +799,21 @@
 <span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
 </code></pre></div></div>
 
-<p>关于输出需要注意的一些事项：</p>
+<p>Some points to note about the output:</p>
 
 <ul>
-  <li>Maven 这次下载了更多依赖项。这些是执行测试所需的依赖项和插件（它已经具有编译所需的依赖项，不会再次下载它们）。</li>
-  <li>在编译和执行测试之前，Maven 会编译主要代码（所有这些类都是最新的，因为自上次编译以来我们没有更改任何内容）。</li>
+  <li>Maven this time downloaded more dependencies. These are dependencies and plugins necessary for executing tests (it already had dependencies needed for compilation and didn’t download them again).</li>
+  <li>Before compiling and executing tests, Maven compiles the main code (all these classes are up to date since we haven’t changed anything since the last compilation).</li>
 </ul>
 
-<p>如果您只想编译测试源（但不执行测试），则可以执行以下命令：</p>
+<p>If you only want to compile the test source (but not execute tests), you can execute the following command:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn test-compile
 </code></pre></div></div>
 
-<p>现在您可以编译应用程序源代码、编译测试并执行测试。</p>
+<p>Now you can compile the application source code, compile tests, and execute tests.</p>
 
-<p><strong>请注意，surefire 插件（执行测试）会查找具有特定命名约定的文件中包含的测试</strong>。默认情况下，包含的测试有：</p>
+<p><strong>Note that the Surefire plugin (for executing tests) looks for tests contained within files with specific naming conventions</strong>. By default, included tests are:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">**/*Test.java</code></li>
@@ -859,28 +821,28 @@
   <li><code class="language-plaintext highlighter-rouge">**/*TestCase.java</code></li>
 </ul>
 
-<p>默认排除是：</p>
+<p>Default exclusions are:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">**/Abstract*Test.java</code></li>
   <li><code class="language-plaintext highlighter-rouge">**/Abstract*TestCase.java</code></li>
 </ul>
 
-<h2 id="package-和-install">package 和 install</h2>
+<h2 id="package-and-install">package and install</h2>
 
-<p>制作 JAR 文件非常简单，可以通过执行以下命令来完成：</p>
+<p>Creating a JAR file is as simple as executing the following command:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package
 </code></pre></div></div>
 
-<p>现在您可以查看该<code class="language-plaintext highlighter-rouge">${project.basedir}/target</code>目录，您将看到生成的 JAR 文件。</p>
+<p>Now, you can check the <code class="language-plaintext highlighter-rouge">${project.basedir}/target</code> directory, where you’ll find the generated JAR file.</p>
 
-<p>但是，我们还需要将生成的工件（JAR 文件）<strong>安装在本地存储库</strong>（<code class="language-plaintext highlighter-rouge">${user.home}/.m2/repository</code>是默认位置）中。有关存储库的更多信息，您可以参阅我们的<a href="https://maven.apache.org/guides/introduction/introduction-to-repositories.html">存储库简介</a>，但让我们继续安装我们的工件！为此，请执行以下命令：</p>
+<p>However, we also need to <strong>install the generated artifact (JAR file) in the local repository</strong> (<code class="language-plaintext highlighter-rouge">${user.home}/.m2/repository</code> is the default location). For more information on repositories, you can refer to our <a href="https://maven.apache.org/guides/introduction/introduction-to-repositories.html">Repository Introduction</a>, but let’s proceed to install our artifact! To do so, execute the following command:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn install
 </code></pre></div></div>
 
-<p>执行此命令后，您应该看到以下输出：</p>
+<p>After executing this command, you should see the following output:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] Scanning <span class="k">for </span>projects...
 <span class="o">[</span>INFO]
@@ -915,7 +877,9 @@
 <span class="o">[</span>INFO] Building jar: &lt;<span class="nb">dir</span><span class="o">&gt;</span>/my-app/target/my-app-1.0-SNAPSHOT.jar
 <span class="o">[</span>INFO]
 <span class="o">[</span>INFO] <span class="nt">---</span> maven-install-plugin:2.5.2:install <span class="o">(</span>default-install<span class="o">)</span> @ my-app <span class="nt">---</span>
-<span class="o">[</span>INFO] Installing &lt;<span class="nb">dir</span><span class="o">&gt;</span>/my-app/target/my-app-1.0-SNAPSHOT.jar to &lt;local-repository&gt;/com/mycompany/app/my-app/1.0-SNAPSHOT/my-app-1.0-SNAPSHOT.jar
+<span class="o">[</span>INFO] Installing &lt;<span class="nb">dir</span><span class="o">&gt;</span>/my-app/target/my-app-1.0-SNAPSHOT.jar to &lt;local-repository&gt;/com/mycompany/app
+
+/my-app/1.0-SNAPSHOT/my-app-1.0-SNAPSHOT.jar
 <span class="o">[</span>INFO] Installing &lt;<span class="nb">dir</span><span class="o">&gt;</span>/my-app/pom.xml to &lt;local-repository&gt;/com/mycompany/app/my-app/1.0-SNAPSHOT/my-app-1.0-SNAPSHOT.pom
 <span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
 <span class="o">[</span>INFO] BUILD SUCCESS
@@ -925,15 +889,15 @@
 <span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
 </code></pre></div></div>
 
-<p>您已经完成了设置、构建、测试、打包和安装典型 Maven 项目的过程。这可能是绝大多数项目将使用 Maven 进行的操作，如果您注意到的话，您到目前为止能够做的所有事情都是由 18 行文件（即项目的模型或 POM）驱动的。</p>
+<p>You have now completed the process of setting up, building, testing, packaging, and installing a typical Maven project. This is likely what the majority of projects will use Maven for, and if you’ve noticed, everything you’ve been able to do so far is driven by an 18-line file (the project’s model or POM).</p>
 
-<h2 id="site-和-clean">site 和 clean</h2>
+<h2 id="site-and-clean">site and clean</h2>
 
-<p>Maven 提供了更多的功能，无需对目前的 POM 进行任何添加。</p>
+<p>Maven offers more functionalities without needing any additions to the current POM.</p>
 
-<p><code class="language-plaintext highlighter-rouge">mvn site</code> 是 Maven 备受推崇的功能之一，无需做任何工作，这个 POM 就有足够的信息来为您的项目生成一个网站！您很可能想要自定义您的 Maven 站点，但如果您时间紧迫，您只需执行该命令即可提供有关项目的基本信息。</p>
+<p><code class="language-plaintext highlighter-rouge">mvn site</code> is one of Maven’s highly praised functionalities. With no extra work, this POM has enough information to generate a website for your project! You’ll likely want to customize your Maven site, but if you’re in a hurry, executing that command will provide basic information about your project.</p>
 
-<p><code class="language-plaintext highlighter-rouge">mvn clean</code> 将删除包含所有构建数据的目录<code class="language-plaintext highlighter-rouge">target</code>，使其保持干净。</p>
+<p><code class="language-plaintext highlighter-rouge">mvn clean</code> removes the <code class="language-plaintext highlighter-rouge">target</code> directory containing all the build data, leaving it clean.</p>
 
     </div>
 
@@ -941,9 +905,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE&url=http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%20(Part%202)%20-%20Your%20First%20Maven%20Project&url=http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%20(Part%202)%20-%20Your%20First%20Maven%20Project" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/maven/2023/12/03/Maven-%E4%BA%8C-%E7%AC%AC%E4%B8%80%E4%B8%AAMaven%E9%A1%B9%E7%9B%AE/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -956,19 +920,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/03/Maven-%E4%B8%80-Maven%E7%9A%84%E5%93%B2%E5%AD%A6/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（一）Maven的哲学">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 1) - The Philosophy of Maven">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（一）Maven的哲学</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (Part 1) - The Philosophy of Maven</h4>
         </div>
       </a>
       
       
       <a class="next" href="/maven/2023/12/03/Maven-%E4%B8%89-%E5%BF%AB%E7%85%A7%E7%89%88%E6%9C%AC/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（三）快照版本">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 3) - Snapshot Versions">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Maven（三）快照版本</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Maven (Part 3) - Snapshot Versions</h4>
         </div>
       </a>
       
@@ -989,7 +953,7 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -1012,7 +976,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
                 </a>
                 
 
@@ -1023,7 +987,7 @@
                       <!--  -->
                       
 
-阅读时间 19 分钟
+  39 min read
 
 
                       <time class="article__date"
@@ -1031,7 +995,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h2>
+                  <h2 class="article__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1079,7 +1043,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
                 </a>
                 
 
@@ -1090,7 +1054,7 @@
                       <!--  -->
                       
 
-阅读时间 48 分钟
+  90 min read
 
 
                       <time class="article__date"
@@ -1098,7 +1062,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十二）依赖机制简介</h2>
+                  <h2 class="article__title">Maven (Part 12) - Introduction to Dependency Mechanism</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1146,7 +1110,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
                 </a>
                 
 
@@ -1157,7 +1121,7 @@
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  14 min read
 
 
                       <time class="article__date"
@@ -1165,7 +1129,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十一）标准文件目录</h2>
+                  <h2 class="article__title">Maven (11) - Standard Directory Structure</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1227,27 +1191,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1261,21 +1225,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1295,7 +1259,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1318,43 +1282,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1369,9 +1335,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1448,7 +1414,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

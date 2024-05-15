@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>二叉树基础（二）二叉搜索树（BST）</title>
-  <meta name='description' content='二叉树（Binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。'>
+  <title>Binary Trees Basics (Part 2) - Binary Search Trees (BSTs)</title>
+  <meta name='description' content='A binary tree is a tree in which each node has at most two children, making it a simple yet fundamental tree structure.'>
 
   <link rel="canonical" href="http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
@@ -145,26 +145,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -540,26 +520,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -599,7 +559,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -623,7 +583,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（二）二叉搜索树（BST）">
+        <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="Binary Trees Basics (Part 2) - Binary Search Trees (BSTs)">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -631,7 +591,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（二）二叉搜索树（BST）">
+        <img class="post-image lazy" data-src="/images/covers/数据结构-cover1.png" alt="Binary Trees Basics (Part 2) - Binary Search Trees (BSTs)">
       </div>
     </div>
     
@@ -643,14 +603,14 @@
           <span class="post__minutes">
             
             
-              4 min read
+              7 min read
             
             <time class="post__date"
               datetime="2021-10-05T04:14:28+11:00">Oct 5, 2021</time>
           </span>
         </div>
 
-        <h2 class="post__title">二叉树基础（二）二叉搜索树（BST）</h2>
+        <h2 class="post__title">Binary Trees Basics (Part 2) - Binary Search Trees (BSTs)</h2>
 
         <div class="post__bottom">
 
@@ -665,13 +625,13 @@
             <span>in</span>
             <span class="post-tags">
               
-              <a href="/tags/%E7%AE%97%E6%B3%95" class="post__tag">算法</a>
+              <a href="/tags/algorithms" class="post__tag">Algorithms</a>
               
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="post__tag">数据结构</a>
+              <a href="/tags/data-structures" class="post__tag">Data Structures</a>
               
-              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" class="post__tag">二叉树</a>
+              <a href="/tags/binary-tree" class="post__tag">Binary Tree</a>
               
-              <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="post__tag">树型数据结构</a>
+              <a href="/tags/tree-data-structures" class="post__tag">Tree Data Structures</a>
               
             </span>
             
@@ -696,51 +656,56 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#概念" id="markdown-toc-概念">概念</a>    <ol>
-      <li><a href="#性质" id="markdown-toc-性质">性质</a></li>
-      <li><a href="#结构" id="markdown-toc-结构">结构</a></li>
+  <li><a href="#concept" id="markdown-toc-concept">Concept</a>    <ol>
+      <li><a href="#properties" id="markdown-toc-properties">Properties</a></li>
+      <li><a href="#structure" id="markdown-toc-structure">Structure</a></li>
     </ol>
   </li>
-  <li><a href="#代码" id="markdown-toc-代码">代码</a>    <ol>
-      <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/_GsdrvQ2yo0xFVZbpcJNfgR.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/_Q8oGUjFsze4dPM9Cpgm30n.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/_btG7g8a36UjmILK1RBA20p.xml"></include></a></li>
+  <li><a href="#code" id="markdown-toc-code">Code</a>    <ol>
+      <li><a href="#basic-operations" id="markdown-toc-basic-operations">Basic Operations</a>        <ol>
+          <li><a href="#find" id="markdown-toc-find"><include src="/_v9LPe0Ql1@yT3dFibn8hrs.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/_g@EpIUFaQrOoH6LyD$PVx9.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/_kmz4yWtiJCHUPTA0Njsglw.xml"></include></a></li>
         </ol>
       </li>
     </ol>
   </li>
 </ol>
 
-<h2 id="概念">概念</h2>
-<p><strong>二叉搜索树（Binary Search Tree）</strong>（又：二叉查找树，二叉排序树），它或者是一棵空树，或者是具有下列性质的二叉树：
-若它的左子树非空，则左子树上所有结点的值均小于它的根结点的值； 
-若它的右子树非空，则右子树上所有结点的值均大于它的根结点的值；
-它的左、右子树也分别是二叉搜索树。
-二叉搜索树作为一种经典的数据结构，既有快速插入与删除操作的特点，又有快速查找的优势；所以应用十分广泛，例如在文件系统和数据库系统一般会采用这种数据结构进行高效率的排序与检索操作。</p>
-<h3 id="性质">性质</h3>
-<p>二叉搜索树有以下性质：</p>
+<h2 id="concept">Concept</h2>
+<p><strong>Binary Search Tree (BST)</strong>, also known as a binary sort tree or binary ordered tree, is either an empty tree or a binary tree with the following properties:</p>
 <ul>
-  <li>若左子树非空，则左子树上的所有节点值均小于根节点的值。</li>
-  <li>若右子树非空，则右子树上的所有节点值均小于根节点的值。</li>
-  <li>左右子树是二叉搜索树。</li>
+  <li>If its left subtree is not empty, then all the nodes on the left subtree have values less than the root node’s value.</li>
+  <li>If its right subtree is not empty, then all the nodes on the right subtree have values greater than the root node’s value.</li>
+  <li>Both its left and right subtrees are also binary search trees.</li>
 </ul>
 
-<h3 id="结构">结构</h3>
-<p>BST是以二叉树来构建的，除了key和位置数据之外，每个结点还包含属性lchild、rchild，如果某个孩子结点不存在，则相应属性的值为空。</p>
+<p>As a classical data structure, binary search trees offer fast insertion and deletion operations, along with efficient searching capabilities. Hence, they find wide applications, such as in file systems and database systems for efficient sorting and retrieval operations.</p>
+
+<h3 id="properties">Properties</h3>
+<p>Binary search trees possess the following properties:</p>
+<ul>
+  <li>If the left subtree is non-empty, all the node values on the left subtree are less than the root node’s value.</li>
+  <li>If the right subtree is non-empty, all the node values on the right subtree are greater than the root node’s value.</li>
+  <li>Both the left and right subtrees are binary search trees.</li>
+</ul>
+
+<h3 id="structure">Structure</h3>
+<p>A BST is constructed using binary trees. In addition to key and positional data, each node also contains attributes <code class="language-plaintext highlighter-rouge">lchild</code> and <code class="language-plaintext highlighter-rouge">rchild</code>. If a child node does not exist, the corresponding attribute value is null.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>                               <span class="c1">// 数据</span>
-    <span class="k">struct</span> <span class="nc">Node</span> <span class="o">*</span><span class="n">lchild</span><span class="p">,</span> <span class="o">*</span><span class="n">rchild</span><span class="p">;</span>  			<span class="c1">// 左右子树</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>                               <span class="c1">// Data</span>
+    <span class="k">struct</span> <span class="nc">Node</span> <span class="o">*</span><span class="n">lchild</span><span class="p">,</span> <span class="o">*</span><span class="n">rchild</span><span class="p">;</span>  			<span class="c1">// Left and Right Child</span>
 <span class="p">}</span> <span class="o">*</span> <span class="n">BST</span><span class="p">,</span> <span class="n">BSTNode</span><span class="p">;</span>
 </code></pre></div></div>
-<h2 id="代码">代码</h2>
-<h3 id="基本操作">基本操作</h3>
 
-<p>BST的构造和析构与普通二叉树相同，这里不多赘述。相比于普通二叉树，BST的主要功能增加了查找，插入和删除</p>
+<h2 id="code">Code</h2>
+<h3 id="basic-operations">Basic Operations</h3>
 
-<h4 id="find"><include src="/_GsdrvQ2yo0xFVZbpcJNfgR.xml"></include></h4>
-<p><include src="/_GsdrvQ2yo0xFVZbpcJNfgR.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
+<p>The construction and destruction of a BST are similar to those of a regular binary tree. Here, we focus on additional operations like search, insertion, and deletion compared to regular binary trees.</p>
+
+<h4 id="find"><include src="/_v9LPe0Ql1@yT3dFibn8hrs.xml"></include></h4>
+<p>The <code class="language-plaintext highlighter-rouge">find()</code> function searches whether a node with a known data value exists in the tree and returns the node. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">;</span>
@@ -755,24 +720,25 @@
     <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="insert"><include src="/_Q8oGUjFsze4dPM9Cpgm30n.xml"></include></h4>
-<p><include src="/_Q8oGUjFsze4dPM9Cpgm30n.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/_oLkmgBC@6Xij89$rRP0HGI.xml"></include>后，要找到合适的父节点<include src="/_zIu8QJ0pH13Lv96YqMKZ4G.xml"></include>并插入其中。代码如下</p>
+
+<h4 id="insert"><include src="/_g@EpIUFaQrOoH6LyD$PVx9.xml"></include></h4>
+<p>The <code class="language-plaintext highlighter-rouge">insert()</code> function inserts a node into the tree. All nodes in a BST are inserted as leaf nodes. Hence, after creating node <include src="/_MESGqZ$gezs8baLTJcA61X.xml"></include>, we find the appropriate parent node <include src="/_wiOXrQze4NPoBgF6@lI$kx.xml"></include> and insert <include src="/_MESGqZ$gezs8baLTJcA61X.xml"></include> there. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
     <span class="k">while</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">data</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                  <span class="c1">// 记录f为p的父节点</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                  <span class="c1">// Record f as the parent node of p</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
         <span class="p">}</span>
-    <span class="p">}</span>                           <span class="c1">// 查找data是否已经在树中</span>
+    <span class="p">}</span>                           <span class="c1">// Check if data is already in the tree</span>
 
     <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">BST</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">));</span>
     <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>             <span class="c1">// 创建节点</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>             <span class="c1">// Create node</span>
 
     <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">tree</span><span class="p">)</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
     <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
@@ -780,43 +746,43 @@
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="delete"><include src="/_btG7g8a36UjmILK1RBA20p.xml"></include></h4>
-<p>二叉搜索树进行删除操作后，仍然要保证它的排序正确，因此我们的删除操作分为三种情况：</p>
 
+<h4 id="delete"><include src="/_kmz4yWtiJCHUPTA0Njsglw.xml"></include></h4>
+<p>After deleting a node in a binary search tree, its sorting order must still be maintained. Therefore, deletion is divided into three cases:</p>
 <ul>
-  <li>待删除节点无左孩子，则用右孩子代替其位置</li>
-  <li>待删除节点无右孩子，则用左孩子代替其位置</li>
-  <li>待删除节点拥有左右孩子，则用左子树最大节点或右子树最小节点代替其位置</li>
+  <li>If the node to be deleted has no left child, replace it with its right child.</li>
+  <li>If the node to be deleted has no right child, replace it with its left child.</li>
+  <li>If the node to be deleted has both left and right children, replace it with either the maximum node in its left subtree or the minimum node in its right subtree.</li>
 </ul>
 
-<p>代码如下</p>
+<p>The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">delete</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">tree</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
     <span class="k">while</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">data</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                  <span class="c1">// 记录f为p的父节点</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                  <span class="c1">// Record f as the parent node of p</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
         <span class="p">}</span>
-    <span class="p">}</span>                           <span class="c1">// 查找data的位置</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span>  <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>       <span class="c1">// 若未找到，则返回false</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">)</span> <span class="p">{</span>            <span class="c1">// 情况1</span>
+    <span class="p">}</span>                           <span class="c1">// Find the position of data</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span>  <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>       <span class="c1">// If not found, return false</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">)</span> <span class="p">{</span>            <span class="c1">// Case 1</span>
         <span class="k">if</span><span class="p">(</span><span class="n">tree</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
         <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
         <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
         <span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">){</span>        <span class="c1">// 情况2</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">){</span>        <span class="c1">// Case 2</span>
         <span class="k">if</span><span class="p">(</span><span class="n">tree</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
         <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
         <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
         <span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">else</span><span class="p">{</span>                       <span class="c1">// 情况3</span>
+    <span class="k">else</span><span class="p">{</span>                       <span class="c1">// Case 3</span>
         <span class="n">BST</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">,</span> <span class="n">fl</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
         <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">)</span> <span class="n">fl</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">,</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
         <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
@@ -828,16 +794,15 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-
     </div>
 
 <!--    <div class="post__share">-->
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%EF%BC%88BST%EF%BC%89&url=http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Binary%20Trees%20Basics%20(Part%202)%20-%20Binary%20Search%20Trees%20(BSTs)&url=http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%EF%BC%88BST%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=Binary%20Trees%20Basics%20(Part%202)%20-%20Binary%20Search%20Trees%20(BSTs)" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/2021/10/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -850,19 +815,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/dynamic%20programming%20fundamentals/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/">
-        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="动态规划（三）股票问题系列">
+        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming Series on Stock Problems">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">动态规划（三）股票问题系列</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Dynamic Programming Series on Stock Problems</h4>
         </div>
       </a>
       
       
       <a class="next" href="/2021/10/09/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/">
-        <img class="post__nav-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（一）对撞指针和快慢指针">
+        <img class="post__nav-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="Two Pointer Problems (Part 1) - Two Pointer and Fast Slow Pointer">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">双指针问题（一）对撞指针和快慢指针</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Two Pointer Problems (Part 1) - Two Pointer and Fast Slow Pointer</h4>
         </div>
       </a>
       
@@ -883,332 +848,10 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
             
             
 
@@ -1382,7 +1025,7 @@
 
                 
                 <a class="article__image" href="/2021/10/20/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口">
+                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="Two Pointer Problems (Part 2) - Sliding Window">
                 </a>
                 
 
@@ -1393,7 +1036,7 @@
                       <!--  -->
                       
 
-阅读时间 12 分钟
+  19 min read
 
 
                       <time class="article__date"
@@ -1401,9 +1044,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">双指针问题（二）滑动窗口</h2>
+                  <h2 class="article__title">Two Pointer Problems (Part 2) - Sliding Window</h2>
 
-                  <p class="article__excerpt">双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。</p>
+                  <p class="article__excerpt">Two pointers are used to scan in two directions during traversal, achieving the desired algorithmic goals.</p>
 
                   <div class="article__bottom">
 
@@ -1421,13 +1064,13 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
-                          <a href="/tags/%E6%8C%87%E9%92%88" class="article__tag">指针</a>
+                          <a href="/tags/pointers" class="article__tag">Pointers</a>
                         
-                          <a href="/tags/%E9%93%BE%E8%A1%A8" class="article__tag">链表</a>
+                          <a href="/tags/linked-list" class="article__tag">Linked List</a>
                         
-                          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="article__tag">数据结构</a>
+                          <a href="/tags/data-structures" class="article__tag">Data Structures</a>
                         
                       </span>
                       
@@ -1455,7 +1098,7 @@
 
                 
                 <a class="article__image" href="/2021/10/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-Binary-Search/">
-                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="二分查找（Binary Search）">
+                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="Binary Search">
                 </a>
                 
 
@@ -1466,7 +1109,7 @@
                       <!--  -->
                       
 
-阅读时间 13 分钟
+  18 min read
 
 
                       <time class="article__date"
@@ -1474,9 +1117,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">二分查找（Binary Search）</h2>
+                  <h2 class="article__title">Binary Search</h2>
 
-                  <p class="article__excerpt">二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到 O(log n)</p>
+                  <p class="article__excerpt">Binary search is a common method for finding a specific value in a sorted array. It doesn't need to traverse the entire sequence; it only needs to focus on the boundaries and the middle value of the sequence. Therefore, its time complexity can reach O(log n).</p>
 
                   <div class="article__bottom">
 
@@ -1494,7 +1137,7 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
                       </span>
                       
@@ -1522,7 +1165,7 @@
 
                 
                 <a class="article__image" href="/dynamic%20programming%20fundamentals/2021/10/12/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%9B%9B-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS/">
-                  <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（四）最长上升子序列（LIS）">
+                  <img class="lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)">
                 </a>
                 
 
@@ -1533,7 +1176,7 @@
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  9 min read
 
 
                       <time class="article__date"
@@ -1541,9 +1184,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">动态规划（四）最长上升子序列（LIS）</h2>
+                  <h2 class="article__title">Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)</h2>
 
-                  <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
+                  <p class="article__excerpt">The core idea of dynamic programming lies in breaking down a problem into smaller subproblems and storing previous computation results to reduce computational complexity.</p>
 
                   <div class="article__bottom">
 
@@ -1561,9 +1204,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
-                          <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" class="article__tag">动态规划</a>
+                          <a href="/tags/dynamic-programming" class="article__tag">Dynamic Programming</a>
                         
                       </span>
                       
@@ -1605,27 +1248,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1639,21 +1282,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1673,7 +1316,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1696,43 +1339,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1747,9 +1392,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1826,7 +1471,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Apollo配置中心（三）工作原理及核心概念</title>
+  <title>Apollo Configuration Center (Part 3) - Working Principles and Core Concepts</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（三）工作原理及核心概念">
+        <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 3) - Working Principles and Core Concepts">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（三）工作原理及核心概念">
+        <img class="post-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 3) - Working Principles and Core Concepts">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              1 min read
+              2 min read
             
             <time class="post__date"
               datetime="2023-11-23T14:59:46+11:00">Nov 23, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Apollo配置中心（三）工作原理及核心概念</h2>
+        <h2 class="post__title">Apollo Configuration Center (Part 3) - Working Principles and Core Concepts</h2>
 
         <div class="post__bottom">
 
@@ -653,9 +613,9 @@
             <span>in</span>
             <span class="post-tags">
               
-              <a href="/tags/%E9%85%8D%E7%BD%AE" class="post__tag">配置</a>
+              <a href="/tags/configuration" class="post__tag">Configuration</a>
               
-              <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83" class="post__tag">配置中心</a>
+              <a href="/tags/configuration-center" class="post__tag">Configuration Center</a>
               
               <a href="/tags/apollo" class="post__tag">Apollo</a>
               
@@ -682,97 +642,97 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#工作原理" id="markdown-toc-工作原理">工作原理</a></li>
-  <li><a href="#执行流程" id="markdown-toc-执行流程">执行流程</a></li>
-  <li><a href="#核心概念" id="markdown-toc-核心概念">核心概念</a></li>
+  <li><a href="#working-principles" id="markdown-toc-working-principles">Working Principles</a></li>
+  <li><a href="#execution-flow" id="markdown-toc-execution-flow">Execution Flow</a></li>
+  <li><a href="#core-concepts" id="markdown-toc-core-concepts">Core Concepts</a></li>
 </ol>
 
-<h2 id="工作原理">工作原理</h2>
+<h2 id="working-principles">Working Principles</h2>
 
-<p>Apollo架构设计如图所示：</p>
+<p>The architecture of Apollo is designed as depicted in the following diagram:</p>
 
-<p><img src="\images\posts\apollo-overall-architecture.png" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:100%;" /></p>
+<p><img src="\images\posts\apollo-overall-architecture.png" alt="Apollo Overall Architecture" style="display: block; margin-left: auto; margin-right: auto; zoom:100%;" /></p>
 
-<p>图中各个模块的职责如下：</p>
+<p>Responsibilities of each module in the diagram are outlined below:</p>
 
 <table>
   <thead>
     <tr>
-      <th>模块</th>
-      <th>职责</th>
+      <th>Module</th>
+      <th>Responsibilities</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Config Service</td>
-      <td>提供配置的读取、推送等功能，服务对象是Apollo客户端</td>
+      <td>Provides functions such as reading and pushing configurations, serving Apollo clients</td>
     </tr>
     <tr>
       <td>Admin Service</td>
-      <td>提供配置的修改、发布等功能，服务对象是Apollo Portal（管理界面）</td>
+      <td>Provides functions such as modifying and releasing configurations, serving Apollo Portal (management interface)</td>
     </tr>
     <tr>
       <td>Eureka</td>
-      <td>提供服务注册和发现，为了简单起见，目前Eureka在部署时和Config Service是在一个JVM进程中的； Config Service和Admin Service都是多实例、无状态部署，所以需要将自己注册到Eureka中并保持心跳</td>
+      <td>Provides service registration and discovery. For simplicity, Eureka is currently deployed in the same JVM process as Config Service. Both Config Service and Admin Service are deployed in a stateless manner with multiple instances. Therefore, they need to register themselves with Eureka and maintain a heartbeat.</td>
     </tr>
     <tr>
       <td>Meta Server</td>
-      <td>在Eureka之上架了一层Meta Server用于封装Eureka的服务发现接口</td>
+      <td>A layer built upon Eureka, encapsulating Eureka’s service discovery interface.</td>
     </tr>
   </tbody>
 </table>
 
 <ul>
-  <li>Client通过域名访问Meta Server获取Config Service服务列表（IP+Port），而后直接通过IP+Port访问服务， 同时在Client侧会做load balance、错误重试；</li>
-  <li>Portal通过域名访问Meta Server获取Admin Service服务列表（IP+Port），而后直接通过IP+Port访问服务， 同时在Portal侧会做load balance、错误重试；</li>
-  <li>为了简化部署，我们实际上会把Config Service、Eureka和Meta Server三个逻辑角色部署在同一个JVM进程中。</li>
+  <li>Clients access Meta Server via domain name to obtain a list of Config Service instances (IP+Port), and then directly access the service via IP+Port. Load balancing and error retry are performed on the client side.</li>
+  <li>The Portal accesses Meta Server via domain name to obtain a list of Admin Service instances (IP+Port), and then directly accesses the service via IP+Port. Load balancing and error retry are performed on the Portal side.</li>
+  <li>To simplify deployment, Config Service, Eureka, and Meta Server are actually deployed in the same JVM process.</li>
 </ul>
 
-<h2 id="执行流程">执行流程</h2>
+<h2 id="execution-flow">Execution Flow</h2>
 
 <ol>
-  <li>Apollo启动后，Config/Admin Service会自动注册到Eureka服务注册中心，并定期发送保活心跳；</li>
-  <li>Apollo Client和Portal管理端通过配置的Meta Server的域名地址经由Software Load Balancer（软件负载均衡器）进行负载均衡后分配到某一个Meta Server；</li>
-  <li>Meta Server从Eureka获取Config Service和Admin Service的服务信息，相当于是一个Eureka Client；</li>
-  <li>Meta Server获取Config Service和Admin Service（IP+Port）失败后会进行重试；</li>
-  <li>获取到正确的Config Service和Admin Service的服务信息后，Apollo Client通过Config Service为应用提供配置获取、实时更新等功能；Apollo Portal管理端通过Admin Service提供配置新增、修改、发布等功能。</li>
+  <li>Upon startup, Config/Admin Service automatically registers with the Eureka service registry and periodically sends keep-alive heartbeats.</li>
+  <li>Apollo Client and Portal management end access a Meta Server via the configured domain name, which is then load balanced by a Software Load Balancer before being assigned to a specific Meta Server.</li>
+  <li>Meta Server retrieves service information for Config Service and Admin Service from Eureka, acting as an Eureka Client.</li>
+  <li>Meta Server retries if it fails to obtain service information for Config Service and Admin Service (IP+Port).</li>
+  <li>Once the correct service information for Config Service and Admin Service is obtained, Apollo Client provides configuration acquisition and real-time update functions for the application via Config Service. The Apollo Portal management end provides configuration addition, modification, and release functions via Admin Service.</li>
 </ol>
 
-<h2 id="核心概念">核心概念</h2>
+<h2 id="core-concepts">Core Concepts</h2>
 
 <table>
   <thead>
     <tr>
-      <th>概念</th>
-      <th>理解</th>
-      <th>关键字</th>
+      <th>Concept</th>
+      <th>Understanding</th>
+      <th>Keywords</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>application（应用）</td>
-      <td>Apollo客户端运行的应用</td>
+      <td>application</td>
+      <td>The application in which the Apollo client runs.</td>
       <td>appId</td>
     </tr>
     <tr>
-      <td>environment（环境）</td>
-      <td>Apollo客户端运行时应用处于哪个所处的环境</td>
+      <td>environment</td>
+      <td>The environment in which the Apollo client runs.</td>
       <td>env</td>
     </tr>
     <tr>
-      <td>cluster（集群）</td>
-      <td>一个应用下不同实例的分组，比如可以按照数据中心分，上海机房的应用实例分为一个集群，北京的为另一个集群。</td>
+      <td>cluster</td>
+      <td>A grouping of different instances under an application, such as grouping by data center.</td>
       <td>cluster</td>
     </tr>
     <tr>
-      <td>namespace（命名空间）</td>
-      <td>一个应用下<strong>不同配置的分组</strong>，可以简单地把namespace类比为文件，不同类型的配置存放在不同的文件中。如数据库配置文件，RPC配置文件，应用自身的配置文件等。</td>
+      <td>namespace</td>
+      <td>A grouping of different configurations under an application.</td>
       <td>namespaces</td>
     </tr>
   </tbody>
 </table>
 
-<p>有关namespace的详细理解可以参考<a href="https://www.apolloconfig.com/#/zh/design/apollo-core-concept-namespace">官方文档-什么是Namespace?</a>。</p>
+<p>For a detailed understanding of namespaces, refer to the <a href="https://www.apolloconfig.com/#/zh/design/apollo-core-concept-namespace">official documentation - What is a Namespace?</a>.</p>
 
     </div>
 
@@ -780,9 +740,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5&url=http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Apollo%20Configuration%20Center%20(Part%203)%20-%20Working%20Principles%20and%20Core%20Concepts&url=http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:4000/images/covers/apollo-cover.jpg&amp;description=Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:4000/images/covers/apollo-cover.jpg&amp;description=Apollo%20Configuration%20Center%20(Part%203)%20-%20Working%20Principles%20and%20Core%20Concepts" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%89-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -795,19 +755,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%BA%8C-Apollo%E7%AE%80%E4%BB%8B/">
-        <img class="post__nav-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（二）Apollo简介">
+        <img class="post__nav-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 2) - Introduction to Apollo">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Apollo配置中心（二）Apollo简介</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Apollo Configuration Center (Part 2) - Introduction to Apollo</h4>
         </div>
       </a>
       
       
       <a class="next" href="/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E5%9B%9B-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
-        <img class="post__nav-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（四）快速入门及使用指南">
+        <img class="post__nav-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 4) - Quick Start and User Guide">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Apollo配置中心（四）快速入门及使用指南</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Apollo Configuration Center (Part 4) - Quick Start and User Guide</h4>
         </div>
       </a>
       
@@ -828,7 +788,7 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -942,7 +902,7 @@
 
                 
                 <a class="article__image" href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%83-Springboot%E9%9B%86%E6%88%90%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2/">
-                  <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（七）Springboot集成及分布式部署">
+                  <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 7) - Spring Boot Integration and Distributed Deployment">
                 </a>
                 
 
@@ -953,7 +913,7 @@
                       <!--  -->
                       
 
-阅读时间 6 分钟
+  8 min read
 
 
                       <time class="article__date"
@@ -961,7 +921,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Apollo配置中心（七）Springboot集成及分布式部署</h2>
+                  <h2 class="article__title">Apollo Configuration Center (Part 7) - Spring Boot Integration and Distributed Deployment</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -981,9 +941,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E9%85%8D%E7%BD%AE" class="article__tag">配置</a>
+                          <a href="/tags/configuration" class="article__tag">configuration</a>
                         
-                          <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83" class="article__tag">配置中心</a>
+                          <a href="/tags/configuration-center" class="article__tag">configuration center</a>
                         
                           <a href="/tags/apollo" class="article__tag">Apollo</a>
                         
@@ -1013,7 +973,7 @@
 
                 
                 <a class="article__image" href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E5%85%AD-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%8A%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E8%AE%A1/">
-                  <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（六）服务端及客户端设计">
+                  <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 6) - Server and Client Design">
                 </a>
                 
 
@@ -1024,7 +984,7 @@
                       <!--  -->
                       
 
-阅读时间 10 分钟
+  25 min read
 
 
                       <time class="article__date"
@@ -1032,7 +992,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Apollo配置中心（六）服务端及客户端设计</h2>
+                  <h2 class="article__title">Apollo Configuration Center (Part 6) - Server and Client Design</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1052,9 +1012,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E9%85%8D%E7%BD%AE" class="article__tag">配置</a>
+                          <a href="/tags/configuration" class="article__tag">Configuration</a>
                         
-                          <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83" class="article__tag">配置中心</a>
+                          <a href="/tags/configuration-center" class="article__tag">Configuration Center</a>
                         
                           <a href="/tags/apollo" class="article__tag">Apollo</a>
                         
@@ -1084,7 +1044,7 @@
 
                 
                 <a class="article__image" href="/apollo/2023/11/24/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%BA%94-%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/">
-                  <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（五）灰度发布">
+                  <img class="lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 5) - Gray Release">
                 </a>
                 
 
@@ -1095,7 +1055,7 @@
                       <!--  -->
                       
 
-阅读时间 2 分钟
+  5 min read
 
 
                       <time class="article__date"
@@ -1103,7 +1063,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Apollo配置中心（五）灰度发布</h2>
+                  <h2 class="article__title">Apollo Configuration Center (Part 5) - Gray Release</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1123,9 +1083,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E9%85%8D%E7%BD%AE" class="article__tag">配置</a>
+                          <a href="/tags/configuration" class="article__tag">configuration</a>
                         
-                          <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83" class="article__tag">配置中心</a>
+                          <a href="/tags/configuration-center" class="article__tag">configuration center</a>
                         
                           <a href="/tags/apollo" class="article__tag">Apollo</a>
                         
@@ -1169,27 +1129,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1203,21 +1163,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1237,7 +1197,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1260,43 +1220,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1311,9 +1273,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1390,7 +1352,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

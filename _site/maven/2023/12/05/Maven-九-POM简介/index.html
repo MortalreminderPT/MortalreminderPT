@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maven（九）POM简介</title>
+  <title>Maven (Part 9) - Introduction to POM</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（九）POM简介">
+        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 9) - Introduction to POM">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（九）POM简介">
+        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 9) - Introduction to POM">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              6 min read
+              11 min read
             
             <time class="post__date"
               datetime="2023-12-05T12:36:12+11:00">Dec 5, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Maven（九）POM简介</h2>
+        <h2 class="post__title">Maven (Part 9) - Introduction to POM</h2>
 
         <div class="post__bottom">
 
@@ -678,79 +638,78 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#什么是-pom" id="markdown-toc-什么是-pom">什么是 POM</a></li>
+  <li><a href="#what-is-pom" id="markdown-toc-what-is-pom">What is POM</a></li>
   <li><a href="#super-pom" id="markdown-toc-super-pom">Super POM</a></li>
   <li><a href="#minimal-pom" id="markdown-toc-minimal-pom">Minimal POM</a></li>
-  <li><a href="#项目继承" id="markdown-toc-项目继承">项目继承</a>    <ol>
-      <li><a href="#示例-1" id="markdown-toc-示例-1">示例 1</a>        <ol>
-          <li><a href="#场景" id="markdown-toc-场景">场景</a></li>
-          <li><a href="#解决方案" id="markdown-toc-解决方案">解决方案</a></li>
+  <li><a href="#project-inheritance" id="markdown-toc-project-inheritance">Project Inheritance</a>    <ol>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example 1</a>        <ol>
+          <li><a href="#scenario" id="markdown-toc-scenario">Scenario</a></li>
+          <li><a href="#solution" id="markdown-toc-solution">Solution</a></li>
         </ol>
       </li>
-      <li><a href="#示例--2" id="markdown-toc-示例--2">示例  2</a>        <ol>
-          <li><a href="#场景-1" id="markdown-toc-场景-1">场景</a></li>
-          <li><a href="#解决方案-1" id="markdown-toc-解决方案-1">解决方案</a></li>
-        </ol>
-      </li>
-    </ol>
-  </li>
-  <li><a href="#项目聚合" id="markdown-toc-项目聚合">项目聚合</a>    <ol>
-      <li><a href="#示例-3" id="markdown-toc-示例-3">示例 3</a>        <ol>
-          <li><a href="#场景-2" id="markdown-toc-场景-2">场景</a></li>
-          <li><a href="#解决方案-2" id="markdown-toc-解决方案-2">解决方案</a></li>
-        </ol>
-      </li>
-      <li><a href="#示例-4" id="markdown-toc-示例-4">示例 4</a>        <ol>
-          <li><a href="#场景-3" id="markdown-toc-场景-3">场景</a></li>
-          <li><a href="#解决方案-3" id="markdown-toc-解决方案-3">解决方案</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example 2</a>        <ol>
+          <li><a href="#scenario-1" id="markdown-toc-scenario-1">Scenario</a></li>
+          <li><a href="#solution-1" id="markdown-toc-solution-1">Solution</a></li>
         </ol>
       </li>
     </ol>
   </li>
-  <li><a href="#继承与聚合的对比" id="markdown-toc-继承与聚合的对比">继承与聚合的对比</a>    <ol>
-      <li><a href="#示例-5" id="markdown-toc-示例-5">示例 5</a>        <ol>
-          <li><a href="#场景-4" id="markdown-toc-场景-4">场景</a></li>
-          <li><a href="#解决方案-4" id="markdown-toc-解决方案-4">解决方案</a></li>
+  <li><a href="#project-aggregation" id="markdown-toc-project-aggregation">Project Aggregation</a>    <ol>
+      <li><a href="#example-3" id="markdown-toc-example-3">Example 3</a>        <ol>
+          <li><a href="#scenario-2" id="markdown-toc-scenario-2">Scenario</a></li>
+          <li><a href="#solution-2" id="markdown-toc-solution-2">Solution</a></li>
+        </ol>
+      </li>
+      <li><a href="#example-4" id="markdown-toc-example-4">Example 4</a>        <ol>
+          <li><a href="#scenario-3" id="markdown-toc-scenario-3">Scenario</a></li>
+          <li><a href="#solution-3" id="markdown-toc-solution-3">Solution</a></li>
         </ol>
       </li>
     </ol>
   </li>
-  <li><a href="#项目插值与变量" id="markdown-toc-项目插值与变量">项目插值与变量</a>    <ol>
-      <li><a href="#可以使用的变量" id="markdown-toc-可以使用的变量">可以使用的变量</a>        <ol>
-          <li><a href="#项目模型变量" id="markdown-toc-项目模型变量">项目模型变量</a></li>
-          <li><a href="#特殊变量" id="markdown-toc-特殊变量">特殊变量</a></li>
-          <li><a href="#属性properties" id="markdown-toc-属性properties">属性（Properties）</a></li>
+  <li><a href="#comparison-between-inheritance-and-aggregation" id="markdown-toc-comparison-between-inheritance-and-aggregation">Comparison between Inheritance and Aggregation</a>    <ol>
+      <li><a href="#example-5" id="markdown-toc-example-5">Example 5</a>        <ol>
+          <li><a href="#scenario-4" id="markdown-toc-scenario-4">Scenario</a></li>
+          <li><a href="#solution-4" id="markdown-toc-solution-4">Solution</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#project-interpolation-and-variables" id="markdown-toc-project-interpolation-and-variables">Project Interpolation and Variables</a>    <ol>
+      <li><a href="#available-variables" id="markdown-toc-available-variables">Available Variables</a>        <ol>
+          <li><a href="#project-model-variables" id="markdown-toc-project-model-variables">Project Model Variables</a></li>
+          <li><a href="#special-variables" id="markdown-toc-special-variables">Special Variables</a></li>
         </ol>
       </li>
     </ol>
   </li>
 </ol>
 
-<h2 id="什么是-pom">什么是 POM</h2>
+<h2 id="what-is-pom">What is POM</h2>
 
-<p>项目对象模型或 POM 是 Maven 的基本工作单元。它是一个 XML 文件，包含项目信息和 Maven 用于构建项目的配置详细信息。它包含大多数项目的默认值。例如，构建目录是 <code class="language-plaintext highlighter-rouge">target</code>；源代码目录是 <code class="language-plaintext highlighter-rouge">src/main/java</code>；测试源代码目录是 <code class="language-plaintext highlighter-rouge">src/test/java</code>，等等。执行任务或目标时，Maven 会查找当前目录下的 POM。它读取 POM，获取所需的配置信息，然后执行目标。</p>
+<p>The Project Object Model, or POM, serves as the cornerstone of Maven. It’s an XML file containing project information and detailed configurations for Maven to build the project. It encapsulates default values for most project parameters. For instance, the build directory defaults to <code class="language-plaintext highlighter-rouge">target</code>, source code resides in <code class="language-plaintext highlighter-rouge">src/main/java</code>, test source code in <code class="language-plaintext highlighter-rouge">src/test/java</code>, and so forth. When tasks or goals are executed, Maven looks for the POM in the current directory. It reads the POM, extracts the required configuration, and proceeds with the goals.</p>
 
-<p>POM 中可指定的部分配置包括<strong>项目依赖关系、可执行的插件或目标、构建配置文件</strong>等。还可以指定项目版本、描述、开发人员、邮件列表等其他信息。</p>
+<p>Configurations that can be specified within the POM include <strong>project dependencies, executable plugins or goals, build profiles</strong>, and more. Additionally, project version, description, developers, mailing lists, among other details, can be specified.</p>
 
 <h2 id="super-pom">Super POM</h2>
 
-<p>Super POM 是 Maven 的默认 POM。除非明确设置，否则所有 POM 都会扩展Super POM，这意味着您为项目创建的 POM 都会继承Super POM 中指定的配置。</p>
+<p>The Super POM represents Maven’s default POM. Unless explicitly overridden, all POMs extend the Super POM, implying that any POM you create for your project inherits configurations specified in the Super POM.</p>
 
-<p>您可以在 <a href="https://maven.apache.org/ref/3.6.3/maven-model-builder/super-pom.html">Maven Core 参考文档</a>中查看 Maven 3.6.3 的Super POM。</p>
+<p>You can explore the Super POM for Maven 3.6.3 in the <a href="https://maven.apache.org/ref/3.6.3/maven-model-builder/super-pom.html">Maven Core Reference Documentation</a>.</p>
 
 <h2 id="minimal-pom">Minimal POM</h2>
 
-<p>对 POM 的最低要求，即 POM 的最简结构如下：</p>
+<p>The Minimal POM represents the bare minimum requirements for a POM. Its simplest structure includes:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">project</code> - 项目根目录</li>
-  <li><code class="language-plaintext highlighter-rouge">modelVersion</code> - 应设置为 4.0.0</li>
-  <li><code class="language-plaintext highlighter-rouge">groupId</code> - 项目组的 ID。</li>
-  <li><code class="language-plaintext highlighter-rouge">artifactId</code> - 工件（项目）的 ID</li>
-  <li><code class="language-plaintext highlighter-rouge">version</code> - 项目组下的项目版本</li>
+  <li><code class="language-plaintext highlighter-rouge">project</code> - the project root</li>
+  <li><code class="language-plaintext highlighter-rouge">modelVersion</code> - should be set to 4.0.0</li>
+  <li><code class="language-plaintext highlighter-rouge">groupId</code> - the ID of the project group</li>
+  <li><code class="language-plaintext highlighter-rouge">artifactId</code> - the ID of the artifact (project)</li>
+  <li><code class="language-plaintext highlighter-rouge">version</code> - the version of the project within the group</li>
 </ul>
 
-<p><code class="language-plaintext highlighter-rouge">pom.xml</code> 如下：</p>
+<p>The <code class="language-plaintext highlighter-rouge">pom.xml</code> looks like this:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -760,15 +719,15 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>POM 要求配置其 <code class="language-plaintext highlighter-rouge">groupId</code>、<code class="language-plaintext highlighter-rouge">artifactId</code> 和 <code class="language-plaintext highlighter-rouge">version</code>。这三个值构成了项目的完全限定工件名称。其形式为 <code class="language-plaintext highlighter-rouge">&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;</code>。在上面的例子中，项目的完全限定工件名是 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>。</p>
+<p>The POM mandates the configuration of <code class="language-plaintext highlighter-rouge">groupId</code>, <code class="language-plaintext highlighter-rouge">artifactId</code>, and <code class="language-plaintext highlighter-rouge">version</code>. These three values form the fully qualified artifact name of the project, structured as <code class="language-plaintext highlighter-rouge">&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;</code>. In the example above, the fully qualified artifact name is <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>.</p>
 
-<p>如前文所述，如果没有指定配置细节，Maven 将使用默认值。其中一个默认值就是打包类型。每个 Maven 项目都有一个打包类型。如果未在 POM 中指定，则会使用默认值 <code class="language-plaintext highlighter-rouge">jar</code>。</p>
+<p>As mentioned earlier, Maven utilizes default values when specific configurations are not provided. One such default is the packaging type. Each Maven project has a packaging type, defaulting to <code class="language-plaintext highlighter-rouge">jar</code> if not specified in the POM.</p>
 
-<p>而且，可以看到在最小 POM 中没有指定 repositories。如果使用最小 POM 构建项目，它将继承Super POM 中的资源库配置。因此，当 Maven 在最小 POM 中看到依赖项时，它就会知道这些依赖项将从Super POM 中指定的 https://repo.maven.apache.org/maven2 下载。</p>
+<p>Notably, the Minimal POM does not specify repositories. If building a project with the Minimal POM, it inherits repository configurations from the Super POM. Thus, when Maven encounters dependencies in the Minimal POM, it knows to download them from the repository specified in the Super POM, typically <code class="language-plaintext highlighter-rouge">https://repo.maven.apache.org/maven2</code>.</p>
 
-<h2 id="项目继承">项目继承</h2>
+<h2 id="project-inheritance">Project Inheritance</h2>
 
-<p>可以被继承的 POM 元素包括：</p>
+<p>POM elements that can be inherited include:</p>
 
 <ul>
   <li>dependencies</li>
@@ -779,13 +738,13 @@
   <li>resources</li>
 </ul>
 
-<p>Super POM 是项目继承的一个示例，但您也可以通过在 POM 中指定父元素来引入自己的父 POM，如以下示例所示。</p>
+<p>While the Super POM serves as an example of project inheritance, you can introduce your own parent POM by specifying the parent element within your POM, as illustrated in the following examples.</p>
 
-<h3 id="示例-1">示例 1</h3>
+<h3 id="example-1">Example 1</h3>
 
-<h4 id="场景">场景</h4>
+<h4 id="scenario">Scenario</h4>
 
-<p>举例来说，让我们重复使用之前的工件 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>，并引入另一个工件 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code>。</p>
+<p>Consider reusing the previous artifact <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> and introducing another artifact <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code>.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -796,7 +755,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>让我们把它们的目录结构指定如下：</p>
+<p>Let’s specify their directory structure as follows:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
  |-- my-module
@@ -804,13 +763,13 @@
  <span class="sb">`</span><span class="nt">--</span> pom.xml
 </code></pre></div></div>
 
-<p>注意：<code class="language-plaintext highlighter-rouge">my-module/pom.xml</code> 是 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code> 的 POM，而 <code class="language-plaintext highlighter-rouge">pom.xml</code> 是 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> 的 POM。</p>
+<p>Note: <code class="language-plaintext highlighter-rouge">my-module/pom.xml</code> is the POM for <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code>, while <code class="language-plaintext highlighter-rouge">pom.xml</code> is the POM for <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>.</p>
 
-<h4 id="解决方案">解决方案</h4>
+<h4 id="solution">Solution</h4>
 
-<p>现在，如果我们要将 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> 变成 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code> 的父工件，就必须将 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code> 的 POM 修改为以下配置：</p>
+<p>Now, to make <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> the parent artifact for <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code>, we need to modify the POM for <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code> as follows:</p>
 
-<p><strong>com.mycompany.app:my-module:1’s POM</strong></p>
+<p><strong>POM for com.mycompany.app:my-module:1</strong></p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -827,9 +786,9 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>请注意，我们现在增加了一个部分，即父级（<code class="language-plaintext highlighter-rouge">&lt;parent&gt;</code>）部分。该部分允许我们指定哪个工件是 POM 的父工件。为此，我们需要指定父 POM 的完全合格的构件名称。有了这些设置，我们的模块就可以继承父 POM 的某些属性了。</p>
+<p>Note that we’ve added a new section, namely the parent section. This section allows us to specify which artifact serves as the parent for the POM. To do so, we need to specify the fully qualified artifact name of the parent POM. With these settings, our module can inherit certain properties from the parent POM.</p>
 
-<p>另外，如果希望模块的 groupId 或版本与父模块相同，也可以删除模块 POM 中的 groupId 或 version 标识：</p>
+<p>Additionally, if you wish the module’s groupId or version to match the parent module, you can omit the groupId or version tags in the module’s POM:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -844,15 +803,15 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>这允许模块继承其父 POM 的 groupId 和 version。</p>
+<p>This allows the module to inherit the groupId and version from its parent POM.</p>
 
-<h3 id="示例--2">示例  2</h3>
+<h3 id="example-2">Example 2</h3>
 
-<h4 id="场景-1">场景</h4>
+<h4 id="scenario-1">Scenario</h4>
 
-<p>然而，只有父项目已经安装在本地版本库中，或者在特定的目录结构中（即父 pom.xml 比模块的 pom.xml 高一个目录），这样做是可行的。</p>
+<p>However, this approach is feasible only if the parent project is already installed in the local repository or structured in a specific directory hierarchy (i.e., the parent pom.xml is one level above the module’s pom.xml).</p>
 
-<p>但如果父项目尚未安装，而且目录结构如下例所示呢？</p>
+<p>But what if the parent project is not yet installed and the directory structure is as follows?</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
  |-- my-module
@@ -861,9 +820,9 @@
      <span class="sb">`</span><span class="nt">--</span> pom.xml
 </code></pre></div></div>
 
-<h4 id="解决方案-1">解决方案</h4>
+<h4 id="solution-1">Solution</h4>
 
-<p>要处理这种目录结构（或任何其他目录结构），我们必须在父节中添加 <code class="language-plaintext highlighter-rouge">&lt;relativePath&gt;</code> 元素。</p>
+<p>To handle such directory structures (or any other structure), we must add a <code class="language-plaintext highlighter-rouge">&lt;relativePath&gt;</code> element in the parent section.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -879,24 +838,26 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>顾名思义，它是从模块的 <code class="language-plaintext highlighter-rouge">pom.xml</code> 到父级的 <code class="language-plaintext highlighter-rouge">pom.xml</code> 的相对路径。</p>
+<p>As the name suggests, it’s the relative path from the module’s `pom</p>
 
-<h2 id="项目聚合">项目聚合</h2>
+<p>.xml<code class="language-plaintext highlighter-rouge"> to the parent's </code>pom.xml`.</p>
 
-<p>项目聚合（Project Aggregation）与项目继承（Project Inheritance）类似。但它<strong>不是从模块指定父 POM，而是从父 POM 指定模块。</strong>这样，父项目就知道了它的模块，如果针对父项目调用 Maven 命令，该 Maven 命令也会执行到父项目的模块。要进行项目聚合，必须执行以下操作：</p>
+<h2 id="project-aggregation">Project Aggregation</h2>
+
+<p>Project aggregation, similar to project inheritance, involves specifying modules from the parent POM rather than specifying a parent POM from the module. Thus, the parent project knows about its modules, and Maven commands executed for the parent project also apply to its modules. To aggregate projects, you need to:</p>
 
 <ul>
-  <li>将父 POM 中 <code class="language-plaintext highlighter-rouge">&lt;packaging&gt;</code> 的值改为 <code class="language-plaintext highlighter-rouge">pom</code> ；</li>
-  <li>在父 POM 中指定其模块（子 POM）的目录。</li>
+  <li>Change the <code class="language-plaintext highlighter-rouge">&lt;packaging&gt;</code> value in the parent POM to <code class="language-plaintext highlighter-rouge">pom</code>.</li>
+  <li>Specify the directories of its modules in the parent POM.</li>
 </ul>
 
-<h3 id="示例-3">示例 3</h3>
+<h3 id="example-3">Example 3</h3>
 
-<h4 id="场景-2">场景</h4>
+<h4 id="scenario-2">Scenario</h4>
 
-<p>原来的 POM 和文件目录结构如下：</p>
+<p>The original POM and directory structure are as follows:</p>
 
-<p><strong>com.mycompany.app:my-app:1’s POM</strong></p>
+<p><strong>POM for com.mycompany.app:my-app:1</strong></p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -907,7 +868,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p><strong>com.mycompany.app:my-module:1’s POM</strong></p>
+<p><strong>POM for com.mycompany.app:my-module:1</strong></p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -918,7 +879,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p><strong>directory structure</strong></p>
+<p><strong>Directory Structure</strong></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
  |-- my-module
@@ -926,9 +887,9 @@
  <span class="sb">`</span><span class="nt">--</span> pom.xml
 </code></pre></div></div>
 
-<h4 id="解决方案-2">解决方案</h4>
+<h4 id="solution-2">Solution</h4>
 
-<p>如果要将 my-module 整合到 my-app 中，我们只需修改 my-app：</p>
+<p>To aggregate <code class="language-plaintext highlighter-rouge">my-module</code> into <code class="language-plaintext highlighter-rouge">my-app</code>, we simply modify <code class="language-plaintext highlighter-rouge">my-app</code>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -944,15 +905,15 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>在修改后的 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> 中，添加了 <code class="language-plaintext highlighter-rouge">packaging</code> 部分和 <code class="language-plaintext highlighter-rouge">modules</code> 部分。<code class="language-plaintext highlighter-rouge">packaging</code> 部分的值设置为 <code class="language-plaintext highlighter-rouge">pom</code>， <code class="language-plaintext highlighter-rouge">modules</code> 部分的值设置为 <code class="language-plaintext highlighter-rouge">&lt;module&gt;my-module&lt;/module&gt;</code> 元素。<code class="language-plaintext highlighter-rouge">&lt;module&gt;</code> 的值是从 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> 到 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code> 的 POM 的相对路径（根据惯例，我们使用模块的 artifactId 作为模块目录的名称）。</p>
+<p>In the modified <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>, we’ve added the <code class="language-plaintext highlighter-rouge">packaging</code> section and the <code class="language-plaintext highlighter-rouge">modules</code> section. The <code class="language-plaintext highlighter-rouge">packaging</code> is set to <code class="language-plaintext highlighter-rouge">pom</code>, and the <code class="language-plaintext highlighter-rouge">modules</code> section includes the element <code class="language-plaintext highlighter-rouge">&lt;module&gt;my-module&lt;/module&gt;</code>. The value of <code class="language-plaintext highlighter-rouge">&lt;module&gt;</code> is the relative path from <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code> to <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code>’s POM (following convention, we use the artifactId of the module as the directory name).</p>
 
-<p>现在，只要 Maven 命令处理 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>，同样的 Maven 命令也会针对 <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code> 运行。此外，某些命令（特别是目标 <code class="language-plaintext highlighter-rouge">goals</code>）处理项目聚合的方式不同。</p>
+<p>Now, whenever Maven commands are executed for <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-app:1</code>, they’ll also be applied to <code class="language-plaintext highlighter-rouge">com.mycompany.app:my-module:1</code>. Additionally, certain commands (especially goals) handle project aggregation differently.</p>
 
-<h3 id="示例-4">示例 4</h3>
+<h3 id="example-4">Example 4</h3>
 
-<h4 id="场景-3">场景</h4>
+<h4 id="scenario-3">Scenario</h4>
 
-<p>但是，如果我们将目录结构更改为下面这样呢？</p>
+<p>But what if we change the directory structure to the following?</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
  |-- my-module
@@ -961,11 +922,11 @@
      <span class="sb">`</span><span class="nt">--</span> pom.xml
 </code></pre></div></div>
 
-<p>父 POM 如何指定模块？</p>
+<p>How does the parent POM specify the module?</p>
 
-<h4 id="解决方案-3">解决方案</h4>
+<h4 id="solution-3">Solution</h4>
 
-<p>答案与示例 3 相同，指定模块的路径：</p>
+<p>The solution is similar to Example 3, specifying the module’s path:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -981,23 +942,23 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<h2 id="继承与聚合的对比">继承与聚合的对比</h2>
+<h2 id="comparison-between-inheritance-and-aggregation">Comparison between Inheritance and Aggregation</h2>
 
-<p>继承：如果您有多个 Maven 项目，而且它们都有类似的配置，您可以通过提取这些类似配置并创建一个父项目来重构您的项目。这样，您<strong>只需让您的 Maven 项目继承该父项目，这些配置就会应用到所有项目中。</strong></p>
+<p>Inheritance: If you have multiple Maven projects with similar configurations, you can refactor your projects by extracting these common configurations and creating a parent project. Then, by making your Maven projects inherit from this parent project, these configurations will be applied across all projects.</p>
 
-<p>聚合：如果您有一组项目是一起构建或处理的，您可以创建一个父项目，并让该父项目将这些项目声明为其模块。这样，你<strong>只需构建父项目，其他项目就会跟进。</strong></p>
+<p>Aggregation: If you have a set of projects that are built or handled together, you can create a parent project and declare these projects as its modules. Consequently, by building the parent project, the other projects will follow suit.</p>
 
-<p>同时使用继承和聚合：当然，您也可以同时使用项目继承和项目聚合。也就是说，你可以让你的模块指定一个父项目，同时让这个父项目指定那些 Maven 项目作为它的模块。您只需应用这三条规则即可：</p>
+<p>Using Inheritance and Aggregation together: Of course, you can also use project inheritance and project aggregation simultaneously. In other words, you can specify a parent project for your modules while also specifying those Maven projects as modules for the parent project. You just need to apply these three rules:</p>
 
 <ul>
-  <li>在每个子 POM 中指定其父 POM；</li>
-  <li>将父 POM <code class="language-plaintext highlighter-rouge">&lt;packageing&gt;</code>的值改为 <code class="language-plaintext highlighter-rouge">pom</code>；</li>
-  <li>在父 POM 中指定其模块（子 POM）的目录</li>
+  <li>Specify the parent POM in each child POM.</li>
+  <li>Change the <code class="language-plaintext highlighter-rouge">&lt;packaging&gt;</code> value of the parent POM to <code class="language-plaintext highlighter-rouge">pom</code>.</li>
+  <li>Specify the directories of its modules in the parent POM.</li>
 </ul>
 
-<h3 id="示例-5">示例 5</h3>
+<h3 id="example-5">Example 5</h3>
 
-<h4 id="场景-4">场景</h4>
+<h4 id="scenario-4">Scenario</h4>
 
 <p><strong>com.mycompany.app:my-app:1’s POM</strong></p>
 
@@ -1021,7 +982,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>目录结构</p>
+<p>Directory Structure</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
  |-- my-module
@@ -1030,9 +991,9 @@
      <span class="sb">`</span><span class="nt">--</span> pom.xml
 </code></pre></div></div>
 
-<h4 id="解决方案-4">解决方案</h4>
+<h4 id="solution-4">Solution</h4>
 
-<p>应用三条规则示例如下：</p>
+<p>Applying the three rules, the solution is as follows:</p>
 
 <p><strong>com.mycompany.app:my-app:1’s POM</strong></p>
 
@@ -1043,12 +1004,12 @@
   <span class="nt">&lt;artifactId&gt;</span>my-app<span class="nt">&lt;/artifactId&gt;</span>
   <span class="nt">&lt;version&gt;</span>1<span class="nt">&lt;/version&gt;</span>
   <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span> 
-  <span class="c">&lt;!-- 修改packaging值为pom --&gt;</span>
+  <span class="c">&lt;!-- Change the packaging value to pom --&gt;</span>
  
   <span class="nt">&lt;modules&gt;</span>
     <span class="nt">&lt;module&gt;</span>../my-module<span class="nt">&lt;/module&gt;</span>
   <span class="nt">&lt;/modules&gt;</span>
-  <span class="c">&lt;!-- 声明被聚合的模块路径 --&gt;</span>
+  <span class="c">&lt;!-- Declare the path of the module being aggregated --&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
@@ -1063,54 +1024,54 @@
     <span class="nt">&lt;version&gt;</span>1<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;relativePath&gt;</span>../parent/pom.xml<span class="nt">&lt;/relativePath&gt;</span>
   <span class="nt">&lt;/parent&gt;</span>
-  <span class="c">&lt;!-- 声明继承的父项目，如果父项目没有安装，声明其相对路径 --&gt;</span>
+  <span class="c">&lt;!-- Declare the parent project being inherited, and if the parent project is not installed, declare its relative path --&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>my-module<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>注意：配置文件继承与 POM 本身使用的继承策略相同。</p>
+<p>Note: Property inheritance follows the same strategy as inheritance used by the POM itself.</p>
 
-<h2 id="项目插值与变量">项目插值与变量</h2>
+<h2 id="project-interpolation-and-variables">Project Interpolation and Variables</h2>
 
-<p>Maven 鼓励的做法之一就是不要重复。不过，在某些情况下，您需要在多个不同位置使用相同的值。为了确保只指定一次值，Maven 允许您在 POM 中使用自己的变量和预定义变量。</p>
+<p>One of the practices Maven encourages is to avoid repetition. However, in certain cases, you may need to use the same value in multiple locations. To ensure that a value is specified only once, Maven allows you to use your own variables and predefined variables within the POM.</p>
 
-<p>例如，要访问 project.version 变量，可以这样引用它：</p>
+<p>For example, to access the project.version variable, you can reference it like this:</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>
 </code></pre></div></div>
 
-<p>需要注意的一个因素是，如上所述，这些变量是在继承后处理的。这意味着，<strong>如果父项目定义了某个变量且子项目覆盖了这个变量，那么子项目最终使用的是子项目自身而非父项目的变量定义。</strong></p>
+<p>One factor to note is that, as mentioned above, these variables are processed after inheritance. This means that if a variable is defined in the parent project and overridden in the child project, the child project will ultimately use its own definition rather than the parent project’s definition.</p>
 
-<h3 id="可以使用的变量">可以使用的变量</h3>
+<h3 id="available-variables">Available Variables</h3>
 
-<h4 id="项目模型变量">项目模型变量</h4>
+<h4 id="project-model-variables">Project Model Variables</h4>
 
-<p>模块中任何单值元素字段都可以作为变量引用。例如，<code class="language-plaintext highlighter-rouge">${project.groupId}</code>、<code class="language-plaintext highlighter-rouge">${project.version}</code>、<code class="language-plaintext highlighter-rouge">${project.build.sourceDirectory}</code> 等。请参阅 POM 参考资料，查看完整的属性列表。</p>
+<p>Any single value element field in the POM can be referenced as a variable. For example, <code class="language-plaintext highlighter-rouge">${project.groupId}</code>, <code class="language-plaintext highlighter-rouge">${project.version}</code>, <code class="language-plaintext highlighter-rouge">${project.build.sourceDirectory}</code>, and so on. Refer to the POM reference documentation for a complete list of properties.</p>
 
-<p>这些变量均以前缀 <code class="language-plaintext highlighter-rouge">project.</code> 引用。您也可能会看到以 <code class="language-plaintext highlighter-rouge">pom.</code> 作为前缀的引用，或完全省略前缀的引用，这些形式现已过时，不应再使用。</p>
+<p>These variables are referenced with the prefix <code class="language-plaintext highlighter-rouge">project.</code>. You may also encounter references with the prefix <code class="language-plaintext highlighter-rouge">pom.</code> or without any prefix; these forms are deprecated and should no longer be used.</p>
 
-<h4 id="特殊变量">特殊变量</h4>
+<h4 id="special-variables">Special Variables</h4>
 
 <table>
   <thead>
     <tr>
       <th><code class="language-plaintext highlighter-rouge">project.basedir</code></th>
-      <th>当前项目所在的目录。</th>
+      <th>The directory where the current project resides.</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">project.baseUri</code></td>
-      <td>当前项目所在的目录，用 URI 表示。自 <strong>Maven 2.1.0</strong> 起</td>
+      <td>The directory where the current project resides, represented as a URI. Since <strong>Maven 2.1.0</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">maven.build.timestamp</code></td>
-      <td>表示构建开始的时间戳（UTC）。自 <strong>Maven 2.1.0-M1</strong> 起</td>
+      <td>Represents the timestamp when the build started (in UTC). Since <strong>Maven 2.1.0-M1</strong></td>
     </tr>
   </tbody>
 </table>
 
-<p>可以通过声明 <code class="language-plaintext highlighter-rouge">maven.build.timestamp.format</code> 属性来定制构建时间戳的格式：</p>
+<p>You can customize the format of the build timestamp by declaring the <code class="language-plaintext highlighter-rouge">maven.build.timestamp.format</code> property:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -1121,34 +1082,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>格式模式必须符合 <a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat 的 API 文档</a>中给出的规则。如果不存在该属性，格式默认为示例中已给出的值。</p>
-
-<h4 id="属性properties">属性（Properties）</h4>
-
-<p>您还可以将项目中定义的任何属性作为变量引用。请看下面的示例：</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
-  ...
-  <span class="nt">&lt;properties&gt;</span>
-    <span class="nt">&lt;mavenVersion&gt;</span>3.0<span class="nt">&lt;/mavenVersion&gt;</span>
-  <span class="nt">&lt;/properties&gt;</span>
- 
-  <span class="nt">&lt;dependencies&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>org.apache.maven<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>maven-artifact<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;version&gt;</span>${mavenVersion}<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>org.apache.maven<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>maven-core<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;version&gt;</span>${mavenVersion}<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-  <span class="nt">&lt;/dependencies&gt;</span>
-  ...
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></div></div>
-
+<p>The format pattern must comply with the rules outlined in the <a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat API documentation</a>. If this property is not present, the format defaults to the value given in the example.</p>
 
     </div>
 
@@ -1156,9 +1090,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%EF%BC%88%E4%B9%9D%EF%BC%89POM%E7%AE%80%E4%BB%8B&url=http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%20(Part%209)%20-%20Introduction%20to%20POM&url=http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%EF%BC%88%E4%B9%9D%EF%BC%89POM%E7%AE%80%E4%BB%8B" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%20(Part%209)%20-%20Introduction%20to%20POM" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -1171,19 +1105,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/04/Maven-%E5%85%AB-%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（八）构建生命周期">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 8) - Build Lifecycle">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（八）构建生命周期</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (Part 8) - Build Lifecycle</h4>
         </div>
       </a>
       
       
       <a class="next" href="/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十）配置文件（Profiles）简介">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 10) - Introduction to Configuration Files (Profiles)">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Maven（十）配置文件（Profiles）简介</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Maven (Part 10) - Introduction to Configuration Files (Profiles)</h4>
         </div>
       </a>
       
@@ -1204,7 +1138,7 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -1227,7 +1161,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
                 </a>
                 
 
@@ -1238,7 +1172,7 @@
                       <!--  -->
                       
 
-阅读时间 19 分钟
+  39 min read
 
 
                       <time class="article__date"
@@ -1246,7 +1180,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h2>
+                  <h2 class="article__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1294,7 +1228,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
                 </a>
                 
 
@@ -1305,7 +1239,7 @@
                       <!--  -->
                       
 
-阅读时间 48 分钟
+  90 min read
 
 
                       <time class="article__date"
@@ -1313,7 +1247,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十二）依赖机制简介</h2>
+                  <h2 class="article__title">Maven (Part 12) - Introduction to Dependency Mechanism</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1361,7 +1295,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
                 </a>
                 
 
@@ -1372,7 +1306,7 @@
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  14 min read
 
 
                       <time class="article__date"
@@ -1380,7 +1314,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十一）标准文件目录</h2>
+                  <h2 class="article__title">Maven (11) - Standard Directory Structure</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1442,27 +1376,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1476,21 +1410,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1510,7 +1444,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1533,43 +1467,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1584,9 +1520,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1663,7 +1599,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

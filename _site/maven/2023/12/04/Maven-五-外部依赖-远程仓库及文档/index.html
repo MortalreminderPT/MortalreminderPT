@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maven（五）外部依赖、远程仓库及文档</title>
+  <title>Maven (Part 5) - External Dependencies, Remote Repositories, and Documentation</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（五）外部依赖、远程仓库及文档">
+        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 5) - External Dependencies, Remote Repositories, and Documentation">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（五）外部依赖、远程仓库及文档">
+        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 5) - External Dependencies, Remote Repositories, and Documentation">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              3 min read
+              6 min read
             
             <time class="post__date"
               datetime="2023-12-04T13:23:42+11:00">Dec 4, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Maven（五）外部依赖、远程仓库及文档</h2>
+        <h2 class="post__title">Maven (Part 5) - External Dependencies, Remote Repositories, and Documentation</h2>
 
         <div class="post__bottom">
 
@@ -678,16 +638,16 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#引入外部依赖项" id="markdown-toc-引入外部依赖项">引入外部依赖项</a></li>
-  <li><a href="#部署到远程存储库" id="markdown-toc-部署到远程存储库">部署到远程存储库</a></li>
-  <li><a href="#创建文档" id="markdown-toc-创建文档">创建文档</a></li>
+  <li><a href="#introducing-external-dependencies" id="markdown-toc-introducing-external-dependencies">Introducing External Dependencies</a></li>
+  <li><a href="#deploying-to-a-remote-repository" id="markdown-toc-deploying-to-a-remote-repository">Deploying to a Remote Repository</a></li>
+  <li><a href="#creating-documentation" id="markdown-toc-creating-documentation">Creating Documentation</a></li>
 </ol>
 
-<h2 id="引入外部依赖项">引入外部依赖项</h2>
+<h2 id="introducing-external-dependencies">Introducing External Dependencies</h2>
 
-<p>您可能已经注意到了我们用作示例的 POM 中的 <code class="language-plaintext highlighter-rouge">dependencies</code> 元素。事实上，您一直都在使用外部依赖关系，但在这里我们将更详细地介绍其工作原理。如需更全面的介绍，请参阅我们的<a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">依赖机制简介</a>。</p>
+<p>You may have noticed the <code class="language-plaintext highlighter-rouge">dependencies</code> element in the POM we’ve been using as an example. Indeed, you’ve been using external dependencies all along, but here we’ll delve deeper into how they work. For a more comprehensive introduction, refer to our <a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">Introduction to Dependency Mechanism</a>.</p>
 
-<p>pom.xml 的 “dependencies”（依赖项）部分列出了项目构建所需的所有外部依赖项（无论是在编译时、测试时、运行时还是其他时候）。现在，我们的项目只依赖 JUnit（为了清晰起见，我去掉了所有资源过滤的内容）：</p>
+<p>The “dependencies” section in the pom.xml lists all the external dependencies required for building the project (whether it’s during compile time, testing, runtime, or other phases). For now, our project only depends on JUnit (I’ve removed all resource filtering for clarity):</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
   <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -712,11 +672,9 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>对于每个外部依赖项，您至少需要定义 4 项内容：groupId、artifactId、version 和 scope。groupId、artifactId 和版本与构建该依赖关系的项目的 <code class="language-plaintext highlighter-rouge">pom.xml</code> 中给出的相同。scope 元素表示项目如何使用该依赖项，可以是<code class="language-plaintext highlighter-rouge">compile</code>、<code class="language-plaintext highlighter-rouge">test</code>和<code class="language-plaintext highlighter-rouge">runtime</code> 等值。有关为依赖关系指定内容的更多信息，请参阅<a href="https://maven.apache.org/ref/current/maven-model/maven.html">项目描述符参考</a>。</p>
+<p>For each external dependency, you need to define at least 4 elements: groupId, artifactId, version, and scope. groupId, artifactId, and version are the same as those given in the <code class="language-plaintext highlighter-rouge">pom.xml</code> of the project building the dependency. The scope element indicates how the project uses that dependency, with values like <code class="language-plaintext highlighter-rouge">compile</code>, <code class="language-plaintext highlighter-rouge">test</code>, and <code class="language-plaintext highlighter-rouge">runtime</code>. For more details on specifying contents for dependencies, refer to the <a href="https://maven.apache.org/ref/current/maven-model/maven.html">Project Descriptor Reference</a>.</p>
 
-<p>有关整个依赖机制的更多信息，请参阅<a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">依赖机制简介</a>。</p>
-
-<p>有了这些关于依赖项的信息，Maven 就能在构建项目时引用该依赖项。Maven 从何处引用依赖关系？Maven 会在本地版本库（默认位置为 <code class="language-plaintext highlighter-rouge">${user.home}/.m2/repository</code>）中查找所有依赖项。在上一节中，我们将项目中的构件（<code class="language-plaintext highlighter-rouge">my-app-1.0-SNAPSHOT.jar</code>）安装（install）到本地资源库中。安装完成后，其他项目只需在其 pom.xml 中添加依赖关系信息，即可将该 jar 作为依赖关系引用：</p>
+<p>With this information about dependencies, Maven can reference them during project builds. But where does Maven fetch dependencies from? Maven looks for all dependencies in the local repository (by default located at <code class="language-plaintext highlighter-rouge">${user.home}/.m2/repository</code>). In the previous section, we installed the project’s artifact (<code class="language-plaintext highlighter-rouge">my-app-1.0-SNAPSHOT.jar</code>) into the local repository. After installation, other projects only need to add dependency information in their pom.xml to reference that jar as a dependency:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
   <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -735,11 +693,11 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>那么在其他地方构建的依赖关系呢？它们如何进入我的本地版本库？只要项目引用了本地版本库中没有的依赖项，Maven 就会将该依赖项从远程版本库下载到本地版本库中。当您构建第一个项目时，您可能会注意到 Maven 下载了很多东西（这些下载是用于构建项目的各种插件的依赖项）。</p>
+<p>But what about dependencies built elsewhere? How do they get into my local repository? Whenever a project references a dependency that isn’t in the local repository, Maven will download that dependency from a remote repository to the local repository. When you build your first project, you might notice Maven downloading a lot of things (these downloads are dependencies for various plugins used in building the project).</p>
 
-<p><strong>默认情况下，Maven 使用的远程资源库位于 https://repo.maven.apache.org/maven2/。您也可以设置自己的远程资源库（也许是公司的中央资源库）</strong>，以替代或补充默认的远程资源库。有关版本库的更多信息，请参阅<a href="https://maven.apache.org/guides/introduction/introduction-to-repositories.html">版本库简介</a>。</p>
+<p><strong>By default, Maven uses a remote repository located at https://repo.maven.apache.org/maven2/. You can also configure your own remote repository (perhaps a central repository for your company) to supplement or replace the default remote repository</strong>. For more about repositories, see the <a href="https://maven.apache.org/guides/introduction/introduction-to-repositories.html">Introduction to Repositories</a>.</p>
 
-<p>让我们为项目添加另一个依赖关系。假设我们在代码中添加了一些日志记录，需要将 log4j 添加为依赖关系。首先，我们需要知道 log4j 的 groupId、artifactId 和 version。Maven Central 上的相应目录名为 <code class="language-plaintext highlighter-rouge">/maven2/log4j/log4j</code>。该目录中有一个名为 <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> 的文件。下面是 log4j 的 <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> 文件：</p>
+<p>Let’s add another dependency to the project. Suppose we added some logging to the code and need to add log4j as a dependency. First, we need to know the groupId, artifactId, and version of log4j. The corresponding directory on Maven Central is <code class="language-plaintext highlighter-rouge">/maven2/log4j/log4j</code>. In that directory, there’s a file named <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code>. Here’s the content of log4j’s <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> file:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;metadata&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
@@ -761,16 +719,18 @@
 <span class="nt">&lt;/metadata&gt;</span>
 </code></pre></div></div>
 
-<p>从该文件中，我们可以看到我们需要的 groupId 是“log4j”，artifactId 是“log4j”。我们可以看到许多不同的版本值可供选择。</p>
+<p>From this file, we can see the groupId we need is “log4j”, and the artifactId is “log4j”. We can see many different versions available.</p>
 
-<p>现在，我们将只使用最新版本 1.2.12（某些 <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> 文件还可能指定当前发布版本的版本：请参阅<a href="https://maven.apache.org/ref/current/maven-repository-metadata/repository-metadata.html">版本库元数据参考</a>）。</p>
+<p>Now, let’s use just the latest version 1.2.12 (some <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> files might also specify the version of the current release; see <a href="https://maven.apache.org/ref/current/maven-repository-metadata/repository-metadata.html">Repository Metadata Reference</a>).</p>
 
-<p>在 <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> 文件旁边，我们可以看到与每个版本的 log4j 库相对应的目录。在每个目录中，我们都能找到实际的 jar 文件（如 <code class="language-plaintext highlighter-rouge">log4j-1.2.12.jar</code>）以及一个 pom 文件（这是该依赖项的 <code class="language-plaintext highlighter-rouge">pom.xml</code>，说明了它可能有的其他依赖项和其他信息）和另一个 <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> 文件。每个文件还对应一个 md5 文件，其中包含这些文件的 MD5 哈希值。你可以用它来验证库，或者找出你可能正在使用的特定库的版本。</p>
+<p>Next to the <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> file, we see directories corresponding to each version of the log4j library. Inside each directory, we find the actual jar file (like <code class="language-plaintext highlighter-rouge">log4j-1.2.12.jar</code>) and a pom file (this is the <code class="language-plaintext highlighter-rouge">pom.xml</code> for that dependency, specifying any other dependencies it might have and other information) and another <code class="language-plaintext highlighter-rouge">maven-metadata.xml</code> file. Each file also has a corresponding md5 file containing the MD5 hash of these files. You can use it to verify the library or to find out the version of a particular library you might be using.</p>
 
-<p>现在我们知道了所需的信息，就可以将依赖关系添加到 pom.xml 中：</p>
+<p>Now that we have the necessary information, let’s add the dependency to pom.xml:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-  <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd
+
+/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
  
   <span class="nt">&lt;groupId&gt;</span>com.mycompany.app<span class="nt">&lt;/groupId&gt;</span>
@@ -798,15 +758,15 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>现在，当我们编译项目（<code class="language-plaintext highlighter-rouge">mvn compile</code>）时，我们会看到 Maven 为我们下载了 log4j 依赖项。</p>
+<p>Now, when we compile the project (<code class="language-plaintext highlighter-rouge">mvn compile</code>), we’ll see Maven downloading the log4j dependency for us.</p>
 
-<h2 id="部署到远程存储库">部署到远程存储库</h2>
+<h2 id="deploying-to-a-remote-repository">Deploying to a Remote Repository</h2>
 
-<p>要将 jars 部署到外部版本库，必须在 pom.xml 中配置版本库 url，并在 settings.xml 中配置连接到版本库的身份验证信息。</p>
+<p>To deploy jars to an external repository, you must configure the repository url in pom.xml and authentication information for connecting to the repository in settings.xml.</p>
 
-<p>下面是一个使用 scp 和用户名/密码验证的示例：</p>
+<p>Below is an example using scp and username/password authentication:</p>
 
-<p>POM.xml：</p>
+<p>POM.xml:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
   <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -860,7 +820,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>settings.xml：</p>
+<p>settings.xml:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;settings</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/SETTINGS/1.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
   <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd"</span><span class="nt">&gt;</span>
@@ -878,13 +838,13 @@
 <span class="nt">&lt;/settings&gt;</span>
 </code></pre></div></div>
 
-<p>请注意，如果您连接的是在 sshd_config 中将 PasswordAuthentication（密码验证）参数设置为 no（否） 的 openssh ssh 服务器，则每次进行用户名/密码验证时都必须键入密码（尽管您可以使用其他 ssh 客户端键入用户名和密码登录）。在这种情况下，你可能需要改用公钥验证。</p>
+<p>Note that if you’re connecting to an openssh ssh server with the PasswordAuthentication parameter set to no in sshd_config, you’ll need to type the password every time you authenticate with username/password (although you can type the username and password into another ssh client). In this case, you might prefer using public key authentication.</p>
 
-<p>在 settings.xml 中使用密码时应小心谨慎。更多信息，请参阅<a href="https://maven.apache.org/guides/mini/guide-encryption.html">密码加密</a>。</p>
+<p>Be cautious when using passwords in settings.xml. For more information, see <a href="https://maven.apache.org/guides/mini/guide-encryption.html">Password Encryption</a>.</p>
 
-<h2 id="创建文档">创建文档</h2>
+<h2 id="creating-documentation">Creating Documentation</h2>
 
-<p>为了快速开始使用 Maven 文档系统，您可以使用原型机制，使用以下命令为现有项目生成一个站点：</p>
+<p>To quickly start using Maven’s documentation system, you can use the archetype mechanism to generate a site for an existing project with the following command:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn archetype:generate <span class="se">\</span>
   <span class="nt">-DarchetypeGroupId</span><span class="o">=</span>org.apache.maven.archetypes <span class="se">\</span>
@@ -893,7 +853,7 @@
   <span class="nt">-DartifactId</span><span class="o">=</span>my-app-site
 </code></pre></div></div>
 
-<p>现在，前往<a href="https://maven.apache.org/guides/mini/guide-site.html">创建网站指南</a>了解如何为您的项目创建文档。</p>
+<p>Now head over to the <a href="https://maven.apache.org/guides/mini/guide-site.html">Creating a Site Guide</a> to learn how to create documentation for your project.</p>
 
     </div>
 
@@ -901,9 +861,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%EF%BC%88%E4%BA%94%EF%BC%89%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E3%80%81%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3&url=http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%20(Part%205)%20-%20External%20Dependencies,%20Remote%20Repositories,%20and%20Documentation&url=http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%EF%BC%88%E4%BA%94%EF%BC%89%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96%E3%80%81%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%20(Part%205)%20-%20External%20Dependencies,%20Remote%20Repositories,%20and%20Documentation" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/maven/2023/12/04/Maven-%E4%BA%94-%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8F%8A%E6%96%87%E6%A1%A3/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -916,19 +876,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/04/Maven-%E5%9B%9B-%E8%B5%84%E6%BA%90%E7%9A%84%E6%B7%BB%E5%8A%A0%E5%8F%8A%E8%BF%87%E6%BB%A4/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（四）资源的添加及过滤">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 4) - Adding and Filtering Resources">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（四）资源的添加及过滤</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (Part 4) - Adding and Filtering Resources</h4>
         </div>
       </a>
       
       
       <a class="next" href="/maven/2023/12/04/Maven-%E5%85%AD-%E6%9E%84%E5%BB%BA%E5%85%B6%E5%AE%83%E7%B1%BB%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E9%A1%B9%E7%9B%AE/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（六）构建其它类型项目及子项目">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 6) - Building Other Types of Projects and Sub-Projects">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Maven（六）构建其它类型项目及子项目</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Maven (Part 6) - Building Other Types of Projects and Sub-Projects</h4>
         </div>
       </a>
       
@@ -949,7 +909,7 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -972,7 +932,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
                 </a>
                 
 
@@ -983,7 +943,7 @@
                       <!--  -->
                       
 
-阅读时间 19 分钟
+  39 min read
 
 
                       <time class="article__date"
@@ -991,7 +951,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h2>
+                  <h2 class="article__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1039,7 +999,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
                 </a>
                 
 
@@ -1050,7 +1010,7 @@
                       <!--  -->
                       
 
-阅读时间 48 分钟
+  90 min read
 
 
                       <time class="article__date"
@@ -1058,7 +1018,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十二）依赖机制简介</h2>
+                  <h2 class="article__title">Maven (Part 12) - Introduction to Dependency Mechanism</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1106,7 +1066,7 @@
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
                 </a>
                 
 
@@ -1117,7 +1077,7 @@
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  14 min read
 
 
                       <time class="article__date"
@@ -1125,7 +1085,7 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十一）标准文件目录</h2>
+                  <h2 class="article__title">Maven (11) - Standard Directory Structure</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1187,27 +1147,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1221,21 +1181,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1255,7 +1215,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1278,43 +1238,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1329,9 +1291,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1408,7 +1370,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

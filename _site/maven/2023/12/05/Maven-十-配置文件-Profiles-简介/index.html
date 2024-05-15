@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maven（十）配置文件（Profiles）简介</title>
+  <title>Maven (Part 10) - Introduction to Configuration Files (Profiles)</title>
   <meta name='description' content=''>
 
   <link rel="canonical" href="http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十）配置文件（Profiles）简介">
+        <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 10) - Introduction to Configuration Files (Profiles)">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十）配置文件（Profiles）简介">
+        <img class="post-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 10) - Introduction to Configuration Files (Profiles)">
       </div>
     </div>
     
@@ -631,14 +591,14 @@
           <span class="post__minutes">
             
             
-              8 min read
+              21 min read
             
             <time class="post__date"
               datetime="2023-12-05T14:33:35+11:00">Dec 5, 2023</time>
           </span>
         </div>
 
-        <h2 class="post__title">Maven（十）配置文件（Profiles）简介</h2>
+        <h2 class="post__title">Maven (Part 10) - Introduction to Configuration Files (Profiles)</h2>
 
         <div class="post__bottom">
 
@@ -678,108 +638,96 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#有哪些不同的配置在哪里定义" id="markdown-toc-有哪些不同的配置在哪里定义">有哪些不同的配置，在哪里定义</a></li>
-  <li><a href="#配置激活" id="markdown-toc-配置激活">配置激活</a>    <ol>
-      <li><a href="#配置激活细节" id="markdown-toc-配置激活细节">配置激活细节</a>        <ol>
-          <li><a href="#显式激活" id="markdown-toc-显式激活">显式激活</a></li>
-          <li><a href="#隐式激活" id="markdown-toc-隐式激活">隐式激活</a>            <ol>
-              <li><a href="#jdk-激活" id="markdown-toc-jdk-激活">JDK 激活</a></li>
-              <li><a href="#os-激活" id="markdown-toc-os-激活">OS 激活</a></li>
-              <li><a href="#property-激活" id="markdown-toc-property-激活">property 激活</a></li>
-              <li><a href="#文件激活" id="markdown-toc-文件激活">文件激活</a></li>
+  <li><a href="#different-types-of-configuration-files-and-where-theyre-defined" id="markdown-toc-different-types-of-configuration-files-and-where-theyre-defined">Different Types of Configuration Files and Where They’re Defined</a></li>
+  <li><a href="#activation-of-configurations" id="markdown-toc-activation-of-configurations">Activation of Configurations</a>    <ol>
+      <li><a href="#details-of-configuration-activation" id="markdown-toc-details-of-configuration-activation">Details of Configuration Activation</a>        <ol>
+          <li><a href="#explicit-activation" id="markdown-toc-explicit-activation">Explicit Activation</a></li>
+          <li><a href="#implicit-activation" id="markdown-toc-implicit-activation">Implicit Activation</a>            <ol>
+              <li><a href="#jdk-activation" id="markdown-toc-jdk-activation">JDK Activation</a></li>
+              <li><a href="#os-activation" id="markdown-toc-os-activation">OS Activation</a></li>
+              <li><a href="#property-activation" id="markdown-toc-property-activation">Property Activation</a></li>
+              <li><a href="#file-activation" id="markdown-toc-file-activation">File Activation</a></li>
             </ol>
           </li>
-          <li><a href="#多种条件激活" id="markdown-toc-多种条件激活">多种条件激活</a></li>
+          <li><a href="#multiple-condition-activation" id="markdown-toc-multiple-condition-activation">Multiple Condition Activation</a></li>
         </ol>
       </li>
-      <li><a href="#停用配置文件" id="markdown-toc-停用配置文件">停用配置文件</a></li>
+      <li><a href="#disabling-configuration-files" id="markdown-toc-disabling-configuration-files">Disabling Configuration Files</a></li>
     </ol>
   </li>
-  <li><a href="#配置可以指定的内容" id="markdown-toc-配置可以指定的内容">配置可以指定的内容</a>    <ol>
-      <li><a href="#外部文件配置" id="markdown-toc-外部文件配置">外部文件配置</a></li>
-      <li><a href="#pom-配置" id="markdown-toc-pom-配置">POM 配置</a></li>
-      <li><a href="#profiles-以外的-pom-元素" id="markdown-toc-profiles-以外的-pom-元素"><code class="language-plaintext highlighter-rouge">&lt;profiles&gt;</code> 以外的 POM 元素</a></li>
+  <li><a href="#content-that-can-be-specified-in-configurations" id="markdown-toc-content-that-can-be-specified-in-configurations">Content that can be Specified in Configurations</a>    <ol>
+      <li><a href="#external-file-configurations" id="markdown-toc-external-file-configurations">External File Configurations</a></li>
+      <li><a href="#pom-configurations" id="markdown-toc-pom-configurations">POM Configurations</a></li>
+      <li><a href="#pom-elements-outside-of-profiles" id="markdown-toc-pom-elements-outside-of-profiles">POM Elements Outside of <code class="language-plaintext highlighter-rouge">&lt;profiles&gt;</code></a></li>
     </ol>
   </li>
-  <li><a href="#配置优先级" id="markdown-toc-配置优先级">配置优先级</a></li>
-  <li><a href="#配置误区" id="markdown-toc-配置误区">配置误区</a>    <ol>
-      <li><a href="#外部属性定义" id="markdown-toc-外部属性定义">外部属性定义</a></li>
-      <li><a href="#自然环境配置的不规范" id="markdown-toc-自然环境配置的不规范">自然环境配置的不规范</a></li>
+  <li><a href="#configuration-priority" id="markdown-toc-configuration-priority">Configuration Priority</a></li>
+  <li><a href="#misconceptions-about-configurations" id="markdown-toc-misconceptions-about-configurations">Misconceptions about Configurations</a>    <ol>
+      <li><a href="#external-property-definitions" id="markdown-toc-external-property-definitions">External Property Definitions</a></li>
+      <li><a href="#imprecise-configuration-of-natural-environment-sets" id="markdown-toc-imprecise-configuration-of-natural-environment-sets">Imprecise Configuration of Natural Environment Sets</a></li>
     </ol>
   </li>
-  <li><a href="#如何判断哪些配置文件在构建过程中生效" id="markdown-toc-如何判断哪些配置文件在构建过程中生效">如何判断哪些配置文件在构建过程中生效？</a></li>
-  <li><a href="#命名规范" id="markdown-toc-命名规范">命名规范</a></li>
+  <li><a href="#how-to-determine-which-configuration-files-are-in-effect-during-the-build-process" id="markdown-toc-how-to-determine-which-configuration-files-are-in-effect-during-the-build-process">How to Determine Which Configuration Files are in Effect during the Build Process?</a></li>
+  <li><a href="#naming-conventions" id="markdown-toc-naming-conventions">Naming Conventions</a></li>
 </ol>
 
-<p>Apache Maven 竭尽全力确保构建的可移植性。除其他事项外，这意味着允许在 POM 中进行构建配置，避免<strong>所有文件系统引用</strong>（在继承、依赖关系和其他地方），并更加依赖本地存储库来存储实现这一点所需的元数据。</p>
+<p>Apache Maven strives to ensure the portability of builds. Among other things, this means allowing build configurations in the POM, avoiding <strong>all filesystem references</strong> (in inheritance, dependencies, and elsewhere), and relying more on local repositories to store the metadata needed to achieve this.</p>
 
-<p>不过，有时可移植性并不完全可行。在某些情况下，插件可能需要配置本地文件系统路径。在其他情况下，可能需要稍有不同的依赖关系集，项目的构件名称也可能需要稍作调整。有时，根据检测到的构建环境，甚至可能需要在构建生命周期中包含整个插件。</p>
+<p>However, sometimes portability isn’t entirely feasible. In some cases, plugins may need to configure local filesystem paths. In others, slightly different sets of dependencies might be required, and even the artifact names of projects might need slight adjustments. Sometimes, entire plugins might need to be included in the build lifecycle depending on the detected build environment.</p>
 
-<p>针对这些情况，Maven 支持构建配置文件。配置文件使用 POM 中可用元素的子集（外加一个额外部分）进行指定，并以多种方式触发。它们在构建时对 POM 进行修改，旨在通过互补集为一组目标环境提供等效但不同的参数（例如，提供开发、测试和生产环境中 appserver 根目录的路径）。因此，配置文件很容易导致团队中的不同成员产生不同的构建结果。不过，只要使用得当，配置文件仍能保持项目的可移植性。这也将最大限度地减少 maven 的 <code class="language-plaintext highlighter-rouge">-f</code> 选项的使用，该选项允许用户创建另一个 POM，并使用不同的参数或配置进行构建，这将使其更易于维护，因为它只使用一个 POM 运行。</p>
+<p>For these scenarios, Maven supports configuration files. Configuration files are specified using a subset of elements available in the POM (plus an additional part) and are triggered in various ways. They modify the POM during the build, aiming to provide equivalent but different parameters for a set of target environments through complementary sets (e.g., providing paths to appserver root directories in development, testing, and production environments). As a result, configuration files can easily lead to different build results among different members of a team. However, when used properly, they can still maintain the project’s portability. This also minimizes the use of Maven’s <code class="language-plaintext highlighter-rouge">-f</code> option, which allows users to create another POM and build with different parameters or configurations, making it easier to maintain as it only uses one POM.</p>
 
-<h2 id="有哪些不同的配置在哪里定义">有哪些不同的配置，在哪里定义</h2>
+<h2 id="different-types-of-configuration-files-and-where-theyre-defined">Different Types of Configuration Files and Where They’re Defined</h2>
 
 <ul>
   <li>
-    <p>项目配置</p>
+    <p>Project Configuration</p>
 
     <ul>
-      <li>在 POM 文件中定义 <code class="language-plaintext highlighter-rouge">(pom.xml)</code>.</li>
+      <li>Defined in the POM file <code class="language-plaintext highlighter-rouge">(pom.xml)</code>.</li>
     </ul>
   </li>
   <li>
-    <p>用户配置</p>
+    <p>User Configuration</p>
 
     <ul>
-      <li>在用户 <a href="https://maven.apache.org/ref/current/maven-settings/settings.html">Maven 设置</a> 中定义<code class="language-plaintext highlighter-rouge">(%USER_HOME%/.m2/settings.xml)</code>.</li>
+      <li>Defined in the user’s <a href="https://maven.apache.org/ref/current/maven-settings/settings.html">Maven settings</a> <code class="language-plaintext highlighter-rouge">(%USER_HOME%/.m2/settings.xml)</code>.</li>
     </ul>
   </li>
   <li>
-    <p>全局配置</p>
+    <p>Global Configuration</p>
 
     <ul>
-      <li>在全局 <a href="https://maven.apache.org/ref/current/maven-settings/settings.html">Maven 设置</a> 中定义<code class="language-plaintext highlighter-rouge">(${maven.home}/conf/settings.xml)</code>.</li>
+      <li>Defined in the global <a href="https://maven.apache.org/ref/current/maven-settings/settings.html">Maven settings</a> <code class="language-plaintext highlighter-rouge">(${maven.home}/conf/settings.xml)</code>.</li>
     </ul>
   </li>
   <li>
-    <p>配置文件描述</p>
+    <p>Configuration File Descriptors</p>
 
     <ul>
-      <li>位于项目 basedir（<a href="(https://maven.apache.org/ref/2.2.1/maven-profile/profiles.html)">profiles.xml</a>）中的描述符（Maven 3.0 及以上版本不再支持该描述符；请参阅 <a href="https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes#Maven3.xCompatibilityNotes-profiles.xml">Maven 3 兼容性说明</a>）</li>
+      <li>Descriptors located in the project basedir (<a href="https://maven.apache.org/ref/2.2.1/maven-profile/profiles.html">profiles.xml</a>) (Profiles XML is no longer supported in Maven 3.0 and above; see <a href="https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes#Maven3.xCompatibilityNotes-profiles.xml">Maven 3 Compatibility Notes</a>)</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="配置激活">配置激活</h2>
+<h2 id="activation-of-configurations">Activation of Configurations</h2>
 
-<p>子 POM 不会像其他 POM 元素一样继承 Profiles。相反，它们很早就被 <a href="https://maven.apache.org/ref/3.9.6/maven-model-builder/">Maven Model Builder</a> 解决了，只有激活的配置文件的效果才会被继承（例如配置文件中定义的插件）。这也导致隐式配置文件激活只会对周围的配置文件容器产生影响，而不会对任何其他配置文件（即使具有相同的 id）产生影响。</p>
+<p>Sub POMs do not inherit Profiles like other POM elements. Instead, they are resolved very early by the <a href="https://maven.apache.org/ref/3.9.6/maven-model-builder/">Maven Model Builder</a>, and only the effects of activated profiles will be inherited (e.g., plugins defined in profiles). This also results in implicit profile activation only affecting surrounding profile containers and not any other profiles (even with the same id).</p>
 
-<p>如何触发配置？根据使用的预案类型有何不同？
-激活配置有几种方式：</p>
+<p>How are configurations triggered? What are the different types of activation based on the type of scenario used?</p>
 
-<ul>
-  <li>显式</li>
-  <li>隐式
-    <ul>
-      <li>基于操作系统</li>
-      <li>基于系统属性</li>
-      <li>基于文件的存在</li>
-    </ul>
-  </li>
-</ul>
+<h3 id="details-of-configuration-activation">Details of Configuration Activation</h3>
 
-<h3 id="配置激活细节">配置激活细节</h3>
+<h4 id="explicit-activation">Explicit Activation</h4>
 
-<h4 id="显式激活">显式激活</h4>
+<p>Configuration files can be explicitly specified using the <code class="language-plaintext highlighter-rouge">-P</code> command-line flag.</p>
 
-<p>可以使用 <code class="language-plaintext highlighter-rouge">-P</code> 命令行标志明确指定配置文件。</p>
-
-<p>该标志后跟一个以逗号分隔的配置文件 ID 列表。<strong>除了通过激活配置或 <code class="language-plaintext highlighter-rouge">settings.xml</code> 中的 <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> 元素激活的配置文件外，该选项中指定的配置文件也会被激活。</strong>从 Maven 4 开始，Maven 将拒绝激活或停用无法解析的配置文件。为防止出现这种情况，请在配置文件标识符前加上 <code class="language-plaintext highlighter-rouge">?</code></p>
+<p>The flag is followed by a comma-separated list of profile IDs. <strong>In addition to profiles activated through profile activation or the <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> element in <code class="language-plaintext highlighter-rouge">settings.xml</code>, profiles specified in this option will also be activated.</strong> Starting from Maven 4, Maven will reject profiles that cannot be resolved for activation or deactivation. To prevent this, prefix the profile identifier with <code class="language-plaintext highlighter-rouge">?</code>.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn groupId:artifactId:goal <span class="nt">-P</span> profile-1,profile-2,?profile-3
 </code></pre></div></div>
 
-<p>配置文件可在 Maven 设置中通过 <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> 元素激活。该元素包含一个 <code class="language-plaintext highlighter-rouge">&lt;activeProfile&gt;</code> 的列表，每个元素内部都包含一个配置文件 ID：</p>
+<p>Profiles can be activated in Maven settings using the <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> element. This element contains a list of <code class="language-plaintext highlighter-rouge">&lt;activeProfile&gt;</code> elements, each containing a profile ID:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
   ...
@@ -790,7 +738,7 @@
 <span class="nt">&lt;/settings&gt;</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> 标记中列出的配置文件将在项目每次使用时默认激活。也可以在 POM 中使用类似下面的配置来默认激活配置文件：</p>
+<p>Profiles listed in the <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> tag will be activated by default every time the project is used. You can also use configurations similar to the following in the POM to activate profiles by default:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
   <span class="nt">&lt;profile&gt;</span>
@@ -803,15 +751,15 @@
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<p>该配置文件将在所有构建过程中自动激活，除非使用前述方法激活了同一 POM 中的另一个配置文件。<strong>当通过命令行或激活配置激活 POM 中的配置文件时，默认激活的所有配置文件都会自动停用。</strong></p>
+<p>This profile will be automatically activated in all builds unless another profile in the same POM is activated using the aforementioned methods. <strong>When profiles in the POM are activated via command-line or activated profiles, all profiles activated by default are automatically deactivated.</strong></p>
 
-<h4 id="隐式激活">隐式激活</h4>
+<h4 id="implicit-activation">Implicit Activation</h4>
 
-<p>配置文件可根据检测到的构建环境状态自动触发。这些触发器是通过配置文件本身的 <code class="language-plaintext highlighter-rouge">&lt;activation&gt;</code> 部分指定的。<strong>目前，这种检测仅限于 JDK 版本匹配、操作系统匹配或系统属性的存在/值</strong>。隐式配置文件激活始终仅指容器配置文件（而不是具有相同 id 的其他模块中的配置文件）。下面是一些示例。</p>
+<p>Configuration files can be triggered automatically based on the detected build environment state. These triggers are specified through the <code class="language-plaintext highlighter-rouge">&lt;activation&gt;</code> section of the configuration file itself. <strong>Currently, this detection is limited to matching JDK versions, matching operating systems, or the existence/value of system properties.</strong> Implicit profile activation always applies to profile containers (rather than profiles in other modules with the same id). Below are some examples.</p>
 
-<h5 id="jdk-激活">JDK 激活</h5>
+<h5 id="jdk-activation">JDK Activation</h5>
 
-<p>当 JDK 的版本以 <code class="language-plaintext highlighter-rouge">1.4</code> 开头时（如 <code class="language-plaintext highlighter-rouge">1.4.0_08</code>、<code class="language-plaintext highlighter-rouge">1.4.2_07</code>、<code class="language-plaintext highlighter-rouge">1.4</code>），以下配置将触发配置文件，特别是对于较新的版本，如 <code class="language-plaintext highlighter-rouge">1.8</code> 或 <code class="language-plaintext highlighter-rouge">11</code>，配置文件将不起作用：</p>
+<p>The following configuration will trigger the profile when the JDK version starts with <code class="language-plaintext highlighter-rouge">1.4</code> (e.g., <code class="language-plaintext highlighter-rouge">1.4.0_08</code>, <code class="language-plaintext highlighter-rouge">1.4.2_07</code>, <code class="language-plaintext highlighter-rouge">1.4</code>). For newer versions like <code class="language-plaintext highlighter-rouge">1.8</code> or <code class="language-plaintext highlighter-rouge">11</code>, the profile won’t take effect:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
   <span class="nt">&lt;profile&gt;</span>
@@ -823,7 +771,7 @@
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<p>也可以使用范围。范围值必须以 <code class="language-plaintext highlighter-rouge">[</code> 或 <code class="language-plaintext highlighter-rouge">(</code> 开头，否则该值将被解释为前缀。以下内容适用于 <code class="language-plaintext highlighter-rouge">1.3</code>、<code class="language-plaintext highlighter-rouge">1.4</code> 和 <code class="language-plaintext highlighter-rouge">1.5</code> 版本。</p>
+<p>Ranges can also be used. The range value must start with <code class="language-plaintext highlighter-rouge">[</code> or <code class="language-plaintext highlighter-rouge">(</code>; otherwise, the value will be interpreted as a prefix. The following applies to versions <code class="language-plaintext highlighter-rouge">1.3</code>, <code class="language-plaintext highlighter-rouge">1.4</code>, and <code class="language-plaintext highlighter-rouge">1.5</code>.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
   <span class="nt">&lt;profile&gt;</span>
@@ -835,11 +783,11 @@
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<p><strong>注意：<code class="language-plaintext highlighter-rouge">,1.5]</code> 这样的上限很可能不包括大多数 <code class="language-plaintext highlighter-rouge">1.5</code> 版本，因为它们会有一个额外的补丁版本，如 <code class="language-plaintext highlighter-rouge">_05</code>，而上述范围没有将其考虑在内。</strong></p>
+<p><strong>Note: An upper limit like <code class="language-plaintext highlighter-rouge">,1.5]</code> is likely to exclude most <code class="language-plaintext highlighter-rouge">1.5</code> versions as they have an additional patch version like <code class="language-plaintext highlighter-rouge">_05</code>, which isn’t considered in the range above.</strong></p>
 
-<h5 id="os-激活">OS 激活</h5>
+<h5 id="os-activation">OS Activation</h5>
 
-<p>根据检测到的操作系统激活。有关操作系统值的更多详情，请参阅 <a href="https://maven.apache.org/enforcer/enforcer-rules/requireOS.html">Maven Enforcer Plugin</a>。</p>
+<p>Activation based on the detected operating system. For more details on operating system values, refer to the <a href="https://maven.apache.org/enforcer/enforcer-rules/requireOS.html">Maven Enforcer Plugin</a>.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
   <span class="nt">&lt;profile&gt;</span>
@@ -856,10 +804,10 @@
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<h5 id="property-激活">property 激活</h5>
+<h5 id="property-activation">Property Activation</h5>
 
 <ul>
-  <li>当系统属性 <code class="language-plaintext highlighter-rouge">debug</code> 被指定为任意值时，下面的配置文件将被激活：</li>
+  <li>The following profile will be activated when the system property <code class="language-plaintext highlighter-rouge">debug</code> is specified with any value:</li>
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
@@ -870,12 +818,14 @@
       <span class="nt">&lt;/property&gt;</span>
     <span class="nt">&lt;/activation&gt;</span>
     ...
-  <span class="nt">&lt;/profile&gt;</span>
+  <span class="nt">&lt;/
+
+profile&gt;</span>
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
 <ul>
-  <li>当系统属性 <code class="language-plaintext highlighter-rouge">debug</code> 完全未定义时，下面配置文件将被激活：</li>
+  <li>The following profile will be activated when the system property <code class="language-plaintext highlighter-rouge">debug</code> is not defined at all:</li>
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
@@ -891,7 +841,7 @@
 </code></pre></div></div>
 
 <ul>
-  <li>当系统属性 <code class="language-plaintext highlighter-rouge">debug</code> 未定义或定义值不为 <code class="language-plaintext highlighter-rouge">true</code> 时，下面配置文件将被激活：</li>
+  <li>The following profile will be activated when the system property <code class="language-plaintext highlighter-rouge">debug</code> is either not defined or defined with a value other than <code class="language-plaintext highlighter-rouge">true</code>:</li>
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
@@ -907,14 +857,14 @@
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<p>以下两种命令都可以激活前面提到的那个配置：</p>
+<p>Both of the following commands can activate the aforementioned profile:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn groupId:artifactId:goal
 mvn groupId:artifactId:goal <span class="nt">-Ddebug</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div></div>
 
 <ul>
-  <li>当系统属性 <code class="language-plaintext highlighter-rouge">environment</code> 指定为 <code class="language-plaintext highlighter-rouge">test</code> 时，下面配置文件将被激活：</li>
+  <li>The following profile will be activated when the system property <code class="language-plaintext highlighter-rouge">environment</code> is specified as <code class="language-plaintext highlighter-rouge">test</code>:</li>
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
@@ -930,17 +880,17 @@ mvn groupId:artifactId:goal <span class="nt">-Ddebug</span><span class="o">=</sp
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<p>要激活该配置文件，您可以在命令行中键入以下内容：</p>
+<p>To activate this profile, you can type the following in the command line:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn groupId:artifactId:goal <span class="nt">-Denvironment</span><span class="o">=</span><span class="nb">test</span>
 </code></pre></div></div>
 
-<p>从 Maven 3.0 开始，POM 中的配置文件也可以根据 <code class="language-plaintext highlighter-rouge">settings.xml</code> 中 <code class="language-plaintext highlighter-rouge">activeProfiles</code> 的属性激活。</p>
+<p>Starting from Maven 3.0, profiles in the POM can also be activated based on the attributes in <code class="language-plaintext highlighter-rouge">activeProfiles</code> from <code class="language-plaintext highlighter-rouge">settings.xml</code>.</p>
 
-<p>注意：<code class="language-plaintext highlighter-rouge">FOO</code> 等环境变量可作为 <code class="language-plaintext highlighter-rouge">env.FOO</code> 形式的属性使用。此外，请注意环境变量名称在 Windows 系统中统一为大写。</p>
+<p>Note: Environment variables like <code class="language-plaintext highlighter-rouge">FOO</code> can be used as properties in the form of <code class="language-plaintext highlighter-rouge">env.FOO</code>. Also, note that environment variable names are standardized to uppercase on Windows systems.</p>
 
 <ul>
-  <li>自 Maven 3.9.0 起，还可以通过引用属性 <code class="language-plaintext highlighter-rouge">packaging</code> 来评估 POM 打包的值。这只有在多个 Maven 模块的共同父 POM 中定义了配置文件激活时才有用。下一个示例将在构建带有打包 war 的项目时触发配置文件：</li>
+  <li>From Maven 3.9.0 onwards, it’s also possible to evaluate the packaging of the POM by referencing the <code class="language-plaintext highlighter-rouge">packaging</code> property. This is only useful when configuration file activation is defined in a common parent POM of multiple Maven modules. The following example will trigger the profile when building a project with packaging <code class="language-plaintext highlighter-rouge">war</code>:</li>
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
@@ -956,9 +906,9 @@ mvn groupId:artifactId:goal <span class="nt">-Ddebug</span><span class="o">=</sp
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<h5 id="文件激活">文件激活</h5>
+<h5 id="file-activation">File Activation</h5>
 
-<p>此示例将在生成的文件 <code class="language-plaintext highlighter-rouge">target/generated-sources/axistools/wsdl2java/org/apache/maven</code> 丢失时触发配置文件：</p>
+<p>This example will trigger the profile when the generated file <code class="language-plaintext highlighter-rouge">target/generated-sources/axistools/wsdl2java/org/apache/maven</code> is missing:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;profiles&gt;</span>
   <span class="nt">&lt;profile&gt;</span>
@@ -972,57 +922,56 @@ mvn groupId:artifactId:goal <span class="nt">-Ddebug</span><span class="o">=</sp
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div>
 
-<p>标签 <code class="language-plaintext highlighter-rouge">&lt;exists&gt;</code> 和 <code class="language-plaintext highlighter-rouge">&lt;missing&gt;</code> 可以内插。支持的变量包括系统属性（如 <code class="language-plaintext highlighter-rouge">${user.home}</code>）和环境变量（如 <code class="language-plaintext highlighter-rouge">${env.HOME}</code>）。</p>
+<p>Tags <code class="language-plaintext highlighter-rouge">&lt;exists&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;missing&gt;</code> can be interpolated. Supported variables include system properties (like <code class="language-plaintext highlighter-rouge">${user.home}</code>) and environment variables (like <code class="language-plaintext highlighter-rouge">${env.HOME}</code>).</p>
 
-<p><strong>请注意，在 POM 中定义的属性和值在这里不能用于插值</strong>。例如，上述示例中的激活程序不能使用 <code class="language-plaintext highlighter-rouge">${project.build.directory}</code>，而需要硬编码目标路径。</p>
+<p><strong>Note that properties and values defined in the POM cannot be used for interpolation here.</strong> For example, the activation in the above example cannot use <code class="language-plaintext highlighter-rouge">${project.build.directory}</code> and needs to hardcode the target path.</p>
 
-<h4 id="多种条件激活">多种条件激活</h4>
+<h4 id="multiple-condition-activation">Multiple Condition Activation</h4>
 
-<p>不同的隐式激活类型可组合在一个配置文件中。只有满足所有条件，配置文件才会激活（自 Maven 3.2.2 起，<a href="https://issues.apache.org/jira/browse/MNG-4565">MNG-4565</a>）。不支持在同一配置文件中多次使用同一类型（<a href="https://issues.apache.org/jira/browse/MNG-5909">MNG-5909</a>、<a href="https://issues.apache.org/jira/browse/MNG-3328">MNG-3328</a>）。</p>
+<p>Different types of implicit activation can be combined in one configuration file. The profile will only be activated if all conditions are met (since Maven 3.2.2, <a href="https://issues.apache.org/jira/browse/MNG-4565">MNG-4565</a>). Using the same type multiple times in the same profile is not supported (<a href="https://issues.apache.org/jira/browse/MNG-5909">MNG-5909</a>, <a href="https://issues.apache.org/jira/browse/MNG-3328">MNG-3328</a>).</p>
+<h3 id="disabling-configuration-files">Disabling Configuration Files</h3>
 
-<h3 id="停用配置文件">停用配置文件</h3>
+<p>To disable one or more configuration files via the command line, you can prepend the identifier of the file with either <code class="language-plaintext highlighter-rouge">!</code> or <code class="language-plaintext highlighter-rouge">-</code>, as shown below.</p>
 
-<p>可使用命令行停用一个或多个配置文件，方法是在其标识符前添加 <code class="language-plaintext highlighter-rouge">!</code> 或 <code class="language-plaintext highlighter-rouge">-</code> 字符，如下所示。</p>
-
-<p>请注意，在 Bash、ZSH 和其他 shell 中，<code class="language-plaintext highlighter-rouge">!</code> 需要用 <code class="language-plaintext highlighter-rouge">\</code> 或引号括起来，因为它有特殊含义。此外，以 <code class="language-plaintext highlighter-rouge">-</code> 开头的命令行选项值存在一个已知的 bug（<a href="https://issues.apache.org/jira/browse/CLI-309">CLI-309</a>），因此建议使用 <code class="language-plaintext highlighter-rouge">-P=-profilename</code> 语法。</p>
+<p>Please note that in Bash, ZSH, and other shells, <code class="language-plaintext highlighter-rouge">!</code> needs to be escaped with <code class="language-plaintext highlighter-rouge">\</code> or enclosed in quotes because it has a special meaning. Additionally, there’s a known bug with command-line option values starting with <code class="language-plaintext highlighter-rouge">-</code> (<a href="https://issues.apache.org/jira/browse/CLI-309">CLI-309</a>), so it’s recommended to use the syntax <code class="language-plaintext highlighter-rouge">-P=-profilename</code>.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn groupId:artifactId:goal <span class="nt">-P</span> <span class="se">\!</span>profile-1,<span class="se">\!</span>profile-2,<span class="se">\!</span>?profile-3
-<span class="c">## 或者</span>
+<span class="c">## Or</span>
 mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><span class="nt">-profile-1</span>,-profile-2,-?profile-3
 </code></pre></div></div>
 
-<p>这可用于停用标记为 activeByDefault 的配置文件或通过激活配置激活的配置文件。</p>
+<p>This can be used to disable configuration files marked as activeByDefault or activated through profile activation.</p>
 
-<h2 id="配置可以指定的内容">配置可以指定的内容</h2>
+<h2 id="content-that-can-be-specified-in-configurations">Content that can be Specified in Configurations</h2>
 
-<p>我们已经讨论了在哪里指定配置以及如何激活配置，那么讨论一下在配置中可以指定哪些内容将是非常有用的。与预案配置的其他方面一样，这个问题的答案并不简单。</p>
+<p>We’ve discussed where configurations can be specified and how to activate them, so it’s useful to discuss what content can be specified within configurations. Like other aspects of profile configurations, the answer to this question isn’t straightforward.</p>
 
-<p>根据您选择配置文件的位置，您可以访问不同的 POM 配置选项。</p>
+<p>Depending on where you choose to specify configuration files, you’ll have access to different POM configuration options.</p>
 
-<h3 id="外部文件配置">外部文件配置</h3>
+<h3 id="external-file-configurations">External File Configurations</h3>
 
-<p>在外部文件（即 <code class="language-plaintext highlighter-rouge">settings.xml</code> 或 <code class="language-plaintext highlighter-rouge">profiles.xml</code>）中指定的配置文件从严格意义上讲是不可移植的。任何看似很有可能改变构建结果的内容都仅限于 POM 中的内联配置文件。像版本库列表这样的东西可能只是已有项目的专有版本库，不会改变构建结果。因此，您只能修改 <code class="language-plaintext highlighter-rouge">&lt;repositories&gt;</code> 和 <code class="language-plaintext highlighter-rouge">&lt;pluginRepositories&gt;</code> 部分，以及额外的 <code class="language-plaintext highlighter-rouge">&lt;properties&gt;</code> 部分。</p>
+<p>Configuration files specified in external files (such as <code class="language-plaintext highlighter-rouge">settings.xml</code> or <code class="language-plaintext highlighter-rouge">profiles.xml</code>) are strictly non-portable. Any content that seems likely to change the build result is limited to the inline configuration files in the POM. Things like repository lists may just be proprietary repositories for existing projects and won’t change the build result. Therefore, you can only modify the <code class="language-plaintext highlighter-rouge">&lt;repositories&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;pluginRepositories&gt;</code> sections, along with additional <code class="language-plaintext highlighter-rouge">&lt;properties&gt;</code> sections.</p>
 
-<p><code class="language-plaintext highlighter-rouge">&lt;properties&gt;</code> 部分允许您指定自由形式的键值对，这些键值对将包含在 POM 的插值过程中。这样，您就可以以 <code class="language-plaintext highlighter-rouge">${profile.provided.path}</code> 的形式指定插件配置。</p>
+<p>The <code class="language-plaintext highlighter-rouge">&lt;properties&gt;</code> section allows you to specify key-value pairs in a free-form manner, which will be included in the POM’s interpolation process. This way, you can specify plugin configurations as <code class="language-plaintext highlighter-rouge">${profile.provided.path}</code>.</p>
 
-<h3 id="pom-配置">POM 配置</h3>
+<h3 id="pom-configurations">POM Configurations</h3>
 
-<p>另一方面，如果可以在 POM 中合理指定配置文件，您就会有更多选择。当然，这样做的代价是您只能修改该项目及其子模块。由于这些配置文件是内联指定的，因此有更好的机会保持可移植性，因此可以说您可以在其中添加更多信息，而不会有其他用户无法获得这些信息的风险。</p>
+<p>On the other hand, if it’s reasonable to specify configurations within the POM, you’ll have more options. Of course, the trade-off here is that you can only modify that project and its submodules. Since these configuration files are specified inline, there’s a better chance of maintaining portability, so you can add more information without the risk of other users not getting that information.</p>
 
-<p>POM 中指定的配置文件可以修改<a href="https://maven.apache.org/ref/3.9.6/maven-model/maven.html">以下 POM 元素</a>：</p>
+<p>Configurations specified within the POM can modify the following POM elements:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">&lt;repositories&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;pluginRepositories&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;dependencies&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;plugins&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;properties&gt;</code> （实际上不在主 POM 中提供，但在幕后使用）</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;properties&gt;</code> (not actually provided in the main POM but used behind the scenes)</li>
   <li><code class="language-plaintext highlighter-rouge">&lt;modules&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;reports&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;reporting&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;dependencyManagement&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">&lt;distributionManagement&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;build&gt;</code> 元素的子集，其中包括：
+  <li>A subset of the <code class="language-plaintext highlighter-rouge">&lt;build&gt;</code> element, including:
     <ul>
       <li><code class="language-plaintext highlighter-rouge">&lt;defaultGoal&gt;</code></li>
       <li><code class="language-plaintext highlighter-rouge">&lt;resources&gt;</code></li>
@@ -1036,17 +985,17 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
   </li>
 </ul>
 
-<h3 id="profiles-以外的-pom-元素"><code class="language-plaintext highlighter-rouge">&lt;profiles&gt;</code> 以外的 POM 元素</h3>
+<h3 id="pom-elements-outside-of-profiles">POM Elements Outside of <code class="language-plaintext highlighter-rouge">&lt;profiles&gt;</code></h3>
 
-<p>我们不允许在 POM 配置文件之外修改某些 POM 元素，因为当 POM 被部署到版本库系统时，这些运行时修改将不会被分发，从而使该人构建的项目与其他项目完全不同。虽然您可以通过外部配置文件的选项在一定程度上做到这一点，但其危险性是有限的。另一个原因是，这些 POM 信息有时会从父 POM 中重复使用。</p>
+<p>We don’t allow modification of certain POM elements outside of profile configurations because runtime modifications to these elements won’t be distributed when the POM is deployed to a version control system, making the project built by that person completely different from other projects. Although you can achieve this to some extent with options in external configuration files, their danger is limited. Another reason is that sometimes this POM information is reused from the parent POM.</p>
 
-<p>外部文件（如 <code class="language-plaintext highlighter-rouge">settings.xml</code> 和 <code class="language-plaintext highlighter-rouge">profiles.xml</code>）也不支持 POM 文件之外的元素。让我们来详细说明一下这种情况。当有效的 POM 部署到远程版本库时，任何人都可以从版本库中获取其信息并直接用于构建 Maven 项目。现在，试想一下，<strong>如果我们可以在依赖项（这对构建非常重要）中设置配置文件，或者在 <code class="language-plaintext highlighter-rouge">settings.xml</code> 中设置 <code class="language-plaintext highlighter-rouge">POM-profiles</code> 以外的任何其他元素，那么我们就很可能无法指望其他人使用该版本库中的 POM 并构建它。</strong>我们还必须考虑如何与他人共享 <code class="language-plaintext highlighter-rouge">settings.xml</code>。请注意，配置文件过多会造成混乱，也很难维护。总之，既然这是构建数据，就应该放在 POM 中。</p>
+<p>Elements outside of the POM configuration files (such as <code class="language-plaintext highlighter-rouge">settings.xml</code> and <code class="language-plaintext highlighter-rouge">profiles.xml</code>) also don’t support elements outside of POM files. Let’s elaborate on this scenario. When a valid POM is deployed to a remote version control system, anyone can retrieve its information from the version control and use it directly for building Maven projects. Now, imagine if <strong>we could set configuration files in dependencies (critical for building) or any other elements outside of <code class="language-plaintext highlighter-rouge">POM-profiles</code> in <code class="language-plaintext highlighter-rouge">settings.xml</code>, then it’s very likely that we can’t expect others to use the POM from that version control and build it</strong>. We also have to consider how to share <code class="language-plaintext highlighter-rouge">settings.xml</code> with others. Note that having too many configuration files leads to confusion and is hard to maintain. In summary, since this is build data, it should be placed in the POM.</p>
 
-<h2 id="配置优先级">配置优先级</h2>
+<h2 id="configuration-priority">Configuration Priority</h2>
 
-<p>在一个 POM 中，来自激活的配置文件的所有配置文件元素都会覆盖 POM 中同名的全局元素，或在集合的情况下扩展全局元素。如果在同一 POM 或外部文件中激活了多个配置文件，则<strong>后面定义的配置文件优先于前面定义的配置文件</strong>（与配置文件 ID 和激活顺序无关）。</p>
+<p>In a POM, all configuration elements from activated configuration files override or extend global elements with the same name in the POM. If multiple configuration files are activated in the same POM or external file, the <strong>configuration files defined later take precedence over those defined earlier</strong> (irrespective of the order of configuration file IDs and activation).</p>
 
-<p>示例：</p>
+<p>Example:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -1088,17 +1037,17 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>这将导致版本库列表：<code class="language-plaintext highlighter-rouge">profile-2-repo</code>、<code class="language-plaintext highlighter-rouge">profile-1-repo</code>、<code class="language-plaintext highlighter-rouge">global-repo</code>。</p>
+<p>This will result in the repository list: <code class="language-plaintext highlighter-rouge">profile-2-repo</code>, <code class="language-plaintext highlighter-rouge">profile-1-repo</code>, <code class="language-plaintext highlighter-rouge">global-repo</code>.</p>
 
-<h2 id="配置误区">配置误区</h2>
+<h2 id="misconceptions-about-configurations">Misconceptions about Configurations</h2>
 
-<p>我们已经提到，在构建中添加配置文件有可能会破坏项目的可移植性。我们甚至还强调了在哪些情况下配置文件可能会破坏项目的可移植性。不过，作为关于使用配置文件时应避免的一些误区，我们还是值得重申这些观点。</p>
+<p>We’ve mentioned that adding configuration files to builds can potentially disrupt the project’s portability. We’ve even emphasized in which scenarios configuration files might disrupt project portability. However, as some misconceptions to avoid when using configuration files, it’s worth reiterating these points.</p>
 
-<p>使用配置文件时，有两个主要问题领域需要注意。首先是<strong>外部属性</strong>，通常用于插件配置。这些属性可能会破坏项目的可移植性。另一个更微妙的方面是<strong>对自然环境集的配置的不规范</strong>。</p>
+<p>When using configuration files, there are two main areas of concern. First is <strong>external property definitions</strong>, typically used for plugin configurations. These properties can potentially disrupt project portability. The other, more subtle aspect is <strong>the imprecise configuration of configuration for a set of natural environments</strong>.</p>
 
-<h3 id="外部属性定义">外部属性定义</h3>
+<h3 id="external-property-definitions">External Property Definitions</h3>
 
-<p>外部属性定义是指在 pom.xml 之外定义的、但未在其中相应配置文件中定义的任何属性值。在 POM 中最明显的用法是插件配置。缺少属性当然会破坏项目的可移植性，这些小错误会产生微妙的影响，导致构建失败。例如，在 settings.xml 中指定的配置文件中指定 appserver 路径，可能会导致团队中的其他用户在没有类似 settings.xml 的情况下尝试构建集成测试插件时失败。下面是一个网络应用程序项目的 pom.xml 片段：</p>
+<p>External property definitions refer to properties defined outside of <code class="language-plaintext highlighter-rouge">pom.xml</code> but not defined within the corresponding configuration file. In POMs, the most obvious use case is plugin configuration. The absence of a property, of course, disrupts project portability, and these small errors can have subtle impacts, leading to build failures. For example, specifying the appserver path in a configuration file specified in <code class="language-plaintext highlighter-rouge">settings.xml</code> could lead to failure when other team members attempt to build integration testing plugins without a similar <code class="language-plaintext highlighter-rouge">settings.xml</code>. Here’s a snippet of a web application project’s <code class="language-plaintext highlighter-rouge">pom.xml</code>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -1114,12 +1063,14 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
       <span class="nt">&lt;/plugin&gt;</span>
       ...
     <span class="nt">&lt;/plugins&gt;</span>
-  <span class="nt">&lt;/build&gt;</span>
+  <span class="nt">&lt;/build
+
+&gt;</span>
   ...
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>此时，在您的本地 <code class="language-plaintext highlighter-rouge">${user.home}/.m2/settings.xml</code> 中有：</p>
+<p>And in your local <code class="language-plaintext highlighter-rouge">${user.home}/.m2/settings.xml</code> you have:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
   ...
@@ -1139,17 +1090,17 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <span class="nt">&lt;/settings&gt;</span>
 </code></pre></div></div>
 
-<p>当您构建集成测试生命周期阶段时，您的集成测试通过了，因为您提供的路径允许测试插件安装和测试此 Web 应用程序。</p>
+<p>When you build the integration testing lifecycle phase, your tests pass because the provided path allows the testing plugin to install and test this web application.</p>
 
-<p>然而，当你的同事尝试构建集成测试时，他的构建却大败而归，抱怨说无法解析插件配置参数 <code class="language-plaintext highlighter-rouge">&lt;appserverHome&gt;</code>，更糟糕的是，该参数的值字面意思是 <code class="language-plaintext highlighter-rouge">${appserver.home}</code> 无效（如果它警告你的话）。</p>
+<p>However, when your colleague attempts to build the integration test, their build fails, complaining that it can’t resolve the plugin configuration parameter <code class="language-plaintext highlighter-rouge">&lt;appserverHome&gt;</code>, and worse, that the literal value of <code class="language-plaintext highlighter-rouge">${appserver.home}</code> is invalid (if it warns you).</p>
 
-<p>恭喜你，你的项目现在是不可移植的了。在 <code class="language-plaintext highlighter-rouge">pom.xml</code> 中内嵌此配置文件有助于缓解这一问题，但明显的缺点是，每个项目层次结构（考虑到继承的影响）现在都必须指定此信息。由于 Maven 为项目继承提供了良好的支持，因此可以将此类配置放在团队级 POM 的 <code class="language-plaintext highlighter-rouge">&lt;pluginManagement&gt;</code> 部分或类似内容中，然后简单地继承路径即可。</p>
+<p>Congratulations, your project is now non-portable. Embedding this configuration file in <code class="language-plaintext highlighter-rouge">pom.xml</code> helps mitigate this issue, but the obvious downside is that this information must now be specified at every project hierarchy level (considering the effects of inheritance). Given Maven’s support for project inheritance, this kind of configuration can be placed in the <code class="language-plaintext highlighter-rouge">&lt;pluginManagement&gt;</code> section of a team-level POM or similar, then simply inherit the path.</p>
 
-<p>另一个不那么吸引人的答案可能是开发环境的标准化。不过，这往往会影响 Maven 所能带来的生产力提升。</p>
+<p>Another less attractive answer might be standardizing development environments. However, this often impacts the productivity gains that Maven can bring.</p>
 
-<h3 id="自然环境配置的不规范">自然环境配置的不规范</h3>
+<h3 id="imprecise-configuration-of-natural-environment-sets">Imprecise Configuration of Natural Environment Sets</h3>
 
-<p>除了上述的可移植性问题外，您的配置文件还很容易无法涵盖所有情况。如果这样做，通常就会让目标环境中的某一个环境陷入困境。让我们再看一次上面的 <code class="language-plaintext highlighter-rouge">pom.xml</code> 示例片段：</p>
+<p>In addition to the portability issues mentioned above, your configuration files are also prone to not covering all scenarios. If they don’t, it often leaves one environment in the target environment set stranded. Let’s revisit the <code class="language-plaintext highlighter-rouge">pom.xml</code> snippet from above:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -1170,7 +1121,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>现在，请看下面的配置文件，它将在 <code class="language-plaintext highlighter-rouge">pom.xml</code> 中以内联方式指定：</p>
+<p>Now, consider the configuration file below, which will specify inline in <code class="language-plaintext highlighter-rouge">pom.xml</code>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project&gt;</span>
   ...
@@ -1205,66 +1156,66 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<p>该配置文件与上一个示例中的配置文件非常相似，但有几个重要的例外：它明显面向开发环境，添加了一个名为 <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code> 的新配置文件，并且有一个激活部分，当系统属性包含 <code class="language-plaintext highlighter-rouge">env=dev</code>（用于名为 <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code> 的配置文件）和 <code class="language-plaintext highlighter-rouge">env=dev-2</code>（用于名为 <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code> 的配置文件）时，将触发将其包含在内。因此，执行命令：</p>
+<p>This configuration file is very similar to the one in the previous example but with some significant exceptions: it’s clearly geared towards the development environment, adds a new configuration file named <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code>, and has an activation section that triggers it when the system property contains <code class="language-plaintext highlighter-rouge">env=dev</code> (for <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code>) and <code class="language-plaintext highlighter-rouge">env=dev-2</code> (for <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code>). Thus, running the command:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nt">-Denv</span><span class="o">=</span>dev-2 integration-test
 </code></pre></div></div>
 
-<p>可以成功构建，使用名为 <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code> 的配置给出的属性。而且，当我们执行：</p>
+<p>will successfully build using the properties given by the <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code> configuration. Moreover, when we run:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nt">-Denv</span><span class="o">=</span>dev integration-test
 </code></pre></div></div>
 
-<p>将使用名为 appserverConfig-dev 的配置文件给出的属性成功构建。但是，执行：</p>
+<p>it will successfully build using the properties given by the <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code> configuration. However, running:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nt">-Denv</span><span class="o">=</span>production integration-test
 </code></pre></div></div>
 
-<p>无法成功构建。为什么？因为由此产生的 <code class="language-plaintext highlighter-rouge">${appserver.home}</code> 属性不是部署和测试网络应用的有效路径。在编写配置文件时，我们没有考虑生产环境的情况。生产环境（env=production）与测试环境，甚至可能与本地环境一起，构成了我们可能要构建集成测试生命周期阶段的一组自然目标环境。这组自然环境的不完整说明意味着我们实际上将有效的目标环境限制在了开发环境中。您的队友（可能还有您的经理）不会觉得这很幽默。因此当构建配置文件以处理此类情况时，请务必处理整个目标排列集。</p>
+<p>will fail to build. Why? Because the resulting <code class="language-plaintext highlighter-rouge">${appserver.home}</code> property from this isn’t a valid path for deploying and testing the web application. In writing configuration files to handle such scenarios, it’s essential to consider the entire set of target environments where you might want to build the integration testing lifecycle phase.</p>
 
-<p>另外，用户特定配置文件也可以以类似方式运行。这意味着，当团队添加了新的开发人员时，与用户相关的处理不同环境的配置文件就会启动。虽然我认为这可以作为对新手的有用培训，但以这种方式把他们扔到狼群中并不好。再次强调，一定要考虑到整套配置文件。</p>
+<p>Additionally, user-specific configuration files can operate similarly. This means that when a team adds new developers, user-specific configurations for different environments will kick in. While I believe this could be useful training for newcomers, throwing them into the fray this way isn’t ideal. Again, emphasize the importance of considering the entire set of configuration files.</p>
 
-<h2 id="如何判断哪些配置文件在构建过程中生效">如何判断哪些配置文件在构建过程中生效？</h2>
+<h2 id="how-to-determine-which-configuration-files-are-in-effect-during-the-build-process">How to Determine Which Configuration Files are in Effect during the Build Process?</h2>
 
-<p>确定激活的配置文件有助于用户了解在构建过程中执行了哪些特定配置文件。我们可以使用 <a href="https://maven.apache.org/plugins/maven-help-plugin/">Maven Help Plugin</a> 来了解在构建过程中执行了哪些配置文件。</p>
+<p>Identifying activated configuration files helps users understand which specific configuration files were executed during the build process. We can use the <a href="https://maven.apache.org/plugins/maven-help-plugin/">Maven Help Plugin</a> to understand which configuration files were executed during the build process.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nb">help</span>:active-profiles
 </code></pre></div></div>
 
-<p>让我们通过一些小示例来进一步了解该插件的 active-profiles 目标。</p>
+<p>Let’s further understand the plugin’s active-profiles goal through some small examples.</p>
 
-<p>从 <code class="language-plaintext highlighter-rouge">pom.xml</code> 中最后一个配置文件示例中，你会发现有两个名为 <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code> 和 <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code> 的配置文件，它们的属性值各不相同。如果我们继续执行：</p>
+<p>From the last configuration file example in <code class="language-plaintext highlighter-rouge">pom.xml</code>, you’ll find two configuration files named <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code> and <code class="language-plaintext highlighter-rouge">appserverConfig-dev-2</code>, each with different property values. If we continue with:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nb">help</span>:active-profiles <span class="nt">-Denv</span><span class="o">=</span>dev
 </code></pre></div></div>
 
-<p>结果将是一个列表，列出激活属性为 <code class="language-plaintext highlighter-rouge">env=dev</code> 的配置文件 id 以及声明该配置文件的源代码。请看下面的示例：</p>
+<p>The result will be a list, listing the active profiles with the activation property <code class="language-plaintext highlighter-rouge">env=dev</code> and the source code declaring that configuration file. Here’s the example:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The following profiles are active:
 
  - appserverConfig-dev <span class="o">(</span><span class="nb">source</span>: pom<span class="o">)</span>
 </code></pre></div></div>
 
-<p>现在，如果我们在 settings.xml 中声明了一个配置文件（请参阅 settings.xml 中的配置文件示例），并将其设置为激活的配置文件并执行：</p>
+<p>Now, if we declare a configuration file in <code class="language-plaintext highlighter-rouge">settings.xml</code> (refer to the configuration file example in settings.xml) and set it as an active configuration file and execute:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nb">help</span>:active-profiles
 </code></pre></div></div>
 
-<p>结果应该是这样的：</p>
+<p>The result should be:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The following profiles are active:
 
  - appserverConfig <span class="o">(</span><span class="nb">source</span>: settings.xml<span class="o">)</span>
 </code></pre></div></div>
 
-<p>尽管我们没有激活属性，但某个配置文件已被列为激活状态。为什么？就像我们之前提到的，在 settings.xml 中设置为<code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code>的配置会自动激活。</p>
+<p>Although we didn’t activate the property, a configuration file has been listed as active. Why? As mentioned earlier, configuration files set in <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> in <code class="language-plaintext highlighter-rouge">settings.xml</code> are automatically activated.</p>
 
-<p>现在，如果我们在 settings.xml 中将某个配置文件设置为<code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code>，并在 POM 中触发了一个配置文件。你认为哪个配置文件会对构建产生影响？</p>
+<p>Now, if we set a configuration file in <code class="language-plaintext highlighter-rouge">settings.xml</code> as <code class="language-plaintext highlighter-rouge">&lt;activeProfiles&gt;</code> and trigger a configuration file in POM. Which configuration file do you think will affect the build?</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nb">help</span>:active-profiles <span class="nt">-P</span> appserverConfig-dev
 </code></pre></div></div>
 
-<p>这将列出已激活的配置文件：</p>
+<p>This will list the activated configuration files:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The following profiles are active:
 
@@ -1272,25 +1223,25 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
  - appserverConfig <span class="o">(</span><span class="nb">source</span>: settings.xml<span class="o">)</span>
 </code></pre></div></div>
 
-<p>尽管它列出了两个活动配置文件，但我们并不确定其中的哪一个被应用。要查看对构建的影响，请执行：</p>
+<p>Although it lists two active configuration files, we’re not sure which one is being applied. To see the impact on the build, execute:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nb">help</span>:effective-pom <span class="nt">-P</span> appserverConfig-dev
 </code></pre></div></div>
 
-<p>这将把该构建配置的有效 POM 打印到控制台。请注意，<code class="language-plaintext highlighter-rouge">settings.xml</code> 中的配置文件比 POM 中的配置文件优先级更高。因此这里应用的配置文件是 <code class="language-plaintext highlighter-rouge">appserverConfig</code>，而不是 <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code>。</p>
+<p>This will print the effective POM for that build configuration to the console. Note that the configuration file set in <code class="language-plaintext highlighter-rouge">settings.xml</code> takes precedence over the one in the POM. Therefore, the applied configuration file here is <code class="language-plaintext highlighter-rouge">appserverConfig</code>, not <code class="language-plaintext highlighter-rouge">appserverConfig-dev</code>.</p>
 
-<p>如果要将插件的输出重定向到名为 <code class="language-plaintext highlighter-rouge">effective-pom.xml</code> 的文件，请使用命令行选项 <code class="language-plaintext highlighter-rouge">-Doutput=effective-pom.xml</code>。</p>
+<p>If you want to redirect the output of the plugin to a file named <code class="language-plaintext highlighter-rouge">effective-pom.xml</code>, use the command-line option</p>
 
-<h2 id="命名规范">命名规范</h2>
+<p><code class="language-plaintext highlighter-rouge">-Doutput=effective-pom.xml</code>.</p>
 
-<p>现在你已经注意到，配置文件是解决不同目标环境下不同构建配置要求问题的一种自然方法。在上文，我们讨论了解决这种情况的“自然配置文件集”概念，以及考虑所需的整个配置文件集的重要性。</p>
+<h2 id="naming-conventions">Naming Conventions</h2>
 
-<p>然而，如何组织和管理这组资料的演变也是一个非同小可的问题。正如优秀的开发人员会努力编写<strong>自文档化代码</strong>一样，您的配置文件 id 也必须提示其预期用途。一个好的方法是使用通用的系统属性触发器作为配置文件名称的一部分。<strong>这可能会导致由系统属性 <code class="language-plaintext highlighter-rouge">env</code> 触发的配置文件名称如 <code class="language-plaintext highlighter-rouge">env-dev</code>、<code class="language-plaintext highlighter-rouge">env-test</code> 和 <code class="language-plaintext highlighter-rouge">env-prod</code>。这样的系统为如何激活针对特定环境的联编留下了非常直观的提示</strong>。因此，要激活针对测试环境的构建，需要发出以下命令来激活 env-test：</p>
+<p>Now that you’ve noticed configuration files are a natural way to address different build configuration requirements for different target environments. It’s essential to provide intuitive hints in your configuration file IDs on their intended use. A good practice is to incorporate generic system property triggers as part of the configuration file names. <strong>This can lead to configuration file names triggered by the system property <code class="language-plaintext highlighter-rouge">env</code> like <code class="language-plaintext highlighter-rouge">env-dev</code>, <code class="language-plaintext highlighter-rouge">env-test</code>, and <code class="language-plaintext highlighter-rouge">env-prod</code>. Such systems provide very intuitive hints on how to activate builds targeting specific environments</strong>. Thus, to activate a build targeting the testing environment, you need to issue the following command to activate <code class="language-plaintext highlighter-rouge">env-test</code>:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nt">-Denv</span><span class="o">=</span><span class="nb">test</span> &lt;phase&gt;
 </code></pre></div></div>
 
-<p>只需将配置文件 id 中的<code class="language-plaintext highlighter-rouge">=</code>替换为<code class="language-plaintext highlighter-rouge">-</code>，即可获得正确的命令行选项。</p>
+<p>Simply replace the <code class="language-plaintext highlighter-rouge">=</code> in the profile ID with <code class="language-plaintext highlighter-rouge">-</code> to get the correct command-line option.</p>
 
     </div>
 
@@ -1298,9 +1249,9 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%EF%BC%88%E5%8D%81%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88Profiles%EF%BC%89%E7%AE%80%E4%BB%8B&url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Maven%20(Part%2010)%20-%20Introduction%20to%20Configuration%20Files%20(Profiles)&url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%EF%BC%88%E5%8D%81%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88Profiles%EF%BC%89%E7%AE%80%E4%BB%8B" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/&amp;media=http://localhost:4000/images/covers/maven-cover.jpg&amp;description=Maven%20(Part%2010)%20-%20Introduction%20to%20Configuration%20Files%20(Profiles)" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/maven/2023/12/05/Maven-%E5%8D%81-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-Profiles-%E7%AE%80%E4%BB%8B/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -1313,19 +1264,19 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
     <div class="post__navigation">
       
       <a class="prev" href="/maven/2023/12/05/Maven-%E4%B9%9D-POM%E7%AE%80%E4%BB%8B/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（九）POM简介">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 9) - Introduction to POM">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">Maven（九）POM简介</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Maven (Part 9) - Introduction to POM</h4>
         </div>
       </a>
       
       
       <a class="next" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+        <img class="post__nav-image lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Maven（十一）标准文件目录</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Maven (11) - Standard Directory Structure</h4>
         </div>
       </a>
       
@@ -1346,7 +1297,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
@@ -1369,7 +1320,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions">
                 </a>
                 
 
@@ -1380,7 +1331,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
                       <!--  -->
                       
 
-阅读时间 19 分钟
+  39 min read
 
 
                       <time class="article__date"
@@ -1388,7 +1339,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</h2>
+                  <h2 class="article__title">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1436,7 +1387,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%BA%8C-%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十二）依赖机制简介">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 12) - Introduction to Dependency Mechanism">
                 </a>
                 
 
@@ -1447,7 +1398,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
                       <!--  -->
                       
 
-阅读时间 48 分钟
+  90 min read
 
 
                       <time class="article__date"
@@ -1455,7 +1406,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十二）依赖机制简介</h2>
+                  <h2 class="article__title">Maven (Part 12) - Introduction to Dependency Mechanism</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1503,7 +1454,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 
                 
                 <a class="article__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%80-%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">
-                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十一）标准文件目录">
+                  <img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (11) - Standard Directory Structure">
                 </a>
                 
 
@@ -1514,7 +1465,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  14 min read
 
 
                       <time class="article__date"
@@ -1522,7 +1473,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
                     </span>
                   </div>
 
-                  <h2 class="article__title">Maven（十一）标准文件目录</h2>
+                  <h2 class="article__title">Maven (11) - Standard Directory Structure</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1584,27 +1535,27 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1618,21 +1569,21 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1652,7 +1603,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1675,43 +1626,45 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1726,9 +1679,9 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1805,7 +1758,7 @@ mvn groupId:artifactId:goal <span class="nt">-P</span><span class="o">=</span><s
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

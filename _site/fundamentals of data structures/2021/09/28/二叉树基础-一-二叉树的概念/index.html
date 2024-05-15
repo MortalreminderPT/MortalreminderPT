@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>二叉树基础（一）二叉树的概念</title>
-  <meta name='description' content='二叉树（Binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。'>
+  <title>Binary Trees Basics (Part 1) - Understanding Binary Trees</title>
+  <meta name='description' content='A binary tree is a fundamental type of tree structure where each node has at most two child nodes, making it one of the simplest and most important trees.'>
 
   <link rel="canonical" href="http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
@@ -145,26 +145,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -540,26 +520,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -599,7 +559,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -623,7 +583,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（一）二叉树的概念">
+        <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="Binary Trees Basics (Part 1) - Understanding Binary Trees">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -631,7 +591,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（一）二叉树的概念">
+        <img class="post-image lazy" data-src="/images/covers/数据结构-cover1.png" alt="Binary Trees Basics (Part 1) - Understanding Binary Trees">
       </div>
     </div>
     
@@ -643,14 +603,14 @@
           <span class="post__minutes">
             
             
-              2 min read
+              6 min read
             
             <time class="post__date"
               datetime="2021-09-28T15:58:19+10:00">Sep 28, 2021</time>
           </span>
         </div>
 
-        <h2 class="post__title">二叉树基础（一）二叉树的概念</h2>
+        <h2 class="post__title">Binary Trees Basics (Part 1) - Understanding Binary Trees</h2>
 
         <div class="post__bottom">
 
@@ -665,13 +625,13 @@
             <span>in</span>
             <span class="post-tags">
               
-              <a href="/tags/%E7%AE%97%E6%B3%95" class="post__tag">算法</a>
+              <a href="/tags/algorithms" class="post__tag">Algorithms</a>
               
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="post__tag">数据结构</a>
+              <a href="/tags/data-structures" class="post__tag">Data Structures</a>
               
-              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" class="post__tag">二叉树</a>
+              <a href="/tags/binary-tree" class="post__tag">Binary Tree</a>
               
-              <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="post__tag">树型数据结构</a>
+              <a href="/tags/tree-data-structures" class="post__tag">Tree Data Structures</a>
               
             </span>
             
@@ -696,81 +656,81 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#概念" id="markdown-toc-概念">概念</a>    <ol>
-      <li><a href="#二叉树的定义" id="markdown-toc-二叉树的定义">二叉树的定义</a></li>
-      <li><a href="#基本形态" id="markdown-toc-基本形态">基本形态</a></li>
-      <li><a href="#特殊类型" id="markdown-toc-特殊类型">特殊类型</a></li>
-      <li><a href="#相关术语" id="markdown-toc-相关术语">相关术语</a></li>
-      <li><a href="#性质" id="markdown-toc-性质">性质</a></li>
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a>    <ol>
+      <li><a href="#definition-of-binary-tree" id="markdown-toc-definition-of-binary-tree">Definition of Binary Tree</a></li>
+      <li><a href="#basic-forms" id="markdown-toc-basic-forms">Basic Forms</a></li>
+      <li><a href="#special-types" id="markdown-toc-special-types">Special Types</a></li>
+      <li><a href="#related-terminology" id="markdown-toc-related-terminology">Related Terminology</a></li>
+      <li><a href="#properties" id="markdown-toc-properties">Properties</a></li>
     </ol>
   </li>
-  <li><a href="#二叉树的c实现" id="markdown-toc-二叉树的c实现">二叉树的C++实现</a>    <ol>
-      <li><a href="#二叉树的顺序存储" id="markdown-toc-二叉树的顺序存储">二叉树的顺序存储</a>        <ol>
-          <li><a href="#实现代码" id="markdown-toc-实现代码">实现代码</a></li>
+  <li><a href="#implementing-binary-trees-in-c" id="markdown-toc-implementing-binary-trees-in-c">Implementing Binary Trees in C++</a>    <ol>
+      <li><a href="#sequential-storage-of-binary-trees" id="markdown-toc-sequential-storage-of-binary-trees">Sequential Storage of Binary Trees</a>        <ol>
+          <li><a href="#implementation-code" id="markdown-toc-implementation-code">Implementation Code</a></li>
         </ol>
       </li>
-      <li><a href="#二叉树的链式存储" id="markdown-toc-二叉树的链式存储">二叉树的链式存储</a>        <ol>
-          <li><a href="#实现代码-1" id="markdown-toc-实现代码-1">实现代码</a></li>
+      <li><a href="#linked-storage-of-binary-trees" id="markdown-toc-linked-storage-of-binary-trees">Linked Storage of Binary Trees</a>        <ol>
+          <li><a href="#implementation-code-1" id="markdown-toc-implementation-code-1">Implementation Code</a></li>
         </ol>
       </li>
-      <li><a href="#二叉树的递归遍历" id="markdown-toc-二叉树的递归遍历">二叉树的递归遍历</a>        <ol>
-          <li><a href="#先序遍历dlr" id="markdown-toc-先序遍历dlr">先序遍历（DLR）</a></li>
-          <li><a href="#中序遍历ldr" id="markdown-toc-中序遍历ldr">中序遍历（LDR）</a></li>
-          <li><a href="#后序遍历lrd" id="markdown-toc-后序遍历lrd">后序遍历（LRD）</a></li>
+      <li><a href="#recursive-traversal-of-binary-trees" id="markdown-toc-recursive-traversal-of-binary-trees">Recursive Traversal of Binary Trees</a>        <ol>
+          <li><a href="#preorder-traversal-dlr" id="markdown-toc-preorder-traversal-dlr">Preorder Traversal (DLR)</a></li>
+          <li><a href="#inorder-traversal-ldr" id="markdown-toc-inorder-traversal-ldr">Inorder Traversal (LDR)</a></li>
+          <li><a href="#postorder-traversal-lrd" id="markdown-toc-postorder-traversal-lrd">Postorder Traversal (LRD)</a></li>
         </ol>
       </li>
     </ol>
   </li>
 </ol>
 
-<h2 id="概念">概念</h2>
-<p>二叉树（Binary tree）是树形结构的一个重要类型。许多实际问题抽象出来的数据结构往往是二叉树形式，即使是一般的树也能简单地转换为二叉树，而且二叉树的存储结构及其算法都较为简单，因此二叉树显得特别重要。二叉树特点是每个结点最多只能有两棵子树，且有左右之分。</p>
+<h2 id="introduction">Introduction</h2>
+<p>A binary tree is a crucial type of tree structure. Many data structures abstracted from practical problems often take the form of binary trees. Even general trees can be easily converted into binary trees, and the storage structure and algorithms for binary trees are relatively simple. Hence, binary trees are particularly important. The defining characteristic of a binary tree is that each node can have at most two child nodes, with a distinction between left and right.</p>
 
-<h3 id="二叉树的定义">二叉树的定义</h3>
-<p>二叉树（Binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树</p>
+<h3 id="definition-of-binary-tree">Definition of Binary Tree</h3>
+<p>A binary tree is a type of ordered tree in which the degree of each node is at most 2. It is the simplest and most important tree structure. The recursive definition of a binary tree states that a binary tree is either an empty tree or a tree formed by a root node and two disjoint, mutually exclusive binary trees called the left subtree and the right subtree.</p>
 
-<h3 id="基本形态">基本形态</h3>
-<p><img src="/images/posts/tree1.png" alt="在这里插入图片描述" /></p>
+<h3 id="basic-forms">Basic Forms</h3>
+<p><img src="/images/posts/tree1.png" alt="Binary Tree Forms" /></p>
 <ul>
-  <li>空二叉树</li>
-  <li>只有一个根节点的二叉树</li>
-  <li>根节点只有左子树的二叉树</li>
-  <li>根节点只有右子树的二叉树</li>
-  <li>根节点既有左子树，又有右子树的<strong>完全二叉树</strong>
-    <h3 id="特殊类型">特殊类型</h3>
+  <li>Empty binary tree</li>
+  <li>Binary tree with only one root node</li>
+  <li>Binary tree with only a left subtree of the root node</li>
+  <li>Binary tree with only a right subtree of the root node</li>
+  <li><strong>Complete binary tree</strong> with both left and right subtrees of the root node
+    <h3 id="special-types">Special Types</h3>
   </li>
-  <li>满二叉树：只有度为0和2的节点，且度为0的结点在同一层上</li>
-  <li>完全二叉树：深度为k且每一个节点都与深度为k的满二叉树中编号从1到n的结点一一对应
-<img src="/images/posts/tree2.png" alt="在这里插入图片描述" />
-    <h3 id="相关术语">相关术语</h3>
+  <li>Full binary tree: A tree where each node has either 0 or 2 children, and nodes with 0 children are at the same level.</li>
+  <li>Complete binary tree: A binary tree of depth k where each node is in the same level as the nodes of a full binary tree of depth k, numbered from 1 to n.
+<img src="/images/posts/tree2.png" alt="Complete Binary Tree" />
+    <h3 id="related-terminology">Related Terminology</h3>
   </li>
-  <li>节点：包含一个数据元素及若干指向子树分支的信息</li>
-  <li>节点的度：一个节点拥有子树的数目</li>
-  <li>叶节点：也称为终端节点，没有子树的节点或度为0的节点</li>
-  <li>分支节点：也称为非终端节点，度不为0的节点</li>
-  <li>树的度：树中所有节点度的最大值</li>
-  <li>节点的层次：从根节点开始，根节点为第0层，根节点的子节点为第1层，依此类推</li>
-  <li>树的深度：也称树的高度，树中所有节点层次的最大值</li>
-  <li>有序树：如果树中各棵子树的次序有先后次序，则该树为有序树</li>
-  <li>无序树：如果树中各棵子树的次序没有先后次序，则该树为无序树</li>
-  <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
-    <h3 id="性质">性质</h3>
+  <li>Node: Contains a data element and information pointing to child subtrees.</li>
+  <li>Node degree: The number of child subtrees a node has.</li>
+  <li>Leaf node: Also known as a terminal node, it has no child subtrees or has a degree of 0.</li>
+  <li>Branch node: Also known as a non-terminal node, it has a degree greater than 0.</li>
+  <li>Tree degree: The maximum degree among all nodes in the tree.</li>
+  <li>Node level: Starting from the root node, where the root node is at level 0, its children are at level 1, and so on.</li>
+  <li>Tree depth: Also known as the height of the tree, it is the maximum level among all nodes in the tree.</li>
+  <li>Ordered tree: If the subtrees of a tree have a specific sequence, the tree is ordered.</li>
+  <li>Unordered tree: If the subtrees of a tree have no specific sequence, the tree is unordered.</li>
+  <li>Forest: A collection of m (m≥0) disjoint trees. Removing the root node of a non-empty tree turns it into a forest, where each tree consists of the original root node’s subtrees.
+    <h3 id="properties">Properties</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/_0vmS$DqpHfYcAekX1O2Ego.xml"></include>个节点 <include src="/_9kLNm$pU@hcCOyifQM0IDJ.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/_@vzDko6Rt9bn1TPhCxEwLO.xml"></include>个节点 <include src="/_w9FpZGSOW0KJh1iyV$Cnoa.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/_bYu8WdtZ0R5wrpLj$IyNcz.xml"></include>，度为2的节点为<include src="/_PGD967CjZoiv@Js8aO0MWt.xml"></include>，则<include src="/_seNcJr6vaVftT4GnH5mhFz.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/_4$qcyZLI2PlnvwTiW3CN0R.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/_lD8j1pxPF@vV9LmOcA37nZ.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/_jXRfcx@HlhQgw4DOEnC0Us.xml"></include></li>
-  <li><include src="/_lD8j1pxPF@vV9LmOcA37nZ.xml"></include>个节点的完全二叉树高度为<include src="/_$9jl87UkYOnwMI341AJyp@.xml"></include>，深度为<include src="/_b1grV6@8E2cOYvaLU0wiKF.xml"></include></li>
+  <li>A binary tree’s ith level can have at most <include src="/_MlOsp29ADYnJXCdQzG34h5.xml"></include> nodes <include src="/_Mjdsb4O5DRkZQfCc9xBm0P.xml"></include>.</li>
+  <li>A binary tree of depth k can have at most <include src="/_YHZF38cRJ7BwjTh9qKzPg4.xml"></include> nodes <include src="/_Tie9cNh$LwZz1Fq7EK3rYp.xml"></include>.</li>
+  <li>For a binary tree with n nodes, if the number of nodes with a degree of 0 is <include src="/_@Jqe9SfbIlwWRVToDAZcBQ.xml"></include> and with a degree of 2 is <include src="/_bvp71JFdr2Ll3masx9wqQW.xml"></include>, then <include src="/_nMGB3uCh4RPJT1x9QZpla@.xml"></include>.</li>
+  <li>Full binary tree theorem: The number of leaf nodes in a non-empty full binary tree equals the number of internal nodes <include src="/_YCW1XghaMtsyqN$E7BZOlx.xml"></include>.</li>
+  <li>Corollary of full binary tree theorem: In a binary tree with n nodes, the number of null subtrees equals <include src="/_sM5WOyDGjrgR4hCQSJa1Aq.xml"></include>.</li>
+  <li>The height of a complete binary tree with n nodes is <include src="/_4YNlIAzBtU69W5M1Hp3wok.xml"></include>, and the depth is <include src="/_rAEuxHTbBFeiyzJW0aQ9R@.xml"></include>.</li>
 </ul>
 
-<h2 id="二叉树的c实现">二叉树的C++实现</h2>
+<h2 id="implementing-binary-trees-in-c">Implementing Binary Trees in C++</h2>
 
-<h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
+<h3 id="sequential-storage-of-binary-trees">Sequential Storage of Binary Trees</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/_xlSbndFEGLNIq1PD9pso3v.xml"></include>处，
-其左孩子存储于下标<include src="/_A3VSrw$9b@n5ydPpWQ67fD.xml"></include>，右孩子存储于下标<include src="/_oZWVHtFS$fyvcUXhuCsglY.xml"></include>….依此类推，对于下标为<include src="/_tdl34RsBiCEDXTIKy8m7pW.xml"></include>的节点，左右孩子分别存储于下标为<include src="/_HpfE9@nrLqbVeGWSx3OBIQ.xml"></include>和<include src="/_Ir@yp9mJ7igHZDQoKFX$jS.xml"></include>处。</p>
-<h4 id="实现代码">实现代码</h4>
+<p>We can use an array to store all the nodes. The root node is stored at index 0, and its left child is stored at index $2<em>0+1<include src="/_tDrfAF1qZNWQkTJdogwlUc.xml"></include>2</em>0+2<include src="/_HB@LQk6tOX0W2Z1IxnTvMd.xml"></include>2<em>i+1<include src="/_uVACX6K$B38j9zYQDEWHiF.xml"></include>2</em>i+2$, respectively.</p>
+
+<h4 id="implementation-code">Implementation Code</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
 <span class="kt">void</span> <span class="nf">CreateBinaryTree</span><span class="p">(</span><span class="n">BinaryTree</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
@@ -782,13 +742,15 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="二叉树的链式存储">二叉树的链式存储</h3>
-<p>二叉树的顺序存储结构一般适用于完全二叉树，通常我们使用链式存储结构表示二叉树。</p>
-<h4 id="实现代码-1">实现代码</h4>
+<h3 id="linked-storage-of-binary-trees">Linked Storage of Binary Trees</h3>
+
+<p>Sequential storage is generally suitable for complete binary trees. Typically, we use linked storage to represent binary trees.</p>
+
+<h4 id="implementation-code-1">Implementation Code</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>                     <span class="c1">// 数据</span>
-    <span class="k">struct</span> <span class="nc">Node</span> <span class="o">*</span><span class="n">lchild</span><span class="p">,</span> <span class="o">*</span><span class="n">rchild</span><span class="p">;</span> <span class="c1">// 左右子树</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>                     <span class="c1">// Data</span>
+    <span class="k">struct</span> <span class="nc">Node</span> <span class="o">*</span><span class="n">lchild</span><span class="p">,</span> <span class="o">*</span><span class="n">rchild</span><span class="p">;</span> <span class="c1">// Left and right subtrees</span>
 <span class="p">}</span> <span class="o">*</span> <span class="n">BinaryTree</span><span class="p">,</span> <span class="n">BtNode</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">CreateBinaryTree</span><span class="p">(</span><span class="n">BinaryTree</span> <span class="o">&amp;</span><span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
@@ -804,14 +766,16 @@
     <span class="n">CreateBinaryTree</span><span class="p">(</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h3 id="二叉树的递归遍历">二叉树的递归遍历</h3>
-<h4 id="先序遍历dlr">先序遍历（DLR）</h4>
-<p>若二叉树为空，则空操作，否则：</p>
+
+<h3 id="recursive-traversal-of-binary-trees">Recursive Traversal of Binary Trees</h3>
+
+<h4 id="preorder-traversal-dlr">Preorder Traversal (DLR)</h4>
+<p>If the binary tree is empty, do nothing. Otherwise:</p>
 
 <ol>
-  <li>访问当前节点</li>
-  <li>先序遍历左子树</li>
-  <li>先序遍历右子树</li>
+  <li>Visit the current node.</li>
+  <li>Traverse the left subtree in preorder.</li>
+  <li>Traverse the right subtree in preorder.</li>
 </ol>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">DLR</span><span class="p">(</span><span class="n">BinaryTree</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
@@ -823,13 +787,13 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="中序遍历ldr">中序遍历（LDR）</h4>
-<p>若二叉树为空，则空操作，否则：</p>
+<h4 id="inorder-traversal-ldr">Inorder Traversal (LDR)</h4>
+<p>If the binary tree is empty, do nothing. Otherwise:</p>
 
 <ol>
-  <li>中序遍历左子树</li>
-  <li>访问当前节点</li>
-  <li>中序遍历右子树</li>
+  <li>Traverse the left subtree in inorder.</li>
+  <li>Visit the current node.</li>
+  <li>Traverse the right subtree in inorder.</li>
 </ol>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">LDR</span><span class="p">(</span><span class="n">BinaryTree</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
@@ -841,13 +805,13 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="后序遍历lrd">后序遍历（LRD）</h4>
-<p>若二叉树为空，则空操作，否则：</p>
+<h4 id="postorder-traversal-lrd">Postorder Traversal (LRD)</h4>
+<p>If the binary tree is empty, do nothing. Otherwise:</p>
 
 <ol>
-  <li>后序遍历左子树</li>
-  <li>后序遍历右子树</li>
-  <li>访问当前节点</li>
+  <li>Traverse the left subtree in postorder.</li>
+  <li>Traverse the right subtree in postorder.</li>
+  <li>Visit the current node.</li>
 </ol>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">LRD</span><span class="p">(</span><span class="n">BinaryTree</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
@@ -865,9 +829,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5&url=http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Binary%20Trees%20Basics%20(Part%201)%20-%20Understanding%20Binary%20Trees&url=http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=Binary%20Trees%20Basics%20(Part%201)%20-%20Understanding%20Binary%20Trees" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/fundamentals%20of%20data%20structures/2021/09/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%80-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -880,19 +844,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/dynamic%20programming%20fundamentals/2021/09/28/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BA%8C-%E6%9C%80%E4%BC%98%E5%AD%90%E5%BA%8F%E5%88%97%E7%B3%BB%E5%88%97/">
-        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="动态规划（二）最优子序列系列">
+        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming (Part 2) - Optimal Subsequence Series">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">动态规划（二）最优子序列系列</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Dynamic Programming (Part 2) - Optimal Subsequence Series</h4>
         </div>
       </a>
       
       
       <a class="next" href="/dynamic%20programming%20fundamentals/2021/09/29/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%B8%89-%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E7%B3%BB%E5%88%97/">
-        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="动态规划（三）股票问题系列">
+        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming Series on Stock Problems">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">动态规划（三）股票问题系列</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Dynamic Programming Series on Stock Problems</h4>
         </div>
       </a>
       
@@ -913,332 +877,10 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
             
             
 
@@ -1412,7 +1054,7 @@
 
                 
                 <a class="article__image" href="/2021/10/20/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口">
+                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="Two Pointer Problems (Part 2) - Sliding Window">
                 </a>
                 
 
@@ -1423,7 +1065,7 @@
                       <!--  -->
                       
 
-阅读时间 12 分钟
+  19 min read
 
 
                       <time class="article__date"
@@ -1431,9 +1073,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">双指针问题（二）滑动窗口</h2>
+                  <h2 class="article__title">Two Pointer Problems (Part 2) - Sliding Window</h2>
 
-                  <p class="article__excerpt">双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。</p>
+                  <p class="article__excerpt">Two pointers are used to scan in two directions during traversal, achieving the desired algorithmic goals.</p>
 
                   <div class="article__bottom">
 
@@ -1451,13 +1093,13 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
-                          <a href="/tags/%E6%8C%87%E9%92%88" class="article__tag">指针</a>
+                          <a href="/tags/pointers" class="article__tag">Pointers</a>
                         
-                          <a href="/tags/%E9%93%BE%E8%A1%A8" class="article__tag">链表</a>
+                          <a href="/tags/linked-list" class="article__tag">Linked List</a>
                         
-                          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="article__tag">数据结构</a>
+                          <a href="/tags/data-structures" class="article__tag">Data Structures</a>
                         
                       </span>
                       
@@ -1485,7 +1127,7 @@
 
                 
                 <a class="article__image" href="/2021/10/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-Binary-Search/">
-                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="二分查找（Binary Search）">
+                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="Binary Search">
                 </a>
                 
 
@@ -1496,7 +1138,7 @@
                       <!--  -->
                       
 
-阅读时间 13 分钟
+  18 min read
 
 
                       <time class="article__date"
@@ -1504,9 +1146,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">二分查找（Binary Search）</h2>
+                  <h2 class="article__title">Binary Search</h2>
 
-                  <p class="article__excerpt">二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到 O(log n)</p>
+                  <p class="article__excerpt">Binary search is a common method for finding a specific value in a sorted array. It doesn't need to traverse the entire sequence; it only needs to focus on the boundaries and the middle value of the sequence. Therefore, its time complexity can reach O(log n).</p>
 
                   <div class="article__bottom">
 
@@ -1524,7 +1166,7 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
                       </span>
                       
@@ -1552,7 +1194,7 @@
 
                 
                 <a class="article__image" href="/dynamic%20programming%20fundamentals/2021/10/12/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%9B%9B-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS/">
-                  <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（四）最长上升子序列（LIS）">
+                  <img class="lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)">
                 </a>
                 
 
@@ -1563,7 +1205,7 @@
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  9 min read
 
 
                       <time class="article__date"
@@ -1571,9 +1213,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">动态规划（四）最长上升子序列（LIS）</h2>
+                  <h2 class="article__title">Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)</h2>
 
-                  <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
+                  <p class="article__excerpt">The core idea of dynamic programming lies in breaking down a problem into smaller subproblems and storing previous computation results to reduce computational complexity.</p>
 
                   <div class="article__bottom">
 
@@ -1591,9 +1233,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
-                          <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" class="article__tag">动态规划</a>
+                          <a href="/tags/dynamic-programming" class="article__tag">Dynamic Programming</a>
                         
                       </span>
                       
@@ -1635,27 +1277,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1669,21 +1311,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1703,7 +1345,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1726,43 +1368,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1777,9 +1421,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1856,7 +1500,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

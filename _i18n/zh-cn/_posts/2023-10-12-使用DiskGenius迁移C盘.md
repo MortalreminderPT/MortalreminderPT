@@ -3,7 +3,7 @@ layout: post
 title: 使用DiskGenius进行系统迁移
 description:
 date: 2023-10-12 18:54:54 +0800 
-image: https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN
+image: https://www.bing.com/th?id=OHR.TexasIndigoBunting_ZH-CN3699392300_1920x1080.jpg
 tags:
 - 磁盘管理
 ---

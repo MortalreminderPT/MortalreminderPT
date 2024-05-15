@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>使用DiskGenius进行系统迁移</title>
-  <meta name='description' content=''>
+  <title>Migrating Your System with DiskGenius</title>
+  <meta name='description' content='Learn how to migrate your system disk using DiskGenius, a powerful disk management tool.'>
 
   <link rel="canonical" href="http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
@@ -133,26 +133,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -528,26 +508,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -587,7 +547,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -611,7 +571,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用DiskGenius进行系统迁移">
+        <img class="lazy" data-src="https://www.bing.com/th?id=OHR.TexasIndigoBunting_ZH-CN3699392300_1920x1080.jpg" alt="Migrating Your System with DiskGenius">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -619,7 +579,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN" alt="使用DiskGenius进行系统迁移">
+        <img class="post-image lazy" data-src="https://www.bing.com/th?id=OHR.TexasIndigoBunting_ZH-CN3699392300_1920x1080.jpg" alt="Migrating Your System with DiskGenius">
       </div>
     </div>
     
@@ -638,7 +598,7 @@
           </span>
         </div>
 
-        <h2 class="post__title">使用DiskGenius进行系统迁移</h2>
+        <h2 class="post__title">Migrating Your System with DiskGenius</h2>
 
         <div class="post__bottom">
 
@@ -653,7 +613,7 @@
             <span>in</span>
             <span class="post-tags">
               
-              <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86" class="post__tag">磁盘管理</a>
+              <a href="/tags/disk-management" class="post__tag">Disk Management</a>
               
             </span>
             
@@ -678,54 +638,49 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#引言" id="markdown-toc-引言">引言</a></li>
-  <li><a href="#系统盘迁移" id="markdown-toc-系统盘迁移">系统盘迁移</a>    <ol>
-      <li><a href="#diskgenius简介" id="markdown-toc-diskgenius简介">DiskGenius简介</a></li>
-      <li><a href="#磁盘格式化" id="markdown-toc-磁盘格式化">磁盘格式化</a></li>
-      <li><a href="#系统迁移" id="markdown-toc-系统迁移">系统迁移</a></li>
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#system-disk-migration" id="markdown-toc-system-disk-migration">System Disk Migration</a>    <ol>
+      <li><a href="#introduction-to-diskgenius" id="markdown-toc-introduction-to-diskgenius">Introduction to DiskGenius</a></li>
+      <li><a href="#disk-formatting" id="markdown-toc-disk-formatting">Disk Formatting</a></li>
+      <li><a href="#system-migration" id="markdown-toc-system-migration">System Migration</a></li>
     </ol>
   </li>
-  <li><a href="#修改启动顺序" id="markdown-toc-修改启动顺序">修改启动顺序</a></li>
+  <li><a href="#modifying-boot-order" id="markdown-toc-modifying-boot-order">Modifying Boot Order</a></li>
 </ol>
 
-<h2 id="引言">引言</h2>
+<h2 id="introduction">Introduction</h2>
 
-<p>博主在本科四年来一直饱受硬盘空间不足的折磨，最近终于有机会加装一块固态硬盘。
-安装过程中，相对繁琐的是系统盘的迁移过程。
-因此我将迁移过程记录于此，或许之后还能用到。</p>
+<p>For the past four years of my undergraduate studies, I’ve been plagued by the torment of insufficient disk space. Finally, I got the opportunity to add a solid-state drive (SSD). However, the most cumbersome part of the installation process was migrating the system disk. So, I’ve documented the migration process here, perhaps it will be useful in the future.</p>
 
-<h2 id="系统盘迁移">系统盘迁移</h2>
+<h2 id="system-disk-migration">System Disk Migration</h2>
 
-<h3 id="diskgenius简介">DiskGenius简介</h3>
+<h3 id="introduction-to-diskgenius">Introduction to DiskGenius</h3>
 
-<p>DiskGenius（<a href="https://www.diskgenius.cn/download.php">中文版</a> <code>&#124;</code> <a href="https://www.diskgenius.com/download.php">English</a>）是一款常用的专业级磁盘管理软件。
-其包括分区管理，备份还原等使用功能，在本文中我们使用此工具完成系统盘的迁移。</p>
+<p>DiskGenius (<a href="https://www.diskgenius.cn/download.php">Chinese Version</a> <code>&#124;</code> <a href="https://www.diskgenius.com/download.php">English Version</a>) is a commonly used professional disk management software. It includes features such as partition management, backup, and restoration. In this article, we’ll use this tool to complete the system disk migration.</p>
 
-<h3 id="磁盘格式化">磁盘格式化</h3>
+<h3 id="disk-formatting">Disk Formatting</h3>
 
-<p>在装入新磁盘后，首先对其进行格式化，选择NTFS存储格式。
-而为了避免经常清理C盘的麻烦，我这里选择不分卷。</p>
+<p>After installing the new disk, the first step is to format it, choosing the NTFS storage format. To avoid the hassle of frequently cleaning the C drive, I opt not to partition it.</p>
 
-<h3 id="系统迁移">系统迁移</h3>
+<h3 id="system-migration">System Migration</h3>
 
-<p>安装DiskGenius后，选择其菜单栏中的系统迁移功能。</p>
+<p>After installing DiskGenius, navigate to the system migration feature in its menu bar.</p>
 
 <p><img src="\images\posts\diskGenius-0.jpg" style="     display: block;     margin-left: auto;     margin-right: auto;      zoom:50%;" /></p>
 
-<p>随后选中原来的系统分区，一般为C盘；随后选择转移的目标磁盘，即我们刚才所格式化的盘。</p>
+<p>Then, select the original system partition, usually the C drive, and choose the target disk for migration, the one we formatted earlier.</p>
 
-<p>系统迁移可以选择PE环境或者热迁移。
-由于我没有对其热迁移进行深入研究，我选择更稳健的PE环境进行迁移。</p>
+<p>System migration can be done in the PE environment or through hot migration. Since I haven’t delved deeply into hot migration, I opt for the more reliable PE environment for migration.</p>
 
-<p>等待一段时间后，系统盘迁移完成。</p>
+<p>After a while, the system disk migration is complete.</p>
 
-<h2 id="修改启动顺序">修改启动顺序</h2>
+<h2 id="modifying-boot-order">Modifying Boot Order</h2>
 
-<p>最后的工作为修改硬盘的启动顺序，首先进入BIOS环境（因电脑型号不同而异，我这里为开机过程中按F2）。</p>
+<p>The final step is to modify the boot order of the disks. First, enter the BIOS environment (this varies depending on the computer model, for me it’s by pressing F2 during the boot process).</p>
 
-<p>在Boot菜单中修改系统启动优先级，将新安装的硬盘优先级与原硬盘互换即可。</p>
+<p>In the Boot menu, modify the system boot priority, swapping the priority of the newly installed disk with the original one.</p>
 
-<p>重新启动后进行测试，迁移后的系统盘使用顺畅，与迁移前无异。</p>
+<p>After restarting, conduct tests to ensure smooth operation of the migrated system disk, which should perform just as well as before migration.</p>
 
     </div>
 
@@ -733,9 +688,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E8%BF%81%E7%A7%BB&url=http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Migrating%20Your%20System%20with%20DiskGenius&url=http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/&amp;media=http://localhost:4000https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN&amp;description=%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E8%BF%81%E7%A7%BB" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/&amp;media=http://localhost:4000https://www.bing.com/th?id=OHR.TexasIndigoBunting_ZH-CN3699392300_1920x1080.jpg&amp;description=Migrating%20Your%20System%20with%20DiskGenius" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/2023/10/12/%E4%BD%BF%E7%94%A8DiskGenius%E8%BF%81%E7%A7%BBC%E7%9B%98/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -748,19 +703,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/2023/04/24/%E4%BD%BF%E7%94%A8ChatGPT%E6%8E%A7%E5%88%B6Arduino%E8%AE%BE%E5%A4%87/">
-        <img class="post__nav-image lazy" data-src="https://www.bing.com/th?id=OHR.LittleDuckling_ZH-CN2922471258_1920x1080.jpg" alt="使用ChatGPT控制Arduino设备">
+        <img class="post__nav-image lazy" data-src="https://www.bing.com/th?id=OHR.LittleDuckling_ZH-CN2922471258_1920x1080.jpg" alt="Using ChatGPT to Control Arduino Devices">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">使用ChatGPT控制Arduino设备</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Using ChatGPT to Control Arduino Devices</h4>
         </div>
       </a>
       
       
       <a class="next" href="/apollo/2023/11/23/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-%E4%B8%80-%E9%85%8D%E7%BD%AE%E5%92%8C%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">
-        <img class="post__nav-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo配置中心（一）配置和配置中心">
+        <img class="post__nav-image lazy" data-src="/images/covers/apollo-cover.jpg" alt="Apollo Configuration Center (Part 1) - Configuration and Configuration Management">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">Apollo配置中心（一）配置和配置中心</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Apollo Configuration Center (Part 1) - Configuration and Configuration Management</h4>
         </div>
       </a>
       
@@ -781,332 +736,10 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
             
             
 
@@ -1372,27 +1005,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1406,21 +1039,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1440,7 +1073,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1463,43 +1096,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1514,9 +1149,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1593,7 +1228,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',

@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>二叉树基础（三） 线段树（Segment Tree）</title>
-  <meta name='description' content='二叉树（Binary tree）是指树中节点的度不大于2的有序树，它是一种最简单且最重要的树。'>
+  <title>Binary Tree Basics (Part 3) - Segment Tree</title>
+  <meta name='description' content='A binary tree is an ordered tree where each node has a maximum of two children. It is the simplest and most essential type of tree.'>
 
   <link rel="canonical" href="http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/">
   <link rel="alternate" type="application/rss+xml" title="PT&#39;s Blog" href="/feed.xml">
@@ -145,26 +145,6 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
       
     
   
@@ -540,26 +520,6 @@
     
   
     
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
-      
-      
-    
-  
-    
   
     
   
@@ -599,7 +559,7 @@
               <i class="ion ion-md-close"></i>
             </div>
             <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="搜索...">
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Search...">
           </div>
         </div>
       </div>
@@ -623,7 +583,7 @@
   <section class="hero">
     <div class="hero_post_inner">
       <div class="hero__image">
-        <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（三） 线段树（Segment Tree）">
+        <img class="lazy" data-src="/images/covers/数据结构-cover1.png" alt="Binary Tree Basics (Part 3) - Segment Tree">
       </div>
       <div class="hero__post__content">
         <div class="container">
@@ -631,7 +591,7 @@
     
     <div class="col col-6 col-t-12">
       <div class="image-box">
-        <img class="post-image lazy" data-src="/images/covers/数据结构-cover1.png" alt="二叉树基础（三） 线段树（Segment Tree）">
+        <img class="post-image lazy" data-src="/images/covers/数据结构-cover1.png" alt="Binary Tree Basics (Part 3) - Segment Tree">
       </div>
     </div>
     
@@ -643,14 +603,14 @@
           <span class="post__minutes">
             
             
-              9 min read
+              12 min read
             
             <time class="post__date"
               datetime="2021-10-09T22:00:50+11:00">Oct 9, 2021</time>
           </span>
         </div>
 
-        <h2 class="post__title">二叉树基础（三） 线段树（Segment Tree）</h2>
+        <h2 class="post__title">Binary Tree Basics (Part 3) - Segment Tree</h2>
 
         <div class="post__bottom">
 
@@ -665,13 +625,13 @@
             <span>in</span>
             <span class="post-tags">
               
-              <a href="/tags/%E7%AE%97%E6%B3%95" class="post__tag">算法</a>
+              <a href="/tags/algorithms" class="post__tag">Algorithms</a>
               
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="post__tag">数据结构</a>
+              <a href="/tags/data-structures" class="post__tag">Data Structures</a>
               
-              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91" class="post__tag">二叉树</a>
+              <a href="/tags/binary-tree" class="post__tag">Binary Tree</a>
               
-              <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="post__tag">树型数据结构</a>
+              <a href="/tags/tree-data-structures" class="post__tag">Tree Data Structures</a>
               
             </span>
             
@@ -696,47 +656,48 @@
 
     <div class="post__content">
       <ol id="markdown-toc">
-  <li><a href="#概念" id="markdown-toc-概念">概念</a>    <ol>
-      <li><a href="#结构" id="markdown-toc-结构">结构</a></li>
+  <li><a href="#concept" id="markdown-toc-concept">Concept</a>    <ol>
+      <li><a href="#structure" id="markdown-toc-structure">Structure</a></li>
     </ol>
   </li>
-  <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>    <ol>
-      <li><a href="#线段树的建立" id="markdown-toc-线段树的建立">线段树的建立</a></li>
-      <li><a href="#区间查询" id="markdown-toc-区间查询">区间查询</a></li>
-      <li><a href="#区间修改" id="markdown-toc-区间修改">区间修改</a></li>
-      <li><a href="#懒惰标记" id="markdown-toc-懒惰标记">懒惰标记</a></li>
+  <li><a href="#basic-operations" id="markdown-toc-basic-operations">Basic Operations</a>    <ol>
+      <li><a href="#building-the-segment-tree" id="markdown-toc-building-the-segment-tree">Building the Segment Tree</a></li>
+      <li><a href="#interval-query" id="markdown-toc-interval-query">Interval Query</a></li>
+      <li><a href="#interval-modification" id="markdown-toc-interval-modification">Interval Modification</a></li>
+      <li><a href="#lazy-propagation" id="markdown-toc-lazy-propagation">Lazy Propagation</a></li>
     </ol>
   </li>
-  <li><a href="#整体代码" id="markdown-toc-整体代码">整体代码</a></li>
+  <li><a href="#complete-code" id="markdown-toc-complete-code">Complete Code</a></li>
 </ol>
 
-<h2 id="概念">概念</h2>
-<p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
+<h2 id="concept">Concept</h2>
+<p>A segment tree is a data structure commonly used for <strong>maintaining interval information</strong>.</p>
 
-<p>线段树可以在<include src="/_Uw7t2SJ4Ay3WHpojnexlFZ.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>Segment trees can perform operations like single-point modification, interval modification, and interval queries (such as interval sum, maximum value, minimum value) in <include src="/_e8caBFqvRKGPJt$@O576Zh.xml"></include> time complexity.</p>
 
-<h3 id="结构">结构</h3>
+<h3 id="structure">Structure</h3>
 
-<p>线段树将每个长度不为<include src="/_tXeM7OqrkW@JoZiwg3K8xd.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>A segment tree divides each interval of non-unit length into left and right sub-intervals recursively. It forms a tree structure where the entire segment is divided. The information of the interval is obtained by merging the information of the left and right sub-intervals. This data structure facilitates most interval operations.</p>
 
-<p>假设以线段树存储数组<include src="/_c$x4nM0JCYjm5AVPrpO69H.xml"></include>，设线段树的根节点编号为<include src="/_tXeM7OqrkW@JoZiwg3K8xd.xml"></include>，用数组<include src="/_O9ld7vNJSjDhtW028nMcBa.xml"></include>来保存线段树，<include src="/_G@buzPNE02nZWvTAf15XSU.xml"></include>用来保存线段树上编号为<include src="/_tdl34RsBiCEDXTIKy8m7pW.xml"></include>的节点的值</p>
+<p>Suppose we have an array <include src="/_RpomI3uaqz$g4jACMHYP2G.xml"></include>. Let the root node of the segment tree be numbered <include src="/_f3MgDHXiK2sE8jCrAay$Nv.xml"></include>, and we use an array <include src="/_TPAHb6Gzv7yQsci41wUSgh.xml"></include> to store the segment tree, where <include src="/_STsMvn1giafIpWHdJk@uFL.xml"></include> stores the value of the node with index <include src="/_U1SXrOM3JTsipxQluzLBEq.xml"></include> in the segment tree.</p>
 
-<p>该线段树的结构如下</p>
+<p>The structure of this segment tree is as follows:</p>
 
-<p><img src="/images/posts/segmenttree1.png" alt="在这里插入图片描述" />
-代码如下</p>
+<p><img src="/images/posts/segmenttree1.png" alt="Segment Tree Structure" /></p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">;</span> <span class="c1">// 线段树下标从1开始</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">;</span> <span class="c1">// 辅助建树</span>
+<p>Here’s the corresponding code:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">;</span> <span class="c1">// Segment tree indexing starts from 1</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">;</span> <span class="c1">// Auxiliary for building the tree</span>
     <span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
 </code></pre></div></div>
 
-<h2 id="基本操作">基本操作</h2>
-<h3 id="线段树的建立">线段树的建立</h3>
+<h2 id="basic-operations">Basic Operations</h2>
+<h3 id="building-the-segment-tree">Building the Segment Tree</h3>
 
-<p>对于节点<include src="/_tdl34RsBiCEDXTIKy8m7pW.xml"></include>，其子节点的编号为<include src="/_K8GOdZaUVuXACLYT93jxp@.xml"></include>以及<include src="/_DLjPv6s9cEUXrZWqF5ogQ1.xml"></include>，若节点<include src="/_tdl34RsBiCEDXTIKy8m7pW.xml"></include>存储的区间为<include src="/_fRAMFnrqkTbG$o59DgHjp4.xml"></include>，则节点<include src="/_K8GOdZaUVuXACLYT93jxp@.xml"></include>存储的区间应该是<include src="/_NPkIAGTR5C1wUazeKyF6fi.xml"></include>，相应地，节点<include src="/_DLjPv6s9cEUXrZWqF5ogQ1.xml"></include>存储的区间为<include src="/_oBfjIhGA8L0tuWY5Sigl9w.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>For a node <include src="/_U1SXrOM3JTsipxQluzLBEq.xml"></include>, its child nodes are numbered <include src="/_eGPDTp4yK2qFx7HR$CAfvW.xml"></include> and <include src="/_n3teTC2uvWNUPc47ki1f8D.xml"></include>. If node <include src="/_U1SXrOM3JTsipxQluzLBEq.xml"></include> stores the interval <include src="/_1ciN3Gyj@MDAFLa$hudXS0.xml"></include>, then node <include src="/_eGPDTp4yK2qFx7HR$CAfvW.xml"></include> should store the interval <include src="/_oTnKeVOJZtuUH@qRwAG6r$.xml"></include>, and similarly, node <include src="/_n3teTC2uvWNUPc47ki1f8D.xml"></include> should store the interval <include src="/_3Ec6$ad7DRf2WNm5jhIBzi.xml"></include>. We can build the tree recursively. Here’s the code:</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i represents the current node, l represents the left boundary, r represents the right boundary</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
         <span class="k">return</span><span class="p">;</span>
@@ -748,70 +709,79 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/_p8s91OBwZnE@60Xtzbov3y.xml"></include>，我们只需直接返回<include src="/_QYfuaIx@S2BCH17oEObwJ8.xml"></include>，但如果我们查询的是<include src="/_7@wJ39X6QhlOdytokV2ZaK.xml"></include>，则需要合并<include src="/_qhIEu$GcUwfjtg2CvA43Fx.xml"></include>和<include src="/_XGAH0Mhv6OlaeTFsYi5bNc.xml"></include>的答案，代码如下</p>
+<h3 id="interval-query">Interval Query</h3>
+<p>If the query interval is <include src="/_FqK8GOcutr$JZVDQHEkIam.xml"></include>, we can directly return <include src="/_Z2Thq5@rca0NxeVL1YW9OR.xml"></include>. But if the query is <include src="/_RhOmJ6QFBd5ve1@8rPbixA.xml"></include>, we need to merge the answers of <include src="/_jUwXZrh08W$cT2SYvKxAqd.xml"></include> and <include src="/_rJ3fM8BdslavQWS@Cq9Vxu.xml"></include>. Here’s the code:</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i represents the current node, [l,r] is the query interval, [s,t] represents the interval covered by the current node</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// If [s,t] is a sub-interval of [l,r], directly return</span>
         <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//递归查询存在交集的子区间</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span> <span class="c1">// 递归查询左字串</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// 递归查询右字串</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Recursively query sub-intervals with intersections</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span> <span class="c1">// Recursively query left subtree</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// Recursively query right subtree</span>
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h3 id="区间修改">区间修改</h3>
-<p>和区间查询相同，若区间存在包含关系，我们可以为其直接加上所需要更新的值，而当区间存在交集时，进行递归更新，代码如下</p>
+
+<h3 id="interval-modification">Interval Modification</h3>
+<p>Similar to interval queries, if there’s a containment relationship, we can directly add the value to be updated. If there’s an intersection, we perform recursive updates. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="kt">int</span> <span class="n">add</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接更新</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// If [s,t] is a sub-interval of [l,r], directly update</span>
         <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">add</span><span class="p">;</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//递归更新存在交集的子区间</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// 递归更新左字串</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// 递归更新右字串</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Recursively update sub-intervals with intersections</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// Recursively update left subtree</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// Recursively update right subtree</span>
     <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/_SHO3NDaxQ9oWI5PXRzutVB.xml"></include>的区间<include src="/_7@wJ39X6QhlOdytokV2ZaK.xml"></include>加上<include src="/_beATY0f9Xhv16HZ837y5CL.xml"></include>后，更新后的线段树结构如下
-<img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/_c4iQGCAM$uOhHzVXtfTmLE.xml"></include>时就已经结束了，因此节点<include src="/_c4iQGCAM$uOhHzVXtfTmLE.xml"></include>的两个子节点没有被更新</p>
 
-<p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
+<h3 id="lazy-propagation">Lazy Propagation</h3>
+<p>When updating the interval <include src="/_RhOmJ6QFBd5ve1@8rPbixA.xml"></include> of the array <include src="/_XyZkovP4EjdWYH8@fzgRiG.xml"></include> by adding <include src="/_hFACf3o80KdSYEGmXO7t4s.xml"></include>, the updated segment tree structure becomes:</p>
 
-<p><img src="/images/posts/segmenttree3.png" alt="在这里插入图片描述" /></p>
+<p><img src="/images/posts/segmenttree2.png" alt="Segment Tree Lazy Propagation" /></p>
 
-<p>而查询后的效果如下</p>
+<p>We notice that when recursively updating, the process stops at node <include src="/_9NjQvhV0O5JiY2bUdDkuI@.xml"></include>, leaving its two child nodes unchanged.</p>
 
-<p><img src="/images/posts/segmenttree4.png" alt="在这里插入图片描述" />
-我们可以用<code class="language-plaintext highlighter-rouge">vector&lt;int&gt; lazy</code>来存储懒惰标记，下方懒惰标记的代码如下</p>
+<p>To handle this, we introduce lazy propagation. We mark the nodes where recursion ends with a flag. During the next query operation, we update the unprocessed child nodes. This flag is called a lazy tag. The effect of updating is as follows:</p>
+
+<p><img src="/images/posts/segmenttree3.png" alt="Segment Tree Lazy Propagation Update" /></p>
+
+<p>And the effect after querying is as follows:</p>
+
+<p><img src="/images/posts/segmenttree4.png" alt="Segment Tree Lazy Propagation Query" /></p>
+
+<p>We can use a <code class="language-plaintext highlighter-rouge">vector&lt;int&gt; lazy</code> to store the lazy tags. Here’s the lazy propagation code:</p>
+
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">push_down</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
     <span class="n">lazy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="n">lazy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>             <span class="c1">// 下放懒惰标记</span>
+    <span class="n">lazy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>             <span class="c1">// Propagate lazy tag down</span>
     <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">mid</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">mid</span><span class="p">)</span> <span class="o">*</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// 将懒惰标记的值加给子树</span>
+    <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">mid</span><span class="p">)</span> <span class="o">*</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// Add the value of the lazy tag to the child nodes</span>
     <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>然后在查询和更新函数中调用<code class="language-plaintext highlighter-rouge">push_down()</code>即可</p>
 
-<h2 id="整体代码">整体代码</h2>
+<p>Then call <code class="language-plaintext highlighter-rouge">push_down()</code> in the query and update functions accordingly.</p>
+
+<h2 id="complete-code">Complete Code</h2>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SegmentTree</span> <span class="p">{</span>
 <span class="nl">public:</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">;</span> <span class="c1">// 线段树下标从1开始</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lazy</span><span class="p">;</span> <span class="c1">// 懒惰标记</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">;</span> <span class="c1">// 辅助建树</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">;</span> <span class="c1">// Segment tree indexing starts from 1</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lazy</span><span class="p">;</span> <span class="c1">// Lazy tags</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">;</span> <span class="c1">// Auxiliary for building the tree</span>
     <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
     <span class="n">SegmentTree</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span> <span class="n">node</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">lazy</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">nums</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="p">{}</span>
 
-    <span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
+    <span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i represents the current node</span>
+
+<span class="p">,</span> <span class="n">l</span> <span class="n">represents</span> <span class="n">the</span> <span class="n">left</span> <span class="n">boundary</span><span class="p">,</span> <span class="n">r</span> <span class="n">represents</span> <span class="n">the</span> <span class="n">right</span> <span class="n">boundary</span>
         <span class="n">N</span><span class="o">++</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
@@ -828,32 +798,32 @@
             <span class="k">return</span><span class="p">;</span>
         <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
         <span class="n">lazy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">lazy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>             <span class="c1">// 下放懒惰标记</span>
+        <span class="n">lazy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>             <span class="c1">// Propagate lazy tag down</span>
         <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">mid</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">mid</span><span class="p">)</span> <span class="o">*</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// 将懒惰标记的值加给子树</span>
+        <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">mid</span><span class="p">)</span> <span class="o">*</span> <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// Add the value of the lazy tag to the child nodes</span>
         <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
+    <span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i represents the current node, [l,r] is the query interval, [s,t] represents the interval covered by the current node</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// If [s,t] is a sub-interval of [l,r], directly return</span>
             <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
         <span class="n">push_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
-        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//递归查询存在交集的子区间</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span> <span class="c1">// 递归查询左字串</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// 递归查询右字串</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Recursively query sub-intervals with intersections</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span> <span class="c1">// Recursively query left subtree</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">query</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// Recursively query right subtree</span>
         <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="kt">int</span> <span class="n">add</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接更新</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// If [s,t] is a sub-interval of [l,r], directly update</span>
             <span class="n">lazy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">add</span><span class="p">;</span>
             <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">add</span><span class="p">;</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">push_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
-        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//递归更新存在交集的子区间</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// 递归更新左字串</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// 递归更新右字串</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Recursively update sub-intervals with intersections</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// Recursively update left subtree</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">update</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span> <span class="c1">// Recursively update right subtree</span>
         <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">node</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -865,9 +835,9 @@
 <!--      <div class="share__list">-->
 <!--        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>-->
 
-<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89&url=http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
+<!--        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Binary%20Tree%20Basics%20(Part%203)%20-%20Segment%20Tree&url=http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>-->
 
-<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%20%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88Segment%20Tree%EF%BC%89" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
+<!--        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/&amp;media=http://localhost:4000/images/covers/数据结构-cover1.png&amp;description=Binary%20Tree%20Basics%20(Part%203)%20-%20Segment%20Tree" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>-->
 
 <!--        <a class="share__link share__tumblr" href="https://www.tumblr.com/share/link?url=http://localhost:4000/2021/10/09/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80-%E4%B8%89-%E7%BA%BF%E6%AE%B5%E6%A0%91-Segment-Tree/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Tumblr" rel="nofollow"><i class="ion ion-logo-tumblr"></i></a>-->
 
@@ -880,19 +850,19 @@
     <div class="post__navigation">
       
       <a class="prev" href="/2021/10/09/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%B8%80-%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88%E5%92%8C%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/">
-        <img class="post__nav-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（一）对撞指针和快慢指针">
+        <img class="post__nav-image lazy" data-src="https://api.dujin.org/bing/1920.php" alt="Two Pointer Problems (Part 1) - Two Pointer and Fast Slow Pointer">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> 上一篇</div>
-          <h4 class="post__nav__title">双指针问题（一）对撞指针和快慢指针</h4>
+          <div class="post__nav post__nav__prev"><i class="ion ion-md-arrow-round-back"></i> PREVIOUS POST</div>
+          <h4 class="post__nav__title">Two Pointer Problems (Part 1) - Two Pointer and Fast Slow Pointer</h4>
         </div>
       </a>
       
       
       <a class="next" href="/dynamic%20programming%20fundamentals/2021/10/12/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%9B%9B-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS/">
-        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="动态规划（四）最长上升子序列（LIS）">
+        <img class="post__nav-image lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)">
         <div class="post__nav-box">
-          <div class="post__nav post__nav__next">下一篇 <i class="ion ion-md-arrow-forward"></i></div>
-          <h4 class="post__nav__title">动态规划（四）最长上升子序列（LIS）</h4>
+          <div class="post__nav post__nav__next">NEXT POST <i class="ion ion-md-arrow-forward"></i></div>
+          <h4 class="post__nav__title">Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)</h4>
         </div>
       </a>
       
@@ -913,332 +883,10 @@
     <div class="row">
       <div class="col col-12">
         <div class="container__inner">
-          <h3 class="related-title">相关阅读</h3>
+          <h3 class="related-title">You may also like</h3>
           <div class="row grid">
 
           
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-            
             
             
 
@@ -1412,7 +1060,7 @@
 
                 
                 <a class="article__image" href="/2021/10/20/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="双指针问题（二）滑动窗口">
+                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="Two Pointer Problems (Part 2) - Sliding Window">
                 </a>
                 
 
@@ -1423,7 +1071,7 @@
                       <!--  -->
                       
 
-阅读时间 12 分钟
+  19 min read
 
 
                       <time class="article__date"
@@ -1431,9 +1079,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">双指针问题（二）滑动窗口</h2>
+                  <h2 class="article__title">Two Pointer Problems (Part 2) - Sliding Window</h2>
 
-                  <p class="article__excerpt">双指针是在遍历的过程中，使用两个方向相同或相反的指针进行扫描，从而达到相应目的的算法。</p>
+                  <p class="article__excerpt">Two pointers are used to scan in two directions during traversal, achieving the desired algorithmic goals.</p>
 
                   <div class="article__bottom">
 
@@ -1451,13 +1099,13 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
-                          <a href="/tags/%E6%8C%87%E9%92%88" class="article__tag">指针</a>
+                          <a href="/tags/pointers" class="article__tag">Pointers</a>
                         
-                          <a href="/tags/%E9%93%BE%E8%A1%A8" class="article__tag">链表</a>
+                          <a href="/tags/linked-list" class="article__tag">Linked List</a>
                         
-                          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="article__tag">数据结构</a>
+                          <a href="/tags/data-structures" class="article__tag">Data Structures</a>
                         
                       </span>
                       
@@ -1485,7 +1133,7 @@
 
                 
                 <a class="article__image" href="/2021/10/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-Binary-Search/">
-                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="二分查找（Binary Search）">
+                  <img class="lazy" data-src="/images/covers/blackrock2.jpg" alt="Binary Search">
                 </a>
                 
 
@@ -1496,7 +1144,7 @@
                       <!--  -->
                       
 
-阅读时间 13 分钟
+  18 min read
 
 
                       <time class="article__date"
@@ -1504,9 +1152,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">二分查找（Binary Search）</h2>
+                  <h2 class="article__title">Binary Search</h2>
 
-                  <p class="article__excerpt">二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到 O(log n)</p>
+                  <p class="article__excerpt">Binary search is a common method for finding a specific value in a sorted array. It doesn't need to traverse the entire sequence; it only needs to focus on the boundaries and the middle value of the sequence. Therefore, its time complexity can reach O(log n).</p>
 
                   <div class="article__bottom">
 
@@ -1524,7 +1172,7 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
                       </span>
                       
@@ -1552,7 +1200,7 @@
 
                 
                 <a class="article__image" href="/dynamic%20programming%20fundamentals/2021/10/12/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%9B%9B-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS/">
-                  <img class="lazy" data-src="/images/covers/village.jpg" alt="动态规划（四）最长上升子序列（LIS）">
+                  <img class="lazy" data-src="/images/covers/village.jpg" alt="Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)">
                 </a>
                 
 
@@ -1563,7 +1211,7 @@
                       <!--  -->
                       
 
-阅读时间 7 分钟
+  9 min read
 
 
                       <time class="article__date"
@@ -1571,9 +1219,9 @@
                     </span>
                   </div>
 
-                  <h2 class="article__title">动态规划（四）最长上升子序列（LIS）</h2>
+                  <h2 class="article__title">Dynamic Programming (Part 4): Longest Increasing Subsequence (LIS)</h2>
 
-                  <p class="article__excerpt">动态规划最核心的思想，就在于将问题拆分为一个个子问题，保留之前的计算结果，以达到减少计算量的效果。</p>
+                  <p class="article__excerpt">The core idea of dynamic programming lies in breaking down a problem into smaller subproblems and storing previous computation results to reduce computational complexity.</p>
 
                   <div class="article__bottom">
 
@@ -1591,9 +1239,9 @@
                       <span>in</span>
                       <span class="article-tags">
                         
-                          <a href="/tags/%E7%AE%97%E6%B3%95" class="article__tag">算法</a>
+                          <a href="/tags/algorithms" class="article__tag">Algorithms</a>
                         
-                          <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" class="article__tag">动态规划</a>
+                          <a href="/tags/dynamic-programming" class="article__tag">Dynamic Programming</a>
                         
                       </span>
                       
@@ -1635,27 +1283,27 @@
   <div class="widget widget-recent">
 
     <div class="widget__head">
-      <h3 class="widget__title">最新发布</h3>
+      <h3 class="widget__title">Latest Posts</h3>
     </div>
 
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
+      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 15 分钟
+  37 min read
 
 
           </span>
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1669,21 +1317,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
+      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 19 分钟
+  39 min read
 
 
           </span>
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href=" /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1703,7 +1351,7 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">查看专栏</h3>
+      <h3 class="widget__title">View Categories</h3>
     </div>
     <div class="tag__cloud">
       
@@ -1726,43 +1374,45 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-tag-cloud">
     <div class="widget__head">
-      <h3 class="widget__title">探索标签</h3>
+      <h3 class="widget__title">Explore Tags</h3>
     </div>
     <div class="tag__cloud">
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"#{html_opts}>计算机网络</a>
+        <a href="/tags/computer-networking"#{html_opts}>Computer Networking</a>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95"#{html_opts}>算法</a>
+        <a href="/tags/algorithms"#{html_opts}>Algorithms</a>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"#{html_opts}>动态规划</a>
+        <a href="/tags/dynamic-programming"#{html_opts}>Dynamic Programming</a>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>数据结构</a>
+        <a href="/tags/data-structures"#{html_opts}>Data Structures</a>
       
-        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91"#{html_opts}>二叉树</a>
+        <a href="/tags/binary-tree"#{html_opts}>Binary Tree</a>
       
-        <a href="/tags/%E6%A0%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"#{html_opts}>树型数据结构</a>
+        <a href="/tags/tree-data-structures"#{html_opts}>Tree Data Structures</a>
       
-        <a href="/tags/%E6%8C%87%E9%92%88"#{html_opts}>指针</a>
+        <a href="/tags/pointers"#{html_opts}>Pointers</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8"#{html_opts}>链表</a>
+        <a href="/tags/linked-list"#{html_opts}>Linked List</a>
       
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"#{html_opts}>操作系统</a>
-      
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"#{html_opts}>设计模式</a>
+        <a href="/tags/data-structure"#{html_opts}>Data Structure</a>
       
         <a href="/tags/chatgpt"#{html_opts}>ChatGPT</a>
       
         <a href="/tags/arduino"#{html_opts}>Arduino</a>
       
-        <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%BA%AD"#{html_opts}>智能家庭</a>
+        <a href="/tags/smart-home"#{html_opts}>Smart Home</a>
       
-        <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"#{html_opts}>磁盘管理</a>
+        <a href="/tags/disk-management"#{html_opts}>Disk Management</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE"#{html_opts}>配置</a>
+        <a href="/tags/configuration"#{html_opts}>Configuration</a>
       
-        <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"#{html_opts}>配置中心</a>
+        <a href="/tags/configuration-center"#{html_opts}>Configuration Center</a>
       
         <a href="/tags/apollo"#{html_opts}>Apollo</a>
+      
+        <a href="/tags/configuration"#{html_opts}>configuration</a>
+      
+        <a href="/tags/configuration-center"#{html_opts}>configuration center</a>
       
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
@@ -1777,9 +1427,9 @@
 <div class="col col-4 col-d-6 col-t-12">
   <div class="widget widget-subscribe">
     <div class="widget__head">
-      <h3 class="widget__title">订阅</h3>
+      <h3 class="widget__title">Get Interesting News</h3>
     </div>
-    <p class="subscribe-subtitle">留下邮箱以订阅更新</p>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
     <form class="subscribe-form validate"
       action="//https://app.us20.list-manage.com/subscribe/post?u65e25d0a60609c8cbde82c607;id=4eaddf4109" method="POST"
       id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
@@ -1856,7 +1506,7 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
   var base_url = "",
-    site_langs = '["zh-cn","en"]',
+    site_langs = '["en","zh-cn"]',
     site_lang = '',
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',
