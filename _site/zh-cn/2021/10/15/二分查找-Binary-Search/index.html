@@ -705,11 +705,11 @@
 </ol>
 
 <h2 id="概念">概念</h2>
-<p>二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到<include src="/zh-cn/_9R3SadJK10n2$gZ5zNhMrF.xml"></include></p>
+<p>二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到<include src="/zh-cn/_n16EBjMG@4VpTsJIumHPKU.xml"></include></p>
 
 <h3 id="模板">模板</h3>
 
-<p>在一个有序序列中查找关键字<include src="/zh-cn/_E$Txy9P8YLMzASur5FRUn7.xml"></include>的模板代码如下</p>
+<p>在一个有序序列中查找关键字<include src="/zh-cn/_ksm2@bNyeawRXxiKoTBZrO.xml"></include>的模板代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -729,7 +729,7 @@
 
 <h3 id="34-在排序数组中查找元素的第一个和最后一个位置"><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. 在排序数组中查找元素的第一个和最后一个位置</a></h3>
 
-<p>该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若<code class="language-plaintext highlighter-rouge">nums[i] &lt; key</code>，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为<code class="language-plaintext highlighter-rouge">nums[i] &lt;= key</code>。这样查找的结果是大于<include src="/zh-cn/_E$Txy9P8YLMzASur5FRUn7.xml"></include>的第一个元素的位置。因此该题的代码如下</p>
+<p>该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若<code class="language-plaintext highlighter-rouge">nums[i] &lt; key</code>，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为<code class="language-plaintext highlighter-rouge">nums[i] &lt;= key</code>。这样查找的结果是大于<include src="/zh-cn/_ksm2@bNyeawRXxiKoTBZrO.xml"></include>的第一个元素的位置。因此该题的代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -755,7 +755,7 @@
 </code></pre></div></div>
 <h3 id="74-搜索二维矩阵"><a href="https://leetcode-cn.com/problems/search-a-2d-matrix/">74. 搜索二维矩阵</a></h3>
 
-<p>依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于<include src="/zh-cn/_qkUg7KGu1mv2c6F9yM4bdE.xml"></include>的最大元素</p>
+<p>依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于<include src="/zh-cn/_DXa3UETYpS64r$LuFhBi0m.xml"></include>的最大元素</p>
 
 <p>之后对该行进行基本的二分查找，即可得到结果。代码如下</p>
 
@@ -839,7 +839,7 @@
 </code></pre></div></div>
 <h3 id="162-寻找峰值"><a href="https://leetcode-cn.com/problems/find-peak-element/">162. 寻找峰值</a></h3>
 
-<p>我们可以用<include src="/zh-cn/_lKw3s1HPRXr2adxy6zpMfG.xml"></include>来存储可能存在峰值的区间，根据<include src="/zh-cn/_UkWG2ZOqyJaN6CEcQIrbfm.xml"></include>进行二分，若<code class="language-plaintext highlighter-rouge">nums[mid] &lt; nums[mid + 1]</code>则说明在区间<include src="/zh-cn/_fRSb14@YHirQ7BKqwtJcZo.xml"></include>存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下</p>
+<p>我们可以用<include src="/zh-cn/_sFDPhUb0QmRYilzOax3B@p.xml"></include>来存储可能存在峰值的区间，根据<include src="/zh-cn/_j$dh9N2cUg5tauA0IoLJqC.xml"></include>进行二分，若<code class="language-plaintext highlighter-rouge">nums[mid] &lt; nums[mid + 1]</code>则说明在区间<include src="/zh-cn/_TEV8bfnUoRcML7FK$@DX9I.xml"></include>存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -1667,7 +1667,7 @@
           <time class="article__date"
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn /edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1695,7 +1695,7 @@
           <time class="article__date"
             datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn /maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

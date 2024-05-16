@@ -27,7 +27,7 @@ permalink: /categories/
 
                   <div class="article__meta">
                     <span class="article__minutes">
-                      {{ tag | last | size }} 篇内容
+                      {{ tag | last | size }} {% t global.post-found %}
                     </span>
                     <time class="article__date"
                       datetime="{{ tag.last.first.date | date_to_xmlschema }}">{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}{{ tag.last.first.date | date: date_format }}</time>
