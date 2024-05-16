@@ -663,9 +663,9 @@
   </li>
   <li><a href="#code" id="markdown-toc-code">Code</a>    <ol>
       <li><a href="#basic-operations" id="markdown-toc-basic-operations">Basic Operations</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/_RowN5Kyun8@BFp9QMDaCEJ.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/_toKwJvXIlHqEh96435mU7a.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/_oMgO8KJyzw14B@SNhA0r$x.xml"></include></a></li>
+          <li><a href="#find" id="markdown-toc-find"><include src="/_ELiY2IohSxVGWM5HPnTrQq.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/_tmcCgEyOTQpGXd1zfIhYKW.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/_x7SnbDFjYNdWBLw3qe412X.xml"></include></a></li>
         </ol>
       </li>
     </ol>
@@ -704,7 +704,7 @@
 
 <p>The construction and destruction of a BST are similar to those of a regular binary tree. Here, we focus on additional operations like search, insertion, and deletion compared to regular binary trees.</p>
 
-<h4 id="find"><include src="/_RowN5Kyun8@BFp9QMDaCEJ.xml"></include></h4>
+<h4 id="find"><include src="/_ELiY2IohSxVGWM5HPnTrQq.xml"></include></h4>
 <p>The <code class="language-plaintext highlighter-rouge">find()</code> function searches whether a node with a known data value exists in the tree and returns the node. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
@@ -721,8 +721,8 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="insert"><include src="/_toKwJvXIlHqEh96435mU7a.xml"></include></h4>
-<p>The <code class="language-plaintext highlighter-rouge">insert()</code> function inserts a node into the tree. All nodes in a BST are inserted as leaf nodes. Hence, after creating node <include src="/_@8njFKBO6aA0G2QIqu9Wl5.xml"></include>, we find the appropriate parent node <include src="/_QeVhIEc0mGUC@ipXR$vytA.xml"></include> and insert <include src="/_@8njFKBO6aA0G2QIqu9Wl5.xml"></include> there. The code is as follows:</p>
+<h4 id="insert"><include src="/_tmcCgEyOTQpGXd1zfIhYKW.xml"></include></h4>
+<p>The <code class="language-plaintext highlighter-rouge">insert()</code> function inserts a node into the tree. All nodes in a BST are inserted as leaf nodes. Hence, after creating node <include src="/_CSRhEPKvQBGW9Mu$40fF3p.xml"></include>, we find the appropriate parent node <include src="/_zOl3bxudiCGeBnhIK60@5F.xml"></include> and insert <include src="/_CSRhEPKvQBGW9Mu$40fF3p.xml"></include> there. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
@@ -747,7 +747,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="delete"><include src="/_oMgO8KJyzw14B@SNhA0r$x.xml"></include></h4>
+<h4 id="delete"><include src="/_x7SnbDFjYNdWBLw3qe412X.xml"></include></h4>
 <p>After deleting a node in a binary search tree, its sorting order must still be maintained. Therefore, deletion is divided into three cases:</p>
 <ul>
   <li>If the node to be deleted has no left child, replace it with its right child.</li>
