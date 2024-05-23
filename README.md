@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PT's Blog
 
 This is a GitHub Pages project based on the Norlin template.
