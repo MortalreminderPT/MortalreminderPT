@@ -17,7 +17,7 @@ hidden: true
 
 <div align="center" style="margin-left: 5%; margin-right: 5%; border-radius: 10px; border: 2px solid rgba(255, 255, 255, 0.5); display: inline-block; overflow: hidden; white-space: nowrap; pointer-events: none;">
     <img align="center" width="40%" src="https://avatars.githubusercontent.com/u/54986457?v=4">
-    <img align="center" width="60%" src="https://github-readme-stats.vercel.app/api?username=mortalreminderpt&show_icons=true&theme=transparent&hide_border=true" />
+    <img align="center" width="59%" src="https://github-readme-stats.vercel.app/api?username=mortalreminderpt&show_icons=true&theme=transparent&hide_border=true" />
 </div>
 
 #### 🔭 Working on: 
@@ -27,13 +27,44 @@ hidden: true
 #### 💻 Tech stacks:
 <!-- https://devicon.dev/ -->
 
-|Field|Skill|
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Skill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Programming</td>
+      <td><img style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" /><img style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" /></td>
+    </tr>
+    <tr>
+      <td>Database</td>
+      <td><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original-wordmark.svg" /></td>
+    </tr>
+    <tr>
+      <td>Frontend</td>
+      <td><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" /></td>
+    </tr>
+    <tr>
+      <td>Backend</td>
+      <td><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" /></td>
+    </tr>
+    <tr>
+      <td>Tools</td>
+      <td><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vim/vim-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- |Field|Skill|
 |---|---|
 |Programming|<img style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" /><img style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" />|
 |Database|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original-wordmark.svg" />|
 |Frontend|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />|
 |Backend|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" />|
-|Tools|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vim/vim-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg" />|
+|Tools|<img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vim/vim-original.svg" /><img  style="max-height: 60px; max-width: auto; margin: 1%" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg" />| -->
 
 <!-- - Language: -->
 <!-- Java, C/C++, Python, Rust, Html/CSS, Javascript -->
