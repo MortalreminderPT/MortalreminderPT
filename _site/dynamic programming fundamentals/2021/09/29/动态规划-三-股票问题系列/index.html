@@ -654,7 +654,7 @@
       <ol id="markdown-toc">
   <li><a href="#121-best-time-to-buy-and-sell-stock" id="markdown-toc-121-best-time-to-buy-and-sell-stock">121. Best Time to Buy and Sell Stock</a>    <ol>
       <li><a href="#state-transition-equation" id="markdown-toc-state-transition-equation">State Transition Equation</a>        <ol>
-          <li><a href="#representing-price_min" id="markdown-toc-representing-price_min">Representing <include src="/_1haL5DK$Sy6FMTHs4iPBOl.xml"></include></a></li>
+          <li><a href="#representing-price_min" id="markdown-toc-representing-price_min">Representing <include src="/_KNfE4UdYFX@ueVrxSbMzQI.xml"></include></a></li>
           <li><a href="#boundary-conditions" id="markdown-toc-boundary-conditions">Boundary Conditions</a></li>
         </ol>
       </li>
@@ -694,34 +694,34 @@
 
 <h2 id="121-best-time-to-buy-and-sell-stock"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">121. Best Time to Buy and Sell Stock</a></h2>
 <h3 id="state-transition-equation">State Transition Equation</h3>
-<p>We can use <include src="/_H7GI0srhlfORenj1b9DB@C.xml"></include> to represent the maximum profit we can get before day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include>. So, on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include>, we have two choices:</p>
+<p>We can use <include src="/_UALd6vcJSqgC2w3RZy5pK0.xml"></include> to represent the maximum profit we can get before day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include>. So, on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include>, we have two choices:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Selling on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include> might yield a higher profit compared to the previous profit (<include src="/_tnuKApM1$ibazjdmWv6gyH.xml"></include>).
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Selling on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include> might yield a higher profit compared to the previous profit (<include src="/_g4ql1OXxQpmakzJ8LdKTHM.xml"></include>).
 2. The previous profit is higher, so we don't do anything.
 </code></pre></div></div>
 
-<p>For case 1, the state transition equation is <include src="/_IaJW5TBDOdebxGEAoCriuZ.xml"></include>.
-For case 2, it’s <include src="/_darOue2mIs5c3ySDTRj1QE.xml"></include>.
+<p>For case 1, the state transition equation is <include src="/_DET6OCdrpt5sivgxF$oeAS.xml"></include>.
+For case 2, it’s <include src="/_IPN@VTB4Q9$wMqsxLfJ5Cr.xml"></include>.
 Combining both cases, we get the state transition equation for this problem:</p>
 
-<p><include src="/_nGdPFuRAeO$zQhxloDtcVL.xml"></include></p>
+<p><include src="/_otjnTJQKWDCGkYvUwq2rhp.xml"></include></p>
 
-<p>The challenge now is how to represent <include src="/_1haL5DK$Sy6FMTHs4iPBOl.xml"></include>.</p>
+<p>The challenge now is how to represent <include src="/_KNfE4UdYFX@ueVrxSbMzQI.xml"></include>.</p>
 
-<h4 id="representing-price_min">Representing <include src="/_1haL5DK$Sy6FMTHs4iPBOl.xml"></include></h4>
-<p>We realize that calculating <include src="/_1haL5DK$Sy6FMTHs4iPBOl.xml"></include> is also a problem of optimal substructure. We can solve it using dynamic programming too. Let <include src="/_kmjYHRWLn@xp9f04q8S1$z.xml"></include> represent the lowest price of the stock for the first <include src="/_PDM93avukBrF5AezQgmbln.xml"></include> days. The state transition equation for <include src="/_kmjYHRWLn@xp9f04q8S1$z.xml"></include> can be written as:</p>
+<h4 id="representing-price_min">Representing <include src="/_KNfE4UdYFX@ueVrxSbMzQI.xml"></include></h4>
+<p>We realize that calculating <include src="/_KNfE4UdYFX@ueVrxSbMzQI.xml"></include> is also a problem of optimal substructure. We can solve it using dynamic programming too. Let <include src="/_rCgdoLG$2UaMwxi4cJIEf7.xml"></include> represent the lowest price of the stock for the first <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include> days. The state transition equation for <include src="/_rCgdoLG$2UaMwxi4cJIEf7.xml"></include> can be written as:</p>
 
-<p><include src="/_kmjYHRWLn@xp9f04q8S1$z.xml"></include> = <include src="/_BCN09q7WlmKAbHQksuf3Rw.xml"></include></p>
+<p><include src="/_rCgdoLG$2UaMwxi4cJIEf7.xml"></include> = <include src="/_ipsMSKP@Cnvw0HGARcD4er.xml"></include></p>
 
-<p>Now, let’s use <include src="/_dbx6hACGKNepsjZit72a9X.xml"></include> to represent the maximum profit when we have <include src="/_HG3CFiBLdkAj2St6Ize$fo.xml"></include> stocks on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include>. With this, we can formulate the state transition equation for <include src="/_dbx6hACGKNepsjZit72a9X.xml"></include>:</p>
+<p>Now, let’s use <include src="/_087R2ITmBhXCfYctdQ@kFN.xml"></include> to represent the maximum profit when we have <include src="/_IuOcY9lg8tdG$4zZ2bwDk5.xml"></include> stocks on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include>. With this, we can formulate the state transition equation for <include src="/_087R2ITmBhXCfYctdQ@kFN.xml"></include>:</p>
 
-<p><include src="/_cALNtKO980$lj1vmEsp3WY.xml"></include>
-<include src="/_pVQuTh25tl$Ywvseqro07H.xml"></include></p>
+<p><include src="/_oShyIjGMD3TAnvkZxtLd1z.xml"></include>
+<include src="/_Fsm0$7U6BXbZpTzM9jxuco.xml"></include></p>
 
 <h4 id="boundary-conditions">Boundary Conditions</h4>
-<p><include src="/_TSo@zan1i$D9AQO6mhMRZk.xml"></include> represents the maximum profit when we have 0 stocks on day 0, so <include src="/_54vUFPqnANkclhbdLojIeE.xml"></include>.</p>
+<p><include src="/_V9IGsfbQBnAH60TEkKO72J.xml"></include> represents the maximum profit when we have 0 stocks on day 0, so <include src="/_eF1Awv69$dlDktV5BjsIGo.xml"></include>.</p>
 
-<p><include src="/_U7HS2IzrFP1AoyYhg3ZBRx.xml"></include> represents the maximum profit when we have 1 stock on day 0, so <include src="/_A@RdGH1$nZW4Im5UfD67Bj.xml"></include>.</p>
+<p><include src="/_w9L3Z68275JmjXz@dFIRse.xml"></include> represents the maximum profit when we have 1 stock on day 0, so <include src="/_RjlFzYnr0C8J3cV2H1bEdX.xml"></include>.</p>
 
 <h3 id="code">Code</h3>
 
@@ -741,9 +741,9 @@ Combining both cases, we get the state transition equation for this problem:</p>
 <h3 id="state-transition-equation-1">State Transition Equation</h3>
 <p>The difference between this and problem 121 lies in the fact that multiple buying operations are allowed here. Consequently, the state transition equation changes accordingly.</p>
 
-<p>Based on the state transition equation from problem 121, when we sell on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include>, our profit can keep accumulating because there’s no restriction on the number of buying operations. Thus, if our maximum profit before day <include src="/_JM3gByQs@DWAzTdehjwcpZ.xml"></include> was <include src="/_trEsch8HIWafJ6BT7inl$p.xml"></include>, after selling on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include>, it becomes <include src="/_aoE$8gOVbfFGWR2PHh6qQK.xml"></include>. Hence, the state transition equation for <include src="/_wTEZi0KaYWVLDScA1tfHyb.xml"></include> becomes:</p>
+<p>Based on the state transition equation from problem 121, when we sell on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include>, our profit can keep accumulating because there’s no restriction on the number of buying operations. Thus, if our maximum profit before day <include src="/_5xawNTCru2GPJ4FigO6Uc1.xml"></include> was <include src="/_JT4KEV9AbDY1yicZ568wL0.xml"></include>, after selling on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include>, it becomes <include src="/_QqBk4ZedKcLft@0V2vIPOw.xml"></include>. Hence, the state transition equation for <include src="/_UmP9$6ui43EGxpt7r5ofAO.xml"></include> becomes:</p>
 
-<p><include src="/_Kk2N$e0vPIfgO7UtqZXDnr.xml"></include></p>
+<p><include src="/_QLpXnl4UswT@ae01CV$7tP.xml"></include></p>
 
 <h3 id="code-1">Code</h3>
 
@@ -760,9 +760,9 @@ Combining both cases, we get the state transition equation for this problem:</p>
 
 <h2 id="714-best-time-to-buy-and-sell-stock-with-transaction-fee"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. Best Time to Buy and Sell Stock with Transaction Fee</a></h2>
 <h3 id="state-transition-equation-2">State Transition Equation</h3>
-<p>This problem introduces a fixed transaction fee when selling. If the profit from selling on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include> isn’t enough to cover the fee, we would prefer the previous profit. Hence, the state transition equation for this problem becomes:</p>
+<p>This problem introduces a fixed transaction fee when selling. If the profit from selling on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include> isn’t enough to cover the fee, we would prefer the previous profit. Hence, the state transition equation for this problem becomes:</p>
 
-<p><include src="/_Rkbs7noUOwyeg0QXGSadp4.xml"></include></p>
+<p><include src="/_e9p@nTyXfcdvMNV$h2gFtL.xml"></include></p>
 
 <h3 id="code-2">Code</h3>
 
@@ -781,9 +781,9 @@ Combining both cases, we get the state transition equation for this problem:</p>
 <h3 id="state-transition-equation-3">State Transition Equation</h3>
 <p>This problem introduces a cooldown period after selling, meaning we can’t buy on the next day after selling. This changes the buying state transition equation as it can only happen after a cooldown period. Thus, the state transition equations become:</p>
 
-<p><include src="/_ZA4HTEhRqDeIcGsnBx6YOF.xml"></include>
-<include src="/_uwMC87@Nm4YURl6Bh1G$PW.xml"></include>
-<include src="/_5B9JNaeSDwCrRz6M7AOWYl.xml"></include></p>
+<p><include src="/_Xw2@pcR$sLH3fd8ml7Sy9V.xml"></include>
+<include src="/_DclkGrXibB$wn9RNgQ7KtO.xml"></include>
+<include src="/_JX6Djd$B8tWhbk5LPp1C9s.xml"></include></p>
 
 <h3 id="code-3">Code</h3>
 
@@ -803,7 +803,7 @@ Combining both cases, we get the state transition equation for this problem:</p>
 
 <h2 id="123-best-time-to-buy-and-sell-stock-iii"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/">123. Best Time to Buy and Sell Stock III</a></h2>
 <h3 id="approach">Approach</h3>
-<p>This problem extends the concept from problem 121 and 122 by introducing a limit on the number of transactions (<include src="/_ExTpZR9ckgF5BLiXIn07@V.xml"></include>). We use a three-dimensional array to represent the maximum profit with two transactions allowed.</p>
+<p>This problem extends the concept from problem 121 and 122 by introducing a limit on the number of transactions (<include src="/_0nekotgdI9OTRLiuZpxmQY.xml"></include>). We use a three-dimensional array to represent the maximum profit with two transactions allowed.</p>
 
 <h3 id="code-4">Code</h3>
 
@@ -824,7 +824,7 @@ Combining both cases, we get the state transition equation for this problem:</p>
 
 <h2 id="188-best-time-to-buy-and-sell-stock-iv"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/">188. Best Time to Buy and Sell Stock IV</a></h2>
 
-<p>When the problem extends to <include src="/_DC4VajpWH@wG8U0MNyuRsL.xml"></include>, the approach used in problem 123 remains effective. We initialize the boundary as 0 and then use a for loop to calculate the result.</p>
+<p>When the problem extends to <include src="/_hvJj@WBAMXgrD89$ZdVyas.xml"></include>, the approach used in problem 123 remains effective. We initialize the boundary as 0 and then use a for loop to calculate the result.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">prices</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -844,18 +844,18 @@ Combining both cases, we get the state transition equation for this problem:</p>
 <p>For stock problems, the three limiting factors are:</p>
 
 <ul>
-  <li>Current day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include></li>
-  <li>Stocks held <include src="/_HG3CFiBLdkAj2St6Ize$fo.xml"></include></li>
-  <li>Maximum operations allowed <include src="/_DC4VajpWH@wG8U0MNyuRsL.xml"></include></li>
+  <li>Current day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include></li>
+  <li>Stocks held <include src="/_IuOcY9lg8tdG$4zZ2bwDk5.xml"></include></li>
+  <li>Maximum operations allowed <include src="/_hvJj@WBAMXgrD89$ZdVyas.xml"></include></li>
 </ul>
 
-<p>Let <include src="/_PtXUMnWvJAsqliV@uzcNpG.xml"></include> represent the maximum profit on day <include src="/_PDM93avukBrF5AezQgmbln.xml"></include> with <include src="/_HG3CFiBLdkAj2St6Ize$fo.xml"></include> stocks and <include src="/_DC4VajpWH@wG8U0MNyuRsL.xml"></include> operations allowed. The state transition equation becomes:</p>
+<p>Let <include src="/_4XY5HMC6PZ0inQyIOwN18v.xml"></include> represent the maximum profit on day <include src="/_ub6MJLWONptof7qIDyX2zw.xml"></include> with <include src="/_IuOcY9lg8tdG$4zZ2bwDk5.xml"></include> stocks and <include src="/_hvJj@WBAMXgrD89$ZdVyas.xml"></include> operations allowed. The state transition equation becomes:</p>
 
-<p><include src="/_J3Ewfra4lDV89jhBZqxu2@.xml"></include>
-<include src="/_IM7yorJORZdN9mfs0Uk2Lw.xml"></include></p>
+<p><include src="/_aS4$ETd9YIAvlghj2eLiWH.xml"></include>
+<include src="/_ZLd@hMf8cTe$NbSQyakIs2.xml"></include></p>
 
 <h4 id="boundary-conditions-1">Boundary Conditions</h4>
-<p><include src="/_kOGruCYpxSvK1FPTj5yDIg.xml"></include>
+<p><include src="/_alEtrgn1c3hpHBWji65JzZ.xml"></include>
 All other values are 0.</p>
 
 <h2 id="conclusion">Conclusion</h2>
@@ -1092,7 +1092,7 @@ All other values are 0.</p>
 
                 
                 <a class="article__image" href="/2021/10/20/%E5%8F%8C%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98-%E4%BA%8C-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                  <img class="lazy" data-src="https://api.dujin.org/bing/1920.php" alt="Two Pointer Problems (Part 2) - Sliding Window">
+                  <img class="lazy" data-src="https://www.bing.com/th?id=OHR.IndianStarTortoise_EN-US4160827746_1920x1080.jpg" alt="Two Pointer Problems (Part 2) - Sliding Window">
                 </a>
                 
 
