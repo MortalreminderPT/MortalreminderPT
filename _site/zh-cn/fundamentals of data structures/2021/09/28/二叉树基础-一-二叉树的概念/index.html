@@ -756,20 +756,20 @@
   <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
     <h3 id="性质">性质</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/zh-cn/_GFLKUpXHMrc3jCoi4fI@ZR.xml"></include>个节点 <include src="/zh-cn/_hC6ZETK1aqei32NVcYpD8J.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/zh-cn/_9yxe3fMTLBEcsaZ1p8l7Q@.xml"></include>个节点 <include src="/zh-cn/_5YK70FhWzyftoGZAkpwMen.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/zh-cn/_DuG7A4BU8vVW0ysFRIm1Kj.xml"></include>，度为2的节点为<include src="/zh-cn/_sUXlJegC7YV@fm8WN$5AuG.xml"></include>，则<include src="/zh-cn/_xNZahDUnJ7X1POlBb$TVqA.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/zh-cn/_0xTlI1U8uRLsnzkcVvFHSq.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/zh-cn/_TC0cw5@Flq$kPVQ12MW6Gp.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/zh-cn/_emvdT3SZ4DM$Hulrbi0WNJ.xml"></include></li>
-  <li><include src="/zh-cn/_TC0cw5@Flq$kPVQ12MW6Gp.xml"></include>个节点的完全二叉树高度为<include src="/zh-cn/_4REaSd8vQNjPVwD6oyKZlq.xml"></include>，深度为<include src="/zh-cn/_7PijVaDnBGzQO3fg$HWl95.xml"></include></li>
+  <li>一棵二叉树的第i层最多有<include src="/zh-cn/_8uAiSpORmELUV4lTQxntI5.xml"></include>个节点 <include src="/zh-cn/_fByG1OiwC4RQVgX3hUq5xW.xml"></include></li>
+  <li>深度为k的二叉树最多有<include src="/zh-cn/_p9oDrnsbZx2letdaGEMuqU.xml"></include>个节点 <include src="/zh-cn/_lFeM6S@NhLjmZH7U9u0ErR.xml"></include></li>
+  <li>对于1棵二叉树，度为0的节点为<include src="/zh-cn/_GAXO3B$aT8xrq7CcnjJRDb.xml"></include>，度为2的节点为<include src="/zh-cn/_AukTiEdF9JlPjspmBGQa76.xml"></include>，则<include src="/zh-cn/_6icTQJK@ZqDW$hOIl3ptLM.xml"></include></li>
+  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/zh-cn/_4VO0K9THtrc1ld$jUFX37P.xml"></include></li>
+  <li>满二叉树定理推论：在一棵具有<include src="/zh-cn/_hzqZpTEIMOkiJPeANWt2XR.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/zh-cn/_AMUH3RyoVh6dBDk1eIEGx@.xml"></include></li>
+  <li><include src="/zh-cn/_hzqZpTEIMOkiJPeANWt2XR.xml"></include>个节点的完全二叉树高度为<include src="/zh-cn/_Jr$PEyFqA2kNGaWv3SZh8w.xml"></include>，深度为<include src="/zh-cn/_P6i1bv30LQazY@fuhIOsqU.xml"></include></li>
 </ul>
 
 <h2 id="二叉树的c实现">二叉树的C++实现</h2>
 
 <h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/zh-cn/_7TgoLdEHn4mwRAtcrzVq19.xml"></include>处，
-其左孩子存储于下标<include src="/zh-cn/_RvH8mcYqakCunloFsZDrTO.xml"></include>，右孩子存储于下标<include src="/zh-cn/_4jKs7z6DuHrMNqpCiF9RB$.xml"></include>….依此类推，对于下标为<include src="/zh-cn/_IJk4ANbV1HB0YCUxigj7cX.xml"></include>的节点，左右孩子分别存储于下标为<include src="/zh-cn/_Z84aTWFlhY1mDkNRscKrwO.xml"></include>和<include src="/zh-cn/_7xrDYoXj1uUkelmbt6snQC.xml"></include>处。</p>
+<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/zh-cn/_t1MWZjbcyNR0LKJGrVnsh7.xml"></include>处，
+其左孩子存储于下标<include src="/zh-cn/_zM0$kirgay4YlJq6jcbmQh.xml"></include>，右孩子存储于下标<include src="/zh-cn/_ecsXpZKWJ9CBhGYnzwlvx3.xml"></include>….依此类推，对于下标为<include src="/zh-cn/_xoeUAHq3N5$Q7uhj4gzDrC.xml"></include>的节点，左右孩子分别存储于下标为<include src="/zh-cn/_PWFd8b$KpvkLGon1QOV0m2.xml"></include>和<include src="/zh-cn/_FNXr0n3c2CUWSius$o6yZa.xml"></include>处。</p>
 <h4 id="实现代码">实现代码</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
