@@ -49,7 +49,7 @@ hidden: true
     </tr>
     <tr>
       <td>Backend</td>
-      <td><img  style src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" /><img  style = "min-width: 40px; min-height: 40px; max-width: 60px;  max-height: 60px; width: auto; height: auto; margin: 2%; display: inline-block;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg" /><img  style = "min-width: 40px; min-height: 40px; max-width: 60px;  max-height: 60px; width: auto; height: auto; margin: 2%; display: inline-block;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" /></td>
+      <td><img  style = "min-width: 40px; min-height: 40px; max-width: 60px;  max-height: 60px; width: auto; height: auto; margin: 2%; display: inline-block;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" /><img  style = "min-width: 40px; min-height: 40px; max-width: 60px; max-height: 60px; width: auto; height: auto; margin: 2%; display: inline-block;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg" /><img  style = "min-width: 40px; min-height: 40px; max-width: 60px;  max-height: 60px; width: auto; height: auto; margin: 2%; display: inline-block;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" /></td>
     </tr>
     <tr>
       <td>Tools</td>
