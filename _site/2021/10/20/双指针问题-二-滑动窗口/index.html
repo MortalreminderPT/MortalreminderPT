@@ -294,6 +294,11 @@
     
   
     
+      
+      
+    
+  
+    
   
     
   
@@ -371,6 +376,11 @@
             <a href="/tags/" class="nav__link">Tags</a>
           </li>
         
+      
+    
+  
+    
+      
       
     
   
@@ -670,7 +680,7 @@
 
 <h2 id="209-minimum-size-subarray-sum"><a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. Minimum Size Subarray Sum</a></h2>
 
-<p>This problem is the most basic sliding window problem. We can use two pointers <include src="/_3xD2jJs1QcoiUPqnA$HmGE.xml"></include> and <include src="/_0uwfPa9M7p2lRhmGFj4iCn.xml"></include> to represent the left and right ends of the window, then move the pointer <include src="/_0uwfPa9M7p2lRhmGFj4iCn.xml"></include> continuously to the right. Meanwhile, use a variable <include src="/_hPt3u@c4nFjOavpTBkGDbz.xml"></include> to record the sum of the interval <include src="/_qk2Snm7CUwNes@jTBWOpu3.xml"></include>. If <include src="/_hPt3u@c4nFjOavpTBkGDbz.xml"></include> meets the condition, record the difference between <include src="/_3xD2jJs1QcoiUPqnA$HmGE.xml"></include> and <include src="/_0uwfPa9M7p2lRhmGFj4iCn.xml"></include> as the answer, and move the pointer <include src="/_3xD2jJs1QcoiUPqnA$HmGE.xml"></include>. Here’s the code:</p>
+<p>This problem is the most basic sliding window problem. We can use two pointers <include src="/_2pdhT3wL5zHcDtYyN9jkUx.xml"></include> and <include src="/_1yNprEdQITPMW4KxXzBuVU.xml"></include> to represent the left and right ends of the window, then move the pointer <include src="/_1yNprEdQITPMW4KxXzBuVU.xml"></include> continuously to the right. Meanwhile, use a variable <include src="/_2CibBdqLe3EfjhPR4Yytn8.xml"></include> to record the sum of the interval <include src="/_N5V0fpHXcuol87zy2GQ1Ti.xml"></include>. If <include src="/_2CibBdqLe3EfjhPR4Yytn8.xml"></include> meets the condition, record the difference between <include src="/_2pdhT3wL5zHcDtYyN9jkUx.xml"></include> and <include src="/_1yNprEdQITPMW4KxXzBuVU.xml"></include> as the answer, and move the pointer <include src="/_2pdhT3wL5zHcDtYyN9jkUx.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -694,9 +704,9 @@
 
 <p>The solution to this problem is very similar to the previous one, but instead of finding the length of the interval, we’re looking for the number of consecutive subintervals.</p>
 
-<p>For the number of subintervals, we can observe that if <include src="/_qk2Snm7CUwNes@jTBWOpu3.xml"></include> is a valid window, then <include src="/_X0yvCWZFPzxMjSr43wgmIU.xml"></include> for <include src="/_n6vwGa1KPJT5CcmupXY8oH.xml"></include> must also be valid windows.</p>
+<p>For the number of subintervals, we can observe that if <include src="/_N5V0fpHXcuol87zy2GQ1Ti.xml"></include> is a valid window, then <include src="/_Fo@YnwredBgV4bAlpNSiJM.xml"></include> for <include src="/_@qsrAjZ81vycTzSDJlR6oE.xml"></include> must also be valid windows.</p>
 
-<p>For any valid interval <include src="/_qk2Snm7CUwNes@jTBWOpu3.xml"></include>, the number of subsets ending at <include src="/_0uwfPa9M7p2lRhmGFj4iCn.xml"></include> is always <include src="/_c6p3qSNwk$dt4LfHQjysCY.xml"></include>. Therefore, before updating <include src="/_0uwfPa9M7p2lRhmGFj4iCn.xml"></include> each time, we add <include src="/_c6p3qSNwk$dt4LfHQjysCY.xml"></include> to the answer. Here’s the code:</p>
+<p>For any valid interval <include src="/_N5V0fpHXcuol87zy2GQ1Ti.xml"></include>, the number of subsets ending at <include src="/_1yNprEdQITPMW4KxXzBuVU.xml"></include> is always <include src="/_J5OinAFK7$B2cZ0HQ@sC6e.xml"></include>. Therefore, before updating <include src="/_1yNprEdQITPMW4KxXzBuVU.xml"></include> each time, we add <include src="/_J5OinAFK7$B2cZ0HQ@sC6e.xml"></include> to the answer. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -719,7 +729,7 @@
 
 <h2 id="3-longest-substring-without-repeating-characters"><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. Longest Substring Without Repeating Characters</a></h2>
 
-<p>Unlike the previous contiguous subsequence problem, this problem requires the length of contiguous substrings. Therefore, we need to modify the condition. If duplicate characters appear within the window interval, we update <include src="/_3xD2jJs1QcoiUPqnA$HmGE.xml"></include>. Here’s the code:</p>
+<p>Unlike the previous contiguous subsequence problem, this problem requires the length of contiguous substrings. Therefore, we need to modify the condition. If duplicate characters appear within the window interval, we update <include src="/_2pdhT3wL5zHcDtYyN9jkUx.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -742,7 +752,7 @@
 
 <h2 id="438-find-all-anagrams-in-a-string"><a href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/">438. Find All Anagrams in a String</a></h2>
 
-<p>The solution to this problem is quite similar to the previous one, but instead of comparing characters, we’re comparing strings. Additionally, the length of the window in this problem remains constant, which is the length of <include src="/_VtyJBh60g$7P4T8IxUoGWz.xml"></include>.</p>
+<p>The solution to this problem is quite similar to the previous one, but instead of comparing characters, we’re comparing strings. Additionally, the length of the window in this problem remains constant, which is the length of <include src="/_V4lzm5eud7CxTGNEpFZaPB.xml"></include>.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -822,6 +832,13 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1231,6 +1248,34 @@
     
     <div class="recent-posts">
       
+      <a class="recent-posts__image" href="/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/"><img class="lazy" data-src="/images/covers/k8s.png" alt="Kubernetes Notes (Part One)"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+
+  72 min read
+
+
+          </span>
+          <time class="article__date"
+            datetime="2024-05-23T11:15:00+10:00">May 23, 2024</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/">Kubernetes Notes (Part One)</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
       <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
       
       <div class="recent-posts__content">
@@ -1246,34 +1291,6 @@
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
         <h4 class="recent-posts__title"><a href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
-        <div class="article__bottom">
-          <div class="article__author">
-            <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-          </div>
-          <div class="article__bottom-meta">
-            <a href="/about/" class="article__author-link">Mortalreminder PT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="recent-posts">
-      
-      <a class="recent-posts__image" href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven (Part 13) - Optional Dependencies and Dependency Exclusions"></a>
-      
-      <div class="recent-posts__content">
-        <div class="article__meta">
-          <span class="article__minutes">
-            
-
-  39 min read
-
-
-          </span>
-          <time class="article__date"
-            datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
-        </div>
-        <h4 class="recent-posts__title"><a href="/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven (Part 13) - Optional Dependencies and Dependency Exclusions</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1359,6 +1376,8 @@
         <a href="/tags/maven"#{html_opts}>Maven</a>
       
         <a href="/tags/rust"#{html_opts}>rust</a>
+      
+        <a href="/tags/kubernetes"#{html_opts}>Kubernetes</a>
       
     </div>
   </div>

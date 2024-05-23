@@ -137,6 +137,10 @@
 <lastmod>2024-01-30T18:20:05+11:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/</loc>
+<lastmod>2024-05-23T11:15:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -213,6 +217,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/tags/rust/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/kubernetes/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/dynamic-programming-fundamentals/</loc>

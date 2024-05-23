@@ -314,6 +314,16 @@
     
   
     
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
   
     
   
@@ -391,6 +401,16 @@
             <a href="/zh-cn/tags/" class="nav__link">Tags</a>
           </li>
         
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
       
     
   
@@ -713,13 +733,13 @@
 <h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/zh-cn/_CgktJ6$hWQvX5rK4xD0Y2A.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/zh-cn/_HW7vhNUOQXdtclGImn0Z$q.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/zh-cn/_8n4xE5RL@PcXd1CHFTsGO7.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/zh-cn/_QRrI7g$jBlEYfOpa8NMX19.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/zh-cn/_F2jgZoWdMPLJhHXkrGvVTY.xml"></include>，设线段树的根节点编号为<include src="/zh-cn/_8n4xE5RL@PcXd1CHFTsGO7.xml"></include>，用数组<include src="/zh-cn/_cQG8@EzdCewkjqrJ02NpmF.xml"></include>来保存线段树，<include src="/zh-cn/_ng7Oa52CBux$P3tINAJiSz.xml"></include>用来保存线段树上编号为<include src="/zh-cn/_41vuTP5nAXjlVKSFZGm0B7.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/zh-cn/_80ynlbGswFkQcqoVYU5AH6.xml"></include>，设线段树的根节点编号为<include src="/zh-cn/_QRrI7g$jBlEYfOpa8NMX19.xml"></include>，用数组<include src="/zh-cn/_qbAoYJ3$wMFezEpH7rGiX9.xml"></include>来保存线段树，<include src="/zh-cn/_8JElZzjcxCpG29Sh4a@sn5.xml"></include>用来保存线段树上编号为<include src="/zh-cn/_wKqaurvAM2ht0WmQHx43Ed.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -734,7 +754,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/zh-cn/_41vuTP5nAXjlVKSFZGm0B7.xml"></include>，其子节点的编号为<include src="/zh-cn/_RcKuDVBSxwsJY70optgqU9.xml"></include>以及<include src="/zh-cn/_86tgNbYVeHyM1l$KCio5WO.xml"></include>，若节点<include src="/zh-cn/_41vuTP5nAXjlVKSFZGm0B7.xml"></include>存储的区间为<include src="/zh-cn/_5lwmUqZfONXzGu6$h8jkFT.xml"></include>，则节点<include src="/zh-cn/_RcKuDVBSxwsJY70optgqU9.xml"></include>存储的区间应该是<include src="/zh-cn/_LbeoOJHIhGViNw8a@FfE1K.xml"></include>，相应地，节点<include src="/zh-cn/_86tgNbYVeHyM1l$KCio5WO.xml"></include>存储的区间为<include src="/zh-cn/_OBGxYuI1UVdhg40SJ7pbcN.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/zh-cn/_wKqaurvAM2ht0WmQHx43Ed.xml"></include>，其子节点的编号为<include src="/zh-cn/_ayeu3qliZDj4Vx8HWpzn1I.xml"></include>以及<include src="/zh-cn/_u9QgPxS3izplCJYj1R$WF4.xml"></include>，若节点<include src="/zh-cn/_wKqaurvAM2ht0WmQHx43Ed.xml"></include>存储的区间为<include src="/zh-cn/_2vLdVtRDhICnFHkUTe94XW.xml"></include>，则节点<include src="/zh-cn/_ayeu3qliZDj4Vx8HWpzn1I.xml"></include>存储的区间应该是<include src="/zh-cn/_nWwxlvQ4YokPcIBrymU5N$.xml"></include>，相应地，节点<include src="/zh-cn/_u9QgPxS3izplCJYj1R$WF4.xml"></include>存储的区间为<include src="/zh-cn/_WNdq$4bckUBMAj7f0LI@8t.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -749,7 +769,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/zh-cn/_5lqP4DRcsFjkQgfpmCEZ79.xml"></include>，我们只需直接返回<include src="/zh-cn/_yBm0E3T9eNQSFgnOq8v2xz.xml"></include>，但如果我们查询的是<include src="/zh-cn/_zoAZpycxESMXK$FW2VH8kP.xml"></include>，则需要合并<include src="/zh-cn/_7vW6Zgk4sVXY9j2hwlt0UM.xml"></include>和<include src="/zh-cn/_G@DtMRmNrw2BO0bH8ns7L1.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/zh-cn/_bc8dgJam@$9MrXjpyLu6eK.xml"></include>，我们只需直接返回<include src="/zh-cn/_$7qaIeYtz2ZrW4MQmTHCj1.xml"></include>，但如果我们查询的是<include src="/zh-cn/_Msn7BufdtUEFoXqH4C@6vi.xml"></include>，则需要合并<include src="/zh-cn/_FNyMkW8Sv$@U0acb9uje2J.xml"></include>和<include src="/zh-cn/_ot3E6g0IaOd@59u41hple7.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -775,9 +795,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/zh-cn/_GPgOm1TSFWnRf$8e4YQqX5.xml"></include>的区间<include src="/zh-cn/_zoAZpycxESMXK$FW2VH8kP.xml"></include>加上<include src="/zh-cn/_JsOw9zUa1SCVEeLTil4PX6.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/zh-cn/_stUEGaqZkKh4nMlmjobIHw.xml"></include>的区间<include src="/zh-cn/_Msn7BufdtUEFoXqH4C@6vi.xml"></include>加上<include src="/zh-cn/_t4T@umK81REngvDXNkxZhJ.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/zh-cn/_3gLdh5z0FQs@l1AHCco786.xml"></include>时就已经结束了，因此节点<include src="/zh-cn/_3gLdh5z0FQs@l1AHCco786.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/zh-cn/_v982bl6zDkY5cqijUg@mKB.xml"></include>时就已经结束了，因此节点<include src="/zh-cn/_v982bl6zDkY5cqijUg@mKB.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
@@ -917,6 +937,13 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1641,6 +1668,34 @@
     
     <div class="recent-posts">
       
+      <a class="recent-posts__image" href="/zh-cn/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/"><img class="lazy" data-src="/images/covers/k8s.png" alt="K8s笔记（一）"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+
+阅读时间 32 分钟
+
+
+          </span>
+          <time class="article__date"
+            datetime="2024-05-23T11:15:00+10:00">May 23, 2024</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/zh-cn/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/">K8s笔记（一）</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/zh-cn/about/" class="article__author-link">Mortalreminder PT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
       <a class="recent-posts__image" href="/zh-cn/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
       
       <div class="recent-posts__content">
@@ -1656,34 +1711,6 @@
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
         <h4 class="recent-posts__title"><a href="/zh-cn/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
-        <div class="article__bottom">
-          <div class="article__author">
-            <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-          </div>
-          <div class="article__bottom-meta">
-            <a href="/zh-cn/about/" class="article__author-link">Mortalreminder PT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="recent-posts">
-      
-      <a class="recent-posts__image" href="/zh-cn/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
-      
-      <div class="recent-posts__content">
-        <div class="article__meta">
-          <span class="article__minutes">
-            
-
-阅读时间 19 分钟
-
-
-          </span>
-          <time class="article__date"
-            datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
-        </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1767,6 +1794,8 @@
         <a href="/zh-cn/tags/maven"#{html_opts}>Maven</a>
       
         <a href="/zh-cn/tags/rust"#{html_opts}>rust</a>
+      
+        <a href="/zh-cn/tags/kubernetes"#{html_opts}>Kubernetes</a>
       
     </div>
   </div>

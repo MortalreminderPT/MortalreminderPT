@@ -314,6 +314,16 @@
     
   
     
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
   
     
   
@@ -391,6 +401,16 @@
             <a href="/zh-cn/tags/" class="nav__link">Tags</a>
           </li>
         
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
       
     
   
@@ -699,10 +719,10 @@
 <p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">300.最长递增子序列</a></p>
 
 <h2 id="动态规划">动态规划</h2>
-<p>我们可以定义<include src="/zh-cn/_x51MtsuQHLlWSI0D@aiC96.xml"></include>为以<include src="/zh-cn/_41vuTP5nAXjlVKSFZGm0B7.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/zh-cn/_ql3O@NrQwt9fdp80CRZ5LJ.xml"></include>的常用套路），则我们可以写出状态转移方程为
-<include src="/zh-cn/_29ahlCvsgbZD@NH3V$4pJ8.xml"></include></p>
+<p>我们可以定义<include src="/zh-cn/_l9WLV1rOMXuGpJYKAC@8cj.xml"></include>为以<include src="/zh-cn/_wKqaurvAM2ht0WmQHx43Ed.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/zh-cn/_e0IwcbHEKpQjTtqzf2Dod4.xml"></include>的常用套路），则我们可以写出状态转移方程为
+<include src="/zh-cn/_J2oMQKiUwBTvEdnLA@sHgR.xml"></include></p>
 
-<p>最后，此题的结果便是<include src="/zh-cn/_XCjDOHEsWrZNony5cqMaJI.xml"></include>，代码如下</p>
+<p>最后，此题的结果便是<include src="/zh-cn/_VDHleCbW69nATypPf3aB52.xml"></include>，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -719,12 +739,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/zh-cn/_J0@YvjpbSPu2R6M8DEkhIe.xml"></include></p>
+<p>该解法时间复杂度为<include src="/zh-cn/_oFUSKNtJTkmdblhcPV8Wfv.xml"></include></p>
 
 <h2 id="树状数组">树状数组</h2>
 <p>LIS问题的本质是偏序问题，我们之前在二维偏序问题中提到过，树状数组可以轻松的解决这类问题。但之前的问题中，我们求的是数对的数量，而不是序列的长度。为了能够求得序列长度，我们要对树状数组进行修改。</p>
 
-<p>我们可以用树状数组存储以<include src="/zh-cn/_41vuTP5nAXjlVKSFZGm0B7.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
+<p>我们可以用树状数组存储以<include src="/zh-cn/_wKqaurvAM2ht0WmQHx43Ed.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -742,7 +762,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>随后用和<include src="/zh-cn/_ql3O@NrQwt9fdp80CRZ5LJ.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
+<p>随后用和<include src="/zh-cn/_e0IwcbHEKpQjTtqzf2Dod4.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -792,7 +812,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/zh-cn/_HUsZCaNdM76IktyXTYzJ1e.xml"></include></p>
+<p>该解法时间复杂度为<include src="/zh-cn/_CX96s5$ZT071aIFQMEP@mS.xml"></include></p>
 
     </div>
 
@@ -852,6 +872,13 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1587,6 +1614,34 @@
     
     <div class="recent-posts">
       
+      <a class="recent-posts__image" href="/zh-cn/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/"><img class="lazy" data-src="/images/covers/k8s.png" alt="K8s笔记（一）"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+
+阅读时间 32 分钟
+
+
+          </span>
+          <time class="article__date"
+            datetime="2024-05-23T11:15:00+10:00">May 23, 2024</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/zh-cn/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/">K8s笔记（一）</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/zh-cn/about/" class="article__author-link">Mortalreminder PT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
       <a class="recent-posts__image" href="/zh-cn/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx开发日志（一）"></a>
       
       <div class="recent-posts__content">
@@ -1602,34 +1657,6 @@
             datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
         </div>
         <h4 class="recent-posts__title"><a href="/zh-cn/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx开发日志（一）</a></h4>
-        <div class="article__bottom">
-          <div class="article__author">
-            <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-          </div>
-          <div class="article__bottom-meta">
-            <a href="/zh-cn/about/" class="article__author-link">Mortalreminder PT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="recent-posts">
-      
-      <a class="recent-posts__image" href="/zh-cn/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/"><img class="lazy" data-src="/images/covers/maven-cover.jpg" alt="Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）"></a>
-      
-      <div class="recent-posts__content">
-        <div class="article__meta">
-          <span class="article__minutes">
-            
-
-阅读时间 19 分钟
-
-
-          </span>
-          <time class="article__date"
-            datetime="2023-12-05T20:01:56+11:00">Dec 5, 2023</time>
-        </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/maven/2023/12/05/Maven-%E5%8D%81%E4%B8%89-%E5%8F%AF%E9%80%89-optional-%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8E%92%E9%99%A4-exclusion/">Maven（十三）可选（optional）依赖项和依赖项排除（exclusion）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1713,6 +1740,8 @@
         <a href="/zh-cn/tags/maven"#{html_opts}>Maven</a>
       
         <a href="/zh-cn/tags/rust"#{html_opts}>rust</a>
+      
+        <a href="/zh-cn/tags/kubernetes"#{html_opts}>Kubernetes</a>
       
     </div>
   </div>
