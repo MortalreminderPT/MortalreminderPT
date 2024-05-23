@@ -4,7 +4,7 @@ This is a GitHub Pages project based on the Norlin template.
 
 ## Norlin
 
-Norlin is a creative modern theme with a clean design specially created for dark themes lovers.
+Norlin is a creative modern theme with a clean design specially created for dark theme lovers.
 
 Norlin theme is fully responsive and looks great on mobile devices. It features a beautiful and modern design that is best suited for personal or corporate blogs. You can easily customize the theme by changing the accent colors, widget arrangement, and more.
 
