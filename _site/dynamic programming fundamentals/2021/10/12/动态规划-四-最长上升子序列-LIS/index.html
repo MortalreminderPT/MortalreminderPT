@@ -670,10 +670,10 @@
 
 <h2 id="dynamic-programming">Dynamic Programming</h2>
 
-<p>We can define <include src="/_ImLbNkcWso41Mjfpl759gw.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/_$ZThKoGUn7mLvjbIFtkQiS.xml"></include> (a common pattern for the <include src="/_9oJWGd7lM@KAExXjtmsiBH.xml"></include> array). Then, we can write the state transition equation as
-<include src="/_xDXeq4uvEkJ28KL5@zV3WI.xml"></include></p>
+<p>We can define <include src="/_EAhd8oR61zXNJZW9kDPTSU.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/_oRU7CIq9yw2XHl6n5@h$da.xml"></include> (a common pattern for the <include src="/_IAdlf5iSOY7@vx2qDF$VLh.xml"></include> array). Then, we can write the state transition equation as
+<include src="/_NWK6QgAeuEY0Ccnl5w4O9i.xml"></include></p>
 
-<p>Finally, the result of this problem is <include src="/_azDwUHh1oen$r6uf94ilTq.xml"></include>, and the code is as follows:</p>
+<p>Finally, the result of this problem is <include src="/_ajukd7qsmFw2oUTSL4zWDH.xml"></include>, and the code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -690,13 +690,13 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/_Ea7ZRKJXDN12no$cmfdMup.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/_54mlIKoRObB@ESVqw68Aau.xml"></include>.</p>
 
 <h2 id="fenwick-tree-binary-indexed-tree">Fenwick Tree (Binary Indexed Tree)</h2>
 
 <p>The LIS problem is essentially a partial order problem. Previously, in two-dimensional partial order problems, we mentioned that a Fenwick tree can easily solve such problems. However, in the previous problems, we were counting the number of pairs, not the length of sequences. To find the length of sequences, we need to modify the Fenwick tree structure.</p>
 
-<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/_$ZThKoGUn7mLvjbIFtkQiS.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
+<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/_oRU7CIq9yw2XHl6n5@h$da.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -714,7 +714,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>Then, we traverse the array in the same way as with <include src="/_9oJWGd7lM@KAExXjtmsiBH.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
+<p>Then, we traverse the array in the same way as with <include src="/_IAdlf5iSOY7@vx2qDF$VLh.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -764,7 +764,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/_@mv2UJsE5$SY9puXoezKwf.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/_ShlDVMoZF8P4taN1OdTeAK.xml"></include>.</p>
 
     </div>
 
@@ -824,6 +824,20 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1244,21 +1258,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/"><img class="lazy" data-src="/images/covers/k8s.png" alt="Kubernetes Notes (Part One)"></a>
+      <a class="recent-posts__image" href="/2024/05/24/K8s%E7%AC%94%E8%AE%B0-%E4%B8%89/"><img class="lazy" data-src="/images/covers/k8s.png" alt="Kubernetes Notes (Part 3) - Concepts of Master and Worker"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-  72 min read
+  14 min read
 
 
           </span>
           <time class="article__date"
-            datetime="2024-05-23T11:15:00+10:00">May 23, 2024</time>
+            datetime="2024-05-24T20:18:52+10:00">May 24, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/2024/05/23/K8s%E7%AC%94%E8%AE%B0-%E4%B8%80/">Kubernetes Notes (Part One)</a></h4>
+        <h4 class="recent-posts__title"><a href="/2024/05/24/K8s%E7%AC%94%E8%AE%B0-%E4%B8%89/">Kubernetes Notes (Part 3) - Concepts of Master and Worker</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1272,21 +1286,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/"><img class="lazy" data-src="/images/covers/edit-xlsx-cover.png" alt="Edit-xlsx Development Log (Part 1)"></a>
+      <a class="recent-posts__image" href="/2024/05/24/K8s%E7%AC%94%E8%AE%B0-%E4%BA%8C/"><img class="lazy" data-src="/images/covers/k8s.png" alt="Kubernetes Notes (Part 2) - Basic Concepts (Part 2)"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-  37 min read
+  60 min read
 
 
           </span>
           <time class="article__date"
-            datetime="2024-01-30T18:20:05+11:00">Jan 30, 2024</time>
+            datetime="2024-05-24T14:20:48+10:00">May 24, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/edit-xlsx/2024/01/30/Edit-xlsx%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97-%E4%B8%80/">Edit-xlsx Development Log (Part 1)</a></h4>
+        <h4 class="recent-posts__title"><a href="/2024/05/24/K8s%E7%AC%94%E8%AE%B0-%E4%BA%8C/">Kubernetes Notes (Part 2) - Basic Concepts (Part 2)</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
