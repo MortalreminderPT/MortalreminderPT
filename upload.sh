@@ -1,34 +1,57 @@
+#!/bin/bash
 
-#!/bin/sh
+# 安装指定版本的 Ruby gems
 
-echo "Add new posts when it get ready"
-git add -A
-echo "If it ready, i will upload all shits"
-git commit -m "New post for today"
+gem install addressable -v "2.8.4"
+gem install i18n -v "1.14.1"
+gem install kramdown -v "2.4.0"
+gem install rouge -v "4.1.2"
+gem install webrick -v "1.8.1"
+gem install rails -v "7.0.5"
+gem install duktape -v "2.7.0.0"
+gem install public_suffix -v "5.0.1"
+gem install concurrent-ruby -v "1.2.2"
+gem install sass-embedded -v "1.63.6-arm64-darwin"
+gem install listen -v "3.8.0"
+gem install rexml -v "3.2.5"
+gem install unicode-display_width -v "2.4.2"
+gem install actioncable -v "7.0.5"
+gem install actionmailbox -v "7.0.5"
+gem install actionmailer -v "7.0.5"
+gem install actionpack -v "7.0.5"
+gem install actiontext -v "7.0.5"
+gem install actionview -v "7.0.5"
+gem install activejob -v "7.0.5"
+gem install activemodel -v "7.0.5"
+gem install activerecord -v "7.0.5"
+gem install activestorage -v "7.0.5"
+gem install activesupport -v "7.0.5"
+gem install railties -v "7.0.5"
+gem install google-protobuf -v "3.23.2-arm64-darwin"
+gem install rb-inotify -v "0.10.1"
+gem install nio4r -v "2.5.9"
+gem install websocket-driver -v "0.7.5"
+gem install net-imap -v "0.3.4"
+gem install net-smtp -v "0.3.3"
+gem install rails-dom-testing -v "2.0.3"
+gem install rack -v "2.2.7"
+gem install rails-html-sanitizer -v "1.6.0"
+gem install globalid -v "1.1.0"
+gem install nokogiri -v "1.15.4-arm64-darwin"
+gem install builder -v "3.2.4"
+gem install erubi -v "1.12.0"
+gem install marcel -v "1.0.2"
+gem install mini_mime -v "1.1.2"
+gem install minitest -v "5.18.0"
+gem install method_source -v "1.0.0"
+gem install rake -v "13.0.6"
+gem install thor -v "1.2.2"
+gem install zeitwerk -v "2.6.8"
+gem install ffi -v "1.15.5"
+gem install date -v "3.3.3"
+gem install net-protocol -v "0.2.1"
+gem install loofah -v "2.21.3"
+gem install racc -v "1.7.0"
+gem install timeout -v "0.3.1"
 
-if [ "`git status -s`" ]
-then
-    echo "The working directory is dirty. Please commit any pending changes."
-    exit 1;
-fi
-
-echo "Deleting old publication"
-rm -rf public
-mkdir public
-git worktree prune
-rm -rf .git/worktrees/public/
-
-echo "Checking out gh-pages branch into public"
-git worktree add -B gh-pages public origin/gh-pages
-
-echo "Removing existing files"
-rm -rf public/*
-
-echo "Generating site"
-hugo
-
-echo "Updating gh-pages branch"
-cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
-
-#echo "Pushing to github"
-git push --all
+echo "所有 gems 已成功安装！"

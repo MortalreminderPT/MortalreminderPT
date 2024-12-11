@@ -96,9 +96,6 @@ jekyll-archives:
   enabled: [categories, tags]
   layouts: archive
   permalinks:
-#    year: '/archive/:year/'
-#    month: '/archive/:year/:month/'
-#    day: '/archive/:year/:month/:day/'
     tag: 'tags/:name/'
     category: 'categories/:name/'
 
