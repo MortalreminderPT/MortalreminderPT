@@ -77,12 +77,11 @@ hidden: true
 
 #### 🌱 Learning: 
   - Some front-end tech stacks (Node.js, React)
-  - Vector database
-  - Spoken English 😂
+  - Computer Vision & LLM
 
-#### 🤔 Looking for help with:
+<!-- #### 🤔 Looking for help with:
 - An internship in Melbourne (Or remote)
-- Interesting open-source projects
+- Interesting open-source projects -->
 
 <!-- <style>
     .table-img {
