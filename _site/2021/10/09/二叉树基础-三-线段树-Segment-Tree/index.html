@@ -713,13 +713,13 @@
 <h2 id="concept">Concept</h2>
 <p>A segment tree is a data structure commonly used for <strong>maintaining interval information</strong>.</p>
 
-<p>Segment trees can perform operations like single-point modification, interval modification, and interval queries (such as interval sum, maximum value, minimum value) in <include src="/_SpRFQe1whmZ96OTcyEPKvL.xml"></include> time complexity.</p>
+<p>Segment trees can perform operations like single-point modification, interval modification, and interval queries (such as interval sum, maximum value, minimum value) in <include src="/_0tkqPFN2VYiaJyHWwUATSR.xml"></include> time complexity.</p>
 
 <h3 id="structure">Structure</h3>
 
 <p>A segment tree divides each interval of non-unit length into left and right sub-intervals recursively. It forms a tree structure where the entire segment is divided. The information of the interval is obtained by merging the information of the left and right sub-intervals. This data structure facilitates most interval operations.</p>
 
-<p>Suppose we have an array <include src="/_uGn3OUJ67Igk@lKb2BHaxf.xml"></include>. Let the root node of the segment tree be numbered <include src="/_aiSlome68JX9$HQZ2wfnIM.xml"></include>, and we use an array <include src="/_NvPja0KnA8HxJs4ZkC@7oq.xml"></include> to store the segment tree, where <include src="/_6WlLQ3S@7OnTpYdGXIJ5F2.xml"></include> stores the value of the node with index <include src="/_CPMU31JTbA5cxh94nSLRzm.xml"></include> in the segment tree.</p>
+<p>Suppose we have an array <include src="/_QAD9zUKl1ekINyEvHpScP3.xml"></include>. Let the root node of the segment tree be numbered <include src="/_OWDX4S@bHlCwpv1Noty6jx.xml"></include>, and we use an array <include src="/_5i8Qa1cH2dq4JG6spyAfDv.xml"></include> to store the segment tree, where <include src="/_GhPQKlD4sntxwFfNUjob$H.xml"></include> stores the value of the node with index <include src="/_btruMXq$nGCFNgZB1c7sj0.xml"></include> in the segment tree.</p>
 
 <p>The structure of this segment tree is as follows:</p>
 
@@ -735,7 +735,7 @@
 <h2 id="basic-operations">Basic Operations</h2>
 <h3 id="building-the-segment-tree">Building the Segment Tree</h3>
 
-<p>For a node <include src="/_CPMU31JTbA5cxh94nSLRzm.xml"></include>, its child nodes are numbered <include src="/_ybu5AFZR$Hi71SYTBdGqcK.xml"></include> and <include src="/_htw0oIQ5dec9pvWfsOxMYZ.xml"></include>. If node <include src="/_CPMU31JTbA5cxh94nSLRzm.xml"></include> stores the interval <include src="/_yOME2URgiqNF8K0Sk3xQwp.xml"></include>, then node <include src="/_ybu5AFZR$Hi71SYTBdGqcK.xml"></include> should store the interval <include src="/_5uP8AOXnzdCqvFj9VZea7o.xml"></include>, and similarly, node <include src="/_htw0oIQ5dec9pvWfsOxMYZ.xml"></include> should store the interval <include src="/_QRKLOSUhdrNIzoDwp36iXx.xml"></include>. We can build the tree recursively. Here’s the code:</p>
+<p>For a node <include src="/_btruMXq$nGCFNgZB1c7sj0.xml"></include>, its child nodes are numbered <include src="/_vG9$6cXUfiF2hlMbxwNO0r.xml"></include> and <include src="/_HsGcO7LWZIpQJmNhjXqbn9.xml"></include>. If node <include src="/_btruMXq$nGCFNgZB1c7sj0.xml"></include> stores the interval <include src="/_BVnkFR17aqbcZzrvhD6mEj.xml"></include>, then node <include src="/_vG9$6cXUfiF2hlMbxwNO0r.xml"></include> should store the interval <include src="/_aqhik6lEjItH59G$nTrwmO.xml"></include>, and similarly, node <include src="/_HsGcO7LWZIpQJmNhjXqbn9.xml"></include> should store the interval <include src="/_L6WGZej08MwHPvmXAkfd1I.xml"></include>. We can build the tree recursively. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i represents the current node, l represents the left boundary, r represents the right boundary</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -750,7 +750,7 @@
 </code></pre></div></div>
 
 <h3 id="interval-query">Interval Query</h3>
-<p>If the query interval is <include src="/_6nzcSOmPLgj3YM@N$8RABC.xml"></include>, we can directly return <include src="/_DfsI54Yz1adhSMnK6Z3b@W.xml"></include>. But if the query is <include src="/_ENy68xuPdIbe37RX2lFKUY.xml"></include>, we need to merge the answers of <include src="/_JZsXNWt5mv14DPOI6Fx8f7.xml"></include> and <include src="/_@3md7ZuDMWlbChreOz$0IV.xml"></include>. Here’s the code:</p>
+<p>If the query interval is <include src="/_FIqHZvCJDc5zop8M6Kj7V4.xml"></include>, we can directly return <include src="/_sg2GKzZw9mfetjxbp5yOno.xml"></include>. But if the query is <include src="/_An7@rf06MZTz3I9$a8W2Rw.xml"></include>, we need to merge the answers of <include src="/_@sMDczXn1f3gY$EyhatGUH.xml"></include> and <include src="/_C1GMfi6ubeRBsHlx2yAT7$.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i represents the current node, [l,r] is the query interval, [s,t] represents the interval covered by the current node</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// If [s,t] is a sub-interval of [l,r], directly return</span>
@@ -778,11 +778,11 @@
 </code></pre></div></div>
 
 <h3 id="lazy-propagation">Lazy Propagation</h3>
-<p>When updating the interval <include src="/_ENy68xuPdIbe37RX2lFKUY.xml"></include> of the array <include src="/_pKR3bOJdUZ0SDu1TQIi7xv.xml"></include> by adding <include src="/_Alw6R@iZ8WGSdVBk7UI9NP.xml"></include>, the updated segment tree structure becomes:</p>
+<p>When updating the interval <include src="/_An7@rf06MZTz3I9$a8W2Rw.xml"></include> of the array <include src="/_dMGQ8kotWaTPZSO1qgVzpj.xml"></include> by adding <include src="/_PGIqMZh5wWk47Cv$QSHjYx.xml"></include>, the updated segment tree structure becomes:</p>
 
 <p><img src="/images/posts/segmenttree2.png" alt="Segment Tree Lazy Propagation" /></p>
 
-<p>We notice that when recursively updating, the process stops at node <include src="/_ERYIpe1Qnra$i82UjcHGxk.xml"></include>, leaving its two child nodes unchanged.</p>
+<p>We notice that when recursively updating, the process stops at node <include src="/_T5yxRawiLv6oYgIlKkZbnJ.xml"></include>, leaving its two child nodes unchanged.</p>
 
 <p>To handle this, we introduce lazy propagation. We mark the nodes where recursion ends with a flag. During the next query operation, we update the unprocessed child nodes. This flag is called a lazy tag. The effect of updating is as follows:</p>
 
