@@ -1,0 +1,1 @@
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Max Data Rate</mtext><mo>=</mo><mn>2</mn><mi>B</mi><mo>⋅</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{Max Data Rate} = 2B \cdot \log_2(V)</annotation></semantics></math>

@@ -1,0 +1,1 @@
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Latency</mtext><mo>=</mo><mi>T</mi><mtext>-delay</mtext><mo>+</mo><mi>P</mi><mtext>-delay</mtext></mrow><annotation encoding="application/x-tex">\text{Latency} = T\text{-delay} + P\text{-delay}</annotation></semantics></math>

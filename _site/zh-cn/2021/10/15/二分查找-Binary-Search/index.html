@@ -369,6 +369,21 @@
     
   
     
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
   
     
   
@@ -446,6 +461,21 @@
             <a href="/zh-cn/tags/" class="nav__link">Tags</a>
           </li>
         
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
       
     
   
@@ -815,11 +845,11 @@
 </ol>
 
 <h2 id="概念">概念</h2>
-<p>二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到<include src="/zh-cn/_Mu0lI5fUEOATKrvzoytZm1.xml"></include></p>
+<p>二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到<include src="/zh-cn/_xvZFz6W1LSOXGYgE$aPlUd.xml"></include></p>
 
 <h3 id="模板">模板</h3>
 
-<p>在一个有序序列中查找关键字<include src="/zh-cn/_82yi3WdVnSqKYG0obr41N$.xml"></include>的模板代码如下</p>
+<p>在一个有序序列中查找关键字<include src="/zh-cn/_dysqFblVI01eEhQzvBWRi6.xml"></include>的模板代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -839,7 +869,7 @@
 
 <h3 id="34-在排序数组中查找元素的第一个和最后一个位置"><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. 在排序数组中查找元素的第一个和最后一个位置</a></h3>
 
-<p>该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若<code class="language-plaintext highlighter-rouge">nums[i] &lt; key</code>，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为<code class="language-plaintext highlighter-rouge">nums[i] &lt;= key</code>。这样查找的结果是大于<include src="/zh-cn/_82yi3WdVnSqKYG0obr41N$.xml"></include>的第一个元素的位置。因此该题的代码如下</p>
+<p>该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若<code class="language-plaintext highlighter-rouge">nums[i] &lt; key</code>，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为<code class="language-plaintext highlighter-rouge">nums[i] &lt;= key</code>。这样查找的结果是大于<include src="/zh-cn/_dysqFblVI01eEhQzvBWRi6.xml"></include>的第一个元素的位置。因此该题的代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -865,7 +895,7 @@
 </code></pre></div></div>
 <h3 id="74-搜索二维矩阵"><a href="https://leetcode-cn.com/problems/search-a-2d-matrix/">74. 搜索二维矩阵</a></h3>
 
-<p>依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于<include src="/zh-cn/_Pu9c4Vij$HJLsm8Sbx2OA6.xml"></include>的最大元素</p>
+<p>依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于<include src="/zh-cn/_1ojqF5Q37IWMUPs6r8@iyD.xml"></include>的最大元素</p>
 
 <p>之后对该行进行基本的二分查找，即可得到结果。代码如下</p>
 
@@ -949,7 +979,7 @@
 </code></pre></div></div>
 <h3 id="162-寻找峰值"><a href="https://leetcode-cn.com/problems/find-peak-element/">162. 寻找峰值</a></h3>
 
-<p>我们可以用<include src="/zh-cn/_7dIBL9r0w4ZDqRo1HGeKax.xml"></include>来存储可能存在峰值的区间，根据<include src="/zh-cn/_uxFYnDX$aiqKm7cZ0NhsL3.xml"></include>进行二分，若<code class="language-plaintext highlighter-rouge">nums[mid] &lt; nums[mid + 1]</code>则说明在区间<include src="/zh-cn/_s4rI$y8lf9EVORbZWwPx51.xml"></include>存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下</p>
+<p>我们可以用<include src="/zh-cn/_DOx4LV1@eQHNUlf8juM2wF.xml"></include>来存储可能存在峰值的区间，根据<include src="/zh-cn/_fVTwF7EY8jsRbOKeW9I0uD.xml"></include>进行二分，若<code class="language-plaintext highlighter-rouge">nums[mid] &lt; nums[mid + 1]</code>则说明在区间<include src="/zh-cn/_X26MNnHKJxagrisew4StGz.xml"></include>存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -1026,6 +1056,55 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -2002,6 +2081,8 @@
       
         <a href="/zh-cn/categories/react"#{html_opts}>React</a>
       
+        <a href="/zh-cn/categories/computer-network"#{html_opts}>Computer Network</a>
+      
         <a href="/zh-cn/categories/algorithm"#{html_opts}>Algorithm</a>
       
     </div>
@@ -2060,6 +2141,8 @@
         <a href="/zh-cn/tags/react"#{html_opts}>React</a>
       
         <a href="/zh-cn/tags/javascript"#{html_opts}>JavaScript</a>
+      
+        <a href="/zh-cn/tags/computer-network"#{html_opts}>Computer Network</a>
       
         <a href="/zh-cn/tags/algorithm"#{html_opts}>Algorithm</a>
       
