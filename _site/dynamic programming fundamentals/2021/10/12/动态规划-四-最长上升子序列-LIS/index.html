@@ -700,10 +700,10 @@
 
 <h2 id="dynamic-programming">Dynamic Programming</h2>
 
-<p>We can define <include src="/_m9qFY2Z7@dP0RDWfQeX8uB.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/_btruMXq$nGCFNgZB1c7sj0.xml"></include> (a common pattern for the <include src="/_rbh4Di6HKQ5Uoq$w91Nl@M.xml"></include> array). Then, we can write the state transition equation as
-<include src="/_vUXtHOj1nm6bZKAhNpMlJi.xml"></include></p>
+<p>We can define <include src="/_JIv3PiAY9pCwsdc6Rnt4jM.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/_XtWijrf6o8BvneFpyNDUaq.xml"></include> (a common pattern for the <include src="/_GfA2cHCpBeNQXdTgqRaP0J.xml"></include> array). Then, we can write the state transition equation as
+<include src="/_G1ulsp45bh2J8VEZfcyzov.xml"></include></p>
 
-<p>Finally, the result of this problem is <include src="/_qhjgsu9ewTyYWF$VHCvA7b.xml"></include>, and the code is as follows:</p>
+<p>Finally, the result of this problem is <include src="/_X$8gO5C97jwvT3lrGRALzk.xml"></include>, and the code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -720,13 +720,13 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/_N@3UYT1SoHGt4I2JisZjBh.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/_xmX5DfMZhr1tHEyBCudGzF.xml"></include>.</p>
 
 <h2 id="fenwick-tree-binary-indexed-tree">Fenwick Tree (Binary Indexed Tree)</h2>
 
 <p>The LIS problem is essentially a partial order problem. Previously, in two-dimensional partial order problems, we mentioned that a Fenwick tree can easily solve such problems. However, in the previous problems, we were counting the number of pairs, not the length of sequences. To find the length of sequences, we need to modify the Fenwick tree structure.</p>
 
-<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/_btruMXq$nGCFNgZB1c7sj0.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
+<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/_XtWijrf6o8BvneFpyNDUaq.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -744,7 +744,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>Then, we traverse the array in the same way as with <include src="/_rbh4Di6HKQ5Uoq$w91Nl@M.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
+<p>Then, we traverse the array in the same way as with <include src="/_GfA2cHCpBeNQXdTgqRaP0J.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -794,7 +794,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/_rG@WEj9TSYmnP8pZ0Q3Fyu.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/_Ag7ObXJ4Gt6K8vLT1C3QUW.xml"></include>.</p>
 
     </div>
 
@@ -1295,7 +1295,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/algorithm/2024/09/16/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/"><img class="lazy" data-src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_Computer_Vision.jpg" alt="Using the ray-casting algorithm to determine whether a point is inside a polygon"></a>
+      <a class="recent-posts__image" href="/algorithm/2024/11/12/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/"><img class="lazy" data-src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_Computer_Vision.jpg" alt="Using the ray-casting algorithm to determine whether a point is inside a polygon"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -1307,9 +1307,9 @@
 
           </span>
           <time class="article__date"
-            datetime="2024-09-16T12:08:53+10:00">Sep 16, 2024</time>
+            datetime="2024-11-12T14:06:48+11:00">Nov 12, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/algorithm/2024/09/16/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/">Using the ray-casting algorithm to determine whether a point is inside a polygon</a></h4>
+        <h4 class="recent-posts__title"><a href="/algorithm/2024/11/12/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/">Using the ray-casting algorithm to determine whether a point is inside a polygon</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

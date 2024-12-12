@@ -710,7 +710,7 @@
 
 <h2 id="209-minimum-size-subarray-sum"><a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. Minimum Size Subarray Sum</a></h2>
 
-<p>This problem is the most basic sliding window problem. We can use two pointers <include src="/_mebt4CAZFOpa0q@cnGioND.xml"></include> and <include src="/_nCUQop$34WiyFsfjqNzPSc.xml"></include> to represent the left and right ends of the window, then move the pointer <include src="/_nCUQop$34WiyFsfjqNzPSc.xml"></include> continuously to the right. Meanwhile, use a variable <include src="/_FIoBy63p8A2RhUMEL0eJSg.xml"></include> to record the sum of the interval <include src="/_PgEoawXBf8I59YL2HTRiK@.xml"></include>. If <include src="/_FIoBy63p8A2RhUMEL0eJSg.xml"></include> meets the condition, record the difference between <include src="/_mebt4CAZFOpa0q@cnGioND.xml"></include> and <include src="/_nCUQop$34WiyFsfjqNzPSc.xml"></include> as the answer, and move the pointer <include src="/_mebt4CAZFOpa0q@cnGioND.xml"></include>. Here’s the code:</p>
+<p>This problem is the most basic sliding window problem. We can use two pointers <include src="/_6OqHhsCj7WcQi5YPVz4LSf.xml"></include> and <include src="/_GB9TopRUirKQIguVnf4tj$.xml"></include> to represent the left and right ends of the window, then move the pointer <include src="/_GB9TopRUirKQIguVnf4tj$.xml"></include> continuously to the right. Meanwhile, use a variable <include src="/_tqAclE@V1yNrbK9YJLFh6B.xml"></include> to record the sum of the interval <include src="/_YZcPXVm6Ftrwpd30fx8y4$.xml"></include>. If <include src="/_tqAclE@V1yNrbK9YJLFh6B.xml"></include> meets the condition, record the difference between <include src="/_6OqHhsCj7WcQi5YPVz4LSf.xml"></include> and <include src="/_GB9TopRUirKQIguVnf4tj$.xml"></include> as the answer, and move the pointer <include src="/_6OqHhsCj7WcQi5YPVz4LSf.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -734,9 +734,9 @@
 
 <p>The solution to this problem is very similar to the previous one, but instead of finding the length of the interval, we’re looking for the number of consecutive subintervals.</p>
 
-<p>For the number of subintervals, we can observe that if <include src="/_PgEoawXBf8I59YL2HTRiK@.xml"></include> is a valid window, then <include src="/_DEI3eCq0d8ZJgibvKnhSX2.xml"></include> for <include src="/_e9THPpi5G0o$zNyd1fI3lE.xml"></include> must also be valid windows.</p>
+<p>For the number of subintervals, we can observe that if <include src="/_YZcPXVm6Ftrwpd30fx8y4$.xml"></include> is a valid window, then <include src="/_gmXA7Tq5j3W2kEeYIPVhG0.xml"></include> for <include src="/_ZV40a$6E7UI5xOvXzt3bwK.xml"></include> must also be valid windows.</p>
 
-<p>For any valid interval <include src="/_PgEoawXBf8I59YL2HTRiK@.xml"></include>, the number of subsets ending at <include src="/_nCUQop$34WiyFsfjqNzPSc.xml"></include> is always <include src="/_Bydb9XcNMRwPi0lhLSrkVt.xml"></include>. Therefore, before updating <include src="/_nCUQop$34WiyFsfjqNzPSc.xml"></include> each time, we add <include src="/_Bydb9XcNMRwPi0lhLSrkVt.xml"></include> to the answer. Here’s the code:</p>
+<p>For any valid interval <include src="/_YZcPXVm6Ftrwpd30fx8y4$.xml"></include>, the number of subsets ending at <include src="/_GB9TopRUirKQIguVnf4tj$.xml"></include> is always <include src="/_cgGFSQjZeb4D0yBCpXhuzi.xml"></include>. Therefore, before updating <include src="/_GB9TopRUirKQIguVnf4tj$.xml"></include> each time, we add <include src="/_cgGFSQjZeb4D0yBCpXhuzi.xml"></include> to the answer. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -759,7 +759,7 @@
 
 <h2 id="3-longest-substring-without-repeating-characters"><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. Longest Substring Without Repeating Characters</a></h2>
 
-<p>Unlike the previous contiguous subsequence problem, this problem requires the length of contiguous substrings. Therefore, we need to modify the condition. If duplicate characters appear within the window interval, we update <include src="/_mebt4CAZFOpa0q@cnGioND.xml"></include>. Here’s the code:</p>
+<p>Unlike the previous contiguous subsequence problem, this problem requires the length of contiguous substrings. Therefore, we need to modify the condition. If duplicate characters appear within the window interval, we update <include src="/_6OqHhsCj7WcQi5YPVz4LSf.xml"></include>. Here’s the code:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -782,7 +782,7 @@
 
 <h2 id="438-find-all-anagrams-in-a-string"><a href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/">438. Find All Anagrams in a String</a></h2>
 
-<p>The solution to this problem is quite similar to the previous one, but instead of comparing characters, we’re comparing strings. Additionally, the length of the window in this problem remains constant, which is the length of <include src="/_VzM5jkfT$m4trG26yYuPNd.xml"></include>.</p>
+<p>The solution to this problem is quite similar to the previous one, but instead of comparing characters, we’re comparing strings. Additionally, the length of the window in this problem remains constant, which is the length of <include src="/_uOt@xalSPjHWhmf6yMBvdq.xml"></include>.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -1299,7 +1299,7 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/algorithm/2024/09/16/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/"><img class="lazy" data-src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_Computer_Vision.jpg" alt="Using the ray-casting algorithm to determine whether a point is inside a polygon"></a>
+      <a class="recent-posts__image" href="/algorithm/2024/11/12/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/"><img class="lazy" data-src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_Computer_Vision.jpg" alt="Using the ray-casting algorithm to determine whether a point is inside a polygon"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -1311,9 +1311,9 @@
 
           </span>
           <time class="article__date"
-            datetime="2024-09-16T12:08:53+10:00">Sep 16, 2024</time>
+            datetime="2024-11-12T14:06:48+11:00">Nov 12, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/algorithm/2024/09/16/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/">Using the ray-casting algorithm to determine whether a point is inside a polygon</a></h4>
+        <h4 class="recent-posts__title"><a href="/algorithm/2024/11/12/%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E6%96%AD%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85/">Using the ray-casting algorithm to determine whether a point is inside a polygon</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
