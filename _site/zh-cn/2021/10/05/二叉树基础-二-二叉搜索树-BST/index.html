@@ -384,6 +384,11 @@
     
   
     
+      
+      
+    
+  
+    
   
     
   
@@ -461,6 +466,11 @@
             <a href="/zh-cn/tags/" class="nav__link">Tags</a>
           </li>
         
+      
+    
+  
+    
+      
       
     
   
@@ -843,9 +853,9 @@
   </li>
   <li><a href="#代码" id="markdown-toc-代码">代码</a>    <ol>
       <li><a href="#基本操作" id="markdown-toc-基本操作">基本操作</a>        <ol>
-          <li><a href="#find" id="markdown-toc-find"><include src="/zh-cn/_R2NoxMUL0TfP6CHqjcEiYb.xml"></include></a></li>
-          <li><a href="#insert" id="markdown-toc-insert"><include src="/zh-cn/_HN9nshxyL6WC@JuAEXf0Og.xml"></include></a></li>
-          <li><a href="#delete" id="markdown-toc-delete"><include src="/zh-cn/_@oSsCjkaWA8P4RbvxdVzIn.xml"></include></a></li>
+          <li><a href="#find" id="markdown-toc-find"><include src="/zh-cn/_xYS2WMIlBfoAsKNd@T4rq1.xml"></include></a></li>
+          <li><a href="#insert" id="markdown-toc-insert"><include src="/zh-cn/_ireK80Hy4G7wlmvdBJpNo6.xml"></include></a></li>
+          <li><a href="#delete" id="markdown-toc-delete"><include src="/zh-cn/_aoSRpycWnh@NwqQu52m1ef.xml"></include></a></li>
         </ol>
       </li>
     </ol>
@@ -879,8 +889,8 @@
 
 <p>BST的构造和析构与普通二叉树相同，这里不多赘述。相比于普通二叉树，BST的主要功能增加了查找，插入和删除</p>
 
-<h4 id="find"><include src="/zh-cn/_R2NoxMUL0TfP6CHqjcEiYb.xml"></include></h4>
-<p><include src="/zh-cn/_R2NoxMUL0TfP6CHqjcEiYb.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
+<h4 id="find"><include src="/zh-cn/_xYS2WMIlBfoAsKNd@T4rq1.xml"></include></h4>
+<p><include src="/zh-cn/_xYS2WMIlBfoAsKNd@T4rq1.xml"></include>函数的作用是查找某一个数据值已知的节点是否在树中，并返回节点值。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BST</span> <span class="nf">find</span><span class="p">(</span><span class="n">BST</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">){</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">;</span>
@@ -895,8 +905,8 @@
     <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="insert"><include src="/zh-cn/_HN9nshxyL6WC@JuAEXf0Og.xml"></include></h4>
-<p><include src="/zh-cn/_HN9nshxyL6WC@JuAEXf0Og.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/zh-cn/_gA$s0KYvaxDfINwuRBE862.xml"></include>后，要找到合适的父节点<include src="/zh-cn/_ECthY79mRibgzBpu3veOJx.xml"></include>并插入其中。代码如下</p>
+<h4 id="insert"><include src="/zh-cn/_ireK80Hy4G7wlmvdBJpNo6.xml"></include></h4>
+<p><include src="/zh-cn/_ireK80Hy4G7wlmvdBJpNo6.xml"></include>函数的作用是在树中插入一个节点。BST中所有的节点都是作为叶子节点插入的，因此在创建节点<include src="/zh-cn/_Bam3Ir8E7yh9YbHZJcg5Qz.xml"></include>后，要找到合适的父节点<include src="/zh-cn/_CfODv0yo2H8cAkl5L9sph3.xml"></include>并插入其中。代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">insert</span><span class="p">(</span><span class="n">BST</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">BST</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tree</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
@@ -920,7 +930,7 @@
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<h4 id="delete"><include src="/zh-cn/_@oSsCjkaWA8P4RbvxdVzIn.xml"></include></h4>
+<h4 id="delete"><include src="/zh-cn/_aoSRpycWnh@NwqQu52m1ef.xml"></include></h4>
 <p>二叉搜索树进行删除操作后，仍然要保证它的排序正确，因此我们的删除操作分为三种情况：</p>
 
 <ul>
@@ -1027,6 +1037,34 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1961,21 +1999,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/28/%E7%BB%8F%E5%85%B8%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="经典卷积网络"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 8 分钟
+阅读时间 20 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-28T11:38:25+11:00">Nov 28, 2024</time>
+            datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/28/%E7%BB%8F%E5%85%B8%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C/">经典卷积网络</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失和梯度爆炸</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1989,21 +2027,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/27/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-CNN/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="卷积神经网络（CNN）"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 26 分钟
+阅读时间 44 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-27T05:12:59+11:00">Nov 27, 2024</time>
+            datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/27/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-CNN/">卷积神经网络（CNN）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">长短期记忆网络（LSTM）</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
