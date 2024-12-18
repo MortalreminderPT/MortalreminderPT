@@ -723,10 +723,10 @@
 
 <h2 id="dynamic-programming">Dynamic Programming</h2>
 
-<p>We can define <include src="/_17rMWESY4QptgAKcZBv3Tm.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/_frT0Fi@kBydcEU$N79RDMh.xml"></include> (a common pattern for the <include src="/_b@xaU8fCNEkF7l0KriOmMY.xml"></include> array). Then, we can write the state transition equation as
-<include src="/_@QsDybz7x4MHFh1Ano3ftw.xml"></include></p>
+<p>We can define <include src="/_EZoVWJHxXfNz1KRwC7Yg3n.xml"></include> as the maximum length of increasing subsequence ending at index <include src="/_Il86ZJjonw$QTR9XAFdx@z.xml"></include> (a common pattern for the <include src="/_fUxkFqQL4wX2j5IyKRNZpC.xml"></include> array). Then, we can write the state transition equation as
+<include src="/_wpHOeTX6i83EmCtZJaGBLP.xml"></include></p>
 
-<p>Finally, the result of this problem is <include src="/_16YOWH25aGU7iCsguXZbSM.xml"></include>, and the code is as follows:</p>
+<p>Finally, the result of this problem is <include src="/_3yQ5IbPTsN9KqOR8GSncfU.xml"></include>, and the code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -743,13 +743,13 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/_A4lDsFBp2Ug@yR$ovPLVkq.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/_wXEGyRcIfT1U42835uQZiJ.xml"></include>.</p>
 
 <h2 id="fenwick-tree-binary-indexed-tree">Fenwick Tree (Binary Indexed Tree)</h2>
 
 <p>The LIS problem is essentially a partial order problem. Previously, in two-dimensional partial order problems, we mentioned that a Fenwick tree can easily solve such problems. However, in the previous problems, we were counting the number of pairs, not the length of sequences. To find the length of sequences, we need to modify the Fenwick tree structure.</p>
 
-<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/_frT0Fi@kBydcEU$N79RDMh.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
+<p>We can use a Fenwick tree to store the maximum value of increasing subsequences ending at index <include src="/_Il86ZJjonw$QTR9XAFdx@z.xml"></include>. The modification of the Fenwick tree structure is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -767,7 +767,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>Then, we traverse the array in the same way as with <include src="/_b@xaU8fCNEkF7l0KriOmMY.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
+<p>Then, we traverse the array in the same way as with <include src="/_fUxkFqQL4wX2j5IyKRNZpC.xml"></include>, and we can obtain the correct result. Also, we need to pay attention to data discretization. The code is as follows:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -817,7 +817,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>The time complexity of this solution is <include src="/_mIOFv7MzYQ5SfB3aptnbiw.xml"></include>.</p>
+<p>The time complexity of this solution is <include src="/_T08xRtP@BFnquMJljHbIcy.xml"></include>.</p>
 
     </div>
 

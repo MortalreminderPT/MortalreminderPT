@@ -432,6 +432,11 @@
     
   
     
+      
+      
+    
+  
+    
   
     
   
@@ -509,6 +514,11 @@
             <a href="/zh-cn/tags/" class="nav__link">Tags</a>
           </li>
         
+      
+    
+  
+    
+      
       
     
   
@@ -960,53 +970,53 @@
   <li><strong>输出门（Output Gate）</strong>：决定输出多少当前单元状态的信息。</li>
 </ol>
 
-<p>假设我们有一个长度为<include src="/zh-cn/_9mAifxyVXZL6w0h8pzUnar.xml"></include>的输入序列 <include src="/zh-cn/_KM9i1G5ZWJFfot6syHNmj0.xml"></include>，LSTM在每个时间步 <include src="/zh-cn/_h1eb8fzoF74HCn9Natc0$i.xml"></include> 的计算过程如下：</p>
+<p>假设我们有一个长度为<include src="/zh-cn/_oB@2kyER1zWgHrOi0sMe8h.xml"></include>的输入序列 <include src="/zh-cn/_pQ$roeGj2Yw8Ty9fSM3Bhb.xml"></include>，LSTM在每个时间步 <include src="/zh-cn/_59a2qM3DbIoKjeivJ8E7OW.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>遗忘门</strong>：
-<include src="/zh-cn/_CRglWpbNGS206xvXtAeHc1.xml"></include></p>
+<include src="/zh-cn/_LIy6mDcAYXNEqHWOjozK5F.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_@O4h2fQrGu5YNoR79V8T$d.xml"></include> 是遗忘门的输出。</li>
-      <li><include src="/zh-cn/_v6XCdswnaeMkYlpxW3PbhO.xml"></include> 是遗忘门的权重矩阵。</li>
-      <li><include src="/zh-cn/_o2fkiKsYvHqWlI$cp6u87N.xml"></include> 是前一时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_PprAW$qJ8mB3TUbIDEjZt@.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_IEoFjq3AS69mabpLJR4K0D.xml"></include> 是遗忘门的偏置项。</li>
-      <li><include src="/zh-cn/_V3GJ8y4AIwKxn@aCNlcXmF.xml"></include> 是Sigmoid激活函数。</li>
+      <li><include src="/zh-cn/_3nSaRrNXQ@kzI4P8He10j9.xml"></include> 是遗忘门的输出。</li>
+      <li><include src="/zh-cn/_dqOxzjHah8PW1@e4$027Eb.xml"></include> 是遗忘门的权重矩阵。</li>
+      <li><include src="/zh-cn/_Zj@4bI98F52JLsPaYfoyCh.xml"></include> 是前一时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_ZO3sIfz$n0JYCAEaWdhvXu.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_5O0XaUzMoGL4hmPT6fsrnF.xml"></include> 是遗忘门的偏置项。</li>
+      <li><include src="/zh-cn/_MX8kS6ipJWbt7EgVUm1uqv.xml"></include> 是Sigmoid激活函数。</li>
     </ul>
   </li>
   <li>
     <p><strong>输入门</strong>：
-<include src="/zh-cn/_vOnDF1kGSwNz4ryVHE9cBm.xml"></include>
-<include src="/zh-cn/_hcGkF6xI1QuvMNizUTbXZW.xml"></include></p>
+<include src="/zh-cn/_rIe02GHf8ch4oMCbiUg3KZ.xml"></include>
+<include src="/zh-cn/_gKom7sONQjPf@vULFiklDp.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_ETjnWKxqL3dklvQf5s2Rct.xml"></include> 是输入门的输出。</li>
-      <li><include src="/zh-cn/_5IlOCHsDXif7ueJFZncxwq.xml"></include> 是候选单元状态。</li>
+      <li><include src="/zh-cn/_IbrtjDRM7Z49kLQynWNSCx.xml"></include> 是输入门的输出。</li>
+      <li><include src="/zh-cn/_YvIh76lfCKegPR4L1aEUJ5.xml"></include> 是候选单元状态。</li>
     </ul>
   </li>
   <li>
     <p><strong>单元状态更新</strong>：
-<include src="/zh-cn/_kVQTO@nEGxSuZeJw4INzmh.xml"></include></p>
+<include src="/zh-cn/_Ys1wVpr79R@P20$mBFyHnb.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_kdHy01bYeGLFx3XlsOE8hM.xml"></include> 是当前时刻的单元状态。</li>
-      <li><include src="/zh-cn/_vrTYGflW4eQjuKA@1ENcy5.xml"></include> 表示逐元素相乘。</li>
+      <li><include src="/zh-cn/_xr4LhPNK2DAXsUqeiBo5wH.xml"></include> 是当前时刻的单元状态。</li>
+      <li><include src="/zh-cn/_35ly@Qkfow$Kjz8FTDdAYR.xml"></include> 表示逐元素相乘。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出门</strong>：
-<include src="/zh-cn/_B605osRx3Z1rygUz@ThCME.xml"></include>
-<include src="/zh-cn/_kA2niXorb81SwHZsLIOe0V.xml"></include></p>
+<include src="/zh-cn/_4yRKaI@w0mvLQp$z7SkVEC.xml"></include>
+<include src="/zh-cn/_pPiAra7DWvVOGC9ThS2Uz3.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_pD0Vzl7M64yuetoUm5Y2@b.xml"></include> 是输出门的输出。</li>
-      <li><include src="/zh-cn/_vEUH@Wb1fmu8tzklLsPcpi.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_tc7kAnD5fNdovw@RzTlC6m.xml"></include> 是输出门的输出。</li>
+      <li><include src="/zh-cn/_NlsmjiAKxFQyM5ETt$hnIf.xml"></include> 是当前时刻的隐藏状态。</li>
     </ul>
   </li>
 </ol>
@@ -1337,6 +1347,20 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
             
 
             
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
@@ -1576,21 +1600,21 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-TypeScript%E7%9A%84%E7%8E%B0%E4%BB%A3ORM%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：TypeScript的现代ORM解决方案"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务操作及错误处理"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 27 分钟
+阅读时间 9 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T14:02:52+11:00">Dec 18, 2024</time>
+            datetime="2024-12-18T21:44:27+11:00">Dec 18, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-TypeScript%E7%9A%84%E7%8E%B0%E4%BB%A3ORM%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Prisma：TypeScript的现代ORM解决方案</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">Prisma：事务操作及错误处理</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1604,21 +1628,21 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：更新和删除操作"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 13 分钟
+阅读时间 29 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
+            datetime="2024-12-18T17:29:03+11:00">Dec 18, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">Pokemon（四）实战迁移学习</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/">Prisma：更新和删除操作</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

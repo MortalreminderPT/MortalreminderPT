@@ -293,7 +293,7 @@ main()
 ]
 ```
 
-### 4. 更新查询以获取特定关联数据
+### 更新查询以获取特定关联数据
 
 你还可以根据需要，进行更复杂的查询。例如，查询所有已发布的帖子及其作者信息：
 
@@ -305,7 +305,19 @@ const publishedPosts = await prisma.post.findMany({
 console.log('已发布的帖子及作者:', publishedPosts)
 ```
 
-运行后，将输出所有已发布的帖子及其对应的作者信息。
+运行后，将输出所有已发布的帖子及其对应的作者信息：
+```bash
+已发布的帖子及作者: [
+  {
+    id: 1,
+    title: '我的第一篇帖子',
+    content: '这是内容',
+    published: true,
+    authorId: 2,
+    author: { id: 2, name: 'Bob', email: 'bob@example.com' }
+  }
+]
+```
 
 ## 参考
 
