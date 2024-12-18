@@ -855,11 +855,11 @@
 </ol>
 
 <h2 id="概念">概念</h2>
-<p>二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到<include src="/zh-cn/_tJIsvkUXc@Abl9Lp6S7Zn5.xml"></include></p>
+<p>二分查找是对已排好序的数组查找特定值的常用方法，二分查找不必遍历整个序列，只需关注序列的边界及中间值即可，因此时间复杂度可以达到<include src="/zh-cn/_y0C5bKpAsc3wj4q@a8FNLz.xml"></include></p>
 
 <h3 id="模板">模板</h3>
 
-<p>在一个有序序列中查找关键字<include src="/zh-cn/_CgT8pkrsa9fNKhQ1$2d@vy.xml"></include>的模板代码如下</p>
+<p>在一个有序序列中查找关键字<include src="/zh-cn/_G7Yoaf@1PTC$K8QAN4OHWL.xml"></include>的模板代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -879,7 +879,7 @@
 
 <h3 id="34-在排序数组中查找元素的第一个和最后一个位置"><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. 在排序数组中查找元素的第一个和最后一个位置</a></h3>
 
-<p>该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若<code class="language-plaintext highlighter-rouge">nums[i] &lt; key</code>，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为<code class="language-plaintext highlighter-rouge">nums[i] &lt;= key</code>。这样查找的结果是大于<include src="/zh-cn/_CgT8pkrsa9fNKhQ1$2d@vy.xml"></include>的第一个元素的位置。因此该题的代码如下</p>
+<p>该题不仅要求元素出现的第一个位置，还要求出元素出现的最后一个位置。在模板代码中，若<code class="language-plaintext highlighter-rouge">nums[i] &lt; key</code>，才会继续查找左边，如果我们想在已经找到元素后继续查找，则需要修改为<code class="language-plaintext highlighter-rouge">nums[i] &lt;= key</code>。这样查找的结果是大于<include src="/zh-cn/_G7Yoaf@1PTC$K8QAN4OHWL.xml"></include>的第一个元素的位置。因此该题的代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -905,7 +905,7 @@
 </code></pre></div></div>
 <h3 id="74-搜索二维矩阵"><a href="https://leetcode-cn.com/problems/search-a-2d-matrix/">74. 搜索二维矩阵</a></h3>
 
-<p>依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于<include src="/zh-cn/_YJZwscElrVFibLGdkmxP7B.xml"></include>的最大元素</p>
+<p>依题可知待查找元素必大于或等于该行第一个元素，因此我们先对列进行一次二分查找，寻找不大于<include src="/zh-cn/_CEl4SuA1qsQnbYhTBVWjJR.xml"></include>的最大元素</p>
 
 <p>之后对该行进行基本的二分查找，即可得到结果。代码如下</p>
 
@@ -989,7 +989,7 @@
 </code></pre></div></div>
 <h3 id="162-寻找峰值"><a href="https://leetcode-cn.com/problems/find-peak-element/">162. 寻找峰值</a></h3>
 
-<p>我们可以用<include src="/zh-cn/_uI$8GBNiCUganf6R9SvJHP.xml"></include>来存储可能存在峰值的区间，根据<include src="/zh-cn/_NvSoGqZfbCP0uz4WLrgTdk.xml"></include>进行二分，若<code class="language-plaintext highlighter-rouge">nums[mid] &lt; nums[mid + 1]</code>则说明在区间<include src="/zh-cn/_PizHOQxLdasIFRSvb69hDN.xml"></include>存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下</p>
+<p>我们可以用<include src="/zh-cn/_eF72pnv@VKScROwrYALCuk.xml"></include>来存储可能存在峰值的区间，根据<include src="/zh-cn/_7qLESsDb8T6I3$B5KMr4de.xml"></include>进行二分，若<code class="language-plaintext highlighter-rouge">nums[mid] &lt; nums[mid + 1]</code>则说明在区间<include src="/zh-cn/_XTqdPfblo8g15r0pck7nwj.xml"></include>存在峰值，反之则说明在区间[l,mid]存在峰值，因此代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -1066,6 +1066,41 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -2041,21 +2076,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+            datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失和梯度爆炸</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">Pokemon（四）实战迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -2069,21 +2104,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 44 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
+            datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">长短期记忆网络（LSTM）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

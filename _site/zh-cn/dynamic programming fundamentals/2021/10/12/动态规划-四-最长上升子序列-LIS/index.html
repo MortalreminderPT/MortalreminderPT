@@ -849,10 +849,10 @@
 <p><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">300.最长递增子序列</a></p>
 
 <h2 id="动态规划">动态规划</h2>
-<p>我们可以定义<include src="/zh-cn/_Ra7$uWVLjGXYZN6f1hQiTO.xml"></include>为以<include src="/zh-cn/_qHn$4mMFVjcQNwWGSLi3Cd.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/zh-cn/_lmEB38hPsfzyq6KgbAcMD2.xml"></include>的常用套路），则我们可以写出状态转移方程为
-<include src="/zh-cn/_3OjfroiEWXJkw0Ie4t8smA.xml"></include></p>
+<p>我们可以定义<include src="/zh-cn/_bU18qaAm9Y2ElvOuFiph5L.xml"></include>为以<include src="/zh-cn/_deL5kU3qZ06RKQb71gEnhy.xml"></include>结尾的递增子序列长度的最大值（数组<include src="/zh-cn/_7a9F3ZTv$J8cOSVIljdGu2.xml"></include>的常用套路），则我们可以写出状态转移方程为
+<include src="/zh-cn/_E@lDHx1J$edVWhiBfZQ8oa.xml"></include></p>
 
-<p>最后，此题的结果便是<include src="/zh-cn/_ujhcxB4@MOKo$ESnreG9QV.xml"></include>，代码如下</p>
+<p>最后，此题的结果便是<include src="/zh-cn/_RZa81oCiVUrldnHIBFcYD@.xml"></include>，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -869,12 +869,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/zh-cn/_Ib0mSHd1E5geN6r4CsGJ9z.xml"></include></p>
+<p>该解法时间复杂度为<include src="/zh-cn/_NcpfTZeDtzXAmq7rn4MC5$.xml"></include></p>
 
 <h2 id="树状数组">树状数组</h2>
 <p>LIS问题的本质是偏序问题，我们之前在二维偏序问题中提到过，树状数组可以轻松的解决这类问题。但之前的问题中，我们求的是数对的数量，而不是序列的长度。为了能够求得序列长度，我们要对树状数组进行修改。</p>
 
-<p>我们可以用树状数组存储以<include src="/zh-cn/_qHn$4mMFVjcQNwWGSLi3Cd.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
+<p>我们可以用树状数组存储以<include src="/zh-cn/_deL5kU3qZ06RKQb71gEnhy.xml"></include>结尾的递增子序列最大值，修改树状数组结构如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
@@ -892,7 +892,7 @@
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<p>随后用和<include src="/zh-cn/_lmEB38hPsfzyq6KgbAcMD2.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
+<p>随后用和<include src="/zh-cn/_7a9F3ZTv$J8cOSVIljdGu2.xml"></include>同样的方式进行遍历，可以得出正确结果，同时要注意数据的离散化，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Fenwick</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -942,7 +942,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
-<p>该解法时间复杂度为<include src="/zh-cn/_1DlS7r504NbWwuLpcQ3k@O.xml"></include></p>
+<p>该解法时间复杂度为<include src="/zh-cn/_oYCGxlBL7KIaEbyuqS6AeN.xml"></include></p>
 
     </div>
 
@@ -1002,6 +1002,41 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1975,21 +2010,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+            datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失和梯度爆炸</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">Pokemon（四）实战迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -2003,21 +2038,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 44 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
+            datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">长短期记忆网络（LSTM）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

@@ -878,31 +878,31 @@
 
 <h3 id="rnn的结构">RNN的结构</h3>
 
-<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_yWlLDvMw8h2@TQXBtpVxrI.xml"></include>的输入序列 <include src="/zh-cn/_Aqu5biJDRLgapjBoNEwGx8.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_qdMytFAEl9@i6f1rWYTKNw.xml"></include> 的计算过程如下：</p>
+<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_eTE7q@jsRbLw83dGCtfrHU.xml"></include>的输入序列 <include src="/zh-cn/_EDOWmfrwpnb2NgQl93@MUc.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_sLCStnmP3eaBb2IqNQrowk.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>隐藏状态更新</strong>：
-<include src="/zh-cn/_eAU8VZco0Exzdn$DCg7KaN.xml"></include></p>
+<include src="/zh-cn/_M$bvYdm2w6RGaXKeD7tW4q.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_Kny3d27jqGxe4u$P15XfsJ.xml"></include> 是当前时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_uL0MVmdDJoYqwBFtrbGjK@.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_95S0vjwOnLETWtpyfH67eB.xml"></include> 和 <include src="/zh-cn/_Fd5oXIN1OhWHfDreAPEt79.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
-      <li><include src="/zh-cn/_RZ5LarE12xwv7bS$FOB9@n.xml"></include> 是偏置项。</li>
-      <li><include src="/zh-cn/_iezQRwoFL90tKHZpNrh1jd.xml"></include> 是激活函数，常用的还有ReLU等。</li>
+      <li><include src="/zh-cn/_zwPAxnKQ@0poTgRru5kLN2.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_kCLHoJf64Usci1GaAv5uR3.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_f25OQKbPjTCy$UX7BekpGq.xml"></include> 和 <include src="/zh-cn/_Pb0hGLaTFrVAl$pg6Cfys2.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
+      <li><include src="/zh-cn/_O4w28jLFpyGRAqYgSX9ebW.xml"></include> 是偏置项。</li>
+      <li><include src="/zh-cn/_qpvLas0J3F1hHNySYMK7I8.xml"></include> 是激活函数，常用的还有ReLU等。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出计算</strong>（可选）：
-<include src="/zh-cn/_@G5xL8H41fMZeA7Rdqw6$0.xml"></include></p>
+<include src="/zh-cn/_gtaOhECde09jHXclx6mAFK.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_YhLEb9Nk$jFrIVT3dcgemP.xml"></include> 是当前时刻的输出。</li>
-      <li><include src="/zh-cn/_6Hy5bcaAunDzsWNvXeCIjG.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
-      <li><include src="/zh-cn/_FWw1$qmvdTsu8rUXb9K7eM.xml"></include> 是输出层的偏置项。</li>
+      <li><include src="/zh-cn/_$TV7JzmObDwxPcR0r8G4e3.xml"></include> 是当前时刻的输出。</li>
+      <li><include src="/zh-cn/_1i5M$RHQfd4byeTakwD36C.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
+      <li><include src="/zh-cn/_SqY@8UIoQ35txd6hyjb1PF.xml"></include> 是输出层的偏置项。</li>
     </ul>
   </li>
 </ol>
@@ -1214,8 +1214,8 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习">
                 </a>
                 
 
@@ -1226,15 +1226,15 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
                       <!--  -->
                       
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+                        datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">梯度消失和梯度爆炸</h2>
+                  <h2 class="article__title">Pokemon（四）实战迁移学习</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1285,8 +1285,8 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习">
                 </a>
                 
 
@@ -1297,15 +1297,15 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
                       <!--  -->
                       
 
-阅读时间 44 分钟
+阅读时间 13 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
+                        datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">长短期记忆网络（LSTM）</h2>
+                  <h2 class="article__title">迁移学习</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1351,20 +1351,13 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
             
 
             
-            
-            
-            
-
-            
-
-            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/11/28/%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="数据增强">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/04/Pokemon-%E4%B8%89-%E8%AE%AD%E7%BB%83-%E9%AA%8C%E8%AF%81%E5%8F%8A%E6%B5%8B%E8%AF%95/">
+                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（三）训练、验证及测试">
                 </a>
                 
 
@@ -1375,15 +1368,15 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
                       <!--  -->
                       
 
-阅读时间 29 分钟
+阅读时间 33 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-11-28T23:28:53+11:00">Nov 28, 2024</time>
+                        datetime="2024-12-04T22:25:35+11:00">Dec 4, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">数据增强</h2>
+                  <h2 class="article__title">Pokemon（三）训练、验证及测试</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1455,21 +1448,21 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+            datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失和梯度爆炸</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">Pokemon（四）实战迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1483,21 +1476,21 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 44 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
+            datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">长短期记忆网络（LSTM）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

@@ -906,20 +906,20 @@
   <li>森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成
     <h3 id="性质">性质</h3>
   </li>
-  <li>一棵二叉树的第i层最多有<include src="/zh-cn/_7LByWo$0CIgckAiV6FX1NY.xml"></include>个节点 <include src="/zh-cn/_LzwX5ZlPYgM0txIep6V@J3.xml"></include></li>
-  <li>深度为k的二叉树最多有<include src="/zh-cn/_gsUz@24KZkQGEHo3elSY6A.xml"></include>个节点 <include src="/zh-cn/_a15PYgnVypX40dTm@WUiQE.xml"></include></li>
-  <li>对于1棵二叉树，度为0的节点为<include src="/zh-cn/_g31b6kVlrtMDLsmANRqaUJ.xml"></include>，度为2的节点为<include src="/zh-cn/_bTSCOGtYr$euhmLy2gR3VM.xml"></include>，则<include src="/zh-cn/_Jj@kmWleCnoqUDxOHgfQS3.xml"></include></li>
-  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/zh-cn/_vrzMu2emyQUl0J1Osoi7aV.xml"></include></li>
-  <li>满二叉树定理推论：在一棵具有<include src="/zh-cn/_mNzi2jks0BOgucVrUhJY4Q.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/zh-cn/_WIAQLvaM$7dhF4nY08eDXS.xml"></include></li>
-  <li><include src="/zh-cn/_mNzi2jks0BOgucVrUhJY4Q.xml"></include>个节点的完全二叉树高度为<include src="/zh-cn/_wJvSj2Lpu8rKytQeF0bZYf.xml"></include>，深度为<include src="/zh-cn/_BACwuUSslz$Y7JKv4eD8rc.xml"></include></li>
+  <li>一棵二叉树的第i层最多有<include src="/zh-cn/_nYsX76rTSV@JQwOoxkjLpa.xml"></include>个节点 <include src="/zh-cn/_xZ3by2acVMqt41zr0SLPwA.xml"></include></li>
+  <li>深度为k的二叉树最多有<include src="/zh-cn/_J7TYDqsZFdr6ty18EQN4AP.xml"></include>个节点 <include src="/zh-cn/_KQXqN5SUJxFHCOomvLMa01.xml"></include></li>
+  <li>对于1棵二叉树，度为0的节点为<include src="/zh-cn/_nEVFrqDWIRY@LGUkCx6g0M.xml"></include>，度为2的节点为<include src="/zh-cn/_LxiTwW@ZN5DqyVEP9m02je.xml"></include>，则<include src="/zh-cn/_CW075dTMAmtHNOvRiKSQFP.xml"></include></li>
+  <li>满二叉树定理：非空满二叉树的叶子节点数等于分支节点数<include src="/zh-cn/_I13XdG0MvQsraHo7BOng$N.xml"></include></li>
+  <li>满二叉树定理推论：在一棵具有<include src="/zh-cn/_yuU5zhePjSgqE2@$mncKof.xml"></include>个结点的二叉树中,所有结点的空子树等于<include src="/zh-cn/_IBupxsmTjldFLZMhwG6tNR.xml"></include></li>
+  <li><include src="/zh-cn/_yuU5zhePjSgqE2@$mncKof.xml"></include>个节点的完全二叉树高度为<include src="/zh-cn/_OQ@bIl2d$eJTcRANEYDunC.xml"></include>，深度为<include src="/zh-cn/_vDOLsmKwTpPC1ad9WhNX5n.xml"></include></li>
 </ul>
 
 <h2 id="二叉树的c实现">二叉树的C++实现</h2>
 
 <h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
 
-<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/zh-cn/_I5WKhjxLoMgyUdHsiBXS$@.xml"></include>处，
-其左孩子存储于下标<include src="/zh-cn/_ykcSFZwbtqm7l$hPnri6fB.xml"></include>，右孩子存储于下标<include src="/zh-cn/_VftXEIa2M6uHjGi$97Nz58.xml"></include>….依此类推，对于下标为<include src="/zh-cn/_qHn$4mMFVjcQNwWGSLi3Cd.xml"></include>的节点，左右孩子分别存储于下标为<include src="/zh-cn/_osZL8etUkEdJAfzr6pOFW4.xml"></include>和<include src="/zh-cn/_mMeCR1Wa7J3xiEtoIXbPDK.xml"></include>处。</p>
+<p>我们可以使用一个数组来存储所有的节点，按数组下标进行存储，根节点存储在下标<include src="/zh-cn/_G8mtVES0IkYzKOgQs6ZqrN.xml"></include>处，
+其左孩子存储于下标<include src="/zh-cn/_e9Kjq$Vuhp8sio@Aa2bRZX.xml"></include>，右孩子存储于下标<include src="/zh-cn/_BCiZ1SO3gjedTauvx$WNDH.xml"></include>….依此类推，对于下标为<include src="/zh-cn/_deL5kU3qZ06RKQb71gEnhy.xml"></include>的节点，左右孩子分别存储于下标为<include src="/zh-cn/_hVweuoWcZETkYvHbBsa480.xml"></include>和<include src="/zh-cn/_U6zSOE9acVjyRiZHGnKP1h.xml"></include>处。</p>
 <h4 id="实现代码">实现代码</h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">BinaryTree</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
@@ -1067,6 +1067,41 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -2029,21 +2064,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+            datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失和梯度爆炸</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">Pokemon（四）实战迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -2057,21 +2092,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 44 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
+            datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">长短期记忆网络（LSTM）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

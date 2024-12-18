@@ -887,53 +887,53 @@
   <li><strong>输出门（Output Gate）</strong>：决定输出多少当前单元状态的信息。</li>
 </ol>
 
-<p>假设我们有一个长度为<include src="/zh-cn/_yWlLDvMw8h2@TQXBtpVxrI.xml"></include>的输入序列 <include src="/zh-cn/_Aqu5biJDRLgapjBoNEwGx8.xml"></include>，LSTM在每个时间步 <include src="/zh-cn/_qdMytFAEl9@i6f1rWYTKNw.xml"></include> 的计算过程如下：</p>
+<p>假设我们有一个长度为<include src="/zh-cn/_eTE7q@jsRbLw83dGCtfrHU.xml"></include>的输入序列 <include src="/zh-cn/_EDOWmfrwpnb2NgQl93@MUc.xml"></include>，LSTM在每个时间步 <include src="/zh-cn/_sLCStnmP3eaBb2IqNQrowk.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>遗忘门</strong>：
-<include src="/zh-cn/_FEidrvW6nw2ZfDQHozpq8C.xml"></include></p>
+<include src="/zh-cn/_hrNzWJ9ibde56vZf2nBELk.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_zboGdy29quKDf7BAHZvFsQ.xml"></include> 是遗忘门的输出。</li>
-      <li><include src="/zh-cn/_OP75$KHn9E2kfidgjqo@FZ.xml"></include> 是遗忘门的权重矩阵。</li>
-      <li><include src="/zh-cn/_oiOxekHrmdGqb8hpa65ZRM.xml"></include> 是前一时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_uL0MVmdDJoYqwBFtrbGjK@.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_iedyso0VWJL6pxSPKN$uXg.xml"></include> 是遗忘门的偏置项。</li>
-      <li><include src="/zh-cn/_ECLwboyImW3aJhsMdKuiY$.xml"></include> 是Sigmoid激活函数。</li>
+      <li><include src="/zh-cn/_tWUsYXS5QfC3FpiMHEJovL.xml"></include> 是遗忘门的输出。</li>
+      <li><include src="/zh-cn/_gqt@OWIGoK6mTR38cQlD$4.xml"></include> 是遗忘门的权重矩阵。</li>
+      <li><include src="/zh-cn/_DHch6fl04iRA$QLbCtOuzs.xml"></include> 是前一时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_kCLHoJf64Usci1GaAv5uR3.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_uyxmjn6ep3O@1cXNYqEK5i.xml"></include> 是遗忘门的偏置项。</li>
+      <li><include src="/zh-cn/_8SeEhwxPgTGAcdLIRoyvHD.xml"></include> 是Sigmoid激活函数。</li>
     </ul>
   </li>
   <li>
     <p><strong>输入门</strong>：
-<include src="/zh-cn/_u5qDcEdt$m6M4lvQ30Lgjo.xml"></include>
-<include src="/zh-cn/_LXoDkER4n9vcd1MINTpOfb.xml"></include></p>
+<include src="/zh-cn/_1ijHwgWTehQ9D8bJyPvNKs.xml"></include>
+<include src="/zh-cn/_7PSWc9IAy5ZCjaeDTx@uHm.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_0cklJd7xW42BY5tX3sKhrw.xml"></include> 是输入门的输出。</li>
-      <li><include src="/zh-cn/_BwMsXdA1jok9fiF$36eUzt.xml"></include> 是候选单元状态。</li>
+      <li><include src="/zh-cn/_B2AxuWhjkzvOm$t3TJeQCU.xml"></include> 是输入门的输出。</li>
+      <li><include src="/zh-cn/_E5QyvVTRSDkrKFXtw8sCil.xml"></include> 是候选单元状态。</li>
     </ul>
   </li>
   <li>
     <p><strong>单元状态更新</strong>：
-<include src="/zh-cn/_nhf07iwZQlFuvs9MLPmeNa.xml"></include></p>
+<include src="/zh-cn/_d3cCrioNlG@wDQVOHWBzYb.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_eCYPM@m2sBvKagSdx76hNT.xml"></include> 是当前时刻的单元状态。</li>
-      <li><include src="/zh-cn/_r@JZdxv6alLSkYEVeuM4mN.xml"></include> 表示逐元素相乘。</li>
+      <li><include src="/zh-cn/_kn93f1sG4Lj5eD@WAxuZOP.xml"></include> 是当前时刻的单元状态。</li>
+      <li><include src="/zh-cn/_e0@KoLRGA4f8upiHavwCq7.xml"></include> 表示逐元素相乘。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出门</strong>：
-<include src="/zh-cn/_8Jw7tiGxF5rQakv@bB2DZN.xml"></include>
-<include src="/zh-cn/_vyQCjF@wP$8sNaVbTiHB0u.xml"></include></p>
+<include src="/zh-cn/_XaAb8vL5EZGWHNf1RgSOtC.xml"></include>
+<include src="/zh-cn/_w9mfgceqKiBDH8Qytj6du1.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_WLDFAsb4NU$ocnuqkv0376.xml"></include> 是输出门的输出。</li>
-      <li><include src="/zh-cn/_Kny3d27jqGxe4u$P15XfsJ.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_Swibfptgn7lIJK4EDFNc8z.xml"></include> 是输出门的输出。</li>
+      <li><include src="/zh-cn/_zwPAxnKQ@0poTgRru5kLN2.xml"></include> 是当前时刻的隐藏状态。</li>
     </ul>
   </li>
 </ol>
@@ -1262,8 +1262,8 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习">
                 </a>
                 
 
@@ -1274,93 +1274,15 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
                       <!--  -->
                       
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+                        datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">梯度消失和梯度爆炸</h2>
-
-                  <p class="article__excerpt"></p>
-
-                  <div class="article__bottom">
-
-                    
-                    <div class="article__author">
-                      <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
-                    </div>
-                    
-
-                    <div class="article__bottom-meta">
-                      
-                        <a href="/zh-cn/about/" class="article__author-link">Mortalreminder PT</a>
-                      
-                      
-                      <span>in</span>
-                      <span class="article-tags">
-                        
-                          <a href="/zh-cn/tags/algorithm" class="article__tag">Algorithm</a>
-                        
-                          <a href="/zh-cn/tags/python" class="article__tag">Python</a>
-                        
-                          <a href="/zh-cn/tags/pytorch" class="article__tag">Pytorch</a>
-                        
-                      </span>
-                      
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-            
-                
-              
-            
-            
-            
-
-            
-
-            
-            
-            
-            
-
-            
-
-            
-
-            <div class="article col col-4 col-d-6 col-t-12 grid__post">
-              <div class="article__inner">
-
-                
-                <a class="article__image" href="/zh-cn/algorithm/2024/11/29/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-RNN/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="循环神经网络（RNN）">
-                </a>
-                
-
-                <div class="article__content">
-
-                  <div class="article__meta">
-                    <span class="article__minutes">
-                      <!--  -->
-                      
-
-阅读时间 36 分钟
-
-
-                      <time class="article__date"
-                        datetime="2024-11-29T22:28:53+11:00">Nov 29, 2024</time>
-                    </span>
-                  </div>
-
-                  <h2 class="article__title">循环神经网络（RNN）</h2>
+                  <h2 class="article__title">Pokemon（四）实战迁移学习</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1411,8 +1333,8 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/11/28/%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="数据增强">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习">
                 </a>
                 
 
@@ -1423,15 +1345,86 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
                       <!--  -->
                       
 
-阅读时间 29 分钟
+阅读时间 13 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-11-28T23:28:53+11:00">Nov 28, 2024</time>
+                        datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">数据增强</h2>
+                  <h2 class="article__title">迁移学习</h2>
+
+                  <p class="article__excerpt"></p>
+
+                  <div class="article__bottom">
+
+                    
+                    <div class="article__author">
+                      <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
+                    </div>
+                    
+
+                    <div class="article__bottom-meta">
+                      
+                        <a href="/zh-cn/about/" class="article__author-link">Mortalreminder PT</a>
+                      
+                      
+                      <span>in</span>
+                      <span class="article-tags">
+                        
+                          <a href="/zh-cn/tags/algorithm" class="article__tag">Algorithm</a>
+                        
+                          <a href="/zh-cn/tags/python" class="article__tag">Python</a>
+                        
+                          <a href="/zh-cn/tags/pytorch" class="article__tag">Pytorch</a>
+                        
+                      </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            
+                
+              
+            
+            
+            
+
+            
+
+            
+
+            <div class="article col col-4 col-d-6 col-t-12 grid__post">
+              <div class="article__inner">
+
+                
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/04/Pokemon-%E4%B8%89-%E8%AE%AD%E7%BB%83-%E9%AA%8C%E8%AF%81%E5%8F%8A%E6%B5%8B%E8%AF%95/">
+                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（三）训练、验证及测试">
+                </a>
+                
+
+                <div class="article__content">
+
+                  <div class="article__meta">
+                    <span class="article__minutes">
+                      <!--  -->
+                      
+
+阅读时间 33 分钟
+
+
+                      <time class="article__date"
+                        datetime="2024-12-04T22:25:35+11:00">Dec 4, 2024</time>
+                    </span>
+                  </div>
+
+                  <h2 class="article__title">Pokemon（三）训练、验证及测试</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1503,21 +1496,21 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="梯度消失和梯度爆炸"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 20 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-01T17:32:37+11:00">Dec 1, 2024</time>
+            datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/01/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失和梯度爆炸</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">Pokemon（四）实战迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1531,21 +1524,21 @@ Epoch <span class="o">[</span>10/100], Loss: 0.4827
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="长短期记忆网络（LSTM）"></a>
+      <a class="recent-posts__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 43 分钟
+阅读时间 13 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-11-30T23:03:28+11:00">Nov 30, 2024</time>
+            datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/11/30/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C-LSTM/">长短期记忆网络（LSTM）</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">迁移学习</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
