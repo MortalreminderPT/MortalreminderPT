@@ -89,6 +89,13 @@ $(document).ready(function() {
   // =====================
   ThemeSwitch.init();
 
+  // =====================
+  // Switch Language
+  // =====================
+  // document.addEventListener('DOMContentLoaded', function() {
+  // });
+  LangSwitch.init();
+
   /* =======================
   // LazyLoad Images
   ======================= */

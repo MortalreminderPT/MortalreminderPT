@@ -43,14 +43,15 @@
     left: 0;
     right: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(15, 14, 21, 0.5) 33%, hsla(var(--primary-color), var(--background-saturation), var(--background-lightness), 100%));
+    background: linear-gradient(180deg, hsla(var(--primary-color), var(--dark-saturation), var(--background-lightness), 0.4) 33%, hsla(var(--primary-color), var(--background-saturation), var(--background-lightness), 100%));
   }
 }
 
 .hero__image {
   min-height: 664px;
   user-select: none;
-  background-color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
+  // background-color: hsl(var(--primary-color), var(--dark-saturation), var(--dark-lightness));
+  background-color: hsla(var(--primary-color), var(--dark-saturation), var(--background-lightness), 0.6);
   img {
     position: absolute;
     top: 0px;

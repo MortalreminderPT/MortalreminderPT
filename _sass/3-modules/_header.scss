@@ -46,18 +46,18 @@
   letter-spacing: -1px;
   .logo__image {
     transform: translateY(-200px);
-    filter: drop-shadow(0 200px hsl(var(--primary-color), 0%, 93%));
+    filter: drop-shadow(0 200px hsl(var(--primary-color), 0%, var(--logo-lightness)));
   }
   @media (any-hover: hover){
     &:hover {
       .logo__image {
-        filter: drop-shadow(0 200px hsl(var(--primary-color), 100%, 50%));
+        filter: drop-shadow(0 200px hsl(var(--primary-color), var(--logo-saturation), 50%));
       }
     }
   }
   &:active {
     .logo__image {
-      filter: drop-shadow(0 200px hsl(var(--primary-color), 100%, 50%));
+      filter: drop-shadow(0 200px hsl(var(--primary-color), var(--logo-saturation), 50%));
     }
   }
 }
@@ -84,6 +84,30 @@
   width: 80%;
   padding-top: 200px;
   margin: 0 auto;
+
+  .nav__icon-left {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: hsla(var(--primary-color), 0%,  var(--white-lightness), .5);
+    transition: all .25s ease;
+    cursor: pointer;
+    .child {
+      margin-left: 20px;
+      &:hover {
+        color: hsl(var(--primary-color), 0%,  var(--white-lightness));
+      }
+    }
+  }
 
   .nav__icon-close {
     position: absolute;
@@ -226,8 +250,14 @@
 
   .nav__icon-menu {
     display: none;
-    // margin-right: 16px;
     @media only screen and (max-width: $desktop) {
+      display: block;
+    }
+  }
+
+  .nav_icon-desktop {
+    display: none;
+    @media only screen and (min-width: $desktop) {
       display: block;
     }
   }
