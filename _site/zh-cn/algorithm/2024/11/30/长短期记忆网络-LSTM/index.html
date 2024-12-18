@@ -887,53 +887,53 @@
   <li><strong>输出门（Output Gate）</strong>：决定输出多少当前单元状态的信息。</li>
 </ol>
 
-<p>假设我们有一个长度为<include src="/zh-cn/_DN@$GfwdVJnsIU0zSi7tZl.xml"></include>的输入序列 <include src="/zh-cn/_DCp7hK2cUJHWRwQ8umVBAF.xml"></include>，LSTM在每个时间步 <include src="/zh-cn/_L$37t0VTkzDQlnJbvCyafB.xml"></include> 的计算过程如下：</p>
+<p>假设我们有一个长度为<include src="/zh-cn/_yWlLDvMw8h2@TQXBtpVxrI.xml"></include>的输入序列 <include src="/zh-cn/_Aqu5biJDRLgapjBoNEwGx8.xml"></include>，LSTM在每个时间步 <include src="/zh-cn/_qdMytFAEl9@i6f1rWYTKNw.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>遗忘门</strong>：
-<include src="/zh-cn/_GQpaMo@07HDhcRItdgz54C.xml"></include></p>
+<include src="/zh-cn/_FEidrvW6nw2ZfDQHozpq8C.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_zIJbeU63fQPR5Yavjd4WTc.xml"></include> 是遗忘门的输出。</li>
-      <li><include src="/zh-cn/_j4r01SiYgf@HdXctLEzhT8.xml"></include> 是遗忘门的权重矩阵。</li>
-      <li><include src="/zh-cn/_AQFi59ZdJHt@Wn7ypM3P$h.xml"></include> 是前一时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_1dhBFQkR7Zoi$ET@s4XtVS.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_9A7JtCZhWupSqcXLoI5YEM.xml"></include> 是遗忘门的偏置项。</li>
-      <li><include src="/zh-cn/_hC$Lfzv@6F7a2TgIAUcjKe.xml"></include> 是Sigmoid激活函数。</li>
+      <li><include src="/zh-cn/_zboGdy29quKDf7BAHZvFsQ.xml"></include> 是遗忘门的输出。</li>
+      <li><include src="/zh-cn/_OP75$KHn9E2kfidgjqo@FZ.xml"></include> 是遗忘门的权重矩阵。</li>
+      <li><include src="/zh-cn/_oiOxekHrmdGqb8hpa65ZRM.xml"></include> 是前一时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_uL0MVmdDJoYqwBFtrbGjK@.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_iedyso0VWJL6pxSPKN$uXg.xml"></include> 是遗忘门的偏置项。</li>
+      <li><include src="/zh-cn/_ECLwboyImW3aJhsMdKuiY$.xml"></include> 是Sigmoid激活函数。</li>
     </ul>
   </li>
   <li>
     <p><strong>输入门</strong>：
-<include src="/zh-cn/_zGAb6$k7vIQHLWXnqFdPhZ.xml"></include>
-<include src="/zh-cn/_Skx3u$onBO9p68rJcEw4sq.xml"></include></p>
+<include src="/zh-cn/_u5qDcEdt$m6M4lvQ30Lgjo.xml"></include>
+<include src="/zh-cn/_LXoDkER4n9vcd1MINTpOfb.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_wHJaG8OD1lciBLdx$v4r@Z.xml"></include> 是输入门的输出。</li>
-      <li><include src="/zh-cn/_1dew8VlRM$tK6xG@cCmban.xml"></include> 是候选单元状态。</li>
+      <li><include src="/zh-cn/_0cklJd7xW42BY5tX3sKhrw.xml"></include> 是输入门的输出。</li>
+      <li><include src="/zh-cn/_BwMsXdA1jok9fiF$36eUzt.xml"></include> 是候选单元状态。</li>
     </ul>
   </li>
   <li>
     <p><strong>单元状态更新</strong>：
-<include src="/zh-cn/_6JYqaWx$7CzVd5SGul0bge.xml"></include></p>
+<include src="/zh-cn/_nhf07iwZQlFuvs9MLPmeNa.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_okX@1d9ZNRKrBlSFHVnU30.xml"></include> 是当前时刻的单元状态。</li>
-      <li><include src="/zh-cn/_zX$8B5@a6gwoYeALTtjK7C.xml"></include> 表示逐元素相乘。</li>
+      <li><include src="/zh-cn/_eCYPM@m2sBvKagSdx76hNT.xml"></include> 是当前时刻的单元状态。</li>
+      <li><include src="/zh-cn/_r@JZdxv6alLSkYEVeuM4mN.xml"></include> 表示逐元素相乘。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出门</strong>：
-<include src="/zh-cn/_8TDB@OeQoHRi9x7fCt6$GY.xml"></include>
-<include src="/zh-cn/_thmnOULiysFN924QjV0gWH.xml"></include></p>
+<include src="/zh-cn/_8Jw7tiGxF5rQakv@bB2DZN.xml"></include>
+<include src="/zh-cn/_vyQCjF@wP$8sNaVbTiHB0u.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_Hgou2SLbRw3K8iFmqGtdvj.xml"></include> 是输出门的输出。</li>
-      <li><include src="/zh-cn/_ckTLQfgwsBKbF0uJXzYERl.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_WLDFAsb4NU$ocnuqkv0376.xml"></include> 是输出门的输出。</li>
+      <li><include src="/zh-cn/_Kny3d27jqGxe4u$P15XfsJ.xml"></include> 是当前时刻的隐藏状态。</li>
     </ul>
   </li>
 </ol>

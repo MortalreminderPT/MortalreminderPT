@@ -878,31 +878,31 @@
 
 <h3 id="rnn的结构">RNN的结构</h3>
 
-<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_DN@$GfwdVJnsIU0zSi7tZl.xml"></include>的输入序列 <include src="/zh-cn/_DCp7hK2cUJHWRwQ8umVBAF.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_L$37t0VTkzDQlnJbvCyafB.xml"></include> 的计算过程如下：</p>
+<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_yWlLDvMw8h2@TQXBtpVxrI.xml"></include>的输入序列 <include src="/zh-cn/_Aqu5biJDRLgapjBoNEwGx8.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_qdMytFAEl9@i6f1rWYTKNw.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>隐藏状态更新</strong>：
-<include src="/zh-cn/_lw87C0@3cYnR5kSWrVzbj6.xml"></include></p>
+<include src="/zh-cn/_eAU8VZco0Exzdn$DCg7KaN.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_ckTLQfgwsBKbF0uJXzYERl.xml"></include> 是当前时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_1dhBFQkR7Zoi$ET@s4XtVS.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_0hKrUkLW4IYyG8JctHd9Ts.xml"></include> 和 <include src="/zh-cn/_maIx9njhQEePB1tqbWLUAf.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
-      <li><include src="/zh-cn/_aM0cKSkY8izUF@57xJRD9m.xml"></include> 是偏置项。</li>
-      <li><include src="/zh-cn/_7gLTo$AJEbKeprsI0FwUi8.xml"></include> 是激活函数，常用的还有ReLU等。</li>
+      <li><include src="/zh-cn/_Kny3d27jqGxe4u$P15XfsJ.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_uL0MVmdDJoYqwBFtrbGjK@.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_95S0vjwOnLETWtpyfH67eB.xml"></include> 和 <include src="/zh-cn/_Fd5oXIN1OhWHfDreAPEt79.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
+      <li><include src="/zh-cn/_RZ5LarE12xwv7bS$FOB9@n.xml"></include> 是偏置项。</li>
+      <li><include src="/zh-cn/_iezQRwoFL90tKHZpNrh1jd.xml"></include> 是激活函数，常用的还有ReLU等。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出计算</strong>（可选）：
-<include src="/zh-cn/_HfayzxrBVANlndOq0G94FS.xml"></include></p>
+<include src="/zh-cn/_@G5xL8H41fMZeA7Rdqw6$0.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_M4nJqRulYp5m8XrA$i9OE3.xml"></include> 是当前时刻的输出。</li>
-      <li><include src="/zh-cn/_vcNIAdyH5G3mEw9sg08bZa.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
-      <li><include src="/zh-cn/_NWw7MxAbCOqa62$HiK3vcy.xml"></include> 是输出层的偏置项。</li>
+      <li><include src="/zh-cn/_YhLEb9Nk$jFrIVT3dcgemP.xml"></include> 是当前时刻的输出。</li>
+      <li><include src="/zh-cn/_6Hy5bcaAunDzsWNvXeCIjG.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
+      <li><include src="/zh-cn/_FWw1$qmvdTsu8rUXb9K7eM.xml"></include> 是输出层的偏置项。</li>
     </ul>
   </li>
 </ol>

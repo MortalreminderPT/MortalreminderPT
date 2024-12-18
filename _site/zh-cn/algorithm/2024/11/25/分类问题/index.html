@@ -863,12 +863,12 @@
 
 <h4 id="1-逻辑回归">1. 逻辑回归</h4>
 
-<p>逻辑回归是解决二分类问题的基础工具。其核心是通过逻辑函数（Sigmoid）将线性回归的输出映射到 <include src="/zh-cn/_PXZgsJ7i9LAo2mfuhkHMSc.xml"></include> 区间，表示概率值。</p>
+<p>逻辑回归是解决二分类问题的基础工具。其核心是通过逻辑函数（Sigmoid）将线性回归的输出映射到 <include src="/zh-cn/_31DORpiv4AVhcFWyUQ627G.xml"></include> 区间，表示概率值。</p>
 
 <p><strong>核心公式</strong>：</p>
 <ul>
-  <li>连续值预测：<include src="/zh-cn/_3s2BkKvZSQPXn9cDduTEj1.xml"></include></li>
-  <li>概率输出：<include src="/zh-cn/_zWu$SilcK@NIdqnrHjEeDb.xml"></include>，其中 <include src="/zh-cn/_vKEUny6Wkac0TOSterx@bF.xml"></include> 是 Sigmoid 函数。</li>
+  <li>连续值预测：<include src="/zh-cn/_vGmo1@5lgfjzcEeRuFsSI7.xml"></include></li>
+  <li>概率输出：<include src="/zh-cn/_ZP9MCbJzD1xwmN2Kuv$Ghn.xml"></include>，其中 <include src="/zh-cn/_Cr21Snwjt8vL9DY0iMauV$.xml"></include> 是 Sigmoid 函数。</li>
 </ul>
 
 <p><strong>实现要点</strong>：</p>
@@ -951,7 +951,7 @@ Input: 4.0, Predicted Probability: 0.9810, Predicted Class: 1
 <p><strong>核心概念</strong>：</p>
 <ul>
   <li>衡量两个概率分布的差异。</li>
-  <li>对于一热编码：<include src="/zh-cn/_nrtUfcB2ElCQPR3FKyhj4k.xml"></include>。</li>
+  <li>对于一热编码：<include src="/zh-cn/_xi17w@8sZ3y$LgAln6Ttq4.xml"></include>。</li>
 </ul>
 
 <p><strong>与 MSE 比较</strong>：</p>
@@ -971,7 +971,7 @@ Input: 4.0, Predicted Probability: 0.9810, Predicted Class: 1
 
 <h4 id="3-多分类问题">3. 多分类问题</h4>
 
-<p>多分类问题扩展了二分类问题，模型需要预测 <include src="/zh-cn/_vkJ7djTOq4YK9urtBWGEA2.xml"></include> 个类别的概率。</p>
+<p>多分类问题扩展了二分类问题，模型需要预测 <include src="/zh-cn/_Bw4OgohDKVHdClWtIZ@zjY.xml"></include> 个类别的概率。</p>
 
 <p><strong>核心步骤</strong>：</p>
 <ol>
@@ -988,8 +988,8 @@ Input: 4.0, Predicted Probability: 0.9810, Predicted Class: 1
         <span class="n">self</span><span class="p">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">F</span><span class="p">.</span><span class="nf">softmax</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="nf">fc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">fc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 不需要 softmax ，因为 CrossEntropyLoss 期望接收的是原始 logits 而不是概率分布。
+</span>
 <span class="n">model</span> <span class="o">=</span> <span class="nc">MultiClassModel</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">CrossEntropyLoss</span><span class="p">()</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">.</span><span class="nc">Adam</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="nf">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
