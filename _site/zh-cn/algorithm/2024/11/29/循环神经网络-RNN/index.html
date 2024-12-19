@@ -961,31 +961,31 @@
 
 <h3 id="rnn的结构">RNN的结构</h3>
 
-<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_oB@2kyER1zWgHrOi0sMe8h.xml"></include>的输入序列 <include src="/zh-cn/_pQ$roeGj2Yw8Ty9fSM3Bhb.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_59a2qM3DbIoKjeivJ8E7OW.xml"></include> 的计算过程如下：</p>
+<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_s9B$eQyraGZWkFouDUigAh.xml"></include>的输入序列 <include src="/zh-cn/_G8Tz1VukUtNODpWEMgrZel.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_4fzcUp8rTi7jK6VF0uQgq3.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>隐藏状态更新</strong>：
-<include src="/zh-cn/_0DShjm7tJ42MzPyup$EO3X.xml"></include></p>
+<include src="/zh-cn/_i3LA09UMHlFTnqu2mZQc5j.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_NlsmjiAKxFQyM5ETt$hnIf.xml"></include> 是当前时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_ZO3sIfz$n0JYCAEaWdhvXu.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_jwEZoDhVcQIUxP@vmNbLCe.xml"></include> 和 <include src="/zh-cn/_ueDUItWL1fs5Ocx9ljSbQ$.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
-      <li><include src="/zh-cn/_ayk0cTdgiUO1N53upQvYlt.xml"></include> 是偏置项。</li>
-      <li><include src="/zh-cn/_wcqrMPf$ANGhQ0v7oXIbtL.xml"></include> 是激活函数，常用的还有ReLU等。</li>
+      <li><include src="/zh-cn/_Sw0P2ZK6EudhDaFQtijMR4.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_SZ23E8pULhHYBnutVQ5vce.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_jLR1T7i$lvVyFB3axI0HWu.xml"></include> 和 <include src="/zh-cn/_BQhC5JFpsRi8vALzUuZdk4.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
+      <li><include src="/zh-cn/_U2ciQ37zmBwx0k$AuDC@b8.xml"></include> 是偏置项。</li>
+      <li><include src="/zh-cn/_aGEBUdT8SwZmeDxOfyXsct.xml"></include> 是激活函数，常用的还有ReLU等。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出计算</strong>（可选）：
-<include src="/zh-cn/_mbsrQ0xoPw6VTk3SZqANLU.xml"></include></p>
+<include src="/zh-cn/_J5Q7I9mHfFKdzCuO1k4YDG.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_umdqYRFA95gwE7fZTJjo@x.xml"></include> 是当前时刻的输出。</li>
-      <li><include src="/zh-cn/_revhT8j@1CFmUGcuEHgp0D.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
-      <li><include src="/zh-cn/_d8xO$UFTo43LJwZ1PDfmeB.xml"></include> 是输出层的偏置项。</li>
+      <li><include src="/zh-cn/_l@Xdpg1oLCEiDnRGx4eUO9.xml"></include> 是当前时刻的输出。</li>
+      <li><include src="/zh-cn/_U9Z52gkfy1I@Yj6xSzweQV.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
+      <li><include src="/zh-cn/_RxfLeJ4gb9G23t0jW5zoUK.xml"></include> 是输出层的偏置项。</li>
     </ul>
   </li>
 </ol>
@@ -1318,8 +1318,8 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/08/%E4%BD%BF%E7%94%A8VAE%E9%87%8D%E5%BB%BAMNIST%E6%95%B0%E6%8D%AE%E9%9B%86/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="使用VAE重建MNIST数据集">
                 </a>
                 
 
@@ -1330,15 +1330,15 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
                       <!--  -->
                       
 
-阅读时间 13 分钟
+阅读时间 30 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
+                        datetime="2024-12-08T19:12:54+11:00">Dec 8, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">Pokemon（四）实战迁移学习</h2>
+                  <h2 class="article__title">使用VAE重建MNIST数据集</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1389,8 +1389,8 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/07/Variational-Autoencoder/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="Variational Autoencoder">
                 </a>
                 
 
@@ -1401,15 +1401,15 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
                       <!--  -->
                       
 
-阅读时间 13 分钟
+阅读时间 22 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
+                        datetime="2024-12-07T20:17:35+11:00">Dec 7, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">迁移学习</h2>
+                  <h2 class="article__title">Variational Autoencoder</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1460,8 +1460,8 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/04/Pokemon-%E4%B8%89-%E8%AE%AD%E7%BB%83-%E9%AA%8C%E8%AF%81%E5%8F%8A%E6%B5%8B%E8%AF%95/">
-                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（三）训练、验证及测试">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/06/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%8F%8AAutoencoder/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="无监督学习及Autoencoder">
                 </a>
                 
 
@@ -1472,15 +1472,15 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
                       <!--  -->
                       
 
-阅读时间 33 分钟
+阅读时间 31 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-04T22:25:35+11:00">Dec 4, 2024</time>
+                        datetime="2024-12-06T21:53:06+11:00">Dec 6, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">Pokemon（三）训练、验证及测试</h2>
+                  <h2 class="article__title">无监督学习及Autoencoder</h2>
 
                   <p class="article__excerpt"></p>
 

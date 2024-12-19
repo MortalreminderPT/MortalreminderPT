@@ -966,11 +966,11 @@
 
 <h2 id="梯度消失与爆炸的数学原理">梯度消失与爆炸的数学原理</h2>
 
-<p>假设我们有一个简单的深层神经网络，损失函数 <include src="/zh-cn/_6TXMU3CB1s5rioj@ZDYyeI.xml"></include> 关于第 <include src="/zh-cn/_AqRzLchuEFbCPf$4xIwKmU.xml"></include> 层参数 <include src="/zh-cn/_8GklO0oESMDnvX52t9r@TN.xml"></include> 的梯度可以表示为：</p>
+<p>假设我们有一个简单的深层神经网络，损失函数 <include src="/zh-cn/_25kVJujELx8CYMzTr@oRS7.xml"></include> 关于第 <include src="/zh-cn/_CkmZraFdWs8E7K0ewy54fX.xml"></include> 层参数 <include src="/zh-cn/_Atjw$gDVXWRTvy20@6IdUc.xml"></include> 的梯度可以表示为：</p>
 
-<p><include src="/zh-cn/_q7Gi6T$PvnbE8jazcpkVsy.xml"></include></p>
+<p><include src="/zh-cn/_HzwrmAJ3NCZxPqOSF07fL@.xml"></include></p>
 
-<p>其中，<include src="/zh-cn/_Q6CH$EiUsBvJFKAkcLG3jx.xml"></include> 是第 <include src="/zh-cn/_J5PudmXrqIVOgbYpDjK$L6.xml"></include> 层的激活值。可以看到，梯度是多个层间导数的乘积。如果这些导数的模值小于1，随着层数增加，整个乘积会趋近于零；反之，如果导数的模值大于1，乘积会迅速增大。这就是梯度消失和梯度爆炸的数学根源。</p>
+<p>其中，<include src="/zh-cn/_fsRNH9Bpqx73Oa5eVnT$Kb.xml"></include> 是第 <include src="/zh-cn/_kCvKUF1tMGeEZJQlw9uPx4.xml"></include> 层的激活值。可以看到，梯度是多个层间导数的乘积。如果这些导数的模值小于1，随着层数增加，整个乘积会趋近于零；反之，如果导数的模值大于1，乘积会迅速增大。这就是梯度消失和梯度爆炸的数学根源。</p>
 
 <h2 id="cnn中的梯度消失与爆炸">CNN中的梯度消失与爆炸</h2>
 
@@ -988,7 +988,7 @@
   <li>
     <p><strong>使用适当的激活函数</strong>：ReLU（Rectified Linear Unit）及其变种在一定程度上缓解了梯度消失的问题，因为其导数在正区间恒为1，不会导致梯度逐层缩小。</p>
 
-    <p><include src="/zh-cn/_IVgTySJHKQxNbDra12moB6.xml"></include></p>
+    <p><include src="/zh-cn/_yHApkrqKUB9v7dDasXS$te.xml"></include></p>
   </li>
   <li>
     <p><strong>权重初始化</strong>：合理的权重初始化方法，如He初始化或Xavier初始化，能保持每层的激活值和梯度的方差一致，减少梯度消失或爆炸的风险。</p>
@@ -997,28 +997,28 @@
       <li>
         <p><strong>Xavier初始化</strong>（适用于Sigmoid和Tanh激活函数）：</p>
 
-        <p><include src="/zh-cn/_NaoZQXkEgKVY@Hhq7uvx4R.xml"></include></p>
+        <p><include src="/zh-cn/_P$8jkw@WV7x6fDEgqdHltG.xml"></include></p>
       </li>
       <li>
         <p><strong>He初始化</strong>（适用于ReLU激活函数）：</p>
 
-        <p><include src="/zh-cn/_CS6i4vPtjXQpuJV19yTBNh.xml"></include></p>
+        <p><include src="/zh-cn/_8nr3gGkIT7tpQElocjO62B.xml"></include></p>
       </li>
     </ul>
   </li>
   <li>
     <p><strong>批归一化（Batch Normalization）</strong>：通过规范化每一层的输入，保持激活值在合理范围内，稳定梯度的传播。</p>
 
-    <p><include src="/zh-cn/_Pltfw0nN7bCD84YjOkB$2x.xml"></include></p>
+    <p><include src="/zh-cn/_Rr3uGfzx6yDvag8B2jc7N1.xml"></include></p>
 
-    <p>其中，<include src="/zh-cn/_T$Gix28LVdfFCJI5nzYP3A.xml"></include> 和 <include src="/zh-cn/_KmiqyfMDNHt6W@CaQ0sroL.xml"></include> 分别是批量数据的均值和方差，<include src="/zh-cn/_Ja5EGmhidnp0kXQv7LVC9u.xml"></include> 是一个小常数，防止除零。</p>
+    <p>其中，<include src="/zh-cn/_30WQwyv8TS7FkfmKuIo4xb.xml"></include> 和 <include src="/zh-cn/_y9uvZVAHEmT@jRhG2kFLip.xml"></include> 分别是批量数据的均值和方差，<include src="/zh-cn/_Mr72TSsghoPw4I0UfzHGt5.xml"></include> 是一个小常数，防止除零。</p>
   </li>
   <li>
     <p><strong>残差连接（Residual Connections）</strong>：在深层网络中引入跳跃连接，允许梯度直接流过这些连接，缓解梯度消失问题。</p>
 
-    <p><include src="/zh-cn/_wxrP4JhKb0Agz5BaDQGe9N.xml"></include></p>
+    <p><include src="/zh-cn/_G0U@ET9aiYq1bmvWgp7HS3.xml"></include></p>
 
-    <p>其中，<include src="/zh-cn/_Rq5PrBYsovLUyN3dEfgC@a.xml"></include> 是某些层的组合，<include src="/zh-cn/_deDZzp30Yr7O4MySWxC56Q.xml"></include> 是输入。</p>
+    <p>其中，<include src="/zh-cn/_arvS5JxDCblEZz0QXUhjAL.xml"></include> 是某些层的组合，<include src="/zh-cn/_M7amdf320DwHuziIRyYtbs.xml"></include> 是输入。</p>
   </li>
 </ol>
 
@@ -1030,9 +1030,9 @@
 
 <h3 id="rnn中的梯度问题">RNN中的梯度问题</h3>
 
-<p>在标准RNN中，隐藏状态 <include src="/zh-cn/_NlsmjiAKxFQyM5ETt$hnIf.xml"></include> 由以下递归公式定义：</p>
+<p>在标准RNN中，隐藏状态 <include src="/zh-cn/_Sw0P2ZK6EudhDaFQtijMR4.xml"></include> 由以下递归公式定义：</p>
 
-<p><include src="/zh-cn/_ex6rKYhl7L$do5Rna2sjVv.xml"></include></p>
+<p><include src="/zh-cn/_dzGQFAU9jsf0uWoaXmKZIB.xml"></include></p>
 
 <p>反向传播通过时间（BPTT）计算梯度时，涉及到多个时间步的梯度累乘，导致梯度指数级地减小或增大。</p>
 
@@ -1042,7 +1042,7 @@
   <li>
     <p><strong>梯度裁剪（Gradient Clipping）</strong>：限制梯度的范数，防止梯度爆炸。例如，当梯度的L2范数超过某个阈值时，将其缩放到该阈值。</p>
 
-    <p><include src="/zh-cn/_no4tGk6M9Z0h7BcILSHq$j.xml"></include></p>
+    <p><include src="/zh-cn/_pDwIKx0f8HGry1zNMRb7sW.xml"></include></p>
   </li>
   <li>
     <p><strong>使用更复杂的RNN单元</strong>：如长短期记忆网络（LSTM）和门控循环单元（GRU），它们通过引入门机制，控制信息的流动，缓解梯度消失问题。</p>
@@ -1053,7 +1053,7 @@
   </li>
 </ol>
 
-<include src="/zh-cn/_Mydn9pK3aoGUzxZTVeAmP$.xml"></include>
+<include src="/zh-cn/_FdGQq9N7vUlCuSkn8wHmIM.xml"></include>
 
 <ul>
   <li>通过这些门，LSTM能够有效地保持长期依赖，减少梯度消失的风险。</li>
@@ -1190,8 +1190,8 @@
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/06/Pokemon-%E5%9B%9B-%E5%AE%9E%E6%88%98%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（四）实战迁移学习">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/08/%E4%BD%BF%E7%94%A8VAE%E9%87%8D%E5%BB%BAMNIST%E6%95%B0%E6%8D%AE%E9%9B%86/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="使用VAE重建MNIST数据集">
                 </a>
                 
 
@@ -1202,15 +1202,15 @@
                       <!--  -->
                       
 
-阅读时间 13 分钟
+阅读时间 30 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-06T00:45:12+11:00">Dec 6, 2024</time>
+                        datetime="2024-12-08T19:12:54+11:00">Dec 8, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">Pokemon（四）实战迁移学习</h2>
+                  <h2 class="article__title">使用VAE重建MNIST数据集</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1261,8 +1261,8 @@
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/05/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="迁移学习">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/07/Variational-Autoencoder/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="Variational Autoencoder">
                 </a>
                 
 
@@ -1273,15 +1273,15 @@
                       <!--  -->
                       
 
-阅读时间 13 分钟
+阅读时间 22 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-05T22:48:24+11:00">Dec 5, 2024</time>
+                        datetime="2024-12-07T20:17:35+11:00">Dec 7, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">迁移学习</h2>
+                  <h2 class="article__title">Variational Autoencoder</h2>
 
                   <p class="article__excerpt"></p>
 
@@ -1332,8 +1332,8 @@
               <div class="article__inner">
 
                 
-                <a class="article__image" href="/zh-cn/algorithm/2024/12/04/Pokemon-%E4%B8%89-%E8%AE%AD%E7%BB%83-%E9%AA%8C%E8%AF%81%E5%8F%8A%E6%B5%8B%E8%AF%95/">
-                  <img class="lazy" data-src="https://miro.medium.com/v2/0*Y9_WRbhh2ZanZGRP.png" alt="Pokemon（三）训练、验证及测试">
+                <a class="article__image" href="/zh-cn/algorithm/2024/12/06/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%8F%8AAutoencoder/">
+                  <img class="lazy" data-src="https://about.fb.com/wp-content/uploads/2022/09/PyTorch-Foundation-Launch_Header.jpg" alt="无监督学习及Autoencoder">
                 </a>
                 
 
@@ -1344,15 +1344,15 @@
                       <!--  -->
                       
 
-阅读时间 33 分钟
+阅读时间 31 分钟
 
 
                       <time class="article__date"
-                        datetime="2024-12-04T22:25:35+11:00">Dec 4, 2024</time>
+                        datetime="2024-12-06T21:53:06+11:00">Dec 6, 2024</time>
                     </span>
                   </div>
 
-                  <h2 class="article__title">Pokemon（三）训练、验证及测试</h2>
+                  <h2 class="article__title">无监督学习及Autoencoder</h2>
 
                   <p class="article__excerpt"></p>
 
