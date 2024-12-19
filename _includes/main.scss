@@ -38,8 +38,6 @@
     4.4-Contact Page
 <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
-$color-degree:{{ site.time | date: '%d' }};
-
 @import '0-settings/variables';
 @import '0-settings/mixins';
 @import '0-settings/helpers';
@@ -103,3 +101,5 @@ $color-degree:{{ site.time | date: '%d' }};
 @import '4-layouts/tags-page';
 /* >>>>>>>>>>>>>> :: 4.4-Contact Page <<<<<<<<<<<<<<< */
 @import '4-layouts/contact-page';
+
+$color-degree:{{ site.time | date: '%d' }};

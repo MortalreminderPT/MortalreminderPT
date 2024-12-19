@@ -961,31 +961,31 @@
 
 <h3 id="rnn的结构">RNN的结构</h3>
 
-<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_s9B$eQyraGZWkFouDUigAh.xml"></include>的输入序列 <include src="/zh-cn/_G8Tz1VukUtNODpWEMgrZel.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_4fzcUp8rTi7jK6VF0uQgq3.xml"></include> 的计算过程如下：</p>
+<p>RNN的核心是一个循环单元，能够在时间步之间传递信息。每个时间步的计算依赖于当前输入和前一时刻的隐藏状态。假设我们有一个长度为<include src="/zh-cn/_jcKWo2t$BlhYv4MpZr3ORE.xml"></include>的输入序列 <include src="/zh-cn/_Zz1DPw6Y5TgHFW9tIqeNjh.xml"></include>，RNN在每个时间步 <include src="/zh-cn/_qeox5Hz0VT93d2N$sYWPiA.xml"></include> 的计算过程如下：</p>
 
 <ol>
   <li>
     <p><strong>隐藏状态更新</strong>：
-<include src="/zh-cn/_i3LA09UMHlFTnqu2mZQc5j.xml"></include></p>
+<include src="/zh-cn/_9j54noM$qdUw@x0liaBAm2.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_Sw0P2ZK6EudhDaFQtijMR4.xml"></include> 是当前时刻的隐藏状态。</li>
-      <li><include src="/zh-cn/_SZ23E8pULhHYBnutVQ5vce.xml"></include> 是当前时刻的输入。</li>
-      <li><include src="/zh-cn/_jLR1T7i$lvVyFB3axI0HWu.xml"></include> 和 <include src="/zh-cn/_BQhC5JFpsRi8vALzUuZdk4.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
-      <li><include src="/zh-cn/_U2ciQ37zmBwx0k$AuDC@b8.xml"></include> 是偏置项。</li>
-      <li><include src="/zh-cn/_aGEBUdT8SwZmeDxOfyXsct.xml"></include> 是激活函数，常用的还有ReLU等。</li>
+      <li><include src="/zh-cn/_Ady4iMVgnGvmsPbrxIjoap.xml"></include> 是当前时刻的隐藏状态。</li>
+      <li><include src="/zh-cn/_P@JGnSQut8qxocHECITvUr.xml"></include> 是当前时刻的输入。</li>
+      <li><include src="/zh-cn/_Fw0cUlAtkn2fGESjgDh8Mi.xml"></include> 和 <include src="/zh-cn/_ceKplLN0mJzayRHoFOhEsV.xml"></include> 分别是输入到隐藏状态和隐藏状态到隐藏状态的权重矩阵。</li>
+      <li><include src="/zh-cn/_quJ@ziryHZKbFD9tvnfGAU.xml"></include> 是偏置项。</li>
+      <li><include src="/zh-cn/_Ft53JufME$s9C6d@ZYqzPV.xml"></include> 是激活函数，常用的还有ReLU等。</li>
     </ul>
   </li>
   <li>
     <p><strong>输出计算</strong>（可选）：
-<include src="/zh-cn/_J5Q7I9mHfFKdzCuO1k4YDG.xml"></include></p>
+<include src="/zh-cn/_go@8XKfLscHCBJkU1NqI2i.xml"></include></p>
 
     <p>其中：</p>
     <ul>
-      <li><include src="/zh-cn/_l@Xdpg1oLCEiDnRGx4eUO9.xml"></include> 是当前时刻的输出。</li>
-      <li><include src="/zh-cn/_U9Z52gkfy1I@Yj6xSzweQV.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
-      <li><include src="/zh-cn/_RxfLeJ4gb9G23t0jW5zoUK.xml"></include> 是输出层的偏置项。</li>
+      <li><include src="/zh-cn/_57THtiDyAcdSQBjv@WngMe.xml"></include> 是当前时刻的输出。</li>
+      <li><include src="/zh-cn/_oMrnvLa7sDctk9eYjmpS5l.xml"></include> 是隐藏状态到输出的权重矩阵。</li>
+      <li><include src="/zh-cn/_Pc0fBYzC2LjEiV46wnUR5x.xml"></include> 是输出层的偏置项。</li>
     </ul>
   </li>
 </ol>
@@ -1313,6 +1313,20 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
             
 
             
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
 
             <div class="article col col-4 col-d-6 col-t-12 grid__post">
               <div class="article__inner">
@@ -1552,21 +1566,21 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务操作及错误处理"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/19/Prisma-Filtering/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：Filtering"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 9 分钟
+阅读时间 18 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T21:44:27+11:00">Dec 18, 2024</time>
+            datetime="2024-12-19T15:40:02+11:00">Dec 19, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">Prisma：事务操作及错误处理</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/19/Prisma-Filtering/">Prisma：Filtering</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1580,21 +1594,21 @@ Epoch <span class="o">[</span>10/10], Loss: 0.0228
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：更新和删除操作"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/19/Prisma-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-Batch%E5%92%8CInteractive/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务处理：Batch和Interactive"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 29 分钟
+阅读时间 34 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T17:29:03+11:00">Dec 18, 2024</time>
+            datetime="2024-12-19T15:20:09+11:00">Dec 19, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/">Prisma：更新和删除操作</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/19/Prisma-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-Batch%E5%92%8CInteractive/">Prisma：事务处理：Batch和Interactive</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

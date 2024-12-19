@@ -946,13 +946,13 @@
 <h2 id="概念">概念</h2>
 <p>线段树是常用于<strong>维护区间信息</strong>的数据结构</p>
 
-<p>线段树可以在<include src="/zh-cn/_VBU6c9xl@YS2gm7oE3Ovns.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
+<p>线段树可以在<include src="/zh-cn/_lNXxj7G9B4neoqZK0iAOQM.xml"></include>的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作</p>
 
 <h3 id="结构">结构</h3>
 
-<p>线段树将每个长度不为<include src="/zh-cn/_Pgqy7BtzCMJ3A2s4WZS9X6.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>线段树将每个长度不为<include src="/zh-cn/_B8x0KNWDTn2@uE4ropZmYX.xml"></include>的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
 
-<p>假设以线段树存储数组<include src="/zh-cn/_Tjo6aI@xyP5t9NE4zSnFlh.xml"></include>，设线段树的根节点编号为<include src="/zh-cn/_Pgqy7BtzCMJ3A2s4WZS9X6.xml"></include>，用数组<include src="/zh-cn/_5ulfSxNYnE4Hq7pjBZdIre.xml"></include>来保存线段树，<include src="/zh-cn/_fslo26mYIapvxrQbUXk7hi.xml"></include>用来保存线段树上编号为<include src="/zh-cn/_k7Cxz@PUcNZ9snjK1drOlp.xml"></include>的节点的值</p>
+<p>假设以线段树存储数组<include src="/zh-cn/_2OpKtVMkFJPqTygYXvNZez.xml"></include>，设线段树的根节点编号为<include src="/zh-cn/_B8x0KNWDTn2@uE4ropZmYX.xml"></include>，用数组<include src="/zh-cn/_frPyK4iL9kBq1Ul0OTDbYE.xml"></include>来保存线段树，<include src="/zh-cn/_wgtXIBqp8Yo3ZVf$jJ5M@a.xml"></include>用来保存线段树上编号为<include src="/zh-cn/_lzICjfpnM0ymisNEk9FAT6.xml"></include>的节点的值</p>
 
 <p>该线段树的结构如下</p>
 
@@ -967,7 +967,7 @@
 <h2 id="基本操作">基本操作</h2>
 <h3 id="线段树的建立">线段树的建立</h3>
 
-<p>对于节点<include src="/zh-cn/_k7Cxz@PUcNZ9snjK1drOlp.xml"></include>，其子节点的编号为<include src="/zh-cn/_uRvZseUdfB7SiXEKN8Q3k$.xml"></include>以及<include src="/zh-cn/_qDadluf2K418yot7hVeCTr.xml"></include>，若节点<include src="/zh-cn/_k7Cxz@PUcNZ9snjK1drOlp.xml"></include>存储的区间为<include src="/zh-cn/_1q0kHl2hc8NeSAOsdKRiat.xml"></include>，则节点<include src="/zh-cn/_uRvZseUdfB7SiXEKN8Q3k$.xml"></include>存储的区间应该是<include src="/zh-cn/_kHs2pPGxRa0q59MbJ3FoEu.xml"></include>，相应地，节点<include src="/zh-cn/_qDadluf2K418yot7hVeCTr.xml"></include>存储的区间为<include src="/zh-cn/_gMVkopCYWn@OASzTXLBPbc.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
+<p>对于节点<include src="/zh-cn/_lzICjfpnM0ymisNEk9FAT6.xml"></include>，其子节点的编号为<include src="/zh-cn/_T@eBfPxlyvG8ktF2AcrDwL.xml"></include>以及<include src="/zh-cn/_OvnG@rdQpBH21$Ix7lqRNP.xml"></include>，若节点<include src="/zh-cn/_lzICjfpnM0ymisNEk9FAT6.xml"></include>存储的区间为<include src="/zh-cn/_XWd9Fegwc40oUVY8QR1tnS.xml"></include>，则节点<include src="/zh-cn/_T@eBfPxlyvG8ktF2AcrDwL.xml"></include>存储的区间应该是<include src="/zh-cn/_RL7iPYZJE3ruXFk@vt9bcg.xml"></include>，相应地，节点<include src="/zh-cn/_OvnG@rdQpBH21$Ix7lqRNP.xml"></include>存储的区间为<include src="/zh-cn/_L0D8ZhqcUKWAYfnX$iGwpk.xml"></include>。我们可以采用递归的方式建树，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// i表示当前节点, l表示左边界, r表示右边界</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -982,7 +982,7 @@
 </code></pre></div></div>
 
 <h3 id="区间查询">区间查询</h3>
-<p>若查询的区间为<include src="/zh-cn/_TgAL1bs2WYJl7Pn0pRH5DC.xml"></include>，我们只需直接返回<include src="/zh-cn/_hZaGDC86RdPsXW3z9pMIkJ.xml"></include>，但如果我们查询的是<include src="/zh-cn/_xTf8JvoHAkLEzF0QdqW9$r.xml"></include>，则需要合并<include src="/zh-cn/_t35HqiuvBAZxNlD9pPKT8h.xml"></include>和<include src="/zh-cn/_Pt6JkFyZ0wxH$em@L3orAg.xml"></include>的答案，代码如下</p>
+<p>若查询的区间为<include src="/zh-cn/_2smDL9Ao5lQnwNHcEKgyWJ.xml"></include>，我们只需直接返回<include src="/zh-cn/_Z31hcNyM5xwrGumAgKlLUI.xml"></include>，但如果我们查询的是<include src="/zh-cn/_PQMimTkIJ90Aef$5glRDx6.xml"></include>，则需要合并<include src="/zh-cn/_2AIfkqpKcBXEajPu0SnwUN.xml"></include>和<include src="/zh-cn/_yUupeRnPcLYl@3BbCoQFWX.xml"></include>的答案，代码如下</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//i表示当前节点, [l,r]是查询区间, [s,t]表示当前节点包含区间</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span> <span class="c1">// 若[s,t]是[l,r]的子区间，直接返回</span>
@@ -1008,9 +1008,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <h3 id="懒惰标记">懒惰标记</h3>
-<p>当我们按照上面的方法对<include src="/zh-cn/_FEqeTGNwkQl@y2cX9oaIrd.xml"></include>的区间<include src="/zh-cn/_xTf8JvoHAkLEzF0QdqW9$r.xml"></include>加上<include src="/zh-cn/_Y63ZJr0hnKOwclHgA4GCUR.xml"></include>后，更新后的线段树结构如下
+<p>当我们按照上面的方法对<include src="/zh-cn/_r7jA1RVXnTdF64UzDNGvJw.xml"></include>的区间<include src="/zh-cn/_PQMimTkIJ90Aef$5glRDx6.xml"></include>加上<include src="/zh-cn/_hRxXtl3rUe7p50$wjQG6iB.xml"></include>后，更新后的线段树结构如下
 <img src="/images/posts/segmenttree2.png" alt="在这里插入图片描述" />
-我们会发现，在进行递归更新时，递归执行到节点<include src="/zh-cn/_94bU8NYBD25LJ$msIZg6@e.xml"></include>时就已经结束了，因此节点<include src="/zh-cn/_94bU8NYBD25LJ$msIZg6@e.xml"></include>的两个子节点没有被更新</p>
+我们会发现，在进行递归更新时，递归执行到节点<include src="/zh-cn/_OHGnmCKuzrkWE@84M2FNLe.xml"></include>时就已经结束了，因此节点<include src="/zh-cn/_OHGnmCKuzrkWE@84M2FNLe.xml"></include>的两个子节点没有被更新</p>
 
 <p>遇到这种情况，我们需要给递归结束的节点打上一个标记，在下一次查询操作时将没有更新的子节点更新，这个标记被称为懒惰标记，这样更新时效果如图</p>
 
@@ -1150,6 +1150,20 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -2189,21 +2203,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务操作及错误处理"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/19/Prisma-Filtering/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：Filtering"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 9 分钟
+阅读时间 18 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T21:44:27+11:00">Dec 18, 2024</time>
+            datetime="2024-12-19T15:40:02+11:00">Dec 19, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">Prisma：事务操作及错误处理</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/19/Prisma-Filtering/">Prisma：Filtering</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -2217,21 +2231,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：更新和删除操作"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/19/Prisma-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-Batch%E5%92%8CInteractive/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务处理：Batch和Interactive"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 29 分钟
+阅读时间 34 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T17:29:03+11:00">Dec 18, 2024</time>
+            datetime="2024-12-19T15:20:09+11:00">Dec 19, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/">Prisma：更新和删除操作</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/19/Prisma-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-Batch%E5%92%8CInteractive/">Prisma：事务处理：Batch和Interactive</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>

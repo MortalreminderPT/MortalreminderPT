@@ -1019,7 +1019,7 @@
 
 <p>在VAE中，<strong>潜在空间</strong>是数据的低维表示空间。编码器将输入数据映射到潜在空间，输出均值（μ）和标准差（σ），然后通过<strong>重参数化技巧</strong>（Reparameterization Trick）生成潜在变量<strong>z</strong>：</p>
 
-<include src="/zh-cn/_6pdKPR7yBxoj2rS0Lw3OYW.xml"></include>
+<include src="/zh-cn/_yZP7fK6RdW34Ssg5eqmOtb.xml"></include>
 
 <p>这种方法允许梯度通过随机变量传递，从而实现端到端的训练。</p>
 
@@ -1037,13 +1037,13 @@
 
 <p>VAE的目标是最大化<strong>证据下界（Evidence Lower Bound, ELBO）</strong>，即最小化以下损失函数：</p>
 
-<include src="/zh-cn/_HrN8eChiLcSA9O5bWdfU6l.xml"></include>
+<include src="/zh-cn/_6UdWrBCwOj5KITPslLHYhS.xml"></include>
 
 <p>其中：</p>
 
 <ul>
-  <li><include src="/zh-cn/_v1KwIyBgQb2YfRzpDxcZSm.xml"></include> 是<strong>重建损失</strong>，衡量生成的数据与原始数据的相似度。</li>
-  <li><include src="/zh-cn/_Bce0bE@8vgIUSrdXWx6y71.xml"></include> 是<strong>KL散度</strong>，衡量编码器输出的分布 <include src="/zh-cn/_XuNrBQa0KYo5FIp$Wfdb2L.xml"></include> 与先验分布 <include src="/zh-cn/_7z@yaZ8pO42qiPEr6SeGAh.xml"></include> （通常是标准正态分布<include src="/zh-cn/_8Cr5@gpQSXj9nHPdoVx3Ew.xml"></include>）的差异。</li>
+  <li><include src="/zh-cn/_C1HozV0QW6yGrZmJY8Uj$9.xml"></include> 是<strong>重建损失</strong>，衡量生成的数据与原始数据的相似度。</li>
+  <li><include src="/zh-cn/_B6MPaiJDqHZdw01OmFzSuT.xml"></include> 是<strong>KL散度</strong>，衡量编码器输出的分布 <include src="/zh-cn/_p9Ildy2ZEHKVzj3Miw6B8U.xml"></include> 与先验分布 <include src="/zh-cn/_ghPjs7OZESWX@BQkMdYbGi.xml"></include> （通常是标准正态分布<include src="/zh-cn/_2kainvP8sqAyZOjSE95rXW.xml"></include>）的差异。</li>
 </ul>
 
 <p>在代码中，重建损失采用均方误差（MSELoss），而KL散度的计算如下：</p>
@@ -1061,21 +1061,21 @@
 
 <p>对于高斯分布，KL散度的公式为：</p>
 
-<include src="/zh-cn/_MYQkJ@vDb3LsiCTxVqz1hd.xml"></include>
+<include src="/zh-cn/_hOZd$qj4tu0Fz1BXwbLKa5.xml"></include>
 
-<p>代码中每个样本的KL散度通过对<include src="/zh-cn/_30WQwyv8TS7FkfmKuIo4xb.xml"></include>和<include src="/zh-cn/_TU$zfqZK1kF8nWsI9bjlv@.xml"></include>进行逐元素计算，并取平均得到。</p>
+<p>代码中每个样本的KL散度通过对<include src="/zh-cn/_Nrvil$QzUK6Eb4nBgIcHyF.xml"></include>和<include src="/zh-cn/_7UFdqhn8QTrSkK5ByoZxw9.xml"></include>进行逐元素计算，并取平均得到。</p>
 
 <h2 id="vae的公式解析">VAE的公式解析</h2>
 
 <p>综合上述内容，VAE的损失函数可以表示为：</p>
 
-<include src="/zh-cn/_e6$rQTN7@ADsxkuMvb5ltp.xml"></include>
+<include src="/zh-cn/_2SXHcD9TheFCot3kLpz4AO.xml"></include>
 
 <p>其中：</p>
 
 <ul>
-  <li>第一项是重建误差，确保生成的<include src="/zh-cn/_Mp2$4WxT9NaCV7D1ZfoPFw.xml"></include>与原始<include src="/zh-cn/_M7amdf320DwHuziIRyYtbs.xml"></include>尽可能接近。</li>
-  <li>第二项是KL散度，确保潜在变量<include src="/zh-cn/_GFt8@93dUnyKNWxDgc0IJs.xml"></include>的分布接近标准正态分布。</li>
+  <li>第一项是重建误差，确保生成的<include src="/zh-cn/_ji$pvoZBEkHuq0s28KX1AS.xml"></include>与原始<include src="/zh-cn/_@nuiVbE5pefrcmLshXQ2HZ.xml"></include>尽可能接近。</li>
+  <li>第二项是KL散度，确保潜在变量<include src="/zh-cn/_FcyX7Hku0qREjenKOvPCZ3.xml"></include>的分布接近标准正态分布。</li>
 </ul>
 
 <h2 id="代码解析">代码解析</h2>
@@ -1086,18 +1086,18 @@
   <li><strong>编码器（Encoder）</strong>：
     <ul>
       <li>输入是展平后的28x28图像（784维）。</li>
-      <li>经过两层隐藏层后，输出20维向量，其中前10维为<include src="/zh-cn/_30WQwyv8TS7FkfmKuIo4xb.xml"></include>，后10维为<include src="/zh-cn/_TU$zfqZK1kF8nWsI9bjlv@.xml"></include>。</li>
+      <li>经过两层隐藏层后，输出20维向量，其中前10维为<include src="/zh-cn/_Nrvil$QzUK6Eb4nBgIcHyF.xml"></include>，后10维为<include src="/zh-cn/_7UFdqhn8QTrSkK5ByoZxw9.xml"></include>。</li>
     </ul>
   </li>
   <li><strong>重参数化（Reparameterization）</strong>：
     <ul>
-      <li>将<include src="/zh-cn/_30WQwyv8TS7FkfmKuIo4xb.xml"></include>和<include src="/zh-cn/_TU$zfqZK1kF8nWsI9bjlv@.xml"></include>分离后，通过 <include src="/zh-cn/_XUrVlnxgzRTqA2a8vsGoBE.xml"></include> 生成潜在变量<include src="/zh-cn/_GFt8@93dUnyKNWxDgc0IJs.xml"></include>，其中<include src="/zh-cn/_Mr72TSsghoPw4I0UfzHGt5.xml"></include>来自标准正态分布。</li>
+      <li>将<include src="/zh-cn/_Nrvil$QzUK6Eb4nBgIcHyF.xml"></include>和<include src="/zh-cn/_7UFdqhn8QTrSkK5ByoZxw9.xml"></include>分离后，通过 <include src="/zh-cn/_LA1gb25TY8va@96lWIoHXO.xml"></include> 生成潜在变量<include src="/zh-cn/_FcyX7Hku0qREjenKOvPCZ3.xml"></include>，其中<include src="/zh-cn/_Zx362iMnyvUbHgrjVoslSC.xml"></include>来自标准正态分布。</li>
     </ul>
   </li>
   <li><strong>解码器（Decoder）</strong>：
     <ul>
-      <li>输入是10维的潜在变量<include src="/zh-cn/_GFt8@93dUnyKNWxDgc0IJs.xml"></include>。</li>
-      <li>经过两层隐藏层后，输出784维向量，经过Sigmoid激活函数，得到重构的图像<include src="/zh-cn/_Mp2$4WxT9NaCV7D1ZfoPFw.xml"></include>。</li>
+      <li>输入是10维的潜在变量<include src="/zh-cn/_FcyX7Hku0qREjenKOvPCZ3.xml"></include>。</li>
+      <li>经过两层隐藏层后，输出784维向量，经过Sigmoid激活函数，得到重构的图像<include src="/zh-cn/_ji$pvoZBEkHuq0s28KX1AS.xml"></include>。</li>
     </ul>
   </li>
   <li><strong>损失计算</strong>：
@@ -1170,6 +1170,20 @@
           <div class="row grid">
 
           
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
             
             
 
@@ -1443,21 +1457,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务操作及错误处理"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/19/Prisma-Filtering/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：Filtering"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 9 分钟
+阅读时间 18 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T21:44:27+11:00">Dec 18, 2024</time>
+            datetime="2024-12-19T15:40:02+11:00">Dec 19, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E5%8F%8A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">Prisma：事务操作及错误处理</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/19/Prisma-Filtering/">Prisma：Filtering</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
@@ -1471,21 +1485,21 @@
     
     <div class="recent-posts">
       
-      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：更新和删除操作"></a>
+      <a class="recent-posts__image" href="/zh-cn/node.js/2024/12/19/Prisma-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-Batch%E5%92%8CInteractive/"><img class="lazy" data-src="https://miro.medium.com/v2/1*1d4T0TNb33A7Dus2ePdN_g.jpeg" alt="Prisma：事务处理：Batch和Interactive"></a>
       
       <div class="recent-posts__content">
         <div class="article__meta">
           <span class="article__minutes">
             
 
-阅读时间 29 分钟
+阅读时间 34 分钟
 
 
           </span>
           <time class="article__date"
-            datetime="2024-12-18T17:29:03+11:00">Dec 18, 2024</time>
+            datetime="2024-12-19T15:20:09+11:00">Dec 19, 2024</time>
         </div>
-        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/18/Prisma-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4/">Prisma：更新和删除操作</a></h4>
+        <h4 class="recent-posts__title"><a href="/zh-cn/node.js/2024/12/19/Prisma-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-Batch%E5%92%8CInteractive/">Prisma：事务处理：Batch和Interactive</a></h4>
         <div class="article__bottom">
           <div class="article__author">
             <a href="/zh-cn/about/" aria-label="Mortalreminder PT"><img class="article__author-image lazy" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=2656453168&spec=140&img_type=jpg" alt="Mortalreminder PT's Picture"></a>
